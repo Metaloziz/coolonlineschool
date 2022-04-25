@@ -1,0 +1,10 @@
+.selectWrap {
+  font: $font-small;
+
+  & > div > div {
+    color: $color-secondary-text !important;
+    border: none !important;
+    box-shadow: 0 0 40px rgba(86, 89, 146, 0.15) !important;
+    border-radius: 10px !important;
+  }
+}

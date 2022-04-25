@@ -1,0 +1,10 @@
+.bordered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid #4778ec;
+  border-radius: 10px;
+  img {
+    border-radius: 5px;
+  }
+}

@@ -1,0 +1,19 @@
+.container {
+  padding: 30px 25px 0;
+  background: #ffffff;
+  border-radius: 10px;
+}
+.title {
+  text-align: center;
+  font: $font-header;
+  color: $color-visualiser;
+}
+.keepPlayingItems {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.keepPlayingItem {
+  width: 50%;
+}

@@ -1,0 +1,41 @@
+@mixin position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin gradient-text($gradient, $gradient2: null) {
+  color: transparent;
+
+  @if ($gradient2 != null) {
+    background: $gradient, $gradient2;
+    background-clip: text;
+  } @else {
+    background-image: $gradient;
+    background-clip: text;
+  }
+}
+@mixin link-font(
+  $color: #230753,
+  $is-gradient: false,
+  $linear-gradient: none,
+  $line-height: normal,
+  $text-decoration: none
+) {
+  @if $is-gradient == true {
+    @include gradient-text($linear-gradient);
+  } @else {
+    color: $color;
+  }
+
+  font-size: 14px;
+  line-height: $line-height;
+  font-weight: 600;
+  text-decoration: $text-decoration;
+}
+@mixin gradient-statistics-title($gradient) {
+  font-size: 14px;
+  text-transform: uppercase;
+  @include gradient-text($gradient);
+}

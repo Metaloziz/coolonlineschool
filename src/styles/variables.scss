@@ -1,0 +1,39 @@
+// Typography [font size of basic html document is 16px, line-height is 24px]
+$font-family: 'Montserrat', sans-serif;
+$font-base: 500 1rem / 1.25em $font-family; // font-size: 16px; line-height: 20px
+
+$font-header: 700 1.25rem / 1.2em $font-family; // font-size: 20px; line-height: 24px
+$font-subheader: 600 1.125rem / 1.2em $font-family; // font-size: 18px; line-height: 22px
+
+$font-small: 600 0.875rem / 1.22em $font-family; // font-size: 14px; line-height: 17px
+$font-smaller: 600 0.75rem / 1.25em $font-family; // font-size: 12px; line-height: 15px
+
+$font-visualiser-big: 700 1.5rem / 1.21em $font-family; // font-size: 24px; line-height: 29px
+
+// Base palette
+$color-black: #0f123f;
+$color-blue: #4778ec;
+$color-blue-lighter: #2e8dfd;
+$color-gray: #babec6;
+$color-red: #ff6968;
+
+// Gradient palette
+$gradient-violet: linear-gradient(90deg, #7f28d9 0%, #7427cc 100%);
+$gradient-blue-darker: linear-gradient(90deg, #0439ad 0%, #38028f 100%);
+
+// Text colors
+$color-text: $color-black;
+$color-text-darker: black;
+$color-secondary-text: $color-gray;
+
+// Buttons colors
+$color-button: $color-blue;
+$color-anchor: $color-blue-lighter;
+
+$color-visualiser: $color-blue;
+$color-secondary-visualiser: #afd46b;
+
+// Imgs path
+
+$path-svg: '../../../public/svgs';
+$path-img: '../../../public/images';

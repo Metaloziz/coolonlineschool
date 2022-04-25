@@ -1,0 +1,11 @@
+.header {
+  height: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background: url(#{$path-svg}/header-bg.svg) right top no-repeat,
+    #84f1de;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

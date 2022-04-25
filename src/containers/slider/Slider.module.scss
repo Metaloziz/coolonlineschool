@@ -1,0 +1,22 @@
+.container {
+  height: 40px;
+  display: flex;
+  background: #f8f8ff;
+  border-radius: 10px;
+  font: $font-small;
+}
+.item {
+  color: black;
+
+  &:first-child {
+    padding: 10px 45px;
+  }
+  &:last-child {
+    padding: 10px 40px;
+  }
+  &.active {
+    color: white;
+    background-color: $color-visualiser;
+    border-radius: 9px;
+  }
+}
