@@ -1,4 +1,4 @@
-import { RoleId } from '@app/enums/RoleId';
+import { RoleId } from '@app/enums/Enums';
 
 export interface AuthGuard {
   allowAuth?: boolean;

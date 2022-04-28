@@ -6,21 +6,18 @@ interface Props {
   children: React.ReactNode;
   isBordered?: boolean;
   className?: string;
-  width?: number;
-  height?: number;
 }
 
 const CustomImageWrapper: FC<Props> = ({
   className,
   children,
   isBordered = true,
-  height,
-  width,
 }) => {
   return (
     <div
-      style={{ width, height }}
-      className={classNames(className, { [styles.bordered]: isBordered })}
+      className={classNames(styles.container, className, {
+        [styles.withBorder]: isBordered,
+      })}
     >
       {children}
     </div>

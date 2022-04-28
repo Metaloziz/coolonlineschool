@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
+import { KeepPlayingColorThemes } from '@app/enums/Enums';
 import CardStudent from '@containers/card-student/CardStudent';
 import Homeworks from '@containers/homeworks/Homeworks';
 import KeepPlaying from '@containers/keep-playing/KeepPlaying';
@@ -25,6 +26,9 @@ export default function Home() {
     test();
   }, [auth]);
 
+  const { red, blue, green, violet, yellow, yellowLight } =
+    KeepPlayingColorThemes;
+
   return (
     <div className={styles.container}>
       <Head>
@@ -35,12 +39,15 @@ export default function Home() {
 
       <main className={styles.main}>
         <CardStudent
-          className={styles.cardStudent}
-          studentName="Днепровский Александр Алексеевич"
-          status="Новичок"
-          studentPoits={4}
-          nextLesson="01.02.2021 в 18:00"
-          studentTag={837829}
+          options={{
+            studentName: 'Днепровский Александр Алексеевич',
+            status: 'Новичок',
+            geo: 'Москва',
+            pointsNumber: 4,
+            tag: 837212,
+            chatsLinks: { telegramLink: './', whatsappLink: './' },
+            nextLessonData: '01.02.2021 в 18:00',
+          }}
         />
         <KeepPlaying
           className={styles.keepPlaying}
@@ -48,37 +55,37 @@ export default function Home() {
             {
               title: 'Общий показатель',
               percentToComplete: 50,
-              colorTheme: 'red',
+              colorTheme: red,
               id: +new Date().toDateString(),
             },
             {
               title: 'Память и ритм',
               percentToComplete: 18,
-              colorTheme: 'blue',
+              colorTheme: blue,
               id: +new Date().toDateString(),
             },
             {
               title: 'Число - фигура - слово',
               percentToComplete: 36,
-              colorTheme: 'yellow-light',
+              colorTheme: yellowLight,
               id: +new Date().toDateString(),
             },
             {
               title: 'Мухи в кубе',
               percentToComplete: 70,
-              colorTheme: 'violet',
+              colorTheme: violet,
               id: +new Date().toDateString(),
             },
             {
               title: 'Антипазл',
               percentToComplete: 80,
-              colorTheme: 'green',
+              colorTheme: green,
               id: +new Date().toDateString(),
             },
             {
               title: 'Антипазл',
               percentToComplete: 99,
-              colorTheme: 'yellow',
+              colorTheme: yellow,
               id: +new Date().toDateString(),
             },
           ]}
@@ -89,7 +96,6 @@ export default function Home() {
           years={[2022, 2021, 2020]}
         />
         <Homeworks
-          className={styles.homeworks}
           homeworks={[
             {
               gameTitle: 'Память и ритм',

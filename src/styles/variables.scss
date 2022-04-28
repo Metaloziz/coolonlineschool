@@ -10,6 +10,10 @@ $font-smaller: 600 0.75rem / 1.25em $font-family; // font-size: 12px; line-heigh
 
 $font-visualiser-big: 700 1.5rem / 1.21em $font-family; // font-size: 24px; line-height: 29px
 
+$font-secondary-family: 'Montserrat Alternates', sans-serif;
+$font-secondary-header: 700 1.25rem / 1.2em $font-secondary-family;
+$font-secondary-subheader: 700 1.125rem / 1.2em $font-secondary-family;
+
 // Base palette
 $color-black: #0f123f;
 $color-blue: #4778ec;

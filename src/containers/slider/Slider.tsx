@@ -1,12 +1,18 @@
 import classNames from 'classnames';
 import { FC /*, useState*/ } from 'react';
-import { SliderProps } from '@app/types/ComponentsProps';
 import styles from './Slider.module.scss';
 
-const Slider: FC<SliderProps> = ({
-  sliderItems: [first, second],
-  className,
-}) => {
+type SliderItem = {
+  text: string;
+  isActive: boolean;
+};
+
+type Props = {
+  className?: string;
+  sliderItems: [SliderItem, SliderItem];
+};
+
+const Slider: FC<Props> = ({ sliderItems: [first, second], className }) => {
   const FirstItemCLassName = classNames(styles.item, {
     [styles.active]: first.isActive,
   });

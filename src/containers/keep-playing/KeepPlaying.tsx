@@ -1,10 +1,15 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { KeepPlayingProps } from '@app/types/ComponentsProps';
+import { KeepPlayingItemProps } from '@app/types/Props';
 import KeepPlayingItem from '@components/keep-playing-item/KeepPlayingItem';
 import styles from './KeepPlaying.module.scss';
 
-const KeepPlaying: FC<KeepPlayingProps> = ({ className, games }) => {
+interface Props {
+  className?: string;
+  games: KeepPlayingItemProps[];
+}
+
+const KeepPlaying: FC<Props> = ({ className, games }) => {
   return (
     <div className={classNames(styles.container, className)}>
       <div className={styles.title}>Процент выполненного домашнего задания</div>

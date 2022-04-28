@@ -1,69 +1,90 @@
 import classNames from 'classnames';
 import Image from 'next/image';
 import { FC } from 'react';
-import { CardStudentProps } from '@app/types/ComponentsProps';
+import { CardStudentProps } from '@app/types/Props';
+import CardStudentBottom from '@components/card-student-bottom/CardStudentBottom';
+import CardStudentMainButton from '@components/card-student-main-button/CardStudentMainButton';
+import CardStudentSlider from '@components/card-student-slider/CardStudentSlider';
 import CustomImageWrapper from '@components/custom-image-wrapper/CustomImageWrapper';
 import avatar from '@images/avatar.png';
-import telegram from '@svgs/card-student-telegram-icon.svg';
-import whatsapp from '@svgs/card-student-whatsapp-icon.svg';
-import zoom from '@svgs/card-student-zoom-icon.svg';
+import zoomIcon from '@svgs/card-student-zoom-icon.svg';
 import styles from './CardStudent.module.scss';
 
 const CardStudent: FC<CardStudentProps> = ({
-  studentName,
-  status,
-  studentPoits,
-  nextLesson,
-  studentTag,
+  options: {
+    studentName,
+    status,
+    geo = '',
+    pointsNumber = 0,
+    tag = 0,
+    chatsLinks = { whatsappLink: '', telegramLink: '' },
+    nextLessonData = '',
+  },
   className,
 }) => {
-  const sliderProgress = `${studentPoits * 20}%`;
+  const isMinimal = !pointsNumber;
+
+  const isNormal =
+    !!pointsNumber && !tag && !chatsLinks.whatsappLink && !nextLessonData;
+
+  const isExtended =
+    !!pointsNumber &&
+    !!tag &&
+    !!chatsLinks.whatsappLink &&
+    !!chatsLinks.telegramLink &&
+    !!nextLessonData;
+
   return (
-    <div className={classNames(styles.container, className)}>
-      <CustomImageWrapper width={181} height={173} className={styles.avatar}>
-        <Image src={avatar} alt="student avatar" />
-      </CustomImageWrapper>
+    <div
+      className={classNames(styles.container, className, {
+        [styles.containerExtended]: isExtended,
+        [styles.containerMinimal]: isMinimal,
+      })}
+    >
+      {isMinimal ? (
+        <CustomImageWrapper isBordered={false} className={styles.avatar}>
+          <Image layout="responsive" src={avatar} alt="student avatar" />
+        </CustomImageWrapper>
+      ) : (
+        <CustomImageWrapper className={styles.avatar}>
+          <Image layout="responsive" src={avatar} alt="student avatar" />
+        </CustomImageWrapper>
+      )}
+
       <div className={styles.studentNameContainer}>
         <div className={styles.studentName}>{studentName}</div>
-        <div className={styles.studentTag}>student {studentTag}</div>
+        {isExtended && <div className={styles.tag}>student {tag}</div>}
       </div>
-      <div className={styles.studentInfo}>
-        <span className={styles.studentInfoText}>Статус:</span>
-        <span className={styles.studentInfoVisualiser}>{status}</span>
+      <div className={styles.info}>
+        <span className={styles.infoText}>Статус:</span>
+        <span className={styles.infoVisualiser}>{status}</span>
       </div>
-      <div className={classNames(styles.studentInfo, styles.studentPoitsInfo)}>
-        <span className={styles.studentInfoText}>Ваши очки:</span>
-        <span className={styles.studentInfoVisualiser}>{studentPoits}</span>
-        <div className={styles.slider}>
-          <div
-            style={{ width: sliderProgress }}
-            className={styles.sliderProgress}
-          ></div>
-          <div
-            style={{ right: sliderProgress }}
-            className={styles.sliderIcon}
-          ></div>
+      {(isNormal || isExtended) && (
+        <div className={classNames(styles.info, styles.pointsInfo)}>
+          <span className={styles.infoText}>Ваши очки:</span>
+          <span className={styles.infoVisualiser}>{pointsNumber}</span>
+          {isExtended && (
+            <>
+              <CardStudentSlider {...{ pointsNumber }} />
+              <span className={styles.pointsVisualiser}>{pointsNumber}</span>
+            </>
+          )}
         </div>
-        <span className={styles.studentPointsVisualiserBig}>
-          {studentPoits}
-        </span>
-      </div>
-      <button className={styles.zoomBtn}>
-        <Image src={zoom} alt="zoom" />
-      </button>
-      <div className={styles.linksToChats}>
-        <span className={styles.linksToChatsSpan}>Ссылки на чаты:</span>
-        <button>
-          <Image src={telegram} alt="telegram" />
-        </button>
-        <button>
-          <Image src={whatsapp} alt="whatsapp" />
-        </button>
-      </div>
-      <div className={styles.nextLesson}>
-        <span className={styles.nextLessonSpan}>Следующее занятие:</span>
-        <span className={styles.nextLessonVisualiser}>{nextLesson}</span>
-      </div>
+      )}
+      {(isMinimal || isNormal) && (
+        <div className={styles.info}>
+          <span className={styles.infoText}>Город:</span>
+          <span className={styles.infoVisualiser}>{geo}</span>
+        </div>
+      )}
+      {isNormal && <CardStudentMainButton text="Добавить новый урок" />}
+      {isExtended && (
+        <CardStudentMainButton
+          text="ZOOM"
+          Image={<Image src={zoomIcon} alt="zoom" />}
+        />
+      )}
+      {isExtended && <CardStudentBottom {...{ chatsLinks, nextLessonData }} />}
     </div>
   );
 };

@@ -1,10 +1,15 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { HomeworksProps } from '@app/types/ComponentsProps';
+import { HomeworkProps } from '@app/types/Props';
 import Homework from '@components/homework/Homework';
 import styles from './Homeworks.module.scss';
 
-const Homeworks: FC<HomeworksProps> = ({ homeworks, className }) => {
+interface Props {
+  className?: string;
+  homeworks: HomeworkProps[];
+}
+
+const Homeworks: FC<Props> = ({ homeworks, className }) => {
   return (
     <div className={classNames(styles.container, className)}>
       <p className={styles.panel}>Домашнее задание на 7 октября 2021</p>

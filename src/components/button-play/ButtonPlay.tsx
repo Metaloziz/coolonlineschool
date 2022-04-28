@@ -1,17 +1,21 @@
 import classNames from 'classnames';
-import { FC } from 'react';
+import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonPlaySizes } from '@app/enums/Enums';
 import styles from './ButtonPlay.module.scss';
 
-type Props = {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  size?: 'small' | 'normal';
-};
+  size?: ButtonPlaySizes;
+}
 
-const ButtonPlay: FC<Props> = ({ size = 'normal', className = '' }) => {
+const ButtonPlay: FC<Props> = ({
+  size = ButtonPlaySizes.normal,
+  className = '',
+}) => {
   return (
     <button
       className={classNames(styles.container, className, {
-        [styles.containerSmalled]: size === 'small',
+        [styles.containerSmalled]: size === ButtonPlaySizes.small,
       })}
     >
       <div className={styles.img}></div>
