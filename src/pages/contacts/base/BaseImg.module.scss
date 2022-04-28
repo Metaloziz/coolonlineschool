@@ -1,0 +1,23 @@
+.base {
+  display: flex;
+  background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
+  box-shadow: inset -4px -4px 12px rgba(253, 255, 255, 0.8), inset 4px 4px 12px rgba(187, 195, 206, 0.6);
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 18px;
+  position: absolute;
+  top: 75px;
+  right: 23px;
+
+  & p {
+    font-size: 14px;
+    font-weight: 600;
+    font-family: Montserrat, sans-serif;
+    color: #4778EC;
+  }
+
+  & div {
+    margin-left: 11px;
+  }
+}
