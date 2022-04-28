@@ -1,0 +1,95 @@
+.innerContent {
+  margin: 35px 0 0 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  & .blockGame {
+    background: #ffffff;
+    box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
+    border-radius: 10px;
+    height: 246px;
+    display: flex;
+    padding: 16px 92px 24px 61px;
+    margin-bottom: 12px;
+
+    & .startGame {
+      //margin: 16px 75px 0 0;
+      width: 151px;
+      flex: none;
+
+      & .image {
+
+      }
+
+      & .playButton {
+        background: #4778EC;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 0;
+        margin-top: 10px;
+
+        & p {
+          color: #ffffff;
+          margin-right: 10px;
+          font-family: 'Montserrat', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 17px;
+        }
+
+        & .roundPlay {
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          background: url("../../../public/svgs/button-play-red.png") center center no-repeat, #ffffff;
+        }
+      }
+
+      & .playButton:hover {
+        background: #FF6968;
+
+        & .roundPlay {
+          background: url("../../../public/svgs/button-play-blue.svg") center center no-repeat, #ffffff;
+        }
+      }
+    }
+
+    & .descriptionGame {
+      padding: 5px 0 0 75px;
+
+      & .heading {
+        display: flex;
+        align-items: center;
+
+        & h3 {
+          padding-right: 25px;
+          font-family: 'Montserrat Alternates', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 24px;
+          line-height: 29px;
+          color: #000000;
+        }
+      }
+
+      & .content {
+        padding-top: 23px;
+        width: 981px;
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 25px;
+        color: #0F123F;
+      }
+    }
+  }
+}
+
+
+
+
