@@ -8,6 +8,7 @@
 
 # VsCode IDE files
 /.vscode
+.idea/
 
 # testing
 /coverage

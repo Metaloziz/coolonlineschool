@@ -1,0 +1,46 @@
+.innerContent {
+  margin: 35px 0 0 20px;
+
+  .wrapCardStudent {
+    width: 747px;
+  }
+
+  .wrapContent {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 15px;
+
+    & .notActiveBlock {
+      opacity: 0.4;
+    }
+
+    & .blockAchievement {
+      background: url("../../../public/svgs/bg-card-achieve.svg") left top no-repeat, #ffffff;
+      box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
+      border-radius: 5px;
+      width: 403px;
+      height: 150px;
+      display: flex;
+      margin: 0 18px 6px 0;
+      justify-content: center;
+      align-items: center;
+      padding: 0 21px 0 19px;
+
+      & h3 {
+        flex: 1;
+        margin-right: 39px;
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 25px;
+        color: #000000;
+
+      }
+
+      &.img {
+        flex: none;
+      }
+    }
+  }
+}
