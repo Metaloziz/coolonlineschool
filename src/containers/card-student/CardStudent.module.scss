@@ -1,110 +1,100 @@
 .container {
+  width: 745px;
+  height: 215px;
+
   display: grid;
-  grid-template: repeat(5, 45px) / min-content auto;
-  align-items: center;
-  column-gap: 30px;
-  padding: 20px 45px 10px;
-  background: white url(#{$path-svg}/card-student-bg.svg) no-repeat bottom right;
+  grid-template-columns: min-content auto;
+  grid-template-rows: repeat(4, min-content) 60px;
+  align-items: end;
+  column-gap: 40px;
+
+  padding: 25px 35px;
+
+  background: white url(#{$path-svg}/card-student/bg-small.svg) no-repeat bottom
+    right;
   border-radius: 10px;
   box-shadow: 0px 0px 40px rgba(86, 89, 146, 0.15);
+
+  &Extended {
+    width: 965px;
+    height: 250px;
+    grid-template-rows: repeat(5, 45px);
+    align-items: center;
+    column-gap: 30px;
+    padding: 20px 45px 10px;
+    background-image: url(#{$path-svg}/card-student/bg.svg);
+
+    .avatar {
+      grid-row: span 4;
+    }
+  }
+
+  &Minimal {
+    width: 500px;
+    height: 170px;
+    align-items: start;
+    column-gap: 45px;
+    padding: 25px 30px;
+    grid-template-rows: 70px 35px min-content;
+    background-image: initial;
+
+    .avatar {
+      grid-row: span 3;
+      width: 128px;
+      height: 122px;
+    }
+
+    .infoVisualiser {
+      color: $color-red;
+    }
+  }
 }
 .avatar {
-  grid-row: span 4;
+  width: 180px;
+  height: 170px;
+  grid-row: span 5;
 }
 .studentNameContainer {
   display: flex;
+  column-gap: 35px;
   align-items: center;
 }
 .studentName {
-  margin-right: 35px;
-  font: $font-subheader;
+  font: $font-secondary-subheader;
   color: $color-text-darker;
 }
-.studentTag {
+.tag {
   padding: 11px 15px;
   background: #f8f8ff;
   border-radius: 10px;
   font: $font-small;
   color: $color-secondary-text;
 }
-.studentInfo {
-  font: $font-small;
-}
-.studentInfoText {
-  white-space: nowrap;
-  color: $color-secondary-text;
-  margin-right: 15px;
-}
-.studentInfoVisualiser {
-  color: $color-visualiser;
-}
-.studentPoitsInfo {
+.info {
   display: flex;
   align-items: center;
-}
-.studentPointsVisualiserBig {
-  font-weight: 700;
-  font-size: 72px;
-  line-height: 88px;
-  // text-shadow: inset 4px 4px 12px #bbc3ce, inset -4px -4px 12px #fdffff;
+  column-gap: 15px;
+  font: $font-small;
 
-  @include gradient-text(
-    linear-gradient(0deg, #e6eef8, #e6eef8),
-    linear-gradient(0deg, #cfd8dc, #cfd8dc)
-  );
+  &Text {
+    white-space: nowrap;
+    color: $color-secondary-text;
+  }
+  &Visualiser {
+    color: $color-visualiser;
+  }
 }
-.slider {
-  margin-left: 30px;
-  margin-right: 65px;
-  position: relative;
-  height: 8px;
-  width: 415px;
-  background: linear-gradient(0deg, #e6eef8, #e6eef8), #cfd8dc;
-  box-shadow: inset -4px -4px 12px rgba(253, 255, 255, 0.8),
-    inset 4px 4px 12px rgba(187, 195, 206, 0.6);
-  border-radius: 30px;
-  overflow: visible;
-}
-.sliderProgress {
-  content: '';
-  top: 0;
-  right: 0;
-  height: inherit;
-  position: absolute;
-  background: #e5d8fa;
-  border-radius: 10px;
-}
-.sliderIcon {
-  width: 30px;
-  height: 28px;
-  position: absolute;
-  top: 50%;
-  transform: translate(50%, -50%);
-  background-image: url(#{$path-svg}/card-student-slider-icon.svg);
-}
-.zoomBtn {
-  width: 190px;
-  height: 40px;
-  padding: 5px 0px;
-  background: linear-gradient(90deg, #0439ad 0%, #38028f 100%);
-  border-radius: 10px;
-}
-.linksToChats {
-  display: flex;
-  align-items: center;
-}
-.linksToChatsSpan {
-  font: $font-smaller;
-  color: $color-secondary-text;
-  margin-right: 10px;
-}
-.nextLesson {
-  font: $font-small;
-}
-.nextLessonSpan {
-  color: $color-visualiser;
-  margin-right: 15px;
-}
-.nextLessonVisualiser {
-  color: $color-text;
+.points {
+  &Visualiser {
+    margin-left: auto;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 88px;
+    // text-shadow: inset 4px 4px 12px #bbc3ce, inset -4px -4px 12px #fdffff;
+
+    @include gradient-text(
+      linear-gradient(0deg, #e6eef8, #e6eef8),
+      linear-gradient(0deg, #cfd8dc, #cfd8dc)
+    );
+  }
 }

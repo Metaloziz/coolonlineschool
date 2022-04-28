@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { SelectHomeworksFormProps } from '@app/types/ComponentsProps';
+import { SelectHomeworksFormProps } from '@app/types/Props';
 import CustomSelect from '@components/select/CustomSelect';
 import Slider from '@containers/slider/Slider';
 import styles from './SelectHomeworksForm.module.scss';

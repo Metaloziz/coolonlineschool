@@ -8,7 +8,7 @@
 }
 
 .red {
-  background-color: #ff6968;
+  background-color: $color-secondary-button;
   padding-left: 65px;
   padding-right: 65px;
 }
@@ -16,5 +16,5 @@
 .blue {
   padding-left: 45px;
   padding-right: 45px;
-  background-color: #4778ec;
+  background-color: $color-button;
 }

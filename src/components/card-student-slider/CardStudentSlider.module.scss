@@ -1,0 +1,28 @@
+.slider {
+  margin-left: 30px;
+  position: relative;
+  height: 8px;
+  width: 415px;
+  background: linear-gradient(0deg, #e6eef8, #e6eef8), #cfd8dc;
+  box-shadow: inset -4px -4px 12px rgba(253, 255, 255, 0.8),
+    inset 4px 4px 12px rgba(187, 195, 206, 0.6);
+  border-radius: 30px;
+  overflow: visible;
+}
+.progress {
+  content: '';
+  top: 0;
+  right: 0;
+  height: inherit;
+  position: absolute;
+  background: #e5d8fa;
+  border-radius: 10px;
+}
+.icon {
+  width: 30px;
+  height: 28px;
+  position: absolute;
+  top: 50%;
+  transform: translate(50%, -50%);
+  background-image: url(#{$path-svg}/card-student/slider.svg);
+}

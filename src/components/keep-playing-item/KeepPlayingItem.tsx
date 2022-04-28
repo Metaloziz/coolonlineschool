@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { KeepPlayingItemProps } from '@app/types/ComponentsProps';
+import { ButtonPlaySizes } from '@app/enums/Enums';
+import { KeepPlayingItemProps } from '@app/types/Props';
 import ButtonPlay from '@components/button-play/ButtonPlay';
 import styles from './KeepPlayingItem.module.scss';
 
@@ -27,7 +28,7 @@ const KeepPlayingItem: FC<KeepPlayingItemProps> = ({
           style={{ transform: `rotate(${deg}deg)` }}
           className={classNames(styles.piece, styles.right)}
         ></div>
-        <ButtonPlay size="small" className={styles.button} />
+        <ButtonPlay size={ButtonPlaySizes.small} className={styles.button} />
       </div>
       <span className={styles.percentToComplete}>{percent}%</span>
       <span className={styles.title}>{title}</span>

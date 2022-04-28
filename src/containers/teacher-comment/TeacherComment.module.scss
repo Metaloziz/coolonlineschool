@@ -16,8 +16,7 @@
   color: $color-text-darker;
 }
 .buttons {
-  display: grid;
-  grid-template-columns: repeat(2, auto);
+  display: flex;
   column-gap: 15px;
   justify-content: center;
 }

@@ -1,0 +1,19 @@
+.linksToChats {
+  display: flex;
+  align-items: center;
+}
+.linksToChatsText {
+  font: $font-smaller;
+  color: $color-secondary-text;
+  margin-right: 10px;
+}
+.nextLesson {
+  font: $font-small;
+}
+.nextLessonText {
+  color: $color-visualiser;
+  margin-right: 15px;
+}
+.nextLessonVisualiser {
+  color: $color-text;
+}

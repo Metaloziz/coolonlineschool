@@ -4,17 +4,11 @@
 
 .main {
   display: grid;
-  grid-template: repeat(2, auto) 295px auto / 965px 440px;
+  grid-template: 250px 80px 295px auto/ 965px 440px;
   row-gap: 10px;
   column-gap: 20px;
 
   padding: 25px 20px 20px;
-}
-
-.cardStudent {
-}
-
-.homeworks {
 }
 
 .keepPlaying {

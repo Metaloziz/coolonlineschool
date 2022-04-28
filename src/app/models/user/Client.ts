@@ -1,4 +1,4 @@
-import { ClientStatus } from '@app/enums/ClientStatus';
+import { ClientStatus } from '@app/enums/Enums';
 import { AddressInfo } from '@app/value-objects/AddressInfo';
 import { User } from './User';
 

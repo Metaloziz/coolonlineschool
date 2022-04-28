@@ -10,6 +10,18 @@ $font-smaller: 600 0.75rem / 1.25em $font-family; // font-size: 12px; line-heigh
 
 $font-visualiser-big: 700 1.5rem / 1.21em $font-family; // font-size: 24px; line-height: 29px
 
+$font-secondary-family: 'Montserrat Alternates', sans-serif;
+
+$font-secondary-base: 500 1rem / 1.25em $font-secondary-family; // font-size: 16px; line-height: 20px
+
+$font-secondary-header: 700 1.25rem / 1.2em $font-secondary-family; // font-size: 20px; line-height: 24px
+$font-secondary-subheader: 600 1.125rem / 1.2em $font-secondary-family; // font-size: 18px; line-height: 22px
+
+$font-secondary-small: 600 0.875rem / 1.22em $font-secondary-family; // font-size: 14px; line-height: 17px
+$font-secondary-smaller: 600 0.75rem / 1.25em $font-secondary-family; // font-size: 12px; line-height: 15px
+
+$font-secondary-visualiser-big: 700 1.5rem / 1.21em $font-secondary-family; // font-size: 24px; line-height: 29px
+
 // Base palette
 $color-black: #0f123f;
 $color-blue: #4778ec;
@@ -28,6 +40,7 @@ $color-secondary-text: $color-gray;
 
 // Buttons colors
 $color-button: $color-blue;
+$color-secondary-button: $color-red;
 $color-anchor: $color-blue-lighter;
 
 $color-visualiser: $color-blue;

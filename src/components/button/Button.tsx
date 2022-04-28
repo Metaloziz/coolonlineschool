@@ -1,9 +1,15 @@
 import classNames from 'classnames';
-import { FC } from 'react';
-import { ButtonProps } from '@app/types/ComponentsProps';
+import { ButtonHTMLAttributes, FC } from 'react';
+import { ButtonColorThemes } from '@app/enums/Enums';
 import styles from './Button.module.scss';
 
-const Button: FC<ButtonProps> = ({ colorTheme = 'blue', text }) => {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+  className?: string;
+  text: string;
+  colorTheme?: ButtonColorThemes;
+}
+
+const Button: FC<Props> = ({ colorTheme = ButtonColorThemes.blue, text }) => {
   return (
     <button className={classNames(styles.container, styles[colorTheme])}>
       {text}

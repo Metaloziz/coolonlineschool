@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  width: 225px;
+  height: 40px;
+  padding: 5px 0px;
+  background: linear-gradient(90deg, #0439ad 0%, #38028f 100%);
+  border-radius: 10px;
+
+  &.withImage {
+    width: 190px;
+  }
+}
+
+.text {
+  font: $font-small;
+  font-weight: 700;
+  color: white;
+}
