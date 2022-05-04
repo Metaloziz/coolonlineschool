@@ -4,25 +4,42 @@ import styles from './Slider.module.scss';
 
 type SliderItem = {
   text: string;
-  isActive: boolean;
+  isActive?: boolean;
+  id: number;
 };
 
 type Props = {
   className?: string;
-  sliderItems: [SliderItem, SliderItem];
+  options: SliderItem[];
+  colorTheme?: 'blue' | 'red';
+  size?: 'long' | 'normal';
 };
 
-const Slider: FC<Props> = ({ sliderItems: [first, second], className }) => {
-  const FirstItemCLassName = classNames(styles.item, {
-    [styles.active]: first.isActive,
-  });
-  const SecondItemCLassName = classNames(styles.item, {
-    [styles.active]: second.isActive,
-  });
+const Slider: FC<Props> = ({
+  size = 'normal',
+  colorTheme = 'blue',
+  options,
+  className,
+}) => {
   return (
-    <div className={classNames(styles.container, className)}>
-      <button className={FirstItemCLassName}>{first.text}</button>
-      <button className={SecondItemCLassName}>{second.text}</button>
+    <div
+      className={classNames(
+        styles.container,
+        className,
+        styles[colorTheme],
+        styles[size],
+      )}
+    >
+      {options.map(({ text, isActive = false, id }) => {
+        return (
+          <button
+            key={id}
+            className={classNames(styles.option, { [styles.active]: isActive })}
+          >
+            {text}
+          </button>
+        );
+      })}
     </div>
   );
 };

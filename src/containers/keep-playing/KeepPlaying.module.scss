@@ -8,12 +8,29 @@
   font: $font-header;
   color: $color-visualiser;
 }
-.keepPlayingItems {
+.progressBars {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
-.keepPlayingItem {
+.progressBar {
   width: 50%;
+  position: relative;
+
+  &:nth-child(odd):not(&:nth-child(-n + 2)) {
+    &::before {
+      content: '';
+      width: 390px;
+      height: 1px;
+      background-color: #ededff;
+      position: absolute;
+      left: -10px;
+      top: 0;
+    }
+  }
+}
+
+.button {
+  @include position-center;
 }

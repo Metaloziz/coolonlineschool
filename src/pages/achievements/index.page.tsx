@@ -106,8 +106,7 @@ const IndexPage = () => {
             studentName: 'Днепровский Александр Алексеевич',
             status: 'Новичок',
             pointsNumber: 1,
-            nextLessonData: '01.02.2021 в 18:00',
-            tag: 1,
+            geo: 'Москва',
           }}
         />
       </div>

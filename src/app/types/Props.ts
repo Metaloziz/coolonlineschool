@@ -1,4 +1,4 @@
-import { KeepPlayingColorThemes } from '@app/enums/Enums';
+import { ProgressBarColorThemes, ProgressBarSizes } from '@app/enums/Enums';
 
 export interface SkillGrowProps {
   skillTitle: string;
@@ -21,12 +21,13 @@ export interface HomeworkProps {
   id: number;
 }
 
-export interface KeepPlayingItemProps {
+export interface ProgressBarProps {
   title: string;
   percentToComplete: number;
+  colorTheme: ProgressBarColorThemes;
   className?: string;
-  colorTheme: KeepPlayingColorThemes;
-  id: number;
+  id?: number;
+  size?: ProgressBarSizes;
 }
 export interface CardStudentOptions {
   studentName: string;

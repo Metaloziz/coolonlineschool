@@ -12,13 +12,15 @@ interface Props {
 
 const CustomSelect: FC<Props> = ({ options, placeholder }) => {
   return (
-    <div className={styles.selectWrap}>
-      <Select
-        instanceId={Symbol().toString()}
-        placeholder={placeholder}
-        options={options}
-        components={{ IndicatorSeparator: () => null }}
-      />
+    <div className={styles.container}>
+      <div className={styles.inner}>
+        <Select
+          instanceId={Symbol().toString()}
+          placeholder={placeholder}
+          options={options}
+          components={{ IndicatorSeparator: () => null }}
+        />
+      </div>
     </div>
   );
 };

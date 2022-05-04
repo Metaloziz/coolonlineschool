@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
-import { KeepPlayingColorThemes } from '@app/enums/Enums';
+import { ProgressBarColorThemes } from '@app/enums/Enums';
 import CardStudent from '@containers/card-student/CardStudent';
 import Homeworks from '@containers/homeworks/Homeworks';
 import KeepPlaying from '@containers/keep-playing/KeepPlaying';
@@ -27,7 +27,7 @@ export default function Home() {
   }, [auth]);
 
   const { red, blue, green, violet, yellow, yellowLight } =
-    KeepPlayingColorThemes;
+    ProgressBarColorThemes;
 
   return (
     <div className={styles.container}>

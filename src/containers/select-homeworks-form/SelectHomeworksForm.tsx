@@ -33,10 +33,18 @@ const SelectHomeworksForm: FC<SelectHomeworksFormProps> = ({
         placeholder="№ занятия"
       />
       <Slider
+        size="long"
         className={styles.slider}
-        sliderItems={[
-          { text: 'Ментальная арифметика', isActive: true },
-          { text: 'Скорочтение', isActive: false },
+        options={[
+          {
+            text: 'Ментальная арифметика',
+            isActive: true,
+            id: +new Date().toDateString(),
+          },
+          {
+            text: 'Скорочтение',
+            id: +new Date().toDateString(),
+          },
         ]}
       />
     </div>

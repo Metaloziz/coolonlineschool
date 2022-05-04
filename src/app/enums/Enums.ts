@@ -1,10 +1,15 @@
-export enum KeepPlayingColorThemes {
+export enum ProgressBarColorThemes {
   red = 'red',
   blue = 'blue',
   yellowLight = 'yellow-light',
   violet = 'violet',
   green = 'green',
   yellow = 'yellow',
+}
+
+export enum ProgressBarSizes {
+  normal = 'normal',
+  big = 'big',
 }
 
 export enum ButtonPlaySizes {

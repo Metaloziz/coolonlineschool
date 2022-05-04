@@ -1,11 +1,16 @@
-.selectWrap {
-  width: 140px;
+.container {
+  width: max-content;
   font: $font-small;
+  box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
+  white-space: nowrap;
+}
+
+.inner {
+  width: calc(100% + 6px);
 
   & > div > div {
-    color: $color-secondary-text !important;
+    padding: 0 8px;
     border: none !important;
-    box-shadow: 0 0 40px rgba(86, 89, 146, 0.15) !important;
     border-radius: 10px !important;
   }
 }
