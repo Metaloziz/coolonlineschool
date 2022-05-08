@@ -2,11 +2,13 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import { FC } from 'react';
 import { CardStudentProps } from '@app/types/Props';
-import CardStudentBottom from '@components/card-student-bottom/CardStudentBottom';
-import CardStudentMainButton from '@components/card-student-main-button/CardStudentMainButton';
-import CardStudentSlider from '@components/card-student-slider/CardStudentSlider';
-import CustomImageWrapper from '@components/custom-image-wrapper/CustomImageWrapper';
-import avatar from '@images/avatar.png';
+import {
+  CardStudentBottom,
+  CardStudentMainButton,
+  CardStudentSlider,
+  CustomImageWrapper,
+} from '@components';
+import avatar from '@mock/public/avatar.png';
 import zoomIcon from '@svgs/card-student/zoom-icon.svg';
 import styles from './CardStudent.module.scss';
 
@@ -18,7 +20,7 @@ const CardStudent: FC<CardStudentProps> = ({
     pointsNumber = 0,
     tag = 0,
     chatsLinks = { whatsappLink: '', telegramLink: '' },
-    nextLessonData = '',
+    nextLessonData = new Date(),
   },
   className,
 }) => {

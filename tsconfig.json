@@ -17,6 +17,7 @@
     "paths": {
       "@*": ["./src/*"],
       "@public/*": ["./public/*"],
+      "@mock/*": ["./mock/*"],
       "@svgs/*": ["./public/svgs/*"],
       "@images/*": ["./public/images/*"],
       "@fonts/*": ["./public/fonts/*"],

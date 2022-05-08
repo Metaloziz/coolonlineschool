@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { CardStudentOptions } from '@app/types/Props';
+import { ICardStudentOptions } from '@app/types/Props';
 import styles from './CardStudentSlider.module.scss';
 
-type Props = Required<Pick<CardStudentOptions, 'pointsNumber'>>;
+type Props = Required<Pick<ICardStudentOptions, 'pointsNumber'>>;
 
 const CardStudentSlider: FC<Props> = ({ pointsNumber }) => {
   const sliderProgress = `${pointsNumber * 20}%`;

@@ -1,0 +1,18 @@
+.form {
+  display: grid;
+  grid-template-columns: repeat(4, min-content);
+  grid-template-rows: repeat(3, min-content);
+  gap: 25px 20px;
+}
+
+.textFieldCalendar {
+  margin-right: 15px;
+}
+
+.slider {
+  grid-column: 1 / -1;
+}
+
+.submit {
+  grid-column-end: -1;
+}

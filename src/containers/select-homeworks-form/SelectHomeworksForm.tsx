@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { SelectHomeworksFormProps } from '@app/types/Props';
-import CustomSelect from '@components/select/CustomSelect';
+import CustomSelect from '@components/custom-select/CustomSelect';
 import Slider from '@containers/slider/Slider';
+import { getRandomId } from '@utils/RandomId';
 import styles from './SelectHomeworksForm.module.scss';
 
 const SelectHomeworksForm: FC<SelectHomeworksFormProps> = ({
@@ -39,11 +40,11 @@ const SelectHomeworksForm: FC<SelectHomeworksFormProps> = ({
           {
             text: 'Ментальная арифметика',
             isActive: true,
-            id: +new Date().toDateString(),
+            id: getRandomId(),
           },
           {
             text: 'Скорочтение',
-            id: +new Date().toDateString(),
+            id: getRandomId(),
           },
         ]}
       />

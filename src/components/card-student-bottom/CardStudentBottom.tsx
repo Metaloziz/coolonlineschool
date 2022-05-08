@@ -2,13 +2,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FC } from 'react';
-import { CardStudentOptions } from '@app/types/Props';
+import { ICardStudentOptions } from '@app/types/Props';
 import telegramImg from '@svgs/card-student/telegram-icon.svg';
 import whatsappImg from '@svgs/card-student/whatsapp-icon.svg';
 import styles from './CardStudentBottom.module.scss';
 
 type Props = Required<
-  Pick<CardStudentOptions, 'chatsLinks' | 'nextLessonData'>
+  Pick<ICardStudentOptions, 'chatsLinks' | 'nextLessonData'>
 >;
 
 const CardStudentBottom: FC<Props> = ({

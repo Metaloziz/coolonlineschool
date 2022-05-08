@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import avatar from '@images/pervoklassnik.jpg';
+import avatar from '@mock/public/avatar.png';
 import BaseImg from '@pages/contacts/base/BaseImg';
 import BtnAddImg from '@pages/contacts/btn-add-img/BtnAddImg';
 import BtnDeleteImg from '@pages/contacts/btn-delete-img/BtnDeleteImg';

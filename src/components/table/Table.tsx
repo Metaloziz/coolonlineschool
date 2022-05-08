@@ -1,21 +1,9 @@
 import classNames from 'classnames';
 import { FC } from 'react';
+import { TableProps } from '@app/types/Props';
 import styles from './Table.module.scss';
 
-type IStudent = {
-  fullName: string;
-  studyPeriodBeginning: string;
-  studyPeriodEnd: string;
-  group: number;
-  id: number;
-};
-
-type Props = {
-  students: IStudent[];
-  className?: string;
-};
-
-const Table: FC<Props> = ({ students, className }) => {
+const Table: FC<TableProps> = ({ students, className }) => {
   return (
     <div className={classNames(styles.container, className)}>
       <div className={styles.header}>
