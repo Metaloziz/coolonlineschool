@@ -1,21 +1,9 @@
 import classNames from 'classnames';
-import { FC /*, useState*/ } from 'react';
+import { FC } from 'react';
+import { SliderProps } from '@app/types/Props';
 import styles from './Slider.module.scss';
 
-type SliderItem = {
-  text: string;
-  isActive?: boolean;
-  id: number;
-};
-
-type Props = {
-  className?: string;
-  options: SliderItem[];
-  colorTheme?: 'blue' | 'red';
-  size?: 'long' | 'normal';
-};
-
-const Slider: FC<Props> = ({
+const Slider: FC<SliderProps> = ({
   size = 'normal',
   colorTheme = 'blue',
   options,

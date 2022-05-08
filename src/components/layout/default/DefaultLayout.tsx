@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import Sidebar from '@containers/sidebar-navigation/SidebarNavigation';
+import SidebarNavigation from '@containers/sidebar-navigation/SidebarNavigation';
 import styles from './DefaultLayout.module.scss';
 import Header from '../../header/Header';
 
@@ -10,7 +10,7 @@ interface Props {
 const DefaultLayout: FC<Props> = ({ children }) => (
   <div className={styles.layout}>
     <Header className={styles.header} />
-    <Sidebar />
+    <SidebarNavigation />
     <div className={styles.content}>{children}</div>
   </div>
 );

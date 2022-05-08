@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import NavigationLink from '@components/sidebar-navigation-item/SidebarNavigationItem';
 import { Routes } from '@constants/Routes';
+import { getRandomId } from '@utils/RandomId';
 import styles from './SidebarNavigation.module.scss';
 
-const Sidebar: FC = () => {
+const SidebarNavigation: FC = () => {
   const { Index } = Routes;
   const links = [
     { label: 'Главная', href: Index, svgId: 'home' },
@@ -571,7 +572,7 @@ const Sidebar: FC = () => {
         {links.map((link) => (
           <NavigationLink
             svgId={link.svgId}
-            key={+new Date().toDateString()}
+            key={getRandomId()}
             link={link}
             wrapperClassName={styles.linkWrapper}
             imageClassName={styles.linkImage}
@@ -587,4 +588,4 @@ const Sidebar: FC = () => {
   );
 };
 
-export default Sidebar;
+export default SidebarNavigation;

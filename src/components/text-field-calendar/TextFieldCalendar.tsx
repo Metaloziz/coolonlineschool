@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import CustomCalendar from '@components/calendar/CustomCalendar';
+import CustomCalendar from '@components/custom-calendar/CustomCalendar';
 import styles from './TextFieldCalendar.module.scss';
 
 const TextFieldCalendar: FC<{ text: string; className?: string }> = ({
