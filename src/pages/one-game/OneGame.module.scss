@@ -1,0 +1,64 @@
+.innerContent {
+  margin: 50px 0 0 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 30px;
+
+  & .goBack {
+    display: flex;
+    align-items: center;
+    margin-bottom: 17px;
+
+    & .image {
+      margin-right: 12px;
+      display: flex;
+      cursor: pointer;
+    }
+  }
+
+  & .contentGame {
+    display: flex;
+
+    & .blockGame {
+      height: 750px;
+      width: 1205px;
+      background: url("../../../public/svgs/bg-one-game.svg");
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      & .imagePlay {
+        position: relative;
+        vertical-align: center;
+
+        & .player {
+          position: absolute;
+          top: 121px;
+          left: 125px;
+        }
+      }
+    }
+
+    & .descriptionGame {
+      width: 439px;
+      padding-left: 25px;
+      text-align: justify;
+
+      h3 {
+        margin-bottom: 26px;
+        font-family: 'Montserrat Alternates', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 29px;
+        color: #4778EC;
+      }
+    }
+  }
+}
+
+
+
+
