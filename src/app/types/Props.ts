@@ -1,8 +1,32 @@
-import { ProgressBarColorThemes, ProgressBarSizes } from '@app/enums/Enums';
+import { ButtonHTMLAttributes } from 'react';
+import {
+  ButtonColorThemes,
+  ProgressBarColorThemes,
+  ProgressBarSizes,
+  RatePlans,
+} from '@app/enums/Enums';
 
 // Containers
 
-export type ICardStudentOptions = {
+export type IRateTableRow = {
+  id: number;
+  moneyAmount: number;
+  description: string;
+  paymentDate: Date;
+  ratePlan: RatePlans;
+  status: 'success';
+};
+
+export interface RatesTableProps {
+  rates: IRateTableRow[];
+  className?: string;
+}
+
+export interface RateProps {
+  ratePlan: RatePlans;
+}
+
+export interface ICardStudentOptions {
   studentName: string;
   status: string;
   geo?: string;
@@ -13,7 +37,7 @@ export type ICardStudentOptions = {
   };
   nextLessonData?: Date;
   tag?: number;
-};
+}
 
 export interface CardStudentProps {
   options: ICardStudentOptions;
@@ -45,6 +69,14 @@ export interface SelectHomeworksFormProps {
 
 // Components
 
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  type?: 'submit' | 'button';
+  className?: string;
+  text: string;
+  colorTheme?: ButtonColorThemes;
+  image?: JSX.Element;
+}
+
 type IVerticalSliderOption = {
   text: string;
   id: number;
@@ -64,10 +96,10 @@ type ITableStudentRow = {
   id: number;
 };
 
-export type TableProps = {
+export interface StudentsTableProps {
   students: ITableStudentRow[];
   className?: string;
-};
+}
 
 type ISliderItem = {
   text: string;

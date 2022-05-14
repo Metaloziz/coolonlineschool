@@ -1,15 +1,10 @@
-import CardStudentContainer from './card-student/CardStudent';
-import HomeworksContainer from './homeworks/Homeworks';
-import KeepPlayingContainer from './keep-playing/KeepPlaying';
-import SelectHomeworksFormContainer from './select-homeworks-form/SelectHomeworksForm';
-import SidebarNavigationContainer from './sidebar-navigation/SidebarNavigation';
-import SliderContainer from './slider/Slider';
-import TeacherCommentContainer from './teacher-comment/TeacherComment';
-
-export const CardStudent = CardStudentContainer;
-export const Homeworks = HomeworksContainer;
-export const KeepPlaying = KeepPlayingContainer;
-export const SelectHomeworksForm = SelectHomeworksFormContainer;
-export const SidebarNavigation = SidebarNavigationContainer;
-export const Slider = SliderContainer;
-export const TeacherComment = TeacherCommentContainer;
+export { default as CardStudent } from './card-student/CardStudent';
+export { default as Homeworks } from './homeworks/Homeworks';
+export { default as KeepPlaying } from './keep-playing/KeepPlaying';
+export { default as RatePlan } from './rate-plan/RatePlan';
+export { default as SelectHomeworksForm } from './select-homeworks-form/SelectHomeworksForm';
+export { default as SidebarNavigation } from './sidebar-navigation/SidebarNavigation';
+export { default as Slider } from './slider/Slider';
+export { default as TeacherComment } from './teacher-comment/TeacherComment';
+export { default as Balance } from './balance/Balance';
+export { default as RatesTable } from './rates-table/RatesTable';

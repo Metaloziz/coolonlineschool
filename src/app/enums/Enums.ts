@@ -1,3 +1,10 @@
+export enum RatePlans {
+  introductory = 'introductory',
+  independent = 'independent',
+  advanced = 'advanced',
+  personal = 'personal',
+}
+
 export enum ProgressBarColorThemes {
   red = 'red',
   blue = 'blue',
@@ -18,6 +25,10 @@ export enum ButtonPlaySizes {
 }
 
 export enum ButtonColorThemes {
+  minimal = 'minimal',
+  green = 'green',
+  blueGradient = 'blueGradient',
+  transparent = 'transparent',
   red = 'red',
   blue = 'blue',
 }

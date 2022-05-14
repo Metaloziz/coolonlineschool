@@ -1,37 +1,38 @@
 import classNames from 'classnames';
 import Image from 'next/image';
 import { FC } from 'react';
+import { ButtonColorThemes } from '@app/enums/Enums';
 import { CardStudentProps } from '@app/types/Props';
 import {
+  Button,
   CardStudentBottom,
-  CardStudentMainButton,
   CardStudentSlider,
   CustomImageWrapper,
 } from '@components';
 import avatar from '@mock/public/avatar.png';
-import zoomIcon from '@svgs/card-student/zoom-icon.svg';
+import zoomIcon from '@svgs/button/zoom-icon.svg';
 import styles from './CardStudent.module.scss';
 
 const CardStudent: FC<CardStudentProps> = ({
   options: {
     studentName,
     status,
-    geo = '',
-    pointsNumber = 0,
-    tag = 0,
-    chatsLinks = { whatsappLink: '', telegramLink: '' },
-    nextLessonData = new Date(),
+    geo,
+    pointsNumber,
+    tag,
+    chatsLinks,
+    nextLessonData,
   },
   className,
 }) => {
   const isMinimal = !pointsNumber;
 
-  const isNormal =
-    !!pointsNumber && !tag && !chatsLinks.whatsappLink && !nextLessonData;
+  const isNormal = !!pointsNumber && !tag && !chatsLinks && !nextLessonData;
 
   const isExtended =
     !!pointsNumber &&
     !!tag &&
+    !!chatsLinks &&
     !!chatsLinks.whatsappLink &&
     !!chatsLinks.telegramLink &&
     !!nextLessonData;
@@ -79,11 +80,19 @@ const CardStudent: FC<CardStudentProps> = ({
           <span className={styles.infoVisualiser}>{geo}</span>
         </div>
       )}
-      {isNormal && <CardStudentMainButton text="Добавить новый урок" />}
+      {isNormal && (
+        <Button
+          colorTheme={ButtonColorThemes.blueGradient}
+          text="Добавить новый урок"
+          className={styles.addNewLessonBtn}
+        />
+      )}
       {isExtended && (
-        <CardStudentMainButton
+        <Button
+          className={styles.zoomBtn}
           text="ZOOM"
-          Image={<Image src={zoomIcon} alt="zoom" />}
+          colorTheme={ButtonColorThemes.blueGradient}
+          image={<Image src={zoomIcon} alt="ZOOM" />}
         />
       )}
       {isExtended && <CardStudentBottom {...{ chatsLinks, nextLessonData }} />}

@@ -1,4 +1,4 @@
-import { ProgressBar, Table, VerticalSlider } from '@components';
+import { ProgressBar, StudentsTable, VerticalSlider } from '@components';
 import { CardStudent, Slider } from '@containers';
 import GetResultsForm from '@containers/get-results-form/GetResultsForm';
 import { resultsPageRendering } from '@mock/rendering-pages';
@@ -17,7 +17,7 @@ export default function Results() {
         className={styles.progressBar}
       />
       <Slider {...resultsPageRendering.slider} className={styles.bigSlider} />
-      <Table {...resultsPageRendering.table} className={styles.table} />
+      <StudentsTable {...resultsPageRendering.table} className={styles.table} />
       <VerticalSlider
         {...resultsPageRendering.verticalSlider}
         className={styles.verticalSlider}

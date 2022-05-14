@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 30px 35px;
+  background: #ffffff url(#{$path-svg}/rate-plan-bg.svg) no-repeat right bottom;
+  border-radius: 10px;
+}
+.title {
+  margin-bottom: 25px;
+  padding: 15px 25px;
+  font: $font-base;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  background: $color-visualiser;
+  border-radius: 0px 0px 10px 10px;
+}
+.optionsTitle {
+  align-self: start;
+  margin-bottom: 20px;
+  font: $font-small;
+  font-weight: 700;
+  color: $color-red;
+}
+.options {
+  align-self: start;
+  max-height: 105px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  column-gap: 45px;
+  row-gap: 8px;
+  margin-bottom: 40px;
+  font: $font-small;
+  font-weight: 600;
+
+  li {
+    max-width: 330px;
+  }
+}
+.btn {
+  width: 245px;
+}

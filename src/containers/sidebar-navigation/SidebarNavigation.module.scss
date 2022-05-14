@@ -22,16 +22,8 @@
 
 .linkWrapper {
   &:hover {
-    background-color: $color-visualiser;
+    background-color: #f3e4ff;
     box-shadow: 0px 4px 4px 0px #00000040;
-
-    .linkImage {
-      background-color: white;
-    }
-
-    .link {
-      color: white;
-    }
   }
 }
 

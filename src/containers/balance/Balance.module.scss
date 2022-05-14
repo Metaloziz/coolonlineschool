@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  column-gap: 140px;
+  padding: 20px 15px 35px 35px;
+  background: #ffffff url(#{$path-svg}/balance-bg.svg) no-repeat right top;
+  border-radius: 10px;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 185px;
+  align-self: flex-end;
+}
+.right {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+.infoGroup {
+  display: flex;
+  column-gap: 10px;
+  font: $font-small;
+
+  &:not(&:last-of-type) {
+    margin-bottom: 25px;
+  }
+
+  &:last-of-type {
+    margin-bottom: 35px;
+  }
+}
+.infoTitle {
+  width: 95px;
+}
+.info {
+  color: $color-red;
+}
+.contractBtn {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.balanceFundsContainer {
+  grid-column: 1 / -1;
+  margin-right: 10px;
+  margin-bottom: 55px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  align-items: flex-end;
+}
+.balanceFundsTitle {
+  font: $font-small;
+  font-weight: 700;
+  color: $color-secondary-text;
+}
+.balanceFunds {
+  font-size: 36px;
+  line-height: 90%;
+  color: $color-red;
+}
+.balancePayBtn {
+  margin-bottom: 20px;
+}
+.changeRateBtn {
+  margin-bottom: 30px;
+}

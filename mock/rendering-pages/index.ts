@@ -6,7 +6,7 @@ import {
   ProgressBarProps,
   SelectHomeworksFormProps,
   SliderProps,
-  TableProps,
+  StudentsTableProps,
   TeacherCommentProps,
   VerticalSliderProps,
 } from '@app/types/Props';
@@ -137,7 +137,7 @@ type IResultsPageRendering = {
   getResultsForm: Record<string, never>;
   progressBar: ProgressBarProps;
   slider: SliderProps;
-  table: TableProps;
+  table: StudentsTableProps;
   verticalSlider: VerticalSliderProps;
 };
 

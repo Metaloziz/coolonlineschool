@@ -15,10 +15,12 @@ const TeacherComment: FC<TeacherCommentProps> = ({ comment, commentDate }) => {
       <p className={styles.comment}>{comment}</p>
       <div className={styles.buttons}>
         <Button
+          className={styles.btn}
           colorTheme={ButtonColorThemes.red}
           text="Есть вопросы, обсудить на уроке"
         />
         <Button
+          className={styles.btn}
           colorTheme={ButtonColorThemes.red}
           text="Спасибо, всё понятно"
         />

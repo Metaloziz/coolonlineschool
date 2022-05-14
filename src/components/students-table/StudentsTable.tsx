@@ -1,9 +1,9 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { TableProps } from '@app/types/Props';
-import styles from './Table.module.scss';
+import { StudentsTableProps } from '@app/types/Props';
+import styles from './StudentsTable.module.scss';
 
-const Table: FC<TableProps> = ({ students, className }) => {
+const StudentsTable: FC<StudentsTableProps> = ({ students, className }) => {
   return (
     <div className={classNames(styles.container, className)}>
       <div className={styles.header}>
@@ -26,4 +26,4 @@ const Table: FC<TableProps> = ({ students, className }) => {
   );
 };
 
-export default Table;
+export default StudentsTable;

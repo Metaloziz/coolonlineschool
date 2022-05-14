@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { ButtonSubmit, CustomSelect, TextFieldCalendar } from '@components';
+import { ButtonColorThemes } from '@app/enums/Enums';
+import { Button, CustomSelect, TextFieldCalendar } from '@components';
 import { Slider } from '@containers';
 import { getRandomId } from '@utils/RandomId';
 import styles from './GetResultsForm.module.scss';
@@ -38,8 +39,12 @@ const GetResultsForm: FC = () => {
         placeholder="Группа"
       />
       <TextFieldCalendar text="Конец периода" />
-
-      <ButtonSubmit className={styles.submit} />
+      <Button
+        type="submit"
+        text="Найти"
+        colorTheme={ButtonColorThemes.green}
+        className={styles.submit}
+      />
     </form>
   );
 };

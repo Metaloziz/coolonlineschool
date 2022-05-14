@@ -1,20 +1,59 @@
 .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
   font: $font-small;
-  font-weight: 700;
   color: white;
   border-radius: 10px;
-}
 
-.red {
-  background-color: $color-secondary-button;
-  padding-left: 65px;
-  padding-right: 65px;
-}
+  &.red {
+    background-color: $color-secondary-button;
 
-.blue {
-  padding-left: 45px;
-  padding-right: 45px;
-  background-color: $color-button;
+    &:hover {
+      background-color: #cc1c1b;
+    }
+  }
+
+  &.blue {
+    background-color: $color-button;
+  }
+
+  &.transparent {
+    background-color: transparent;
+    border: 1px solid $color-button;
+    color: $color-button;
+
+    &:hover {
+      background-color: $color-button;
+      color: white;
+    }
+  }
+
+  &.blueGradient {
+    background-image: linear-gradient(90deg, #0439ad 0%, #38028f 100%);
+
+    &:hover {
+      background-image: initial;
+      background-color: #2f57b5;
+    }
+  }
+
+  &.green {
+    background-color: #afd46b;
+    color: $color-text;
+  }
+
+  &.minimal {
+    background-color: initial;
+    padding: initial;
+    column-gap: 15px;
+    color: black;
+    text-decoration: underline;
+    white-space: nowrap;
+    border-radius: initial;
+    height: min-content;
+  }
 }

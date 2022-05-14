@@ -1,18 +1,27 @@
 import classNames from 'classnames';
-import { ButtonHTMLAttributes, FC } from 'react';
+import { FC } from 'react';
 import { ButtonColorThemes } from '@app/enums/Enums';
+import { ButtonProps } from '@app/types/Props';
 import styles from './Button.module.scss';
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
-  text: string;
-  colorTheme?: ButtonColorThemes;
-}
-
-const Button: FC<Props> = ({ colorTheme = ButtonColorThemes.blue, text }) => {
-  return (
-    <button className={classNames(styles.container, styles[colorTheme])}>
-      {text}
+const Button: FC<ButtonProps> = ({
+  className,
+  colorTheme = ButtonColorThemes.blue,
+  text,
+  image,
+  type = 'button',
+}) => {
+  const btnClassNames = classNames(
+    styles.container,
+    styles[colorTheme],
+    className,
+  );
+  return type === 'submit' ? (
+    <input type="submit" value={text} className={btnClassNames} />
+  ) : (
+    <button className={btnClassNames}>
+      <b>{text}</b>
+      {image}
     </button>
   );
 };

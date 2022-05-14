@@ -1,0 +1,19 @@
+.container {
+  display: grid;
+  grid-template-columns: 110px 155px 325px 210px 230px 155px 125px;
+  padding: 10px 25px;
+  color: black;
+  font: $font-small;
+
+  &:nth-of-type(2) {
+    height: 80px;
+  }
+
+  &:nth-of-type(odd) {
+    background-color: #f8f8ff;
+  }
+}
+
+.desc {
+  margin-right: 50px;
+}

@@ -1,6 +1,7 @@
 export const Routes = {
   Index: '/',
-  Dashboard: '/dashboard',
+  Results: '/results',
+  Payment: './payment',
   Signin: '/account/signin',
   Signout: '/account/signout',
   Signup: '/account/signup',

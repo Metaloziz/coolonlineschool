@@ -13,7 +13,7 @@ interface Props {
   svgId: string;
 }
 
-const NavigationLink: FC<Props> = ({
+const SidebarNavigationItem: FC<Props> = ({
   link,
   className,
   wrapperClassName,
@@ -42,4 +42,4 @@ const NavigationLink: FC<Props> = ({
   );
 };
 
-export default NavigationLink;
+export default SidebarNavigationItem;
