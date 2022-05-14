@@ -5,14 +5,14 @@ import { getRandomId } from '@utils/RandomId';
 import styles from './SidebarNavigation.module.scss';
 
 const SidebarNavigation: FC = () => {
-  const { Index, Payment, Results } = Routes;
+  const { Index, Payment, Results, Achievements, Contacts, Games } = Routes;
   const links = [
     { label: 'Главная', href: Index, svgId: 'home' },
     { label: 'Расписание занятий', href: Index, svgId: 'schedule' },
-    { label: 'Ваши достижения', href: Index, svgId: 'achievements' },
+    { label: 'Ваши достижения', href: Achievements, svgId: 'achievements' },
     { label: 'Ваши результаты', href: Results, svgId: 'results' },
-    { label: 'Игры', href: Index, svgId: 'games' },
-    { label: 'Личные данные', href: Index, svgId: 'personal-data' },
+    { label: 'Игры', href: Games, svgId: 'games' },
+    { label: 'Личные данные', href: Contacts, svgId: 'personal-data' },
     { label: 'Оплата', href: Payment, svgId: 'payment' },
   ];
   return (
