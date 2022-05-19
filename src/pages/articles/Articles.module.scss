@@ -1,0 +1,81 @@
+.innerContent {
+  margin: 23px 0 0 20px;
+  width: 1514px;
+
+  & .buttonsTop {
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+
+    & p {
+      margin: auto 22px auto 57px;
+    }
+  }
+
+  & .blockArticles {
+    display: flex;
+    flex-wrap: wrap;
+
+    & .article {
+      background: #FFFFFF;
+      border-radius: 10px;
+      padding: 32px 46px 35px 45px;
+      margin-bottom: 10px;
+
+      & .heading {
+        display: flex;
+        align-items: center;
+
+        & h3 {
+          padding-right: 12px;
+          font-family: 'Montserrat Alternates', sans-serif;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 22px;
+          line-height: 26px;
+          color: #0F123F;
+        }
+
+        & .image {
+          cursor: pointer;
+        }
+      }
+
+      & .content {
+        padding: 16px 15px 10px 0;
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 30px;
+        color: #0F123F;
+      }
+
+      & .button {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  & .pagination {
+    display: flex;
+    margin: 42px 0 58px 0;
+    justify-content: center;
+  }
+}
+
+.buttonRead {
+  padding: 11px 73px;
+}
+
+.buttonAdd {
+  padding: 11px 88px;
+}
+
+.search {
+  padding: 11px 41px;
+}
+
+
+
