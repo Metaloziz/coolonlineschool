@@ -19,6 +19,10 @@
 
   &.blue {
     background-color: $color-button;
+
+    &:hover {
+      background-image: linear-gradient(90deg, #0439ad 0%, #38028f 100%);
+    }
   }
 
   &.transparent {
@@ -44,6 +48,10 @@
   &.green {
     background-color: #afd46b;
     color: $color-text;
+
+    &:hover {
+      background-color: #94B755;
+    }
   }
 
   &.minimal {
