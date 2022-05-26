@@ -20,7 +20,7 @@ const IndexPage: FC = () => {
           <InformationItem
             size={'large'}
             title={'Город'}
-            variant={'select'}
+            variant={'input'}
             option={city}
           />
           <InformationItem title={'Группа'} variant={'select'} option={group} />

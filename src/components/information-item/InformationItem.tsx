@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { FC } from 'react';
 import CustomSelect from '@components/custom-select/CustomSelect';
 import TextField from '@components/text-fild/TextFild';
@@ -29,23 +30,37 @@ const InformationItem: FC<Props> = ({
   placeholder = '',
 }) => {
   const finalStyle = `${size === 'large' ? styles.large : styles.normal}`;
+
+  const renderCalendar = () => {
+    return (
+      <div className={styles.calendarStyle}>
+        <div className={classNames(finalStyle, styles.inputCalendar)}>
+          <TextField />
+        </div>
+        <CustomCalendar />
+      </div>
+    );
+  };
+
   return (
     <div className={styles.wrapBlockItem}>
       <div>
         <p>{title}</p>
       </div>
-      <div className={finalStyle}>
-        {variant === 'select' && (
-          <CustomSelect options={option} placeholder={placeholder} />
-        )}
-        {variant === 'input' && <TextField />}
-        {variant === 'calendar' && (
-          <div className={styles.inputCalendar}>
-            <input className={styles.input} type={'text'} />
-            <CustomCalendar />
-          </div>
-        )}
-      </div>
+      {variant === 'calendar' ? (
+        renderCalendar()
+      ) : (
+        <div className={finalStyle}>
+          {variant === 'select' && (
+            <CustomSelect
+              options={option}
+              placeholder={placeholder}
+              size={size}
+            />
+          )}
+          {variant === 'input' && <TextField />}
+        </div>
+      )}
     </div>
   );
 };

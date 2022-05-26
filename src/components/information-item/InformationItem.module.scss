@@ -43,3 +43,12 @@
 .wrapBlockItem + .wrapBlockItem {
   margin-top: 23px;
 }
+
+.calendarStyle {
+  display: flex;
+  align-items: center;
+
+  & > div {
+    margin-right: 24px;
+  }
+}
