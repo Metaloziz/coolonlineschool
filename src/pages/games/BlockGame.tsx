@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import ButtonPlay from '@pages/games/ButtonPlay';
 import headingImg from '@svgs/heading-img.svg';
-import styles from './Games.module.scss';
+import cl from './Games.module.scss';
 
 type BlockGameProps = {
   imageCard: string;
@@ -11,19 +11,19 @@ type BlockGameProps = {
 
 const BlockGame = ({ imageCard, title, description }: BlockGameProps) => {
   return (
-    <div className={styles.blockGame}>
-      <div className={styles.startGame}>
-        <div className={styles.image}>
+    <div className={cl.blockGame}>
+      <div className={cl.startGame}>
+        <div className={cl.image}>
           <Image src={imageCard} width={151} height={151} alt="game" />
         </div>
         <ButtonPlay />
       </div>
-      <div className={styles.descriptionGame}>
-        <div className={styles.heading}>
+      <div className={cl.descriptionGame}>
+        <div className={cl.heading}>
           <h3>{title}</h3>
           <Image src={headingImg} width={40} height={40} alt="heading" />
         </div>
-        <div className={styles.content}>
+        <div className={cl.content}>
           <p>{description}</p>
         </div>
       </div>

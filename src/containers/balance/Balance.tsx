@@ -3,55 +3,58 @@ import { FC } from 'react';
 import { ButtonColorThemes } from '@app/enums/Enums';
 import { Button, SwitchButton } from '@components';
 import contractIcon from '@svgs/button/contract-icon.svg';
-import styles from './Balance.module.scss';
+import cl from './Balance.module.scss';
 
-type Props = {
+interface IBalance {
   lessonCount: number;
   ratePlanFirst: string;
   ratePlanSecond: string;
   balanceFunds: number;
-};
+  openModal: () => void;
+}
 
-const Balance: FC<Props> = ({
+const Balance: FC<IBalance> = ({
   balanceFunds,
   lessonCount,
   ratePlanFirst,
   ratePlanSecond,
+  openModal,
 }) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.left}>
-        <div className={styles.infoGroup}>
-          <b className={styles.infoTitle}>Доступно:</b>
-          <strong className={styles.info}>{lessonCount} занятий</strong>
+    <div className={cl.container}>
+      <div className={cl.left}>
+        <div className={cl.infoGroup}>
+          <b className={cl.infoTitle}>Доступно:</b>
+          <strong className={cl.info}>{lessonCount} занятий</strong>
         </div>
-        <div className={styles.infoGroup}>
-          <b className={styles.infoTitle}>Ваш тариф:</b>
-          <strong className={styles.info}>{ratePlanFirst}</strong>
+        <div className={cl.infoGroup}>
+          <b className={cl.infoTitle}>Ваш тариф:</b>
+          <strong className={cl.info}>{ratePlanFirst}</strong>
         </div>
-        <div className={styles.infoGroup}>
-          <b className={styles.infoTitle}>Ваш второй тариф:</b>
-          <strong className={styles.info}>{ratePlanSecond}</strong>
+        <div className={cl.infoGroup}>
+          <b className={cl.infoTitle}>Ваш второй тариф:</b>
+          <strong className={cl.info}>{ratePlanSecond}</strong>
         </div>
         <Button
-          className={styles.contractBtn}
+          className={cl.contractBtn}
           text="Скачать договор"
           colorTheme={ButtonColorThemes.transparent}
           image={<Image src={contractIcon} alt="contract icon" />}
         />
       </div>
-      <div className={styles.right}>
-        <div className={styles.balanceFundsContainer}>
-          <b className={styles.balanceFundsTitle}>Средств на балансе:</b>
-          <strong className={styles.balanceFunds}>{balanceFunds}₽</strong>
+      <div className={cl.right}>
+        <div className={cl.balanceFundsContainer}>
+          <b className={cl.balanceFundsTitle}>Средств на балансе:</b>
+          <strong className={cl.balanceFunds}>{balanceFunds}₽</strong>
         </div>
         <Button
-          className={styles.balancePayBtn}
+          className={cl.balancePayBtn}
           text="Пополнить баланс"
           colorTheme={ButtonColorThemes.red}
         />
         <Button
-          className={styles.changeRateBtn}
+          onClick={openModal}
+          className={cl.changeRateBtn}
           text="Сменить тариф"
           colorTheme={ButtonColorThemes.transparent}
         />

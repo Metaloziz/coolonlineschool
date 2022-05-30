@@ -1,9 +1,9 @@
 import BlockContacts from '@pages/contacts/BlockContacts';
-import styles from '@pages/contacts/Contacts.module.scss';
+import cl from '@pages/contacts/Contacts.module.scss';
 
 const IndexPage = () => {
   return (
-    <div className={styles.innerContent}>
+    <div className={cl.innerContent}>
       <BlockContacts isEdit />
       <BlockContacts isEdit isDelete />
       <BlockContacts isEdit isBase />

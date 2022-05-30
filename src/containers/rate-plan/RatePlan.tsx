@@ -1,18 +1,21 @@
 import { FC } from 'react';
-import { ButtonColorThemes } from '@app/enums/Enums';
-import { RateProps } from '@app/types/Props';
+import { ButtonColorThemes, RatePlans } from '@app/enums/Enums';
 import { Button, RatePlanOptions } from '@components';
 import { getRatePlanRus } from '@utils/RatePlans';
-import styles from './RatePlan.module.scss';
+import cl from './RatePlan.module.scss';
 
-const RatePlan: FC<RateProps> = ({ ratePlan }) => {
+interface IRatePlan {
+  ratePlan: RatePlans;
+}
+
+const RatePlan: FC<IRatePlan> = ({ ratePlan }) => {
   return (
-    <div className={styles.container}>
-      <strong className={styles.title}>{getRatePlanRus(ratePlan)}</strong>
-      <span className={styles.optionsTitle}>Вы получаете:</span>
-      <RatePlanOptions ratePlan={ratePlan} className={styles.options} />
+    <div className={cl.container}>
+      <strong className={cl.title}>{getRatePlanRus(ratePlan)}</strong>
+      <span className={cl.optionsTitle}>Вы получаете:</span>
+      <RatePlanOptions ratePlan={ratePlan} className={cl.options} />
       <Button
-        className={styles.btn}
+        className={cl.btn}
         text="Перейти на тариф"
         colorTheme={ButtonColorThemes.red}
       />

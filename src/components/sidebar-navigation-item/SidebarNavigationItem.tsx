@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
-import styles from './SidebarNavigationItem.module.scss';
+import cl from './SidebarNavigationItem.module.scss';
 
 interface Props {
   link: { label: string; href: string };
@@ -31,7 +31,7 @@ const SidebarNavigationItem: FC<Props> = ({
       <Link passHref href={href}>
         <button className={linkClassNames}>
           <div className={imageClassName}>
-            <svg className={styles.icon}>
+            <svg className={cl.icon}>
               <use xlinkHref={`#${svgId}`}></use>
             </svg>
           </div>

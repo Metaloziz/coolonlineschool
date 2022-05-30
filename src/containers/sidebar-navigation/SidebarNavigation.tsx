@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { SidebarNavigationItem } from '@components';
 import { Routes } from '@constants/Routes';
 import { getRandomId } from '@utils/RandomId';
-import styles from './SidebarNavigation.module.scss';
+import cl from './SidebarNavigation.module.scss';
 
 const SidebarNavigation: FC = () => {
   const { Index, Payment, Results, Achievements, Contacts, Games } = Routes;
@@ -16,7 +16,7 @@ const SidebarNavigation: FC = () => {
     { label: 'Оплата', href: Payment, svgId: 'payment' },
   ];
   return (
-    <aside className={styles.sidebar}>
+    <aside className={cl.sidebar}>
       <nav style={{ marginTop: '-20px' }}>
         <svg width="0" height="0" className="hidden">
           <symbol
@@ -574,14 +574,14 @@ const SidebarNavigation: FC = () => {
             svgId={link.svgId}
             key={getRandomId()}
             link={link}
-            wrapperClassName={styles.linkWrapper}
-            imageClassName={styles.linkImage}
-            className={styles.link}
+            wrapperClassName={cl.linkWrapper}
+            imageClassName={cl.linkImage}
+            className={cl.link}
           />
         ))}
       </nav>
 
-      <a href="./" className={styles.anchor}>
+      <a href="./" className={cl.anchor}>
         Разработка сайта - компания <span>“Sitetopic”</span>
       </a>
     </aside>

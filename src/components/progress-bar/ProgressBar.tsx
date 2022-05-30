@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 import { ProgressBarSizes } from '@app/enums/Enums';
-import { ProgressBarProps } from '@app/types/Props';
-import styles from './ProgressBar.module.scss';
+import { IProgressBar } from '@app/types';
+import cl from './ProgressBar.module.scss';
 
-const ProgressBar: FC<ProgressBarProps> = ({
+const ProgressBar: FC<IProgressBar> = ({
   title,
   percentToComplete: percent,
   colorTheme,
@@ -26,14 +26,9 @@ const ProgressBar: FC<ProgressBarProps> = ({
 
   return (
     <div
-      className={classNames(
-        styles.container,
-        styles[colorTheme],
-        styles[size],
-        className,
-      )}
+      className={classNames(cl.container, cl[colorTheme], cl[size], className)}
     >
-      <div className={styles.innerContainer}>
+      <div className={cl.innerContainer}>
         <svg
           width={svgSize}
           height={svgSize}
@@ -41,7 +36,7 @@ const ProgressBar: FC<ProgressBarProps> = ({
           xmlns="http://www.w3.org/2000/svg"
         >
           <circle
-            className={styles.circle}
+            className={cl.circle}
             r={radius}
             cx={circlePos}
             cy={circlePos}
@@ -50,7 +45,7 @@ const ProgressBar: FC<ProgressBarProps> = ({
             strokeWidth={isBig ? 30 : 20}
           ></circle>
           <circle
-            className={styles.bar}
+            className={cl.bar}
             r={radius}
             cx={circlePos}
             cy={circlePos}
@@ -60,13 +55,13 @@ const ProgressBar: FC<ProgressBarProps> = ({
           ></circle>
         </svg>
         {isBig ? (
-          <span className={styles.percentToComplete}>{percent}%</span>
+          <span className={cl.percentToComplete}>{percent}%</span>
         ) : (
           children
         )}
       </div>
-      {isNormal && <span className={styles.percentToComplete}>{percent}%</span>}
-      <span className={styles.title}>{title}</span>
+      {isNormal && <span className={cl.percentToComplete}>{percent}%</span>}
+      <span className={cl.title}>{title}</span>
     </div>
   );
 };

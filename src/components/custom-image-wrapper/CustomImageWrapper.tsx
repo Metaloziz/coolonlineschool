@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React, { FC } from 'react';
-import styles from './CustomImageWrapper.module.scss';
+import cl from './CustomImageWrapper.module.scss';
 
 interface Props {
   children: React.ReactNode;
@@ -15,8 +15,8 @@ const CustomImageWrapper: FC<Props> = ({
 }) => {
   return (
     <div
-      className={classNames(styles.container, className, {
-        [styles.withBorder]: isBordered,
+      className={classNames(cl.container, className, {
+        [cl.withBorder]: isBordered,
       })}
     >
       {children}

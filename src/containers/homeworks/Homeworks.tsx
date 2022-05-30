@@ -1,20 +1,21 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { HomeworksProps } from '@app/types/Props';
-import Homework from '@components/homework/Homework';
-import styles from './Homeworks.module.scss';
+import { IHomework } from '@app/types';
+import { Homework } from '@components';
+import cl from './Homeworks.module.scss';
 
-const Homeworks: FC<HomeworksProps> = ({ homeworks, className }) => {
+interface IHomeworks {
+  className?: string;
+  homeworks: IHomework[];
+}
+
+const Homeworks: FC<IHomeworks> = ({ homeworks, className }) => {
   return (
-    <div className={classNames(styles.container, className)}>
-      <p className={styles.panel}>Домашнее задание на 7 октября 2021</p>
-      <div className={styles.homeworks}>
+    <div className={classNames(cl.container, className)}>
+      <p className={cl.panel}>Домашнее задание на 7 октября 2021</p>
+      <div className={cl.homeworks}>
         {homeworks.map((homework) => (
-          <Homework
-            className={styles.homework}
-            key={homework.id}
-            {...homework}
-          />
+          <Homework className={cl.homework} key={homework.id} {...homework} />
         ))}
       </div>
     </div>

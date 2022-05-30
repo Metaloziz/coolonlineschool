@@ -1,4 +1,4 @@
-import CardStudent from '@containers/card-student/CardStudent';
+import StudentCard from '@containers/student-card/StudentCard';
 import BlockAchievement from '@pages/achievements/BlockAchievement';
 import best10 from '@svgs/games/best10.svg';
 import best20 from '@svgs/games/best20.svg';
@@ -15,7 +15,7 @@ import olympiad from '@svgs/games/olympiad.svg';
 import tableShulte from '@svgs/games/table-Shulte.svg';
 import winCompetitions from '@svgs/games/win-competitions.svg';
 import winnerOlympiad from '@svgs/games/winner-olympiad.svg';
-import styles from './Achievements.module.scss';
+import cl from './Achievements.module.scss';
 
 const achievementCardsInfo = [
   {
@@ -99,9 +99,9 @@ const achievementCardsInfo = [
 
 const IndexPage = () => {
   return (
-    <div className={styles.innerContent}>
-      <div className={styles.wrapCardStudent}>
-        <CardStudent
+    <div className={cl.innerContent}>
+      <div className={cl.wrapStudentCard}>
+        <StudentCard
           options={{
             studentName: 'Днепровский Александр Алексеевич',
             status: 'Новичок',
@@ -110,7 +110,7 @@ const IndexPage = () => {
           }}
         />
       </div>
-      <div className={styles.wrapContent}>
+      <div className={cl.wrapContent}>
         {achievementCardsInfo.map((item, index) => {
           return (
             <BlockAchievement

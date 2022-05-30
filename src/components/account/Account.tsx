@@ -4,24 +4,24 @@ import Link from 'next/link';
 import { FC } from 'react';
 import { Routes } from '@constants/Routes';
 import avatar from '@svgs/user-mini.svg';
-import styles from './Account.module.scss';
+import cl from './Account.module.scss';
 
 const Account: FC = () => {
   const { Signout } = Routes;
   const activeNotification = false;
 
   return (
-    <div className={styles.container}>
+    <div className={cl.container}>
       <button
-        className={classNames(styles.avatar, {
-          [styles.activeNotification]: activeNotification,
+        className={classNames(cl.avatar, {
+          [cl.activeNotification]: activeNotification,
         })}
       >
         <Image src={avatar} width={30} height={30} alt="avatar" />
-        <div className={styles.notification}></div>
+        <div className={cl.notification}></div>
       </button>
 
-      <button className={styles.logout}>
+      <button className={cl.logout}>
         <Link href={Signout}>Выйти из аккаунта</Link>
       </button>
     </div>

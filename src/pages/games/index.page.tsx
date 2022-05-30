@@ -5,7 +5,7 @@ import numberFigureWord from '@svgs/games/number-figure-word.svg';
 import readingWithGrid from '@svgs/games/reading-with-grid.svg';
 import tableShulte from '@svgs/games/table-Shulte.svg';
 import tangram from '@svgs/games/tangram.svg';
-import styles from './Games.module.scss';
+import cl from './Games.module.scss';
 
 const gamesCardInfo = [
   {
@@ -48,7 +48,7 @@ const gamesCardInfo = [
 
 const IndexPage = () => {
   return (
-    <div className={styles.innerContent}>
+    <div className={cl.innerContent}>
       {gamesCardInfo.map((item, index) => {
         return (
           <BlockGame

@@ -1,10 +1,10 @@
-import styles from '@pages/games/Games.module.scss';
+import cl from '@pages/games/Games.module.scss';
 
 const ButtonPlay = () => {
   return (
-    <div className={styles.playButton}>
+    <div className={cl.playButton}>
       <p>ИГРАТЬ</p>
-      <div className={styles.roundPlay}> </div>
+      <div className={cl.roundPlay}> </div>
     </div>
   );
 };

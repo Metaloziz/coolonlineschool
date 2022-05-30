@@ -2,13 +2,13 @@ import Image from 'next/image';
 import { useState } from 'react';
 import btnDeleteImageHover from '@svgs/delete-image-hover.svg';
 import btnDeleteImage from '@svgs/delete-image.svg';
-import styles from './BtnDeleteImg.module.scss';
+import cl from './BtnDeleteImg.module.scss';
 
 const BtnDeleteImg = () => {
   const [hover, setHover] = useState(false);
   return (
     <div
-      className={styles.delete}
+      className={cl.delete}
       onMouseOver={() => setHover(true)}
       onMouseOut={() => setHover(false)}
     >

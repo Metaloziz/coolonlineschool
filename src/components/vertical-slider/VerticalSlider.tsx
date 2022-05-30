@@ -1,15 +1,25 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { VerticalSliderProps } from '@app/types/Props';
-import styles from './VerticalSlider.module.scss';
+import cl from './VerticalSlider.module.scss';
 
-const VerticalSlider: FC<VerticalSliderProps> = ({ options, className }) => {
+interface IVerticalSliderOptions {
+  text: string;
+  id: number;
+  isActive?: boolean;
+}
+
+interface IVerticalSliders {
+  options: IVerticalSliderOptions[];
+  className?: string;
+}
+
+const VerticalSlider: FC<IVerticalSliders> = ({ options, className }) => {
   return (
-    <div className={classNames(styles.container, className)}>
+    <div className={classNames(cl.container, className)}>
       {options.map(({ text, id, isActive = false }) => (
         <div
           key={id}
-          className={classNames(styles.option, { [styles.active]: isActive })}
+          className={classNames(cl.option, { [cl.active]: isActive })}
         >
           {text}
         </div>

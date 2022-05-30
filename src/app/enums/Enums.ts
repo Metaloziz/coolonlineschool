@@ -31,6 +31,7 @@ export enum ButtonColorThemes {
   transparent = 'transparent',
   red = 'red',
   blue = 'blue',
+  yellow = 'yellow',
 }
 
 export enum RoleId {

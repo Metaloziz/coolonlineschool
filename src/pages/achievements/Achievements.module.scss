@@ -1,7 +1,7 @@
 .innerContent {
   margin: 35px 0 0 20px;
 
-  .wrapCardStudent {
+  .wrapStudentCard {
     width: 747px;
   }
 
@@ -15,7 +15,9 @@
     }
 
     & .blockAchievement {
-      background: url("../../../public/svgs/bg-card-achieve.svg") left top no-repeat, #ffffff;
+      background: url('../../../public/svgs/bg-card-achieve.svg') left top
+          no-repeat,
+        #ffffff;
       box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
       border-radius: 5px;
       width: 403px;
@@ -35,7 +37,6 @@
         font-size: 16px;
         line-height: 25px;
         color: #000000;
-
       }
 
       &.img {

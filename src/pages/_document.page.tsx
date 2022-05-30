@@ -24,11 +24,11 @@ class MyDocument extends Document {
           />
           <link
             href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap"
-            rel="stylesheet"
+            rel="clheet"
           ></link>
           <link
             href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500;600;700&display=swap"
-            rel="stylesheet"
+            rel="clheet"
           ></link>
         </Head>
         <body>

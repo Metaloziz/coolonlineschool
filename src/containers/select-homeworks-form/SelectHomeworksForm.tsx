@@ -1,17 +1,22 @@
 import { FC } from 'react';
-import { SelectHomeworksFormProps } from '@app/types/Props';
-import CustomSelect from '@components/custom-select/CustomSelect';
-import Slider from '@containers/slider/Slider';
+import { CustomSelect, Slider } from '@components';
 import { getRandomId } from '@utils/RandomId';
-import styles from './SelectHomeworksForm.module.scss';
+import cl from './SelectHomeworksForm.module.scss';
 
-const SelectHomeworksForm: FC<SelectHomeworksFormProps> = ({
+interface ISelectHomeworksForm {
+  className?: string;
+  years: number[];
+  months: number[];
+  lessonNumbers: number[];
+}
+
+const SelectHomeworksForm: FC<ISelectHomeworksForm> = ({
   lessonNumbers,
   months,
   years,
 }) => {
   return (
-    <div className={styles.container}>
+    <div className={cl.container}>
       <CustomSelect
         options={years.map((year) => ({
           label: `${year}`,
@@ -35,7 +40,7 @@ const SelectHomeworksForm: FC<SelectHomeworksFormProps> = ({
       />
       <Slider
         size="long"
-        className={styles.slider}
+        className={cl.slider}
         options={[
           {
             text: 'Ментальная арифметика',

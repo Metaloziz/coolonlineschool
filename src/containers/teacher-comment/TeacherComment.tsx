@@ -1,26 +1,31 @@
 import { FC } from 'react';
 import { ButtonColorThemes } from '@app/enums/Enums';
-import { TeacherCommentProps } from '@app/types/Props';
-import Button from '@components/button/Button';
+import { Button } from '@components';
 import { convertToString } from '@utils/Date';
-import styles from './TeacherComment.module.scss';
+import cl from './TeacherComment.module.scss';
 
-const TeacherComment: FC<TeacherCommentProps> = ({ comment, commentDate }) => {
+interface ITeacherComment {
+  className?: string;
+  commentDate: Date;
+  comment: string;
+}
+
+const TeacherComment: FC<ITeacherComment> = ({ comment, commentDate }) => {
   return (
-    <div className={styles.container}>
-      <p className={styles.title}>
+    <div className={cl.container}>
+      <p className={cl.title}>
         Комментарий учителя к домашенму заданию на{' '}
         {convertToString(commentDate)}
       </p>
-      <p className={styles.comment}>{comment}</p>
-      <div className={styles.buttons}>
+      <p className={cl.comment}>{comment}</p>
+      <div className={cl.buttons}>
         <Button
-          className={styles.btn}
+          className={cl.btn}
           colorTheme={ButtonColorThemes.red}
           text="Есть вопросы, обсудить на уроке"
         />
         <Button
-          className={styles.btn}
+          className={cl.btn}
           colorTheme={ButtonColorThemes.red}
           text="Спасибо, всё понятно"
         />

@@ -1,15 +1,19 @@
-import { FC } from 'react';
+import { FC, FormEvent, FormHTMLAttributes } from 'react';
 import { ButtonColorThemes } from '@app/enums/Enums';
 import { Button, CustomSelect, TextFieldCalendar } from '@components';
 import { Slider } from '@containers';
 import { getRandomId } from '@utils/RandomId';
-import styles from './GetResultsForm.module.scss';
+import cl from './GetResultsForm.module.scss';
 
-const GetResultsForm: FC = () => {
+interface IGetResultsForm extends FormHTMLAttributes<HTMLFormElement> {
+  onSubmit: (e: FormEvent<HTMLFormElement>) => void;
+}
+
+const GetResultsForm: FC<IGetResultsForm> = ({ onSubmit }) => {
   return (
-    <form className={styles.form} action="" method="post">
+    <form className={cl.form}>
       <Slider
-        className={styles.slider}
+        className={cl.slider}
         options={[
           {
             id: getRandomId(),
@@ -23,7 +27,7 @@ const GetResultsForm: FC = () => {
         ]}
       />
       <TextFieldCalendar
-        className={styles.textFieldCalendar}
+        className={cl.textFieldCalendar}
         text="Начало периода"
       />
       <CustomSelect
@@ -43,7 +47,7 @@ const GetResultsForm: FC = () => {
         type="submit"
         text="Найти"
         colorTheme={ButtonColorThemes.green}
-        className={styles.submit}
+        className={cl.submit}
       />
     </form>
   );

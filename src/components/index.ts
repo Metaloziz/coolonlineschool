@@ -1,8 +1,8 @@
-export { default as CardStudentBottom } from '@components/card-student-bottom/CardStudentBottom';
+export { default as StudentCardBottom } from '@components/student-card-bottom/StudentCardBottom';
 export { default as Account } from './account/Account';
 export { default as ButtonPlay } from './button-play/ButtonPlay';
 export { default as Button } from './button/Button';
-export { default as CardStudentSlider } from './card-student-slider/CardStudentSlider';
+export { default as StudentCardSlider } from './student-card-slider/StudentCardSlider';
 export { default as CustomCalendar } from './custom-calendar/CustomCalendar';
 export { default as CustomImageWrapper } from './custom-image-wrapper/CustomImageWrapper';
 export { default as CustomSelect } from './custom-select/CustomSelect';
@@ -20,3 +20,6 @@ export { default as TextFieldCalendar } from './text-field-calendar/TextFieldCal
 export { default as VerticalSlider } from './vertical-slider/VerticalSlider';
 export { default as SwitchButton } from './switch-button/SwitchButton';
 export { default as RateTableRow } from './rate-table-row/RateTableRow';
+export { default as RateCard } from './rate-card/RateCard';
+export { default as Slider } from './slider/Slider';
+export { default as CloseModalButton } from './close-modal-button/CloseModalButton';

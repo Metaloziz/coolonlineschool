@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
 import { useEffect, useState, FC } from 'react';
-import styles from './PageLoading.module.scss';
+import cl from './PageLoading.module.scss';
 
 const PageLoading: FC = () => {
   const router = useRouter();
@@ -21,9 +21,7 @@ const PageLoading: FC = () => {
     };
   });
 
-  return (
-    <div className={classNames(styles.overlay, { [styles.show]: isLoading })} />
-  );
+  return <div className={classNames(cl.overlay, { [cl.show]: isLoading })} />;
 };
 
 export default PageLoading;

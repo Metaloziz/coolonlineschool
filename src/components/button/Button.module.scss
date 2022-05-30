@@ -56,4 +56,12 @@
     border-radius: initial;
     height: min-content;
   }
+  
+  &.yellow {
+    background-color: #F7BB37;
+
+    &:hover {
+      background-color: #FF9900;
+    }
+  }
 }

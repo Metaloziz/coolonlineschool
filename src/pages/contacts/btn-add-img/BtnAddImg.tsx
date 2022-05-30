@@ -2,13 +2,13 @@ import Image from 'next/image';
 import { useState } from 'react';
 import btnAddImageHover from '@svgs/btn-add-hover.svg';
 import btnAddImage from '@svgs/btn-add.svg';
-import styles from './BtnAddImg.module.scss';
+import cl from './BtnAddImg.module.scss';
 
 const BtnAddImg = () => {
   const [hover, setHover] = useState(false);
   return (
     <div
-      className={styles.add}
+      className={cl.add}
       onMouseOver={() => setHover(true)}
       onMouseOut={() => setHover(false)}
     >

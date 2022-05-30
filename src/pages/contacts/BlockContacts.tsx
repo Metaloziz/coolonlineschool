@@ -4,7 +4,7 @@ import BaseImg from '@pages/contacts/base/BaseImg';
 import BtnAddImg from '@pages/contacts/btn-add-img/BtnAddImg';
 import BtnDeleteImg from '@pages/contacts/btn-delete-img/BtnDeleteImg';
 import BtnEditImg from '@pages/contacts/btn-edit-img/BtnEditImg';
-import styles from '@pages/contacts/Contacts.module.scss';
+import cl from '@pages/contacts/Contacts.module.scss';
 
 type BlockContactsProps = {
   blockAdd?: boolean;
@@ -20,46 +20,46 @@ const BlockContacts = ({
   isBase = false,
 }: BlockContactsProps) => {
   return (
-    <div className={styles.blockPersonal}>
+    <div className={cl.blockPersonal}>
       {blockAdd ? (
         <>
-          <div className={styles.avatarAdd}> </div>
-          <div className={styles.information}>
-            <div className={styles.informationAdd}>
+          <div className={cl.avatarAdd}> </div>
+          <div className={cl.information}>
+            <div className={cl.informationAdd}>
               <BtnAddImg />
             </div>
           </div>
         </>
       ) : (
         <>
-          <div className={styles.avatar}>
+          <div className={cl.avatar}>
             <Image
               src={avatar}
               width={173}
               height={165}
               alt="avatar"
-              className={styles.avatarImg}
+              className={cl.avatarImg}
             />
           </div>
-          <div className={styles.information}>
-            <p className={styles.name}>Днепровский Александр Алексеевич</p>
-            <p className={styles.informationItem}>
+          <div className={cl.information}>
+            <p className={cl.name}>Днепровский Александр Алексеевич</p>
+            <p className={cl.informationItem}>
               Статус:<span>Новичок</span>
             </p>
-            <p className={styles.informationItem}>
+            <p className={cl.informationItem}>
               Город:<span>Москва</span>
             </p>
-            <p className={styles.informationItem}>
+            <p className={cl.informationItem}>
               Телефон:<span>+7 (950) 55-55-371</span>
             </p>
-            <p className={styles.informationItem}>
+            <p className={cl.informationItem}>
               Дата рождения:<span>11.10.1993</span>
             </p>
-            <p className={styles.informationItem}>
+            <p className={cl.informationItem}>
               Почта:<span>test@test.ru</span>
             </p>
           </div>
-          <div className={styles.icons}>
+          <div className={cl.icons}>
             {isEdit && <BtnEditImg />}
             {isDelete && <BtnDeleteImg />}
           </div>

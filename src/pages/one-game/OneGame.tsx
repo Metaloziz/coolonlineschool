@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { FC } from 'react';
 import ButtonPlay from '@components/button-play/ButtonPlay';
-import styles from '@pages/one-game/OneGame.module.scss';
+import cl from '@pages/one-game/OneGame.module.scss';
 import gameImg from '@svgs/one-game/game-table-Shulte.svg';
 
 interface Props {
@@ -11,16 +11,16 @@ interface Props {
 
 const OneGame: FC<Props> = ({ title, description }) => {
   return (
-    <div className={styles.contentGame}>
-      <div className={styles.blockGame}>
-        <div className={styles.imagePlay}>
+    <div className={cl.contentGame}>
+      <div className={cl.blockGame}>
+        <div className={cl.imagePlay}>
           <Image src={gameImg} width={461} height={461} alt="goBack" />
-          <div className={styles.player}>
+          <div className={cl.player}>
             <ButtonPlay oneGame />
           </div>
         </div>
       </div>
-      <div className={styles.descriptionGame}>
+      <div className={cl.descriptionGame}>
         <h3>{title}</h3>
         <p>{description}</p>
       </div>

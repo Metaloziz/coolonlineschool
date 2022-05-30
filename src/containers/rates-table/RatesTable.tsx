@@ -1,13 +1,18 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { RatesTableProps } from '@app/types/Props';
+import { IRateTableRow } from '@app/types';
 import { RateTableRow } from '@components';
-import styles from './RatesTable.module.scss';
+import cl from './RatesTable.module.scss';
 
-const RatesTable: FC<RatesTableProps> = ({ rates, className }) => {
+interface IRatesTable {
+  rates: IRateTableRow[];
+  className?: string;
+}
+
+const RatesTable: FC<IRatesTable> = ({ rates, className }) => {
   return (
-    <div className={classNames(styles.container, className)}>
-      <div className={styles.rowHeader}>
+    <div className={classNames(cl.container, className)}>
+      <div className={cl.rowHeader}>
         <span>ID</span>
         <span>Сумма</span>
         <span>Описание</span>

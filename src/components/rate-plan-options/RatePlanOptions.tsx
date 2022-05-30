@@ -1,16 +1,33 @@
 import { FC } from 'react';
 import { RatePlans } from '@app/enums/Enums';
 import { getRandomId } from '@utils/RandomId';
+import { getRatePlanRus } from '@utils/RatePlans';
 
 type Props = {
   ratePlan: RatePlans;
   className?: string;
+  isExtraOption?: boolean;
+  extraOptionClassName?: string;
 };
 
-const RatePlanOptions: FC<Props> = ({ ratePlan, className }) => {
+const RatePlanOptions: FC<Props> = ({
+  ratePlan,
+  className,
+  extraOptionClassName,
+  isExtraOption = false,
+}) => {
   const { introductory, independent, advanced, personal } = RatePlans;
 
   const options: string[] = [];
+  const includedRatePlan: typeof independent | typeof advanced | null =
+    isExtraOption
+      ? ratePlan === advanced
+        ? independent
+        : ratePlan === personal
+        ? advanced
+        : null
+      : null;
+
   switch (ratePlan) {
     case introductory:
       options.push(
@@ -55,11 +72,20 @@ const RatePlanOptions: FC<Props> = ({ ratePlan, className }) => {
       break;
   }
   return (
-    <ul className={className || ''}>
-      {options.map((option) => (
-        <li key={getRandomId()}>{option}</li>
-      ))}
-    </ul>
+    <>
+      {includedRatePlan && (
+        <span
+          className={extraOptionClassName}
+        >{`Всё, что включает тариф “${getRatePlanRus(
+          includedRatePlan,
+        )}”`}</span>
+      )}
+      <ul className={className || ''}>
+        {options.map((option) => (
+          <li key={getRandomId()}>{option}</li>
+        ))}
+      </ul>
+    </>
   );
 };
 

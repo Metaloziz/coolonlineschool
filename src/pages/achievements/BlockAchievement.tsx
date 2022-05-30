@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import Image from 'next/image';
-import styles from './Achievements.module.scss';
+import cl from './Achievements.module.scss';
 
 type BlockAchievementProps = {
   imageCard: string;
@@ -14,13 +14,13 @@ const BlockAchievement = ({
   title,
 }: BlockAchievementProps) => {
   const linkClassNames = classNames(
-    styles.blockAchievement,
-    !isActive && styles.notActiveBlock,
+    cl.blockAchievement,
+    !isActive && cl.notActiveBlock,
   );
   return (
     <div className={linkClassNames}>
       <h3>{title}</h3>
-      <div className={styles.img}>
+      <div className={cl.img}>
         <Image src={imageCard} width={80} height={80} alt="achievement" />
       </div>
     </div>

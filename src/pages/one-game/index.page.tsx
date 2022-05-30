@@ -2,13 +2,13 @@ import Image from 'next/image';
 import { FC } from 'react';
 import OneGame from '@pages/one-game/OneGame';
 import goBack from '@svgs/go-back-img.svg';
-import styles from './OneGame.module.scss';
+import cl from './OneGame.module.scss';
 
 const IndexPage: FC = () => {
   return (
-    <div className={styles.innerContent}>
-      <div className={styles.goBack}>
-        <div className={styles.image}>
+    <div className={cl.innerContent}>
+      <div className={cl.goBack}>
+        <div className={cl.image}>
           <Image src={goBack} width={30} height={30} alt="goBack" />
         </div>
         <p>На предыдущую страницу</p>

@@ -10,7 +10,7 @@
 
   padding: 25px 35px;
 
-  background: white url(#{$path-svg}/card-student/bg-small.svg) no-repeat bottom
+  background: white url(#{$path-svg}/student-card/bg-small.svg) no-repeat bottom
     right;
   border-radius: 10px;
   box-shadow: 0px 0px 40px rgba(86, 89, 146, 0.15);
@@ -22,7 +22,7 @@
     align-items: center;
     column-gap: 30px;
     padding: 20px 45px 10px;
-    background-image: url(#{$path-svg}/card-student/bg.svg);
+    background-image: url(#{$path-svg}/student-card/bg.svg);
 
     .avatar {
       grid-row: span 4;

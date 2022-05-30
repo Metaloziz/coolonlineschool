@@ -1,26 +1,94 @@
+import { ProgressBarColorThemes, ProgressBarSizes } from '@app/enums/Enums';
 import { ProgressBar, StudentsTable, VerticalSlider } from '@components';
-import { CardStudent, Slider } from '@containers';
-import GetResultsForm from '@containers/get-results-form/GetResultsForm';
-import { resultsPageRendering } from '@mock/rendering-pages';
-import styles from './Results.module.scss';
+import { StudentCard, Slider, GetResultsForm } from '@containers';
+import { getRandomId } from '@utils/RandomId';
+import cl from './Results.module.scss';
 
 export default function Results() {
   return (
-    <div className={styles.container}>
-      <CardStudent
-        {...resultsPageRendering.cardStudent}
-        className={styles.cardStudent}
+    <div className={cl.container}>
+      <StudentCard
+        options={{
+          status: 'Новичок',
+          studentName: 'Днепровский Александр Алексеевич',
+          geo: 'Москва',
+        }}
+        className={cl.cardStudent}
       />
-      <GetResultsForm />
+      <GetResultsForm
+        onSubmit={function (): void {
+          throw new Error('Function not implemented.');
+        }}
+      />
       <ProgressBar
-        {...resultsPageRendering.progressBar}
-        className={styles.progressBar}
+        title="Общий балл"
+        percentToComplete={50}
+        colorTheme={ProgressBarColorThemes.red}
+        size={ProgressBarSizes.big}
+        className={cl.progressBar}
       />
-      <Slider {...resultsPageRendering.slider} className={styles.bigSlider} />
-      <StudentsTable {...resultsPageRendering.table} className={styles.table} />
+      <Slider
+        options={[
+          { id: getRandomId(), text: 'Таблица' },
+          {
+            id: getRandomId(),
+            isActive: true,
+            text: 'График',
+          },
+        ]}
+        colorTheme="red"
+        className={cl.bigSlider}
+      />
+      <StudentsTable
+        students={[
+          {
+            fullName: 'Днепровский Александр Алексеевич',
+            studyPeriodBeginning:
+              '' + new Date().toISOString().substring(0, 10),
+            studyPeriodEnd: '' + new Date().toISOString().substring(0, 10),
+            group: 1,
+            id: getRandomId(),
+          },
+          {
+            fullName: 'Днепровский Александр Алексеевич',
+            studyPeriodBeginning:
+              '' + new Date().toISOString().substring(0, 10),
+            studyPeriodEnd: '' + new Date().toISOString().substring(0, 10),
+            group: 1,
+            id: getRandomId(),
+          },
+          {
+            fullName: 'Днепровский Александр Алексеевич',
+            studyPeriodBeginning:
+              '' + new Date().toISOString().substring(0, 10),
+            studyPeriodEnd: '' + new Date().toISOString().substring(0, 10),
+            group: 1,
+            id: getRandomId(),
+          },
+          {
+            fullName: 'Днепровский Александр Алексеевич',
+            studyPeriodBeginning:
+              '' + new Date().toISOString().substring(0, 10),
+            studyPeriodEnd: '' + new Date().toISOString().substring(0, 10),
+            group: 1,
+            id: getRandomId(),
+          },
+        ]}
+        className={cl.table}
+      />
       <VerticalSlider
-        {...resultsPageRendering.verticalSlider}
-        className={styles.verticalSlider}
+        options={[
+          {
+            text: 'Параметр 1',
+            id: getRandomId(),
+            isActive: true,
+          },
+          { text: 'Параметр 2', id: getRandomId() },
+          { text: 'Параметр 3', id: getRandomId() },
+          { text: 'Параметр 4', id: getRandomId() },
+          { text: 'Параметр 5', id: getRandomId() },
+        ]}
+        className={cl.verticalSlider}
       />
     </div>
   );

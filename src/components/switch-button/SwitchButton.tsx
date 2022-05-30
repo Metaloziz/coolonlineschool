@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { FC, InputHTMLAttributes } from 'react';
-import styles from './SwitchButton.module.scss';
+import cl from './SwitchButton.module.scss';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
@@ -10,22 +10,20 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 
 const SwitchButton: FC<Props> = ({ label, isChecked = true, name }) => {
   return (
-    <div
-      className={classNames(styles.container, { [styles.switchOn]: isChecked })}
-    >
+    <div className={classNames(cl.container, { [cl.switchOn]: isChecked })}>
       <b>
-        <label className={styles.label} htmlFor={name}>
+        <label className={cl.label} htmlFor={name}>
           {label}
         </label>
       </b>
       <input
-        className={styles.checkbox}
+        className={cl.checkbox}
         checked={isChecked}
         type="checkbox"
         name={name}
         id={name}
       />
-      <div className={styles.switchBtn}></div>
+      <div className={cl.switchBtn}></div>
     </div>
   );
 };

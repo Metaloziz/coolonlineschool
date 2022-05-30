@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { ButtonHTMLAttributes, FC } from 'react';
 import { ButtonPlaySizes } from '@app/enums/Enums';
-import styles from './ButtonPlay.module.scss';
+import cl from './ButtonPlay.module.scss';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
@@ -16,13 +16,13 @@ const ButtonPlay: FC<Props> = ({
 }) => {
   return (
     <button
-      className={classNames(styles.container, className, {
-        [styles.containerSmalled]: size === ButtonPlaySizes.small,
-        [styles.containerOneGame]: oneGame,
+      className={classNames(cl.container, className, {
+        [cl.containerSmalled]: size === ButtonPlaySizes.small,
+        [cl.containerOneGame]: oneGame,
       })}
     >
-      <div className={styles.img} />
-      <p className={styles.text}>Играть</p>
+      <div className={cl.img} />
+      <p className={cl.text}>Играть</p>
     </button>
   );
 };
