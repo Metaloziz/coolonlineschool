@@ -8,9 +8,14 @@ interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
     value: string;
   }[];
   placeholder: string;
+  size?: string;
 }
 
-const CustomSelect: FC<Props> = ({ options, placeholder }) => {
+const CustomSelect: FC<Props> = ({
+  options,
+  placeholder,
+  size = 'sizeAuto',
+}) => {
   return (
     <div className={cl.container}>
       <div className={cl.inner}>
@@ -19,6 +24,7 @@ const CustomSelect: FC<Props> = ({ options, placeholder }) => {
           placeholder={placeholder}
           options={options}
           components={{ IndicatorSeparator: () => null }}
+          className={styles[size]}
         />
       </div>
     </div>

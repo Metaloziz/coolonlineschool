@@ -1,0 +1,54 @@
+.wrapBlockItem {
+  display: flex;
+  align-items: center;
+
+  & > div {
+    width: 48%;
+  }
+
+  & p {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+  }
+
+  & .large {
+    max-width: 234px;
+  }
+
+  & .normal {
+    max-width: 140px;
+  }
+
+  .inputCalendar {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+
+    .input {
+      width: 100px;
+      font: $font-small;
+      color: $color-secondary-text;
+      background-color: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0px 0px 40px rgba(86, 89, 146, 0.15);
+      border: none;
+      outline: none;
+      padding: 10px 15px;
+    }
+  }
+}
+
+.wrapBlockItem + .wrapBlockItem {
+  margin-top: 23px;
+}
+
+.calendarStyle {
+  display: flex;
+  align-items: center;
+
+  & > div {
+    margin-right: 24px;
+  }
+}
