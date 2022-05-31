@@ -1,7 +1,11 @@
 .innerContent {
-  margin: 35px 0 0 20px;
+  padding: 35px 0 85px 20px;
   display: flex;
   flex-wrap: wrap;
+  flex-grow: 1;
+  align-content: start;
+  background: url(#{$path-svg}/pages/payment-bg.svg) right calc(100% - 85px)
+    no-repeat;
 
   & .blockPersonal {
     box-shadow: 0px 0px 40px rgba(86, 89, 146, 0.15);
@@ -10,12 +14,13 @@
     height: 220px;
     display: flex;
     align-items: center;
-    background: url('../../../public/svgs/personal-data.png') top no-repeat, #ffffff;
+    background: url('../../../public/svgs/personal-data.png') top no-repeat,
+      #ffffff;
     position: relative;
     margin: 10px;
 
     & .avatar {
-      background: #4778EC;
+      background: #4778ec;
       border-radius: 18px;
       margin-left: 37px;
       width: 181px;
@@ -33,7 +38,8 @@
     }
 
     & .avatarAdd {
-      background: url('../../../public/svgs/user-add.svg') center no-repeat, #4778EC ;
+      background: url('../../../public/svgs/user-add.svg') center no-repeat,
+        #4778ec;
       width: 171px;
       height: 171px;
       border-radius: 18px;
@@ -55,21 +61,20 @@
         font-size: 14px;
         font-weight: 600;
         font-family: 'Montserrat', sans-serif;
-        color: #BABEC6;
+        color: #babec6;
         margin-top: 10px;
 
         & span {
           font-size: 14px;
           font-weight: 600;
           font-family: 'Montserrat', sans-serif;
-          color: #4778EC;
+          color: #4778ec;
           margin-left: 12px;
         }
       }
 
       & .informationAdd {
         display: flex;
-
       }
     }
 
@@ -81,7 +86,3 @@
     }
   }
 }
-
-
-
-

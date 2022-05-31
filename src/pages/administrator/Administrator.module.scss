@@ -2,6 +2,7 @@ $widthBlock: 1359px;
 
 .innerContent {
   padding: 24px 0 18px 21px;
+  background: url(#{$path-svg}/pages/payment-bg.svg) right center no-repeat;
 
   & .wrapBlock {
     display: flex;
@@ -52,5 +53,4 @@ $widthBlock: 1359px;
       margin-left: 20px;
     }
   }
-
 }

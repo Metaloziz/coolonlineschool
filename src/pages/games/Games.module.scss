@@ -1,8 +1,9 @@
 .innerContent {
-  margin: 35px 0 0 20px;
+  padding: 25px 120px 50px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  background: url(#{$path-svg}/pages/games-list-bg.svg) center no-repeat;
 
   & .blockGame {
     background: #ffffff;
@@ -19,11 +20,10 @@
       flex: none;
 
       & .image {
-
       }
 
       & .playButton {
-        background: #4778EC;
+        background: #4778ec;
         border-radius: 10px;
         display: flex;
         justify-content: center;
@@ -45,15 +45,19 @@
           height: 30px;
           width: 30px;
           border-radius: 50%;
-          background: url("../../../public/svgs/button-play-red.png") center center no-repeat, #ffffff;
+          background: url('../../../public/svgs/button-play-red.png') center
+              center no-repeat,
+            #ffffff;
         }
       }
 
       & .playButton:hover {
-        background: #FF6968;
+        background: #ff6968;
 
         & .roundPlay {
-          background: url("../../../public/svgs/button-play-blue.svg") center center no-repeat, #ffffff;
+          background: url('../../../public/svgs/button-play-blue.svg') center
+              center no-repeat,
+            #ffffff;
         }
       }
     }
@@ -84,12 +88,8 @@
         font-weight: 500;
         font-size: 14px;
         line-height: 25px;
-        color: #0F123F;
+        color: #0f123f;
       }
     }
   }
 }
-
-
-
-

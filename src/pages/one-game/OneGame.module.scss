@@ -1,10 +1,11 @@
 .innerContent {
-  margin: 50px 0 0 20px;
+  padding: 50px 0 0 20px;
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 30px;
+  background: url(#{$path-svg}/pages/one-game-bg.svg) center no-repeat;
 
   & .goBack {
     display: flex;
@@ -24,7 +25,7 @@
     & .blockGame {
       height: 750px;
       width: 1205px;
-      background: url("../../../public/svgs/bg-one-game.svg");
+      background: url('../../../public/svgs/bg-one-game.svg');
       display: flex;
       justify-content: center;
       align-items: center;
@@ -53,12 +54,8 @@
         font-weight: 700;
         font-size: 24px;
         line-height: 29px;
-        color: #4778EC;
+        color: #4778ec;
       }
     }
   }
 }
-
-
-
-

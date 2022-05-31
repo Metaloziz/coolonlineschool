@@ -1,8 +1,10 @@
 $width_block: 1360px;
 
 .innerContent {
-  margin: 35px 0 0 20px;
-
+  padding: 35px 0 0 20px;
+  flex-grow: 1;
+  background: url(#{$path-svg}/pages/one-game-bg.svg) right bottom no-repeat;
+ 
   & .goBack {
     display: flex;
     align-items: center;
@@ -26,7 +28,7 @@ $width_block: 1360px;
     & .buttonAdd {
       padding: 3px 3px 0 0;
       cursor: pointer;
-      background: #FFFFFF;
+      background: #ffffff;
       padding-left: 20px;
       margin-left: -20px;
       border-radius: 10px;
@@ -35,13 +37,13 @@ $width_block: 1360px;
 
   & .pattern {
     width: $width_block;
-    background: #FFFFFF;
+    background: #ffffff;
     border-radius: 10px;
     padding: 37px 160px 38px 81px;
 
     & input {
       padding: 11px 16px;
-      background: #FFFFFF;
+      background: #ffffff;
       box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
       border-radius: 10px;
       border: none;
@@ -53,7 +55,7 @@ $width_block: 1360px;
       font-weight: 700;
       font-size: 22px;
       line-height: 27px;
-      color: #0F123F;
+      color: #0f123f;
     }
 
     & p {
@@ -119,7 +121,7 @@ $width_block: 1360px;
     font-weight: 700;
     font-size: 22px;
     line-height: 27px;
-    color: #4778EC;
+    color: #4778ec;
   }
 
   & .description {
@@ -128,7 +130,7 @@ $width_block: 1360px;
   }
 
   & input {
-    outline:none;
+    outline: none;
     height: 40px;
     width: 150px;
   }
@@ -143,7 +145,3 @@ $width_block: 1360px;
     }
   }
 }
-
-
-
-

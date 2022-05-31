@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  column-gap: 15px;
+  align-items: center;
+}
+
+.logoName {
+  font: $font-secondary-visualiser-big;
+  text-transform: uppercase;
+}
+.red {
+  color: #f65d61;
+}
+.blue {
+  color: #346fc8;
+}
+.violet {
+  color: #8083d1;
+}

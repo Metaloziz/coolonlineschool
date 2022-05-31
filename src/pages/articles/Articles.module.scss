@@ -1,8 +1,11 @@
 .innerContent {
-  margin: 23px 0 0 20px;
-  width: 1514px;
+  padding: 25px 0 0 20px;
+  display: flex;
+  flex-direction: column;
+  background: url(#{$path-svg}/pages/home-bg.svg) right center no-repeat;
 
   & .buttonsTop {
+    width: 1515px;
     margin-bottom: 35px;
     display: flex;
     justify-content: space-between;
@@ -13,11 +16,12 @@
   }
 
   & .blockArticles {
+    width: 1515px;
     display: flex;
     flex-wrap: wrap;
 
     & .article {
-      background: #FFFFFF;
+      background: #ffffff;
       border-radius: 10px;
       padding: 32px 46px 35px 45px;
       margin-bottom: 10px;
@@ -33,7 +37,7 @@
           font-weight: 700;
           font-size: 22px;
           line-height: 26px;
-          color: #0F123F;
+          color: #0f123f;
         }
 
         & .image {
@@ -48,7 +52,7 @@
         font-weight: 500;
         font-size: 18px;
         line-height: 30px;
-        color: #0F123F;
+        color: #0f123f;
       }
 
       & .button {
@@ -59,6 +63,7 @@
   }
 
   & .pagination {
+    width: 1515px;
     display: flex;
     margin: 42px 0 58px 0;
     justify-content: center;
@@ -76,6 +81,3 @@
 .search {
   padding: 11px 41px;
 }
-
-
-

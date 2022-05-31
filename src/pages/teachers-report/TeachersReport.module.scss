@@ -1,8 +1,9 @@
-$widthBlock: 1359px;
+$widthBlock: 1360px;
 
 .innerContent {
-  padding: 24px 0 18px 21px;
-  width: $widthBlock;
+  flex-grow: 1;
+  padding: 25px 0 20px 20px;
+  background: url(#{$path-svg}/pages/payment-bg.svg) right center no-repeat;
 
   & .wrapBlock {
     display: flex;
@@ -38,11 +39,10 @@ $widthBlock: 1359px;
   }
 
   & .tableBlock {
+    width: $widthBlock;
     display: flex;
 
     & .tableContent {
-      width: $widthBlock;
-
       & .ratesTable {
         color: #ffffff;
       }
@@ -55,6 +55,7 @@ $widthBlock: 1359px;
   }
 
   & .pagination {
+    width: $widthBlock;
     display: flex;
     margin: 42px 0 58px 0;
     justify-content: center;

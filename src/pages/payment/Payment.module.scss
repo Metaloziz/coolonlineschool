@@ -3,6 +3,7 @@
   display: grid;
   gap: 20px;
   grid-template-columns: 765px 575px;
+  background: url(#{$path-svg}/pages/payment-bg.svg) right bottom no-repeat;
 }
 .ratesTable {
   grid-column: 1 / -1;
