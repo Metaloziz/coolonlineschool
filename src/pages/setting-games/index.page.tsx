@@ -1,12 +1,10 @@
 import Image from 'next/image';
 import { ButtonColorThemes } from '@app/enums/Enums';
-import { Button } from '@components';
-import TextEditor from '@components/text-editor/TextEditor';
+import { Button, Slider } from '@components';
 import goBack from '@svgs/go-back-img.svg';
 import buttonAdd from '@svgs/settings-games-add.svg';
 import { getRandomId } from '@utils/RandomId';
 import styles from './SettingGames.module.scss';
-import Slider from '../../containers/slider/Slider';
 
 const IndexPage = () => {
   return (
@@ -71,9 +69,7 @@ const IndexPage = () => {
         </div>
       </div>
       <h3 className={styles.titleDescription}>Память и ритм</h3>
-      <div className={styles.description}>
-        <TextEditor />
-      </div>
+      <div className={styles.description}>{/* <TextEditor /> */}</div>
       <div className={styles.buttonSubmit}>
         <Button
           text="Сохранить"

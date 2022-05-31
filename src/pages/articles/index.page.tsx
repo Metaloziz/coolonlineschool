@@ -1,10 +1,9 @@
 import { ButtonColorThemes } from '@app/enums/Enums';
-import { Button, CustomSelect, TextFieldCalendar } from '@components';
+import { Button, Slider, CustomSelect } from '@components';
 import CustomPagination from '@components/custom-pagination/CustomPagination';
 import Article from '@pages/articles/Article';
 import { getRandomId } from '@utils/RandomId';
 import styles from './Articles.module.scss';
-import Slider from '../../containers/slider/Slider';
 
 const articlesInfo = [
   {

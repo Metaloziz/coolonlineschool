@@ -6,21 +6,21 @@ import styles from './TextEditor.module.scss';
 // eslint-disable-next-line import/order
 import dynamic from 'next/dynamic';
 
-const Editor = dynamic<EditorProps>(
-  () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
-  { ssr: false },
-);
+// const Editor = dynamic<EditorProps>(
+//   () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
+//   { ssr: false },
+// );
 
 const TextEditor = () => {
-  const [editorState, setEditorState] = useState(() =>
-    EditorState.createEmpty(),
-  );
-  useEffect(() => {
-    console.log(editorState);
-  }, [editorState]);
+  // const [editorState, setEditorState] = useState(() =>
+  //   EditorState.createEmpty(),
+  // );
+  // useEffect(() => {
+  //   console.log(editorState);
+  // }, [editorState]);
   return (
     <div>
-      <Editor
+      {/* <Editor
         editorState={editorState}
         onEditorStateChange={setEditorState}
         wrapperClassName={styles.wrapper}
@@ -58,7 +58,7 @@ const TextEditor = () => {
             defaultSize: false,
           },
         }}
-      />
+      /> */}
     </div>
   );
 };

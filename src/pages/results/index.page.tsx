@@ -16,7 +16,7 @@ export default function Results() {
         className={cl.cardStudent}
       />
       <GetResultsForm
-        onSubmit={function (): void {
+        onSubmit={function () {
           throw new Error('Function not implemented.');
         }}
       />

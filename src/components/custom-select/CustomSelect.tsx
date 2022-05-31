@@ -1,8 +1,8 @@
-import { FC, SelectHTMLAttributes } from 'react';
+import { FC } from 'react';
 import Select from 'react-select';
 import cl from './CustomSelect.module.scss';
 
-interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
+interface Props {
   options: {
     label: string;
     value: string;
@@ -24,7 +24,7 @@ const CustomSelect: FC<Props> = ({
           placeholder={placeholder}
           options={options}
           components={{ IndicatorSeparator: () => null }}
-          className={styles[size]}
+          className={cl[size]}
         />
       </div>
     </div>
