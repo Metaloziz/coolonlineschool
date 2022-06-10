@@ -1,9 +1,8 @@
 $widthBlock: 1360px;
 
 .innerContent {
-  flex-grow: 1;
   padding: 25px 0 20px 20px;
-  background: url(#{$path-svg}/pages/payment-bg.svg) right center no-repeat;
+  background: url(#{$path-svg}/pages/abacus-bg.svg) right center no-repeat;
 
   & .wrapBlock {
     display: flex;
@@ -43,7 +42,7 @@ $widthBlock: 1360px;
     display: flex;
 
     & .tableContent {
-      & .ratesTable {
+      & .tariffsTable {
         color: #ffffff;
       }
     }

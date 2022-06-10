@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { ButtonColorThemes } from '@app/enums/Enums';
 import { Button } from '@components';
-import { convertToString } from '@utils/Date';
+import { convertToDateString } from '@utils/Date';
 import cl from './TeacherComment.module.scss';
 
 interface ITeacherComment {
@@ -15,7 +15,9 @@ const TeacherComment: FC<ITeacherComment> = ({ comment, commentDate }) => {
     <div className={cl.container}>
       <p className={cl.title}>
         Комментарий учителя к домашенму заданию на{' '}
-        {convertToString(commentDate)}
+        {convertToDateString(commentDate, {
+          dateStyle: 'long',
+        })}
       </p>
       <p className={cl.comment}>{comment}</p>
       <div className={cl.buttons}>

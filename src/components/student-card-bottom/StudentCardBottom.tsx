@@ -5,7 +5,7 @@ import { FC } from 'react';
 import { IStudentCard } from '@app/types';
 import telegramImg from '@svgs/student-card/telegram-icon.svg';
 import whatsappImg from '@svgs/student-card/whatsapp-icon.svg';
-import { convertToString } from '@utils/Date';
+import { convertToDateString, convertToTimeString } from '@utils/Date';
 import cl from './StudentCardBottom.module.scss';
 
 type Props = Required<Pick<IStudentCard, 'chatsLinks' | 'nextLessonData'>>;
@@ -28,7 +28,9 @@ const StudentCardBottom: FC<Props> = ({
       <div className={cl.nextLesson}>
         <span className={cl.nextLessonText}>Следующее занятие:</span>
         <span className={cl.nextLessonVisualiser}>
-          {convertToString(nextLessonData)}
+          {`${convertToDateString(nextLessonData)} в ${convertToTimeString(
+            nextLessonData,
+          )}`}
         </span>
       </div>
     </>

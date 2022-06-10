@@ -1,13 +1,12 @@
 export { default as StudentCard } from './student-card/StudentCard';
 export { default as Homeworks } from './homeworks/Homeworks';
 export { default as KeepPlaying } from './keep-playing/KeepPlaying';
-export { default as RatePlan } from './rate-plan/RatePlan';
+export { default as TariffPlan } from './tariff-plan/TariffPlan';
 export { default as SelectHomeworksForm } from './select-homeworks-form/SelectHomeworksForm';
 export { default as SidebarNavigation } from './sidebar-navigation/SidebarNavigation';
 export { default as Slider } from '../components/slider/Slider';
 export { default as TeacherComment } from './teacher-comment/TeacherComment';
 export { default as Balance } from './balance/Balance';
-export { default as RatesTable } from './rates-table/RatesTable';
 export { default as Modal } from './modal/Modal';
-export { default as RatePlans } from './rate-plans/RatePlans';
+export { default as TariffPlans } from './tariff-plans/TariffPlans';
 export { default as GetResultsForm } from './get-results-form/GetResultsForm';

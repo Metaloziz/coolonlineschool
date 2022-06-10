@@ -1,6 +1,10 @@
 import { useState } from 'react';
-import { RatePlans as RatePlansEnum } from '@app/enums/Enums';
-import { Balance, Modal, RatePlan, RatePlans, RatesTable } from '@containers';
+import {
+  PaymentStatus,
+  TariffPlans as TariffPlansEnum,
+} from '@app/enums/Enums';
+import { PaymentsTable } from '@components';
+import { Balance, Modal, TariffPlan, TariffPlans } from '@containers';
 import cl from './Payment.module.scss';
 
 export default function Payment() {
@@ -8,97 +12,103 @@ export default function Payment() {
 
   return (
     <div className={cl.container}>
-      <RatePlan ratePlan={RatePlansEnum.personal} />
+      <TariffPlan tariffPlan={TariffPlansEnum.personal} />
       <Balance
         balanceFunds={4200}
         lessonCount={4}
-        ratePlanFirst="Тариф 1"
-        ratePlanSecond="Тариф 2"
+        tariffPlanFirst="Тариф 1"
+        tariffPlanSecond="Тариф 2"
         openModal={() => {
           setIsModal(true);
         }}
       />
-      <RatesTable
-        className={cl.ratesTable}
-        rates={[
+      <PaymentsTable
+        className={cl.paymentsTable}
+        rows={[
           {
             id: 1,
             moneyAmount: 5000,
             description: 'Оплата за март. Тариф “Индивидуальный”',
             paymentDate: new Date(),
-            ratePlan: RatePlansEnum.personal,
-            status: 'success',
+            tariffPlan: TariffPlansEnum.personal,
+            status: PaymentStatus.success,
+            chequeLink: '',
           },
           {
             id: 2,
             moneyAmount: 3300,
             description: 'Оплата за март. Тариф “Самостоятельный”',
             paymentDate: new Date(),
-            ratePlan: RatePlansEnum.personal,
-            status: 'success',
+            tariffPlan: TariffPlansEnum.personal,
+            status: PaymentStatus.success,
+            chequeLink: '',
           },
           {
             id: 3,
             moneyAmount: 4200,
             description: 'Оплата за март. Тариф “Продвинутый”',
             paymentDate: new Date(),
-            ratePlan: RatePlansEnum.personal,
-            status: 'success',
+            tariffPlan: TariffPlansEnum.personal,
+            status: PaymentStatus.success,
+            chequeLink: '',
           },
           {
             id: 4,
             moneyAmount: 500,
             description: 'Оплата за март. Тариф “Индивидуальный”',
             paymentDate: new Date(),
-            ratePlan: RatePlansEnum.personal,
-            status: 'success',
+            tariffPlan: TariffPlansEnum.personal,
+            status: PaymentStatus.success,
+            chequeLink: '',
           },
           {
             id: 5,
             moneyAmount: 5000,
             description: 'Оплата за март. Тариф “Индивидуальный”',
             paymentDate: new Date(),
-            ratePlan: RatePlansEnum.personal,
-            status: 'success',
+            tariffPlan: TariffPlansEnum.personal,
+            status: PaymentStatus.success,
+            chequeLink: '',
           },
           {
             id: 6,
             moneyAmount: 0,
             description: 'Оплата за март. Тариф “Индивидуальный”',
             paymentDate: new Date(),
-            ratePlan: RatePlansEnum.personal,
-            status: 'success',
+            tariffPlan: TariffPlansEnum.personal,
+            status: PaymentStatus.success,
+            chequeLink: '',
           },
         ]}
       />
 
       <Modal isOpen={isModal}>
-        <RatePlans
+        <TariffPlans
           closeModal={() => {
             setIsModal(false);
           }}
-          ratePlans={[
+          tariffPlans={[
             {
               id: 1,
               moneyAmount: 4547,
-              ratePlan: RatePlansEnum.introductory,
+              tariffPlan: TariffPlansEnum.introductory,
               percentDiscount: 50,
             },
             {
               id: 2,
               moneyAmount: 3300,
-              ratePlan: RatePlansEnum.independent,
+              tariffPlan: TariffPlansEnum.independent,
             },
             {
               id: 3,
               moneyAmount: 4200,
-              ratePlan: RatePlansEnum.advanced,
+              tariffPlan: TariffPlansEnum.advanced,
               isExtraOption: true,
             },
             {
               id: 4,
               moneyAmount: 5000,
-              ratePlan: RatePlansEnum.personal,
+              tariffPlan: TariffPlansEnum.personal,
               isExtraOption: true,
             },
           ]}

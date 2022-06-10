@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 75px 55px;
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+}
+.title {
+  font: $font-secondary-visualiser-big;
+  margin-bottom: 35px;
+}
+.tariffCards {
+  display: flex;
+  column-gap: 25px;
+  margin-bottom: 60px;
+}
+.bottom {
+  display: flex;
+  column-gap: 50px;
+}
+.btn {
+  width: 200px;
+}

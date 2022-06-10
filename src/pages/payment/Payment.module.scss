@@ -3,8 +3,8 @@
   display: grid;
   gap: 20px;
   grid-template-columns: 765px 575px;
-  background: url(#{$path-svg}/pages/payment-bg.svg) right bottom no-repeat;
+  background: url(#{$path-svg}/pages/abacus-bg.svg) right bottom no-repeat;
 }
-.ratesTable {
+.paymentsTable {
   grid-column: 1 / -1;
 }

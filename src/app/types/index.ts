@@ -1,7 +1,7 @@
 import {
   ProgressBarColorThemes,
   ProgressBarSizes,
-  RatePlans,
+  TariffPlans,
 } from '@app/enums/Enums';
 
 export interface IStudentCard {
@@ -31,17 +31,12 @@ export interface IHomework {
   id: number;
 }
 
-export interface IRateTableRow {
-  id: number;
-  moneyAmount: number;
-  description: string;
-  paymentDate: Date;
-  ratePlan: RatePlans;
-  status: 'success';
-}
+export type ICell = React.ReactChild | Date;
 
-export interface IRateCard {
-  ratePlan: RatePlans;
+export type IRow = { [key: string]: ICell };
+
+export interface ITariffCard {
+  tariffPlan: TariffPlans;
   moneyAmount: number;
   percentDiscount?: number;
   isExtraOption?: boolean;

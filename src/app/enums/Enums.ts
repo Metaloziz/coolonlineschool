@@ -1,8 +1,43 @@
-export enum RatePlans {
+export enum TeacherStatus {
+  active = 'active',
+}
+
+export enum RusTeacherStatus {
+  active = 'Активен',
+}
+
+export enum PaymentStatus {
+  success = 'success',
+  pending = 'pending',
+  failed = 'failed',
+}
+
+export enum RusPaymentStatus {
+  success = 'Успех',
+  pending = 'Ожидание',
+  failed = 'Не оплачено',
+}
+
+export enum TariffStatus {
+  active = 'active',
+}
+
+export enum RusTariffStatus {
+  active = 'Активен',
+}
+
+export enum TariffPlans {
   introductory = 'introductory',
   independent = 'independent',
   advanced = 'advanced',
   personal = 'personal',
+}
+
+export enum RusTariffPlans {
+  introductory = 'Вводный',
+  independent = 'Самостоятельный',
+  advanced = 'Продвинутый',
+  personal = 'Индивидуальный',
 }
 
 export enum ProgressBarColorThemes {

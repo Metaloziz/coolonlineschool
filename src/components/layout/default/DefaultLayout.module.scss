@@ -15,4 +15,8 @@
   display: flex;
   flex-direction: column;
   background-color: #e8eff6;
+
+  & > div {
+    flex: 1;
+  }
 }

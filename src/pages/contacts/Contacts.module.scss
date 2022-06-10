@@ -2,9 +2,8 @@
   padding: 35px 0 85px 20px;
   display: flex;
   flex-wrap: wrap;
-  flex-grow: 1;
   align-content: start;
-  background: url(#{$path-svg}/pages/payment-bg.svg) right calc(100% - 85px)
+  background: url(#{$path-svg}/pages/abacus-bg.svg) right calc(100% - 85px)
     no-repeat;
 
   & .blockPersonal {

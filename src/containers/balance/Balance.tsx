@@ -7,8 +7,8 @@ import cl from './Balance.module.scss';
 
 interface IBalance {
   lessonCount: number;
-  ratePlanFirst: string;
-  ratePlanSecond: string;
+  tariffPlanFirst: string;
+  tariffPlanSecond: string;
   balanceFunds: number;
   openModal: () => void;
 }
@@ -16,8 +16,8 @@ interface IBalance {
 const Balance: FC<IBalance> = ({
   balanceFunds,
   lessonCount,
-  ratePlanFirst,
-  ratePlanSecond,
+  tariffPlanFirst,
+  tariffPlanSecond,
   openModal,
 }) => {
   return (
@@ -29,11 +29,11 @@ const Balance: FC<IBalance> = ({
         </div>
         <div className={cl.infoGroup}>
           <b className={cl.infoTitle}>Ваш тариф:</b>
-          <strong className={cl.info}>{ratePlanFirst}</strong>
+          <strong className={cl.info}>{tariffPlanFirst}</strong>
         </div>
         <div className={cl.infoGroup}>
           <b className={cl.infoTitle}>Ваш второй тариф:</b>
-          <strong className={cl.info}>{ratePlanSecond}</strong>
+          <strong className={cl.info}>{tariffPlanSecond}</strong>
         </div>
         <Button
           className={cl.contractBtn}
@@ -54,7 +54,7 @@ const Balance: FC<IBalance> = ({
         />
         <Button
           onClick={openModal}
-          className={cl.changeRateBtn}
+          className={cl.changeTariffBtn}
           text="Сменить тариф"
           colorTheme={ButtonColorThemes.transparent}
         />
