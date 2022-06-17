@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react';
-import SidebarNavigation from '@containers/sidebar-navigation/SidebarNavigation';
+import { SidebarNavigation } from '@components';
 import cl from './DefaultLayout.module.scss';
 import Header from '../../header/Header';
 

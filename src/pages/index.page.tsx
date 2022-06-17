@@ -7,7 +7,7 @@ import {
   SelectHomeworksForm,
   Homeworks,
   TeacherComment,
-} from '@containers';
+} from '@components';
 import { useAuthContext } from '@contexts/AuthContext';
 import { getProfile } from '@utils/Auth';
 import { getRandomId } from '@utils/RandomId';

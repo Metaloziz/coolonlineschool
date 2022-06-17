@@ -1,4 +1,4 @@
-import StudentCard from '@containers/student-card/StudentCard';
+import { StudentCard } from '@components';
 import BlockAchievement from '@pages/achievements/BlockAchievement';
 import best10 from '@svgs/games/best10.svg';
 import best20 from '@svgs/games/best20.svg';

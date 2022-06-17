@@ -1,7 +1,6 @@
 import { FC, FormEvent, FormHTMLAttributes } from 'react';
 import { ButtonColorThemes } from '@app/enums/Enums';
-import { Button, CustomSelect, TextFieldCalendar } from '@components';
-import { Slider } from '@containers';
+import { Button, CustomSelect, TextFieldCalendar, Slider } from '@components';
 import { getRandomId } from '@utils/RandomId';
 import cl from './GetResultsForm.module.scss';
 

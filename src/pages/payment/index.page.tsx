@@ -3,8 +3,13 @@ import {
   PaymentStatus,
   TariffPlans as TariffPlansEnum,
 } from '@app/enums/Enums';
-import { PaymentsTable } from '@components';
-import { Balance, Modal, TariffPlan, TariffPlans } from '@containers';
+import {
+  Balance,
+  Modal,
+  TariffPlan,
+  TariffPlans,
+  PaymentsTable,
+} from '@components';
 import cl from './Payment.module.scss';
 
 export default function Payment() {

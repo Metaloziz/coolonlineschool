@@ -1,6 +1,12 @@
 import { ProgressBarColorThemes, ProgressBarSizes } from '@app/enums/Enums';
-import { ProgressBar, StudentsTable, VerticalSlider } from '@components';
-import { StudentCard, Slider, GetResultsForm } from '@containers';
+import {
+  StudentCard,
+  Slider,
+  GetResultsForm,
+  ProgressBar,
+  StudentsTable,
+  VerticalSlider,
+} from '@components';
 import { getRandomId } from '@utils/RandomId';
 import cl from './Results.module.scss';
 
