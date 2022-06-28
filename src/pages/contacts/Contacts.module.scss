@@ -2,7 +2,7 @@
   padding: 35px 0 85px 20px;
   display: flex;
   flex-wrap: wrap;
-  align-content: start;
+  align-content: flex-start;
   background: url(#{$path-svg}/pages/abacus-bg.svg) right calc(100% - 85px)
     no-repeat;
 

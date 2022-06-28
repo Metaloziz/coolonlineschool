@@ -1,0 +1,32 @@
+.container {
+  width: 230px;
+  height: 85px;
+  padding: 5px 10px 5px 20px;
+  position: absolute;
+  display: flex;
+  border: 1px solid white;
+
+  &.speedReading {
+    background-color: $color-secondary-visualiser;
+  }
+  &.mentalArithmetic {
+    background-color: $secondary-color;
+  }
+}
+.left {
+  color: black;
+  font: $font-smaller;
+  line-height: 26px;
+}
+.right {
+  display: grid;
+  grid-template-columns: auto 16px;
+  grid-template-rows: repeat(2, auto);
+  justify-items: end;
+  gap: 5px 14px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+.zoomBtn {
+  grid-column: 1 / -1;
+}

@@ -1,5 +1,5 @@
-import { GenderType } from '@app/enums/Enums';
-import { RoleId } from '@app/enums/Enums';
+import { GenderType } from '@app/enums';
+import { RoleId } from '@app/enums';
 import { Model } from '../Base';
 
 export interface User extends Model {

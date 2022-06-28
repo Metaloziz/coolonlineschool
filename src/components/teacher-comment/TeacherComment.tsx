@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ButtonColorThemes } from '@app/enums/Enums';
+import { ButtonColorThemes } from '@app/enums';
 import { Button } from '@components';
 import { convertToDateString } from '@utils/Date';
 import cl from './TeacherComment.module.scss';
@@ -21,16 +21,12 @@ const TeacherComment: FC<ITeacherComment> = ({ comment, commentDate }) => {
       </p>
       <p className={cl.comment}>{comment}</p>
       <div className={cl.buttons}>
-        <Button
-          className={cl.btn}
-          colorTheme={ButtonColorThemes.red}
-          text="Есть вопросы, обсудить на уроке"
-        />
-        <Button
-          className={cl.btn}
-          colorTheme={ButtonColorThemes.red}
-          text="Спасибо, всё понятно"
-        />
+        <Button className={cl.btn} colorTheme={ButtonColorThemes.red}>
+          Есть вопросы, обсудить на уроке
+        </Button>
+        <Button className={cl.btn} colorTheme={ButtonColorThemes.red}>
+          Спасибо, всё понятно
+        </Button>
       </div>
     </div>
   );

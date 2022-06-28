@@ -1,9 +1,5 @@
 import { FC } from 'react';
-import {
-  ButtonColorThemes,
-  RusTariffPlans,
-  TariffPlans,
-} from '@app/enums/Enums';
+import { ButtonColorThemes, RusTariffPlans, TariffPlans } from '@app/enums';
 import { Button, TariffPlanOptions } from '@components';
 import cl from './TariffPlan.module.scss';
 
@@ -17,11 +13,9 @@ const TariffPlan: FC<ITariffPlan> = ({ tariffPlan }) => {
       <strong className={cl.title}>{RusTariffPlans[tariffPlan]}</strong>
       <span className={cl.optionsTitle}>Вы получаете:</span>
       <TariffPlanOptions tariffPlan={tariffPlan} className={cl.options} />
-      <Button
-        className={cl.btn}
-        text="Перейти на тариф"
-        colorTheme={ButtonColorThemes.red}
-      />
+      <Button className={cl.btn} colorTheme={ButtonColorThemes.red}>
+        Перейти на тариф
+      </Button>
     </div>
   );
 };

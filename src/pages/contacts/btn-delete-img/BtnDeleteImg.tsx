@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
-import btnDeleteImageHover from '@svgs/delete-image-hover.svg';
-import btnDeleteImage from '@svgs/delete-image.svg';
+import btnDeleteImageHover from '@svgs/icons/delete-hover.svg';
+import btnDeleteImage from '@svgs/icons/delete.svg';
 import cl from './BtnDeleteImg.module.scss';
 
 const BtnDeleteImg = () => {

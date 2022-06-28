@@ -69,7 +69,7 @@
 .title {
   font: $font-small;
   color: $color-text;
-  overflow-wrap: break-word;
+  white-space: nowrap;
 }
 .percentToComplete {
   font: $font-visualiser-big;

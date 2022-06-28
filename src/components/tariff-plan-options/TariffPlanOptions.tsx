@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { RusTariffPlans, TariffPlans } from '@app/enums/Enums';
+import { RusTariffPlans, TariffPlans } from '@app/enums';
 import { getRandomId } from '@utils/RandomId';
 
 type Props = {

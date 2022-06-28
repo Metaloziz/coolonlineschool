@@ -46,11 +46,13 @@
   }
 
   &.green {
+    padding-top: 7px;
+    padding-bottom: 7px;
     background-color: #afd46b;
     color: $color-text;
 
     &:hover {
-      background-color: #94B755;
+      background-color: $color-green;
     }
   }
 
@@ -64,12 +66,21 @@
     border-radius: initial;
     height: min-content;
   }
-  
+
   &.yellow {
-    background-color: #F7BB37;
+    background-color: #f7bb37;
 
     &:hover {
-      background-color: #FF9900;
+      background-color: #ff9900;
     }
+  }
+
+  &.white {
+    padding: 5px 10px;
+    column-gap: 5px;
+    color: $color-button;
+    font: 700 10px / 12px $font-family;
+    background-color: white;
+    border-radius: 5px;
   }
 }

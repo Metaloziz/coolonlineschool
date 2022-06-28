@@ -1,6 +1,6 @@
 import cl from '@pages/games/Games.module.scss';
 
-const ButtonPlay = () => {
+const PlayButton = () => {
   return (
     <div className={cl.playButton}>
       <p>ИГРАТЬ</p>
@@ -9,4 +9,4 @@ const ButtonPlay = () => {
   );
 };
 
-export default ButtonPlay;
+export default PlayButton;

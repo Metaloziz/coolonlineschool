@@ -1,10 +1,6 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import {
-  ButtonColorThemes,
-  RusTariffPlans,
-  TariffPlans,
-} from '@app/enums/Enums';
+import { ButtonColorThemes, RusTariffPlans, TariffPlans } from '@app/enums';
 import { ITariffCard } from '@app/types';
 import { TariffPlanOptions, Button } from '@components';
 import cl from './TariffCard.module.scss';
@@ -46,11 +42,9 @@ const TariffCard: FC<ITariffCard> = ({
       ) : (
         <strong className={cl.moneyAmount}>{moneyAmount}₽</strong>
       )}
-      <Button
-        className={cl.btn}
-        colorTheme={ButtonColorThemes.yellow}
-        text="Попробовать"
-      />
+      <Button className={cl.btn} colorTheme={ButtonColorThemes.yellow}>
+        Попробовать
+      </Button>
     </div>
   );
 };

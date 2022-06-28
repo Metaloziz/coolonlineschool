@@ -1,10 +1,5 @@
-import { EditorState } from 'draft-js';
-import React, { useEffect, useState } from 'react';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import { EditorProps } from 'react-draft-wysiwyg';
-import styles from './TextEditor.module.scss';
 // eslint-disable-next-line import/order
-import dynamic from 'next/dynamic';
 
 // const Editor = dynamic<EditorProps>(
 //   () => import('react-draft-wysiwyg').then((mod) => mod.Editor),

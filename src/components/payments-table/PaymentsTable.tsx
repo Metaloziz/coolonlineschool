@@ -2,11 +2,11 @@ import Image from 'next/image';
 import { FC } from 'react';
 import {
   ButtonColorThemes,
-  PaymentStatus,
+  PaymentStatuses,
   TariffPlans,
-  RusPaymentStatus,
+  RusPaymentStatuses,
   RusTariffPlans,
-} from '@app/enums/Enums';
+} from '@app/enums';
 import { Button, Table } from '@components';
 import chequeIcon from '@svgs/button/cheque-download-icon.svg';
 import { convertToDateString } from '@utils/Date';
@@ -18,7 +18,7 @@ interface IPaymentsRow {
   description: string;
   paymentDate: Date;
   tariffPlan: TariffPlans;
-  status: PaymentStatus;
+  status: PaymentStatuses;
   chequeLink: string;
 }
 
@@ -38,16 +38,17 @@ const formatRow = ({
   moneyAmount: `${moneyAmount}₽`,
   paymentDate: convertToDateString(paymentDate),
   tariffPlan: RusTariffPlans[tariffPlan],
-  status: RusPaymentStatus[status],
+  status: RusPaymentStatuses[status],
   chequeLink: (
     <Button
       onClick={() => {
         console.log(chequeLink);
       }}
       colorTheme={ButtonColorThemes.minimal}
-      text="Скачать чек"
-      image={<Image src={chequeIcon} alt="Скачать чек" />}
-    />
+      icon={<Image src={chequeIcon} alt="Скачать чек" />}
+    >
+      Скачать чек
+    </Button>
   ),
   ...cells,
 });

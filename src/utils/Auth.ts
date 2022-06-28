@@ -1,5 +1,5 @@
 import { NextPageContext } from 'next';
-import { RoleId } from '@app/enums/Enums';
+import { RoleId } from '@app/enums';
 import authService from '@app/services/AuthService';
 import clientService from '@app/services/ClientService';
 import managerService from '@app/services/ManagerService';

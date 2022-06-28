@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/link-passhref */
 import Image from 'next/image';
-import Link from 'next/link';
 import { FC } from 'react';
 import { IStudentCard } from '@app/types';
 import telegramImg from '@svgs/student-card/telegram-icon.svg';
@@ -11,19 +10,19 @@ import cl from './StudentCardBottom.module.scss';
 type Props = Required<Pick<IStudentCard, 'chatsLinks' | 'nextLessonData'>>;
 
 const StudentCardBottom: FC<Props> = ({
-  chatsLinks: { telegramLink, whatsappLink },
+  chatsLinks: { telegram, whatsapp },
   nextLessonData,
 }) => {
   return (
     <>
       <div className={cl.linksToChats}>
         <span className={cl.linksToChatsText}>Ссылки на чаты:</span>
-        <Link href={telegramLink}>
+        <a href={telegram} target="_blank" rel="noreferrer">
           <Image src={telegramImg} alt="telegram" />
-        </Link>
-        <Link href={whatsappLink}>
+        </a>
+        <a href={whatsapp} target="_blank" rel="noreferrer">
           <Image src={whatsappImg} alt="whatsapp" />
-        </Link>
+        </a>
       </div>
       <div className={cl.nextLesson}>
         <span className={cl.nextLessonText}>Следующее занятие:</span>

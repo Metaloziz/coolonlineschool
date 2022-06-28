@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { useState } from 'react';
-import hoverPrevious from '@svgs/hover-prev-pagination.svg';
-import previous from '@svgs/prev-pagination.svg';
+import hoverNext from '@svgs/pagination/next-hover.svg';
+import next from '@svgs/pagination/next.svg';
 
-const PaginationPrevArrows = () => {
+const PaginationNextArrows = () => {
   const [isShowHover, setShowHover] = useState(false);
   return (
     <div
@@ -11,7 +11,7 @@ const PaginationPrevArrows = () => {
       onMouseOut={() => setShowHover(false)}
     >
       <Image
-        src={isShowHover ? hoverPrevious : previous}
+        src={isShowHover ? next : hoverNext}
         alt={'pagination'}
         width={7}
         height={10}
@@ -20,4 +20,4 @@ const PaginationPrevArrows = () => {
   );
 };
 
-export default PaginationPrevArrows;
+export default PaginationNextArrows;

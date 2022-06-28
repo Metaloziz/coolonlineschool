@@ -21,7 +21,7 @@ export function convertMonthToWord(month: number) {
 
 export function convertToString(
   date: Date,
-  option: Intl.DateTimeFormatOptions = { hour12: false },
+  option: Intl.DateTimeFormatOptions = { hour12: false, timeStyle: 'short' },
 ) {
   return date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], option);
 }
@@ -35,7 +35,7 @@ export function convertToDateString(
 
 export function convertToTimeString(
   date: Date,
-  option: Intl.DateTimeFormatOptions = { hour12: false },
+  option: Intl.DateTimeFormatOptions = { hour12: false, timeStyle: 'short' },
 ) {
   return date.toLocaleTimeString([], option);
 }

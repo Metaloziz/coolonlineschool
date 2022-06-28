@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { FC } from 'react';
-import ButtonPlay from '@components/button-play/ButtonPlay';
+import { PlayButton } from '@components';
 import gameImg from '@svgs/one-game/game-table-Shulte.svg';
 import cl from './Game.module.scss';
 
@@ -16,7 +16,7 @@ const Game: FC<Props> = ({ title, description }) => {
         <div className={cl.imagePlay}>
           <Image src={gameImg} width={461} height={461} alt="goBack" />
           <div className={cl.player}>
-            <ButtonPlay oneGame />
+            <PlayButton oneGame />
           </div>
         </div>
       </div>

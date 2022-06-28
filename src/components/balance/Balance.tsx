@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { FC } from 'react';
-import { ButtonColorThemes } from '@app/enums/Enums';
+import { ButtonColorThemes } from '@app/enums';
 import { Button, SwitchButton } from '@components';
 import contractIcon from '@svgs/button/contract-icon.svg';
 import cl from './Balance.module.scss';
@@ -37,27 +37,27 @@ const Balance: FC<IBalance> = ({
         </div>
         <Button
           className={cl.contractBtn}
-          text="Скачать договор"
           colorTheme={ButtonColorThemes.transparent}
-          image={<Image src={contractIcon} alt="contract icon" />}
-        />
+          icon={<Image src={contractIcon} alt="contract icon" />}
+        >
+          Скачать договор
+        </Button>
       </div>
       <div className={cl.right}>
         <div className={cl.balanceFundsContainer}>
           <b className={cl.balanceFundsTitle}>Средств на балансе:</b>
           <strong className={cl.balanceFunds}>{balanceFunds}₽</strong>
         </div>
-        <Button
-          className={cl.balancePayBtn}
-          text="Пополнить баланс"
-          colorTheme={ButtonColorThemes.red}
-        />
+        <Button className={cl.balancePayBtn} colorTheme={ButtonColorThemes.red}>
+          Пополнить баланс
+        </Button>
         <Button
           onClick={openModal}
           className={cl.changeTariffBtn}
-          text="Сменить тариф"
           colorTheme={ButtonColorThemes.transparent}
-        />
+        >
+          Сменить тариф
+        </Button>
         <SwitchButton label="Автопополнение" name="auto-replenishment" />
       </div>
     </div>

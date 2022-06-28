@@ -2,7 +2,8 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { FC } from 'react';
-import cl from './SidebarNavigationItem.module.scss';
+import { SidebarNavSvg } from '@components/svg';
+import { files } from '@components/svg/SidebarNavSvg';
 
 interface Props {
   link: { label: string; href: string };
@@ -10,10 +11,10 @@ interface Props {
   wrapperClassName?: string;
   activeClassName?: string;
   imageClassName?: string;
-  svgId: string;
+  svgId: keyof typeof files;
 }
 
-const SidebarNavigationItem: FC<Props> = ({
+const SidebarNavItem: FC<Props> = ({
   link,
   className,
   wrapperClassName,
@@ -31,9 +32,7 @@ const SidebarNavigationItem: FC<Props> = ({
       <Link passHref href={href}>
         <button className={linkClassNames}>
           <div className={imageClassName}>
-            <svg className={cl.icon}>
-              <use xlinkHref={`#${svgId}`}></use>
-            </svg>
+            <SidebarNavSvg icon={svgId} />
           </div>
           {label}
         </button>
@@ -42,4 +41,4 @@ const SidebarNavigationItem: FC<Props> = ({
   );
 };
 
-export default SidebarNavigationItem;
+export default SidebarNavItem;

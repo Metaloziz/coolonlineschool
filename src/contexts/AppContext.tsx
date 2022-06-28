@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ApplicationStore } from '@app/stores';
+import { ApplicationStore } from '@app/store';
 
 export function createStores() {
   return { applicationStore: new ApplicationStore() };

@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
-import { ProgressBarColorThemes } from '@app/enums/Enums';
+import { ProgressBarColorThemes, StudentStatuses } from '@app/enums';
 import {
   StudentCard,
   KeepPlaying,
@@ -41,11 +41,15 @@ export default function Home() {
         <StudentCard
           options={{
             studentName: 'Днепровский Александр Алексеевич',
-            status: 'Новичок',
-            geo: 'Москва',
+            status: StudentStatuses.beginner,
+            city: 'Москва',
             pointsNumber: 4,
             tag: 837212,
-            chatsLinks: { telegramLink: './', whatsappLink: './' },
+            chatsLinks: {
+              telegram: 'https://t.me/testlink',
+              whatsapp: 'https://chat.whatsapp.com/testlink',
+            },
+            classroomZoomLink: 'https://join.zoom.us',
             nextLessonData: new Date(),
           }}
         />
@@ -59,31 +63,31 @@ export default function Home() {
               id: getRandomId(),
             },
             {
-              title: 'Память и ритм',
+              title: 'Число - фигура - слово',
               percentToComplete: 18,
               colorTheme: ProgressBarColorThemes.blue,
               id: getRandomId(),
             },
             {
-              title: 'Число - фигура - слово',
+              title: 'Танграм',
               percentToComplete: 36,
               colorTheme: ProgressBarColorThemes.yellowLight,
               id: getRandomId(),
             },
             {
-              title: 'Мухи в кубе',
+              title: 'Чтение с решёткой',
               percentToComplete: 70,
               colorTheme: ProgressBarColorThemes.violet,
               id: getRandomId(),
             },
             {
-              title: 'Антипазл',
+              title: 'Общий показатель',
               percentToComplete: 80,
               colorTheme: ProgressBarColorThemes.green,
               id: getRandomId(),
             },
             {
-              title: 'Антипазл',
+              title: 'Число - фигура - слово',
               percentToComplete: 99,
               colorTheme: ProgressBarColorThemes.yellow,
               id: getRandomId(),
@@ -92,8 +96,21 @@ export default function Home() {
         />
         <SelectHomeworksForm
           lessonNumbers={[1, 2, 3]}
-          months={[1, 2, 3]}
-          years={[2022, 2021, 2020]}
+          months={[
+            'Январь',
+            'Февраль',
+            'Март',
+            'Апрель',
+            'Май',
+            'Июнь',
+            'Июль',
+            'Август',
+            'Сентябрь',
+            'Октябрь',
+            'Ноябрь',
+            'Декабрь',
+          ]}
+          years={[new Date().getFullYear()]}
         />
         <Homeworks
           homeworks={[

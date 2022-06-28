@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import {
   RusTariffPlans,
-  RusTariffStatus,
+  RusTariffStatuses,
   TariffPlans,
-  TariffStatus,
-} from '@app/enums/Enums';
+  TariffStatuses,
+} from '@app/enums';
 import { Table } from '@components';
 import { convertToDateString } from '@utils/Date';
 import cl from './StudentTariffsTable.module.scss';
@@ -18,7 +18,7 @@ interface IStudentTariffsRow {
   tariffEndDate: Date;
   tariffPlan: TariffPlans;
   paymentDate: Date;
-  status: TariffStatus;
+  status: TariffStatuses;
 }
 
 interface IStudentTariffsTable {
@@ -42,7 +42,7 @@ const formatRow = ({
   tariffEndDate: convertToDateString(tariffEndDate),
   tariffPlan: RusTariffPlans[tariffPlan],
   paymentDate: convertToDateString(paymentDate),
-  status: RusTariffStatus[status],
+  status: RusTariffStatuses[status],
   ...cells,
 });
 

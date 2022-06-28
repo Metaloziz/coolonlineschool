@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { ProgressBarSizes } from '@app/enums/Enums';
+import { ProgressBarSizes } from '@app/enums';
 import { IProgressBar } from '@app/types';
 import cl from './ProgressBar.module.scss';
 

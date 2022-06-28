@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { FC } from 'react';
-import { ButtonPlaySizes } from '@app/enums/Enums';
+import { PlayButtonSizes } from '@app/enums';
 import { IProgressBar } from '@app/types';
-import { ProgressBar, ButtonPlay } from '@components';
+import { ProgressBar, PlayButton } from '@components';
 import cl from './KeepPlaying.module.scss';
 
 interface IKeepPlaying {
@@ -17,7 +17,7 @@ const KeepPlaying: FC<IKeepPlaying> = ({ className, games }) => {
       <div className={cl.progressBars}>
         {games.map((game) => (
           <ProgressBar className={cl.progressBar} key={game.id} {...game}>
-            <ButtonPlay size={ButtonPlaySizes.small} className={cl.button} />
+            <PlayButton size={PlayButtonSizes.small} className={cl.button} />
           </ProgressBar>
         ))}
       </div>

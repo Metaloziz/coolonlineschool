@@ -6,7 +6,7 @@ import cl from './SelectHomeworksForm.module.scss';
 interface ISelectHomeworksForm {
   className?: string;
   years: number[];
-  months: number[];
+  months: string[];
   lessonNumbers: number[];
 }
 
