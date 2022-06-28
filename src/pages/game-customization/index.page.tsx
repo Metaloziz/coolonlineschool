@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ButtonColorThemes } from '@app/enums/Enums';
+import { ButtonColorThemes } from '@app/enums';
 import { Button, Slider } from '@components';
 import goBack from '@svgs/go-back-img.svg';
 import buttonAdd from '@svgs/settings-games-add.svg';
@@ -72,10 +72,11 @@ const IndexPage = () => {
       <div className={styles.description}>{/* <TextEditor /> */}</div>
       <div className={styles.buttonSubmit}>
         <Button
-          text="Сохранить"
           colorTheme={ButtonColorThemes.blueGradient}
           className={styles.button}
-        />
+        >
+          Сохранить
+        </Button>
       </div>
     </div>
   );

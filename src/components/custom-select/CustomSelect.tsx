@@ -1,32 +1,32 @@
+import classNames from 'classnames';
 import { FC } from 'react';
 import Select from 'react-select';
 import cl from './CustomSelect.module.scss';
 
-interface Props {
+interface ICustomSelect {
   options: {
     label: string;
     value: string;
   }[];
   placeholder: string;
-  size?: string;
+  size?: 'auto' | 'normal' | 'large';
+  className?: string;
 }
 
-const CustomSelect: FC<Props> = ({
+const CustomSelect: FC<ICustomSelect> = ({
   options,
   placeholder,
-  size = 'sizeAuto',
+  size = 'auto',
+  className,
 }) => {
   return (
-    <div className={cl.container}>
-      <div className={cl.inner}>
-        <Select
-          instanceId={Symbol().toString()}
-          placeholder={placeholder}
-          options={options}
-          components={{ IndicatorSeparator: () => null }}
-          className={cl[size]}
-        />
-      </div>
+    <div className={classNames(cl.container, className)}>
+      <Select
+        placeholder={placeholder}
+        options={options}
+        components={{ IndicatorSeparator: () => null }}
+        className={cl[size]}
+      />
     </div>
   );
 };

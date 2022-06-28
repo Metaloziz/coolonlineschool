@@ -1,6 +1,5 @@
 import { FC } from 'react';
-import PaginationNextArrows from '@components/pagination-next-arrow/PaginationNextArrows';
-import PaginationPrevArrows from '@components/pagination-prev-arrows/PaginationPrevArrows';
+import { PaginationNext, PaginationPrev } from '@components';
 import styles from './CustomPagination.module.scss';
 
 interface Props {
@@ -27,7 +26,7 @@ const CustomPagination: FC<Props> = ({
   return (
     <div className={styles.paginationWrapper}>
       <button className={styles.prev} onClick={() => prev()}>
-        <PaginationPrevArrows />
+        <PaginationPrev />
       </button>
       <ul className={styles.list}>
         {pageNumbers.map((item) => (
@@ -41,7 +40,7 @@ const CustomPagination: FC<Props> = ({
         ))}
       </ul>
       <button className={styles.next} onClick={() => next()}>
-        <PaginationNextArrows />
+        <PaginationNext />
       </button>
     </div>
   );

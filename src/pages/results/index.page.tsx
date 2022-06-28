@@ -1,4 +1,8 @@
-import { ProgressBarColorThemes, ProgressBarSizes } from '@app/enums/Enums';
+import {
+  ProgressBarColorThemes,
+  ProgressBarSizes,
+  StudentStatuses,
+} from '@app/enums';
 import {
   StudentCard,
   Slider,
@@ -15,15 +19,16 @@ export default function Results() {
     <div className={cl.container}>
       <StudentCard
         options={{
-          status: 'Новичок',
+          status: StudentStatuses.beginner,
           studentName: 'Днепровский Александр Алексеевич',
-          geo: 'Москва',
+          city: 'Москва',
         }}
         className={cl.cardStudent}
       />
       <GetResultsForm
-        onSubmit={function () {
-          throw new Error('Function not implemented.');
+        onSubmit={(e) => {
+          e.preventDefault();
+          console.log(e, 'Form has submitted');
         }}
       />
       <ProgressBar

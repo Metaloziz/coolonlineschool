@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
-import btnEditImageHover from '@svgs/edit-image-hover.svg';
-import btnEditImage from '@svgs/edit-image.svg';
+import btnEditImageHover from '@svgs/icons/edit-hover.svg';
+import btnEditImage from '@svgs/icons/edit.svg';
 import cl from './BtnEditImg.module.scss';
 
 const BtnEditImg = () => {

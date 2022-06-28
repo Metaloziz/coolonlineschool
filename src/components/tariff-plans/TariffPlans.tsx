@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ButtonColorThemes } from '@app/enums/Enums';
+import { ButtonColorThemes } from '@app/enums';
 import { ITariffCard } from '@app/types';
 import { Button, CloseModalButton, TariffCard, Slider } from '@components';
 import { getRandomId } from '@utils/RandomId';
@@ -35,11 +35,9 @@ const TariffsList: FC<ITariffsList> = ({ tariffPlans, closeModal }) => {
             { id: getRandomId(), text: 'Скорочтение' },
           ]}
         />
-        <Button
-          text="Сохранить"
-          colorTheme={ButtonColorThemes.red}
-          className={cl.btn}
-        />
+        <Button colorTheme={ButtonColorThemes.red} className={cl.btn}>
+          Сохранить
+        </Button>
       </div>
     </div>
   );

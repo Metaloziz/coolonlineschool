@@ -1,5 +1,6 @@
 export const Routes = {
   Index: '/',
+  Schedule: '/schedule',
   Results: '/results',
   Payment: './payment',
   Achievements: './achievements',

@@ -1,28 +1,44 @@
-export enum TeacherStatus {
+export enum IconVariants {
+  delete = 'delete',
+  edit = 'edit',
+  add = 'add',
+  zoom = 'zoom',
+}
+
+export enum LessonsTypes {
+  mentalArithmetic = 'mentalArithmetic',
+  speedReading = 'speedReading',
+}
+
+export enum StudentStatuses {
+  beginner = 'Новичок',
+}
+
+export enum TeacherStatuses {
   active = 'active',
 }
 
-export enum RusTeacherStatus {
+export enum RusTeacherStatuses {
   active = 'Активен',
 }
 
-export enum PaymentStatus {
+export enum PaymentStatuses {
   success = 'success',
   pending = 'pending',
   failed = 'failed',
 }
 
-export enum RusPaymentStatus {
+export enum RusPaymentStatuses {
   success = 'Успех',
   pending = 'Ожидание',
   failed = 'Не оплачено',
 }
 
-export enum TariffStatus {
+export enum TariffStatuses {
   active = 'active',
 }
 
-export enum RusTariffStatus {
+export enum RusTariffStatuses {
   active = 'Активен',
 }
 
@@ -54,7 +70,7 @@ export enum ProgressBarSizes {
   big = 'big',
 }
 
-export enum ButtonPlaySizes {
+export enum PlayButtonSizes {
   small = 'small',
   normal = 'normal',
 }
@@ -67,6 +83,7 @@ export enum ButtonColorThemes {
   red = 'red',
   blue = 'blue',
   yellow = 'yellow',
+  white = 'white',
 }
 
 export enum RoleId {

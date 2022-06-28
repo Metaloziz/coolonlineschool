@@ -1,23 +1,23 @@
 import classNames from 'classnames';
 import { ButtonHTMLAttributes, FC } from 'react';
-import { ButtonPlaySizes } from '@app/enums/Enums';
-import cl from './ButtonPlay.module.scss';
+import { PlayButtonSizes } from '@app/enums';
+import cl from './PlayButton.module.scss';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  size?: ButtonPlaySizes;
+  size?: PlayButtonSizes;
   oneGame?: boolean;
 }
 
-const ButtonPlay: FC<Props> = ({
-  size = ButtonPlaySizes.normal,
+const PlayButton: FC<Props> = ({
+  size = PlayButtonSizes.normal,
   className = '',
   oneGame = false,
 }) => {
   return (
     <button
       className={classNames(cl.container, className, {
-        [cl.containerSmalled]: size === ButtonPlaySizes.small,
+        [cl.containerSmalled]: size === PlayButtonSizes.small,
         [cl.containerOneGame]: oneGame,
       })}
     >
@@ -27,4 +27,4 @@ const ButtonPlay: FC<Props> = ({
   );
 };
 
-export default ButtonPlay;
+export default PlayButton;

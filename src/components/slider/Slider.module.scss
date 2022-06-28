@@ -26,6 +26,8 @@
   white-space: nowrap;
   color: black;
   padding: 10px 20px;
+  transition: all 0.02s ease-in;
+
   &.active {
     color: white;
     background-color: $color-visualiser;

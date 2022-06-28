@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import { Button } from '@components';
-import btnEditImage from '@svgs/edit-image.svg';
+import btnEditImage from '@svgs/icons/edit.svg';
 import styles from './Articles.module.scss';
 
 type Props = {
@@ -28,7 +28,7 @@ const Article = ({ edit, title, description }: Props) => {
         <p>{description}</p>
       </div>
       <div className={styles.button}>
-        <Button className={styles.buttonRead} text="Читать" />
+        <Button className={styles.buttonRead}>Читать</Button>
       </div>
     </div>
   );

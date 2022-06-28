@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { FC, ReactNode, useEffect } from 'react';
 import { AuthGuard } from '@app/common/AuthGuard';
-import { RoleId } from '@app/enums/Enums';
+import { RoleId } from '@app/enums';
 import { UserAuth } from '@app/models/auth/UserAuth';
 import { Routes } from '@constants/Routes';
 import { useAuthContext } from '@contexts/AuthContext';

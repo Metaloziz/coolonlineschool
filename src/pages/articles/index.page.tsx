@@ -1,4 +1,4 @@
-import { ButtonColorThemes } from '@app/enums/Enums';
+import { ButtonColorThemes } from '@app/enums';
 import { Button, Slider, CustomSelect } from '@components';
 import CustomPagination from '@components/custom-pagination/CustomPagination';
 import Article from '@pages/articles/Article';
@@ -38,9 +38,10 @@ const IndexPage = () => {
       <div className={styles.buttonsTop}>
         <Button
           className={styles.buttonAdd}
-          text="Добавить"
           colorTheme={ButtonColorThemes.blueGradient}
-        />
+        >
+          Добавить
+        </Button>
         <p>
           <span>Тип</span>
         </p>
@@ -68,10 +69,11 @@ const IndexPage = () => {
         />
         <Button
           type="submit"
-          text="Найти"
           colorTheme={ButtonColorThemes.green}
           className={styles.search}
-        />
+        >
+          Найти
+        </Button>
       </div>
       <div className={styles.blockArticles}>
         {articlesInfo.map((item, index) => {

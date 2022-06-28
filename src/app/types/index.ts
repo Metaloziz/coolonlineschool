@@ -1,18 +1,45 @@
+import { SVGAttributes } from 'react';
 import {
+  IconVariants,
+  LessonsTypes,
   ProgressBarColorThemes,
   ProgressBarSizes,
+  StudentStatuses,
   TariffPlans,
-} from '@app/enums/Enums';
+} from '@app/enums';
+
+export interface ISvg extends SVGAttributes<SVGElement> {
+  icon: IconVariants;
+  width?: number;
+  height?: number;
+  fill?: string;
+  className?: string;
+}
+
+export interface IScheduleLesson {
+  type: LessonsTypes;
+  gradeNumber: number;
+  lessonNumber: number;
+  lessonStartDateTime: Date;
+  zoomlink: string;
+  mondayDate: Date;
+}
+
+export interface ISchedule {
+  searchedDate: Date;
+  className?: string;
+}
 
 export interface IStudentCard {
   studentName: string;
-  status: string;
-  geo?: string;
+  status: StudentStatuses;
+  city?: string;
   pointsNumber?: number;
   chatsLinks?: {
-    whatsappLink: string;
-    telegramLink: string;
+    whatsapp: string;
+    telegram: string;
   };
+  classroomZoomLink?: string;
   nextLessonData?: Date;
   tag?: number;
 }

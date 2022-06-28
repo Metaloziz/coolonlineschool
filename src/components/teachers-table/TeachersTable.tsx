@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { RusTeacherStatus, TeacherStatus } from '@app/enums/Enums';
+import { RusTeacherStatuses, TeacherStatuses } from '@app/enums';
 import { Table } from '@components';
 import { convertToDateString } from '@utils/Date';
 import cl from './TeachersTable.module.scss';
@@ -11,7 +11,7 @@ interface ITeachersRow {
   registrationDate: Date;
   workedHoursAmount: number;
   childrenNumber: number;
-  status: TeacherStatus;
+  status: TeacherStatuses;
 }
 
 interface ITeachersTable {
@@ -21,7 +21,7 @@ interface ITeachersTable {
 
 const formatRow = ({ registrationDate, status, ...cells }: ITeachersRow) => ({
   registrationDate: convertToDateString(registrationDate),
-  status: RusTeacherStatus[status],
+  status: RusTeacherStatuses[status],
   ...cells,
 });
 

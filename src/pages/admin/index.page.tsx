@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ButtonColorThemes, TariffPlans, TariffStatus } from '@app/enums/Enums';
+import { ButtonColorThemes, TariffPlans, TariffStatuses } from '@app/enums';
 import { Button, StudentTariffsTable } from '@components';
 import AdminInfoList from '@components/admin-info-list/AdminInfoList';
 import InformationItem from '@components/information-item/InformationItem';
@@ -56,9 +56,10 @@ const IndexPage: FC = () => {
             <Button
               className={styles.buttonSize}
               colorTheme={ButtonColorThemes.green}
-              text="Найти"
-            />
-            <Button className={styles.buttonSize} text="Выгрузить в Excel" />
+            >
+              Найти
+            </Button>
+            <Button className={styles.buttonSize}>Выгрузить в Excel</Button>
           </div>
         </div>
       </div>
@@ -75,7 +76,7 @@ const IndexPage: FC = () => {
                 tariffEndDate: new Date(),
                 tariffPlan: TariffPlans.personal,
                 paymentDate: new Date(),
-                status: TariffStatus.active,
+                status: TariffStatuses.active,
               },
               {
                 id: 2,
@@ -86,7 +87,7 @@ const IndexPage: FC = () => {
                 tariffEndDate: new Date(),
                 tariffPlan: TariffPlans.personal,
                 paymentDate: new Date(),
-                status: TariffStatus.active,
+                status: TariffStatuses.active,
               },
               {
                 id: 3,
@@ -97,7 +98,7 @@ const IndexPage: FC = () => {
                 tariffEndDate: new Date(),
                 tariffPlan: TariffPlans.personal,
                 paymentDate: new Date(),
-                status: TariffStatus.active,
+                status: TariffStatuses.active,
               },
               {
                 id: 4,
@@ -108,7 +109,7 @@ const IndexPage: FC = () => {
                 tariffEndDate: new Date(),
                 tariffPlan: TariffPlans.personal,
                 paymentDate: new Date(),
-                status: TariffStatus.active,
+                status: TariffStatuses.active,
               },
               {
                 id: 5,
@@ -119,7 +120,7 @@ const IndexPage: FC = () => {
                 tariffEndDate: new Date(),
                 tariffPlan: TariffPlans.personal,
                 paymentDate: new Date(),
-                status: TariffStatus.active,
+                status: TariffStatuses.active,
               },
               {
                 id: 6,
@@ -130,7 +131,7 @@ const IndexPage: FC = () => {
                 tariffEndDate: new Date(),
                 tariffPlan: TariffPlans.personal,
                 paymentDate: new Date(),
-                status: TariffStatus.active,
+                status: TariffStatuses.active,
               },
               {
                 id: 7,
@@ -141,7 +142,7 @@ const IndexPage: FC = () => {
                 tariffEndDate: new Date(),
                 tariffPlan: TariffPlans.personal,
                 paymentDate: new Date(),
-                status: TariffStatus.active,
+                status: TariffStatuses.active,
               },
               {
                 id: 8,
@@ -152,7 +153,7 @@ const IndexPage: FC = () => {
                 tariffEndDate: new Date(),
                 tariffPlan: TariffPlans.personal,
                 paymentDate: new Date(),
-                status: TariffStatus.active,
+                status: TariffStatuses.active,
               },
               {
                 id: 9,
@@ -163,7 +164,7 @@ const IndexPage: FC = () => {
                 tariffEndDate: new Date(),
                 tariffPlan: TariffPlans.personal,
                 paymentDate: new Date(),
-                status: TariffStatus.active,
+                status: TariffStatuses.active,
               },
               {
                 id: 10,
@@ -174,7 +175,7 @@ const IndexPage: FC = () => {
                 tariffEndDate: new Date(),
                 tariffPlan: TariffPlans.personal,
                 paymentDate: new Date(),
-                status: TariffStatus.active,
+                status: TariffStatuses.active,
               },
             ]}
           />

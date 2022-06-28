@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  column-gap: 15px;
+}
+.timeIntervals {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+}
+.halfHour {
+  margin-top: auto;
+  font: $font-smaller;
+}
+.grid {
+  position: relative;
+  overflow: hidden;
+  flex-grow: 1;
+  background-color: white;
+  box-shadow: 0px 0px 40px rgba(86, 89, 146, 0.15);
+  border-radius: 10px 10px 0px 0px;
+}
+.row {
+  display: flex;
+  height: 43px;
+
+  &:nth-child(odd):not(:first-child) {
+    background-color: #f8f8ff;
+  }
+}
+.cell {
+  flex-grow: 1;
+  border-right: 1px solid #e0dfdd;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+.rowHeader {
+  display: flex;
+  height: 40px;
+  background-color: #e8eff6;
+  box-shadow: 0px 0px 40px rgba(86, 89, 146, 0.15);
+  border-radius: 10px 10px 0px 0px;
+}
+.headerCell {
+  text-align: center;
+  font: $font-small;
+  line-height: 40px;
+  color: black;
+}

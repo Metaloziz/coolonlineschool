@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import cl from './Slider.module.scss';
 
 interface ISliderItem {
@@ -21,15 +21,27 @@ const Slider: FC<ISlider> = ({
   options,
   className,
 }) => {
+  const [activeId, setActiveId] = useState<number | null>(null);
+
+  const containerClassNames = classNames(
+    cl.container,
+    className,
+    cl[colorTheme],
+    cl[size],
+  );
+
   return (
-    <div
-      className={classNames(cl.container, className, cl[colorTheme], cl[size])}
-    >
+    <div className={containerClassNames}>
       {options.map(({ text, isActive = false, id }) => {
         return (
           <button
             key={id}
-            className={classNames(cl.option, { [cl.active]: isActive })}
+            className={classNames(cl.option, {
+              [cl.active]: activeId ? activeId === id : isActive,
+            })}
+            onClick={() => {
+              setActiveId(id);
+            }}
           >
             {text}
           </button>

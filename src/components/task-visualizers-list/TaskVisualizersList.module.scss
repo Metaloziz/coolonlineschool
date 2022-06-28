@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 35px;
+}
+.option {
+  display: flex;
+  align-items: center;
+  column-gap: 25px;
+  padding: 25px 15px 20px 30px;
+  background: linear-gradient(0deg, #e6eef8, #e6eef8), #cfd8dc;
+  box-shadow: inset -4px -4px 12px rgba(253, 255, 255, 0.8),
+    inset 4px 4px 12px rgba(187, 195, 206, 0.6);
+  border-radius: 30px;
+}
+.visualizer {
+  width: 125px;
+  height: 45px;
+  border-radius: 10px;
+}
+.mentalArithmeticVisualizer {
+  background: $color-red;
+}
+.speedReadingVisualizer {
+  background: $color-green;
+}
+.text {
+  font: $font-small;
+  color: $color-blue-lighter;
+}

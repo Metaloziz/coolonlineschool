@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ButtonColorThemes, TeacherStatus } from '@app/enums/Enums';
+import { ButtonColorThemes, TeacherStatuses } from '@app/enums';
 import { Button, TeachersTable } from '@components';
 import CustomPagination from '@components/custom-pagination/CustomPagination';
 import InformationItem from '@components/information-item/InformationItem';
@@ -43,9 +43,10 @@ const IndexPage: FC = () => {
             <Button
               className={styles.buttonSize}
               colorTheme={ButtonColorThemes.green}
-              text="Найти"
-            />
-            <Button className={styles.buttonSize} text="Выгрузить в Excel" />
+            >
+              Найти
+            </Button>
+            <Button className={styles.buttonSize}>Выгрузить в Excel</Button>
           </div>
         </div>
       </div>
@@ -60,7 +61,7 @@ const IndexPage: FC = () => {
                 registrationDate: new Date(),
                 workedHoursAmount: 236,
                 childrenNumber: 12,
-                status: TeacherStatus.active,
+                status: TeacherStatuses.active,
               },
               {
                 id: 2,
@@ -69,7 +70,7 @@ const IndexPage: FC = () => {
                 registrationDate: new Date(),
                 workedHoursAmount: 236,
                 childrenNumber: 12,
-                status: TeacherStatus.active,
+                status: TeacherStatuses.active,
               },
 
               {
@@ -79,7 +80,7 @@ const IndexPage: FC = () => {
                 registrationDate: new Date(),
                 workedHoursAmount: 236,
                 childrenNumber: 12,
-                status: TeacherStatus.active,
+                status: TeacherStatuses.active,
               },
               {
                 id: 4,
@@ -88,7 +89,7 @@ const IndexPage: FC = () => {
                 registrationDate: new Date(),
                 workedHoursAmount: 236,
                 childrenNumber: 12,
-                status: TeacherStatus.active,
+                status: TeacherStatuses.active,
               },
               {
                 id: 5,
@@ -97,7 +98,7 @@ const IndexPage: FC = () => {
                 registrationDate: new Date(),
                 workedHoursAmount: 236,
                 childrenNumber: 12,
-                status: TeacherStatus.active,
+                status: TeacherStatuses.active,
               },
               {
                 id: 6,
@@ -106,7 +107,7 @@ const IndexPage: FC = () => {
                 registrationDate: new Date(),
                 workedHoursAmount: 236,
                 childrenNumber: 12,
-                status: TeacherStatus.active,
+                status: TeacherStatuses.active,
               },
               {
                 id: 7,
@@ -115,7 +116,7 @@ const IndexPage: FC = () => {
                 registrationDate: new Date(),
                 workedHoursAmount: 236,
                 childrenNumber: 12,
-                status: TeacherStatus.active,
+                status: TeacherStatuses.active,
               },
               {
                 id: 8,
@@ -124,7 +125,7 @@ const IndexPage: FC = () => {
                 registrationDate: new Date(),
                 workedHoursAmount: 236,
                 childrenNumber: 12,
-                status: TeacherStatus.active,
+                status: TeacherStatuses.active,
               },
               {
                 id: 9,
@@ -133,7 +134,7 @@ const IndexPage: FC = () => {
                 registrationDate: new Date(),
                 workedHoursAmount: 236,
                 childrenNumber: 12,
-                status: TeacherStatus.active,
+                status: TeacherStatuses.active,
               },
               {
                 id: 10,
@@ -142,7 +143,7 @@ const IndexPage: FC = () => {
                 registrationDate: new Date(),
                 workedHoursAmount: 236,
                 childrenNumber: 12,
-                status: TeacherStatus.active,
+                status: TeacherStatuses.active,
               },
             ]}
           />

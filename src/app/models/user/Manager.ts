@@ -1,4 +1,4 @@
-import { ManagerStatus } from '@app/enums/Enums';
+import { ManagerStatus } from '@app/enums';
 import { User } from './User';
 
 export interface Manager extends User {

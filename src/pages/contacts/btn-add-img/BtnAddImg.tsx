@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
-import btnAddImageHover from '@svgs/btn-add-hover.svg';
-import btnAddImage from '@svgs/btn-add.svg';
+import btnAddImageHover from '@svgs/icons/add-hover.svg';
+import btnAddImage from '@svgs/icons/add.svg';
 import cl from './BtnAddImg.module.scss';
 
 const BtnAddImg = () => {

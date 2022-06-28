@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import Image from 'next/image';
 import { FC } from 'react';
-import { ButtonColorThemes } from '@app/enums/Enums';
+import { ButtonColorThemes, IconVariants } from '@app/enums';
 import { IStudentCard } from '@app/types';
 import {
   Button,
@@ -9,8 +9,8 @@ import {
   StudentCardSlider,
   CustomImageWrapper,
 } from '@components';
+import { IconSvg } from '@components/svg';
 import avatar from '@mock/public/avatar.png';
-import zoomIcon from '@svgs/button/zoom-icon.svg';
 import cl from './StudentCard.module.scss';
 
 export interface IStudentCardWithCl {
@@ -22,11 +22,12 @@ const StudentCard: FC<IStudentCardWithCl> = ({
   options: {
     studentName,
     status,
-    geo,
+    city,
     pointsNumber,
     tag,
     chatsLinks,
     nextLessonData,
+    classroomZoomLink = '',
   },
   className,
 }) => {
@@ -38,8 +39,8 @@ const StudentCard: FC<IStudentCardWithCl> = ({
     !!pointsNumber &&
     !!tag &&
     !!chatsLinks &&
-    !!chatsLinks.whatsappLink &&
-    !!chatsLinks.telegramLink &&
+    !!chatsLinks.whatsapp &&
+    !!chatsLinks.telegram &&
     !!nextLessonData;
 
   return (
@@ -74,7 +75,7 @@ const StudentCard: FC<IStudentCardWithCl> = ({
           {isExtended && (
             <>
               <StudentCardSlider {...{ pointsNumber }} />
-              <span className={cl.pointsVisualiser}>{pointsNumber}</span>
+              <div className={cl.fiveImage}></div>
             </>
           )}
         </div>
@@ -82,23 +83,34 @@ const StudentCard: FC<IStudentCardWithCl> = ({
       {(isMinimal || isNormal) && (
         <div className={cl.info}>
           <span className={cl.infoText}>Город:</span>
-          <span className={cl.infoVisualiser}>{geo}</span>
+          <span className={cl.infoVisualiser}>{city}</span>
         </div>
       )}
       {isNormal && (
         <Button
           colorTheme={ButtonColorThemes.blueGradient}
-          text="Добавить новый урок"
           className={cl.addNewLessonBtn}
-        />
+        >
+          Добавить новый урок
+        </Button>
       )}
       {isExtended && (
-        <Button
-          className={cl.zoomBtn}
-          text="ZOOM"
-          colorTheme={ButtonColorThemes.blueGradient}
-          image={<Image src={zoomIcon} alt="ZOOM" />}
-        />
+        <a href={classroomZoomLink} target="_blank" rel="noreferrer">
+          <Button
+            className={cl.zoomBtn}
+            colorTheme={ButtonColorThemes.blueGradient}
+            icon={
+              <IconSvg
+                fill="white"
+                width={19}
+                height={13}
+                icon={IconVariants.zoom}
+              />
+            }
+          >
+            ZOOM
+          </Button>
+        </a>
       )}
       {isExtended && <StudentCardBottom {...{ chatsLinks, nextLessonData }} />}
     </div>

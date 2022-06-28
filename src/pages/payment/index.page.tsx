@@ -1,8 +1,5 @@
 import { useState } from 'react';
-import {
-  PaymentStatus,
-  TariffPlans as TariffPlansEnum,
-} from '@app/enums/Enums';
+import { PaymentStatuses, TariffPlans as TariffPlansEnum } from '@app/enums';
 import {
   Balance,
   Modal,
@@ -36,7 +33,7 @@ export default function Payment() {
             description: 'Оплата за март. Тариф “Индивидуальный”',
             paymentDate: new Date(),
             tariffPlan: TariffPlansEnum.personal,
-            status: PaymentStatus.success,
+            status: PaymentStatuses.success,
             chequeLink: '',
           },
           {
@@ -45,7 +42,7 @@ export default function Payment() {
             description: 'Оплата за март. Тариф “Самостоятельный”',
             paymentDate: new Date(),
             tariffPlan: TariffPlansEnum.personal,
-            status: PaymentStatus.success,
+            status: PaymentStatuses.success,
             chequeLink: '',
           },
           {
@@ -54,7 +51,7 @@ export default function Payment() {
             description: 'Оплата за март. Тариф “Продвинутый”',
             paymentDate: new Date(),
             tariffPlan: TariffPlansEnum.personal,
-            status: PaymentStatus.success,
+            status: PaymentStatuses.success,
             chequeLink: '',
           },
           {
@@ -63,7 +60,7 @@ export default function Payment() {
             description: 'Оплата за март. Тариф “Индивидуальный”',
             paymentDate: new Date(),
             tariffPlan: TariffPlansEnum.personal,
-            status: PaymentStatus.success,
+            status: PaymentStatuses.success,
             chequeLink: '',
           },
           {
@@ -72,7 +69,7 @@ export default function Payment() {
             description: 'Оплата за март. Тариф “Индивидуальный”',
             paymentDate: new Date(),
             tariffPlan: TariffPlansEnum.personal,
-            status: PaymentStatus.success,
+            status: PaymentStatuses.success,
             chequeLink: '',
           },
           {
@@ -81,7 +78,7 @@ export default function Payment() {
             description: 'Оплата за март. Тариф “Индивидуальный”',
             paymentDate: new Date(),
             tariffPlan: TariffPlansEnum.personal,
-            status: PaymentStatus.success,
+            status: PaymentStatuses.success,
             chequeLink: '',
           },
         ]}

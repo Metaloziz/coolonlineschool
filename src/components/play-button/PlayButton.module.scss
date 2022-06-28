@@ -10,12 +10,12 @@
     background-image: initial;
     background-color: white;
   }
-};
+}
 
 @mixin bluePlayer {
-  background: linear-gradient(90deg, #0439AD 0%, #38028F 100%);
-  box-shadow: 0 0 10px #4778EC;
-};
+  background: linear-gradient(90deg, #0439ad 0%, #38028f 100%);
+  box-shadow: 0 0 10px #4778ec;
+}
 
 .container {
   display: flex;
@@ -70,7 +70,7 @@
   width: 73px;
   height: 75px;
   background-color: #4778ec;
-  mask-image: url('../../../public/svgs/btn-play.svg');
+  mask-image: url('../../../public/svgs/play-button/base.svg');
   mask-size: contain;
   mask-repeat: no-repeat;
 }
