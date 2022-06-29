@@ -1,0 +1,63 @@
+.uploadFile {
+  & .filupp {
+    display: flex;
+    cursor: pointer;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 10;
+    height: 100%;
+
+    & .customFileButton {
+      position: relative;
+      background: #AFD46B;
+      box-sizing: border-box;
+      width: 230px;
+      height: 40px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-right: 4px;
+      display: flex;
+      align-items: center;
+
+      & p {
+        margin: 0 0 0 25px;
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 17px;
+        color: #0F123F;
+      }
+
+      & .arrowBtn {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        top: 50%;
+        right: 30px;
+        transform: translateY(-50%);
+      }
+    }
+
+    & .customFileButton:hover {
+      background: #94B755;
+    }
+
+    & input[type="file"] {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+
+      border: 0;
+    }
+  }
+}

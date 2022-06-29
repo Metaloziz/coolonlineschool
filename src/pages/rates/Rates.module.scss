@@ -1,0 +1,190 @@
+.wrapper {
+  margin: 25px 0 30px 20px;
+
+  .innerContent {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 30px 45px;
+    width: 1340px;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+
+    & h4 {
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 20px;
+    }
+
+    & .nameTarif {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+
+      & h3 {
+        width: 569px;
+      }
+
+      & .buttons {
+        display: flex;
+        align-items: center;
+
+        & p {
+          font-weight: 600;
+          margin-right: 20px;
+        }
+      }
+    }
+
+    & .tarif {
+      display: grid;
+      grid-template-columns: 225px 350px 225px 350px;
+      row-gap: 25px;
+      align-items: center;
+    }
+
+    & .description {
+      margin: 55px 0 15px 0;
+    }
+
+    & .tarifDescription {
+      display: flex;
+
+      & .informationTarif {
+        margin: 0 0 0 60px;
+
+        & p {
+          margin: 0 0 25px 0;
+        }
+      }
+    }
+  }
+
+  & .buttonSubmit {
+    width: 1340px;
+    display: flex;
+    margin: 30px 0 30px 0;
+    justify-content: right;
+
+    & .button {
+      padding: 11px 103px;
+      float: right;
+    }
+  }
+
+  & .blockAdd {
+    background: #FFFFFF;
+    box-shadow: 0px 20px 70px rgba(86, 89, 146, 0.1);
+    border-radius: 10px;
+    width: 1340px;
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+  }
+}
+
+
+
+.calendar {
+  width: 140px;
+  margin-right: 25px;
+}
+
+.textFieldSmall {
+  width: 140px;
+}
+
+.textFieldNormal {
+  width: 170px;
+}
+
+.textEditor {
+  width: 640px;
+  height: 185px;
+}
+
+$form-control-color: #4778EC;
+
+.radioButtons {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100% ;
+
+  & label {
+    display: flex;
+
+    & p {
+      margin: 0;
+    }
+  }
+
+  & .radioButtonsBottom {
+    background: #FFFFFF;
+    box-shadow: 0px 0px 40px rgba(86, 89, 146, 0.15);
+    border-radius: 10px;
+    padding: 20px;
+
+    & .month {
+      display: flex;
+      align-items: center;
+
+      & .text {
+        margin: 0 30px 0 0;
+      }
+    }
+  }
+
+  .form-control:focus-within {
+    color: $form-control-color;
+  }
+
+  input[type="radio"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    /* Remove most all native input styles */
+    appearance: none;
+    /* For iOS < 15 */
+    background-color: #ffffff;
+    /* Not removed via appearance */
+    margin: 0 25px 0 0;
+
+    font: inherit;
+    color: currentColor;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #BABEC6;
+    border-radius: 50%;
+    transform: translateY(-0.075em);
+
+    display: grid;
+    place-content: center;
+  }
+
+  input[type="radio"]::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em $form-control-color;
+    /* Windows High Contrast Mode */
+    background-color: red;
+  }
+
+  input[type="radio"]:checked::before {
+    transform: scale(1);
+  }
+
+  input[type="radio"]:focus {
+    outline-offset: max(2px, 0.15em);
+  }
+
+}
+

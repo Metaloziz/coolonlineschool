@@ -9,7 +9,7 @@ interface ICustomSelect {
     value: string;
   }[];
   placeholder: string;
-  size?: 'auto' | 'normal' | 'large';
+  size?: 'auto' | 'normal' | 'xnormal' | 'large';
   className?: string;
 }
 

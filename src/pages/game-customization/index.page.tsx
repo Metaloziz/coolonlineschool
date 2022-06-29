@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { ButtonColorThemes } from '@app/enums';
 import { Button, Slider } from '@components';
+import TextEditor from '@components/text-editor/TextEditor';
 import goBack from '@svgs/go-back-img.svg';
 import buttonAdd from '@svgs/settings-games-add.svg';
 import { getRandomId } from '@utils/RandomId';
@@ -69,7 +70,9 @@ const IndexPage = () => {
         </div>
       </div>
       <h3 className={styles.titleDescription}>Память и ритм</h3>
-      <div className={styles.description}>{/* <TextEditor /> */}</div>
+      <div className={styles.description}>
+        <TextEditor />
+      </div>
       <div className={styles.buttonSubmit}>
         <Button
           colorTheme={ButtonColorThemes.blueGradient}

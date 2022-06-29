@@ -38,3 +38,13 @@ export const status = [
   { value: '1', label: 'Активен' },
   { value: '2', label: 'Неактивен' },
 ];
+
+export const tarif = [
+  { value: '1', label: 'Тариф 1' },
+  { value: '2', label: 'Тариф 2' },
+  { value: '3', label: 'Тариф 3' },
+];
+
+export const homeworkType = [{ value: '1', label: 'Видеоуроки' }];
+
+export const games = [{ value: '1', label: 'Игры' }];

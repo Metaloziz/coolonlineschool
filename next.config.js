@@ -15,4 +15,7 @@ module.exports = {
     // a non-locale prefixed path e.g. `/hello`
     defaultLocale: 'en',
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };

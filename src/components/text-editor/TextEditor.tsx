@@ -1,25 +1,34 @@
+import classNames from 'classnames';
+import { EditorState } from 'draft-js';
+import dynamic from 'next/dynamic';
+import React, { FC, useEffect, useState } from 'react';
+import { EditorProps } from 'react-draft-wysiwyg';
+import styles from './TextEditor.module.scss';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-// eslint-disable-next-line import/order
 
-// const Editor = dynamic<EditorProps>(
-//   () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
-//   { ssr: false },
-// );
+const Editor = dynamic<EditorProps>(
+  () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
+  { ssr: false },
+);
 
-const TextEditor = () => {
-  // const [editorState, setEditorState] = useState(() =>
-  //   EditorState.createEmpty(),
-  // );
-  // useEffect(() => {
-  //   console.log(editorState);
-  // }, [editorState]);
+interface Props {
+  className?: string;
+}
+
+const TextEditor: FC<Props> = ({ className }) => {
+  const [editorState, setEditorState] = useState(() =>
+    EditorState.createEmpty(),
+  );
+  useEffect(() => {
+    console.log(editorState);
+  }, [editorState]);
   return (
     <div>
-      {/* <Editor
+      <Editor
         editorState={editorState}
         onEditorStateChange={setEditorState}
         wrapperClassName={styles.wrapper}
-        editorClassName={styles.editor}
+        editorClassName={classNames(styles.editor, className)}
         toolbarClassName={styles.toolbar}
         toolbar={{
           options: [
@@ -53,7 +62,7 @@ const TextEditor = () => {
             defaultSize: false,
           },
         }}
-      /> */}
+      />
     </div>
   );
 };

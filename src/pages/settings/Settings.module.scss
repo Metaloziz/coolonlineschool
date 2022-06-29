@@ -1,0 +1,81 @@
+.innerContent {
+  margin: 20px;
+  display: grid;
+  grid-template-columns: 594px 594px;
+  grid-template-rows: 30px 250px 55px;
+  column-gap: 20px;
+  row-gap: 15px;
+
+  & h4 {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    color: #0F123F;
+  }
+
+  & p {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  & .systemPay {
+    background: #FFFFFF;
+    border-radius: 10px;
+    height: 175px;
+    padding: 35px 0 0 25px;
+    display: grid;
+    grid-template-columns: 110px 310px;
+    grid-template-rows: 40px 40px;
+    row-gap: 25px;
+    align-items: center;
+  }
+
+  & .settings {
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 45px 0 0 25px;
+
+    & .lessons {
+      display: flex;
+      align-items: center;
+      margin: 0 0 25px 0;
+
+      & p {
+        margin: 0 25px 0 0;
+      }
+    }
+
+    & .typeGroup {
+      display: flex;
+      align-items: center;
+      margin: 0 0 35px 0;
+
+      & p {
+        margin: 0 25px 0 0;
+      }
+    }
+
+    & .buttonAdd {
+      padding: 3px 3px 0 0;
+      cursor: pointer;
+      background: #ffffff;
+      padding-left: 20px;
+      margin-left: -20px;
+      border-radius: 10px;
+    }
+  }
+  & .buttonSaveBlock {
+    display: flex;
+    justify-content: right;
+    margin: 15px 0 0 0;
+
+    & .buttonSave {
+      padding: 11px 102px;
+    }
+  }
+}

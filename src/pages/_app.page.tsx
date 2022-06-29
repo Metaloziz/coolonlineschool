@@ -1,10 +1,10 @@
-// import { NextComponentType, NextPageContext } from 'next';
+import { NextComponentType, NextPageContext } from 'next';
 import {
   AppContext as NextAppContext,
   AppProps as NextAppProps,
 } from 'next/app';
-import { /*FC,*/ useEffect, useState } from 'react';
-// import { AuthGuard } from '@app/common/AuthGuard';
+import { FC, useEffect, useState } from 'react';
+import { AuthGuard } from '@app/common/AuthGuard';
 import { UserAuth } from '@app/models/auth/UserAuth';
 import { Client } from '@app/models/user/Client';
 import { Manager } from '@app/models/user/Manager';
@@ -23,11 +23,10 @@ import '@styles/normalize.scss';
 
 type AppProps<P = { auth?: UserAuth; profile?: Client | Manager }> = {
   pageProps: P;
-  Component: any;
-  /* Component: NextComponentType<NextPageContext, any, P> & {
+  Component: NextComponentType<NextPageContext, any, P> & {
     layout?: FC;
     guard?: AuthGuard;
-  }; */
+  };
 } & Omit<NextAppProps<P>, 'pageProps'>;
 
 function App({ Component, pageProps }: AppProps) {

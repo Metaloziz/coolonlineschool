@@ -1,0 +1,40 @@
+$width_block: 1360px;
+
+.innerContent {
+  padding: 25px 0 0 20px;
+
+  & .buttonsTop {
+    margin-bottom: 35px;
+    display: flex;
+
+    & .articleName {
+      width: 594px;
+    }
+
+    & p {
+      margin: auto 22px auto 20px;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;;
+    }
+  }
+
+  & .description {
+    width: $width_block;
+    margin-bottom: 35px;
+  }
+
+  & .buttonSubmit {
+    display: flex;
+    justify-content: flex-end;
+    width: $width_block;
+
+    & .button {
+      padding: 11px 103px;
+    }
+  }
+}
+
+.textEditor {
+  height: 650px;
+}
