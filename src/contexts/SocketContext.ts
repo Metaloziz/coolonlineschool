@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Socket } from 'socket.io-client';
+
 import { connectWS } from '@utils/Socket';
+import { Socket } from 'socket.io-client';
 
 export function useSocket(wsUrl: string, namespace?: string, token?: string) {
   const [socket, setSocket] = useState<Socket>();

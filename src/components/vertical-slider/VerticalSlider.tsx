@@ -1,5 +1,7 @@
-import classNames from 'classnames';
 import { FC } from 'react';
+
+import classNames from 'classnames';
+
 import cl from './VerticalSlider.module.scss';
 
 interface IVerticalSliderOptions {
@@ -13,19 +15,14 @@ interface IVerticalSliders {
   className?: string;
 }
 
-const VerticalSlider: FC<IVerticalSliders> = ({ options, className }) => {
-  return (
-    <div className={classNames(cl.container, className)}>
-      {options.map(({ text, id, isActive = false }) => (
-        <div
-          key={id}
-          className={classNames(cl.option, { [cl.active]: isActive })}
-        >
-          {text}
-        </div>
-      ))}
-    </div>
-  );
-};
+const VerticalSlider: FC<IVerticalSliders> = ({ options, className }) => (
+  <div className={classNames(cl.container, className)}>
+    {options.map(({ text, id, isActive = false }) => (
+      <div key={id} className={classNames(cl.option, { [cl.active]: isActive })}>
+        {text}
+      </div>
+    ))}
+  </div>
+);
 
 export default VerticalSlider;

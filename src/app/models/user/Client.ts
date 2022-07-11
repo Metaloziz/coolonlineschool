@@ -1,5 +1,6 @@
 import { ClientStatus } from '@app/enums';
 import { AddressInfo } from '@app/value-objects/AddressInfo';
+
 import { User } from './User';
 
 export interface Client extends User {

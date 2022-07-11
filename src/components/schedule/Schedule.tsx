@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { LessonsTypes } from '@app/enums';
 import { ISchedule } from '@app/types';
 import { ScheduleGrid, ScheduleLessonsList } from '@components';

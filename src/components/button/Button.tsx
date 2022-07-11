@@ -1,6 +1,8 @@
-import classNames from 'classnames';
 import { ButtonHTMLAttributes, FC } from 'react';
+
 import { ButtonColorThemes } from '@app/enums';
+import classNames from 'classnames';
+
 import cl from './Button.module.scss';
 
 interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {

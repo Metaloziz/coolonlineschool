@@ -1,15 +1,11 @@
 import { useState } from 'react';
+
 import { PaymentStatuses, TariffPlans as TariffPlansEnum } from '@app/enums';
-import {
-  Balance,
-  Modal,
-  TariffPlan,
-  TariffPlans,
-  PaymentsTable,
-} from '@components';
+import { Balance, Modal, TariffPlan, TariffPlans, PaymentsTable } from '@components';
+
 import cl from './Payment.module.scss';
 
-export default function Payment() {
+const Payment = () => {
   const [isModal, setIsModal] = useState(false);
 
   return (
@@ -118,4 +114,6 @@ export default function Payment() {
       </Modal>
     </div>
   );
-}
+};
+
+export default Payment;
