@@ -4,14 +4,16 @@ import { getRandomId } from '@utils/RandomId';
 import cl from './Input.module.scss';
 
 interface IInput extends InputHTMLAttributes<HTMLInputElement> {
-  labelText: string;
+  labelText?: string;
   className?: string;
+  placeholder?: string;
 }
 
 const Input: FC<IInput> = ({
   labelText,
   type = 'text',
   className,
+  placeholder,
   ...attrs
 }) => {
   const inputId = String(getRandomId());
@@ -26,6 +28,7 @@ const Input: FC<IInput> = ({
         id={inputId}
         type={type}
         className={classNames(cl.input, className)}
+        placeholder={placeholder}
       />
     </div>
   );

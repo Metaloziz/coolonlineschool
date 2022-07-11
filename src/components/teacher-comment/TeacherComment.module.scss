@@ -4,23 +4,29 @@
   box-shadow: 0px 0px 40px rgba(86, 89, 146, 0.15);
   border-radius: 10px;
 }
+
 .title {
   font: $font-subheader;
   color: $color-visualiser;
   margin-bottom: 40px;
   text-align: center;
 }
+
 .comment {
   margin-bottom: 20px;
   font: $font-base;
   color: $color-text-darker;
 }
+
 .buttons {
   display: flex;
   column-gap: 15px;
   justify-content: center;
 }
+
 .btn {
   padding-right: 65px;
   padding-left: 65px;
+  margin-top: 36px;
+  width: 100%;
 }
