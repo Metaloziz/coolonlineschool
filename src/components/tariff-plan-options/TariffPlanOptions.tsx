@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { RusTariffPlans, TariffPlans } from '@app/enums';
 import { getRandomId } from '@utils/RandomId';
 
@@ -18,14 +19,12 @@ const TariffPlanOptions: FC<Props> = ({
   const { introductory, independent, advanced, personal } = TariffPlans;
 
   const options: string[] = [];
-  const includedTariffPlan: typeof independent | typeof advanced | null =
-    isExtraOption
-      ? tariffPlan === advanced
-        ? independent
-        : tariffPlan === personal
-        ? advanced
-        : null
-      : null;
+  let includedTariffPlan: typeof independent | typeof advanced | undefined;
+
+  if (isExtraOption) {
+    if (tariffPlan === advanced) includedTariffPlan = independent;
+    if (tariffPlan === personal) includedTariffPlan = advanced;
+  }
 
   switch (tariffPlan) {
     case introductory:
@@ -67,6 +66,7 @@ const TariffPlanOptions: FC<Props> = ({
         'индивидуальная консультация',
         'доступ к платформе без ограничений на момент обучения',
       );
+      break;
     default:
       break;
   }
@@ -78,7 +78,7 @@ const TariffPlanOptions: FC<Props> = ({
         >{`Всё, что включает тариф “${RusTariffPlans[includedTariffPlan]}”`}</span>
       )}
       <ul className={className || ''}>
-        {options.map((option) => (
+        {options.map(option => (
           <li key={getRandomId()}>{option}</li>
         ))}
       </ul>
