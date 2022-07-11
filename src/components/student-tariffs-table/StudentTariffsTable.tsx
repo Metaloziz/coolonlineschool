@@ -1,12 +1,9 @@
 import { FC } from 'react';
-import {
-  RusTariffPlans,
-  RusTariffStatuses,
-  TariffPlans,
-  TariffStatuses,
-} from '@app/enums';
+
+import { RusTariffPlans, RusTariffStatuses, TariffPlans, TariffStatuses } from '@app/enums';
 import { Table } from '@components';
 import { convertToDateString } from '@utils/Date';
+
 import cl from './StudentTariffsTable.module.scss';
 
 interface IStudentTariffsRow {
@@ -46,27 +43,24 @@ const formatRow = ({
   ...cells,
 });
 
-const getFormattedRows = (rows: IStudentTariffsRow[]) =>
-  rows.map((row) => formatRow(row));
+const getFormattedRows = (rows: IStudentTariffsRow[]) => rows.map(row => formatRow(row));
 
-const StudentTariffsTable: FC<IStudentTariffsTable> = ({ rows }) => {
-  return (
-    <Table
-      headers={[
-        ['id', '№'],
-        ['fullName', 'ФИО  ученика'],
-        ['age', 'Возраст'],
-        ['registrationDate', 'Дата регистрации'],
-        ['tariffStartDate', 'Дата начала действия тарифа'],
-        ['tariffEndDate', 'Дата окончания действия тарифа'],
-        ['tariffPlan', 'Тариф'],
-        ['paymentDate', 'Дата оплаты'],
-        ['status', 'Статус'],
-      ]}
-      rows={getFormattedRows(rows)}
-      gridClassName={cl.grid}
-    />
-  );
-};
+const StudentTariffsTable: FC<IStudentTariffsTable> = ({ rows, className }) => (
+  <Table
+    headers={[
+      ['id', '№'],
+      ['fullName', 'ФИО  ученика'],
+      ['age', 'Возраст'],
+      ['registrationDate', 'Дата регистрации'],
+      ['tariffStartDate', 'Дата начала действия тарифа'],
+      ['tariffEndDate', 'Дата окончания действия тарифа'],
+      ['tariffPlan', 'Тариф'],
+      ['paymentDate', 'Дата оплаты'],
+      ['status', 'Статус'],
+    ]}
+    rows={getFormattedRows(rows)}
+    gridClassName={cl.grid}
+  />
+);
 
 export default StudentTariffsTable;

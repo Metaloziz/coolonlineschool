@@ -1,11 +1,12 @@
 import { FC } from 'react';
+
 import { SidebarNavItem } from '@components';
 import { Routes } from '@constants/Routes';
+
 import cl from './SidebarNav.module.scss';
 
 const SidebarNav: FC = () => {
-  const { Index, Payment, Results, Achievements, Contacts, Games, Schedule } =
-    Routes;
+  const { Index, Payment, Results, Achievements, Contacts, Games, Schedule } = Routes;
   const links = [
     { label: 'Главная', href: Index, svgId: 'home' },
     {
@@ -30,7 +31,7 @@ const SidebarNav: FC = () => {
   return (
     <aside className={cl.sidebar}>
       <nav>
-        {links.map((link) => (
+        {links.map(link => (
           <SidebarNavItem
             svgId={link.svgId}
             key={link.svgId}
@@ -42,12 +43,7 @@ const SidebarNav: FC = () => {
         ))}
       </nav>
 
-      <a
-        href="https://sitetopic.ru"
-        target="_blank"
-        className={cl.anchor}
-        rel="noreferrer"
-      >
+      <a href="https://sitetopic.ru" target="_blank" className={cl.anchor} rel="noreferrer">
         Разработка сайта - компания <span>“Sitetopic”</span>
       </a>
     </aside>

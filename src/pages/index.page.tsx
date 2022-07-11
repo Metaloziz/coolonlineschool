@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import { useEffect } from 'react';
+
 import { ProgressBarColorThemes, StudentStatuses } from '@app/enums';
 import {
   StudentCard,
@@ -11,9 +11,11 @@ import {
 import { useAuthContext } from '@contexts/AuthContext';
 import { getProfile } from '@utils/Auth';
 import { getRandomId } from '@utils/RandomId';
+import Head from 'next/head';
+
 import cl from './Home.module.scss';
 
-export default function Home() {
+const Home = () => {
   const { auth } = useAuthContext();
 
   useEffect(() => {
@@ -167,4 +169,6 @@ export default function Home() {
       </main>
     </div>
   );
-}
+};
+
+export default Home;

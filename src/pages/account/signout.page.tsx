@@ -1,11 +1,12 @@
-import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+
 import { AuthGuard } from '@app/common/AuthGuard';
 import BlankLayout from '@components/layout/blank/BlankLayout';
 import { Routes } from '@constants/Routes';
 import { useAuthContext } from '@contexts/AuthContext';
+import { useRouter } from 'next/router';
 
-export default function SignOut() {
+const SignOut = () => {
   const router = useRouter();
   const { clearUserAuthenticated } = useAuthContext();
 
@@ -15,7 +16,9 @@ export default function SignOut() {
   });
 
   return <>Loading...</>;
-}
+};
+
+export default SignOut;
 
 SignOut.layout = BlankLayout;
 

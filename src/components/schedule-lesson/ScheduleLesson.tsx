@@ -1,10 +1,12 @@
-import classNames from 'classnames';
 import { FC } from 'react';
+
 import { ButtonColorThemes, IconVariants } from '@app/enums';
 import { IScheduleLesson } from '@app/types';
 import { Button, IconButton } from '@components';
 import { IconSvg } from '@components/svg';
 import { convertToTimeString } from '@utils/Date';
+import classNames from 'classnames';
+
 import cl from './ScheduleLesson.module.scss';
 
 const ScheduleLesson: FC<IScheduleLesson> = ({

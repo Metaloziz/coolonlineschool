@@ -1,16 +1,13 @@
-import classNames from 'classnames';
-import Image from 'next/image';
 import { FC } from 'react';
+
 import { ButtonColorThemes, IconVariants } from '@app/enums';
 import { IStudentCard } from '@app/types';
-import {
-  Button,
-  StudentCardBottom,
-  StudentCardSlider,
-  CustomImageWrapper,
-} from '@components';
+import { Button, StudentCardBottom, StudentCardSlider, CustomImageWrapper } from '@components';
 import { IconSvg } from '@components/svg';
 import avatar from '@mock/public/avatar.png';
+import classNames from 'classnames';
+import Image from 'next/image';
+
 import cl from './StudentCard.module.scss';
 
 export interface IStudentCardWithCl {
@@ -75,7 +72,7 @@ const StudentCard: FC<IStudentCardWithCl> = ({
           {isExtended && (
             <>
               <StudentCardSlider {...{ pointsNumber }} />
-              <div className={cl.fiveImage}></div>
+              <div className={cl.fiveImage} />
             </>
           )}
         </div>
@@ -87,10 +84,7 @@ const StudentCard: FC<IStudentCardWithCl> = ({
         </div>
       )}
       {isNormal && (
-        <Button
-          colorTheme={ButtonColorThemes.blueGradient}
-          className={cl.addNewLessonBtn}
-        >
+        <Button colorTheme={ButtonColorThemes.blueGradient} className={cl.addNewLessonBtn}>
           Добавить новый урок
         </Button>
       )}
@@ -99,14 +93,7 @@ const StudentCard: FC<IStudentCardWithCl> = ({
           <Button
             className={cl.zoomBtn}
             colorTheme={ButtonColorThemes.blueGradient}
-            icon={
-              <IconSvg
-                fill="white"
-                width={19}
-                height={13}
-                icon={IconVariants.zoom}
-              />
-            }
+            icon={<IconSvg fill="white" width={19} height={13} icon={IconVariants.zoom} />}
           >
             ZOOM
           </Button>

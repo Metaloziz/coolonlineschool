@@ -1,4 +1,5 @@
 import { FC, ReactNode } from 'react';
+
 import cl from './BlankLayout.module.scss';
 
 interface Props {

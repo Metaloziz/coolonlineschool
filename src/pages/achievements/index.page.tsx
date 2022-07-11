@@ -16,6 +16,7 @@ import olympiad from '@svgs/games/olympiad.svg';
 import tableShulte from '@svgs/games/table-Shulte.svg';
 import winCompetitions from '@svgs/games/win-competitions.svg';
 import winnerOlympiad from '@svgs/games/winner-olympiad.svg';
+
 import cl from './Achievements.module.scss';
 
 const achievementCardsInfo = [
@@ -88,8 +89,7 @@ const achievementCardsInfo = [
   {
     isActive: false,
     imageCard: greatWorkClass30,
-    title:
-      'Блистательная работа на занятии (30 занятий получать баллы за работу)',
+    title: 'Блистательная работа на занятии (30 занятий получать баллы за работу)',
   },
   {
     isActive: false,
@@ -98,33 +98,29 @@ const achievementCardsInfo = [
   },
 ];
 
-const IndexPage = () => {
-  return (
-    <div className={cl.innerContent}>
-      <div className={cl.wrapStudentCard}>
-        <StudentCard
-          options={{
-            studentName: 'Днепровский Александр Алексеевич',
-            status: StudentStatuses.beginner,
-            pointsNumber: 1,
-            city: 'Москва',
-          }}
-        />
-      </div>
-      <div className={cl.wrapContent}>
-        {achievementCardsInfo.map((item, index) => {
-          return (
-            <BlockAchievement
-              key={index}
-              imageCard={item.imageCard.src}
-              isActive={item.isActive}
-              title={item.title}
-            />
-          );
-        })}
-      </div>
+const IndexPage = () => (
+  <div className={cl.innerContent}>
+    <div className={cl.wrapStudentCard}>
+      <StudentCard
+        options={{
+          studentName: 'Днепровский Александр Алексеевич',
+          status: StudentStatuses.beginner,
+          pointsNumber: 1,
+          city: 'Москва',
+        }}
+      />
     </div>
-  );
-};
+    <div className={cl.wrapContent}>
+      {achievementCardsInfo.map((item, index) => (
+        <BlockAchievement
+          key={index}
+          imageCard={item.imageCard.src}
+          isActive={item.isActive}
+          title={item.title}
+        />
+      ))}
+    </div>
+  </div>
+);
 
 export default IndexPage;

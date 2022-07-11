@@ -1,8 +1,10 @@
-import classNames from 'classnames';
 import { FC } from 'react';
+
 import { ButtonColorThemes, RusTariffPlans, TariffPlans } from '@app/enums';
 import { ITariffCard } from '@app/types';
 import { TariffPlanOptions, Button } from '@components';
+import classNames from 'classnames';
+
 import cl from './TariffCard.module.scss';
 
 const TariffCard: FC<ITariffCard> = ({

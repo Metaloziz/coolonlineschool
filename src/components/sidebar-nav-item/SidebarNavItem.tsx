@@ -1,9 +1,10 @@
+import { FC } from 'react';
+
+import { SidebarNavSvg } from '@components/svg';
+import { files } from '@components/svg/SidebarNavSvg';
 import classNames from 'classnames';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FC } from 'react';
-import { SidebarNavSvg } from '@components/svg';
-import { files } from '@components/svg/SidebarNavSvg';
 
 interface Props {
   link: { label: string; href: string };

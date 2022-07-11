@@ -1,6 +1,12 @@
 .linksToChats {
   display: flex;
   align-items: center;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    margin: 20px auto;
+    justify-content: center;
+  }
 }
 .linksToChatsText {
   font: $font-smaller;
@@ -9,6 +15,10 @@
 }
 .nextLesson {
   font: $font-small;
+
+  @media (max-width: 550px) {
+    text-align: center;
+  }
 }
 .nextLessonText {
   color: $color-visualiser;

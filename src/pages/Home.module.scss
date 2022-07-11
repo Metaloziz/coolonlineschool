@@ -9,6 +9,19 @@
   row-gap: 10px;
   column-gap: 20px;
   padding: 25px 20px 20px;
+
+  @media (max-width: 1550px) {
+    grid-template: 250px 80px 410px auto/ 965px 440px;
+  }
+
+  @media (max-width: 1280px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (max-width: 550px) {
+   padding: 30px 10px;
+  }
 }
 
 .keepPlaying {

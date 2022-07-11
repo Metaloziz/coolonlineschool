@@ -3,7 +3,32 @@
   height: 40px;
   column-gap: 25px;
   margin: 20px 0;
+
+  @media (max-width: 1280px) {
+    order: 2;
+  }
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+    height: auto;
+
+    > div + div{
+      margin-top: 20px;
+    }
+
+    > div > div {
+      width: 100%;
+    }
+  }
 }
 .slider {
   margin-left: auto;
+
+  @media (max-width: 900px) {
+    margin: 20px auto 0;
+  }
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+  }
 }

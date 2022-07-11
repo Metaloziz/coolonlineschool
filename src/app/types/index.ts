@@ -1,4 +1,5 @@
 import { SVGAttributes } from 'react';
+
 import {
   IconVariants,
   LessonsTypes,

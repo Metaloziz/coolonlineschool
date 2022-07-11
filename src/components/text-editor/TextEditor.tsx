@@ -1,24 +1,23 @@
+import React, { FC, useEffect, useState } from 'react';
+
 import classNames from 'classnames';
 import { EditorState } from 'draft-js';
 import dynamic from 'next/dynamic';
-import React, { FC, useEffect, useState } from 'react';
 import { EditorProps } from 'react-draft-wysiwyg';
+
 import styles from './TextEditor.module.scss';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
-const Editor = dynamic<EditorProps>(
-  () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
-  { ssr: false },
-);
+const Editor = dynamic<EditorProps>(() => import('react-draft-wysiwyg').then(mod => mod.Editor), {
+  ssr: false,
+});
 
 interface Props {
   className?: string;
 }
 
 const TextEditor: FC<Props> = ({ className }) => {
-  const [editorState, setEditorState] = useState(() =>
-    EditorState.createEmpty(),
-  );
+  const [editorState, setEditorState] = useState(() => EditorState.createEmpty());
   useEffect(() => {
     console.log(editorState);
   }, [editorState]);
