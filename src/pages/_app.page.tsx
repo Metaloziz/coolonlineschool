@@ -1,9 +1,5 @@
-import { NextComponentType, NextPageContext } from 'next';
-import {
-  AppContext as NextAppContext,
-  AppProps as NextAppProps,
-} from 'next/app';
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, useMemo, ReactNode } from 'react';
+
 import { AuthGuard } from '@app/common/AuthGuard';
 import { UserAuth } from '@app/models/auth/UserAuth';
 import { Client } from '@app/models/user/Client';
@@ -13,11 +9,13 @@ import Layout from '@components/layout/Layout';
 import PageLoading from '@components/page-loading/PageLoading';
 import { AuthKey } from '@constants/Common';
 import { AppContext, stores } from '@contexts/AppContext';
-import AuthContext from '@contexts/AuthContext';
-import PageContext from '@contexts/PageContext';
+import AuthContext, { AuthContextValue } from '@contexts/AuthContext';
+import PageContext, { PageContextValue } from '@contexts/PageContext';
 import { useSocket } from '@contexts/SocketContext';
 import { checkUserAuthenticated } from '@utils/Auth';
 import { setCookie } from '@utils/Cookie';
+import { NextComponentType, NextPageContext } from 'next';
+import { AppContext as NextAppContext, AppProps as NextAppProps } from 'next/app';
 
 import '@styles/normalize.scss';
 
@@ -29,16 +27,11 @@ type AppProps<P = { auth?: UserAuth; profile?: Client | Manager }> = {
   };
 } & Omit<NextAppProps<P>, 'pageProps'>;
 
-function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) => {
   const [auth, setAuth] = useState<UserAuth | undefined>(pageProps.auth);
-  const [profile, setProfile] = useState<Client | Manager | undefined>(
-    pageProps.profile,
-  );
+  const [profile, setProfile] = useState<Client | Manager | undefined>(pageProps.profile);
 
-  const setUserAuthenticated = (data: {
-    auth: UserAuth;
-    profile: Client | Manager;
-  }) => {
+  const setUserAuthenticated = (data: { auth: UserAuth; profile: Client | Manager }) => {
     setCookie(AuthKey, data.auth.token, 24 * 60 * 60);
     setAuth(data.auth);
     setProfile(data.profile);
@@ -66,19 +59,23 @@ function App({ Component, pageProps }: AppProps) {
     }
   }, [socket]);
 
+  const authContextValue = useMemo<AuthContextValue>(
+    () => ({
+      auth,
+      profile,
+      setAuth,
+      setProfile,
+      setUserAuthenticated,
+      clearUserAuthenticated,
+    }),
+    [auth, profile, setAuth, setProfile, setUserAuthenticated, clearUserAuthenticated],
+  );
+  const pageContextValue = useMemo<PageContextValue>(() => ({}), []);
+
   return (
     <AppContext.Provider value={stores}>
-      <PageContext.Provider value={{}}>
-        <AuthContext.Provider
-          value={{
-            auth,
-            profile,
-            setAuth,
-            setProfile,
-            setUserAuthenticated,
-            clearUserAuthenticated,
-          }}
-        >
+      <PageContext.Provider value={pageContextValue}>
+        <AuthContext.Provider value={authContextValue}>
           <PageLoading />
           <Guard guard={Component.guard}>
             <Layout layout={Component.layout}>
@@ -89,7 +86,7 @@ function App({ Component, pageProps }: AppProps) {
       </PageContext.Provider>
     </AppContext.Provider>
   );
-}
+};
 
 App.getInitialProps = async (appContext: NextAppContext) => {
   // Server side render
