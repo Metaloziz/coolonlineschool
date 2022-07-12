@@ -1,0 +1,48 @@
+.step {
+  position: relative;
+  background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
+  box-shadow: inset -4px -4px 12px rgba(253, 255, 255, 0.8), inset 4px 4px 12px rgba(187, 195, 206, 0.6);
+  border-radius: 10px;
+  height: 40px;
+
+  .prevBtn {
+    position: absolute;
+    left: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .nextBtn {
+    position: absolute;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 2;
+  }
+
+  .countList {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+
+    .countItem {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .activeItem {
+      border-radius: 10px;
+      background-color: #4778EC;
+      color: #fff;
+    }
+  }
+}

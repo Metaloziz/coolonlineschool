@@ -6,11 +6,18 @@ import classNames from 'classnames';
 import cl from './Input.module.scss';
 
 interface IInput extends InputHTMLAttributes<HTMLInputElement> {
-  labelText: string;
+  labelText?: string;
   className?: string;
+  placeholder?: string;
 }
 
-const Input: FC<IInput> = ({ labelText, type = 'text', className, ...attrs }) => {
+const Input: FC<IInput> = ({
+  labelText,
+  type = 'text',
+  className,
+  placeholder,
+  ...attrs
+}) => {
   const inputId = String(getRandomId());
 
   return (
@@ -18,7 +25,13 @@ const Input: FC<IInput> = ({ labelText, type = 'text', className, ...attrs }) =>
       <label htmlFor={inputId} className={cl.label}>
         {labelText}
       </label>
-      <input {...attrs} id={inputId} type={type} className={classNames(cl.input, className)} />
+      <input
+        {...attrs}
+        id={inputId}
+        type={type}
+        className={classNames(cl.input, className)}
+        placeholder={placeholder}
+      />
     </div>
   );
 };
