@@ -1,7 +1,8 @@
-import classNames from 'classnames';
 import { FC } from 'react';
+
 import { StudentStatuses } from '@app/enums';
 import StudentCard from '@pages/students/studentsList/studentCard/StudentCard';
+import classNames from 'classnames';
 import cl from 'src/pages/students/studentsList/StudentsList.module.scss';
 
 interface IAchievement {
@@ -10,6 +11,7 @@ interface IAchievement {
 }
 
 export interface IStudent {
+  id: string;
   studentName: string;
   status: StudentStatuses;
   city?: string;
@@ -27,25 +29,23 @@ interface IStudentsList {
   students: IStudent[];
 }
 
-const StudentsList: FC<IStudentsList> = ({ students, className }) => {
-  return (
-    <div className={classNames(cl.container, className)}>
-      <div className={cl.homeworks}>
-        {students.map((student, index) => {
-          const { isQuestion, isCamera, isCheck } = student.options;
-          return (
-            <StudentCard
-              key={student.studentName + index}
-              student={student}
-              isQuestion={isQuestion}
-              isCheck={isCheck}
-              isCamera={isCamera}
-            />
-          );
-        })}
-      </div>
+const StudentsList: FC<IStudentsList> = ({ students, className }) => (
+  <div className={classNames(cl.container, className)}>
+    <div className={cl.wrapper}>
+      {students.map(student => {
+        const { isQuestion, isCamera, isCheck } = student.options;
+        return (
+          <StudentCard
+            key={student.id}
+            student={student}
+            isQuestion={isQuestion}
+            isCheck={isCheck}
+            isCamera={isCamera}
+          />
+        );
+      })}
     </div>
-  );
-};
+  </div>
+);
 
 export default StudentsList;

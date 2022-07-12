@@ -1,18 +1,15 @@
-
 .blockPersonal {
-  box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
-  border-radius: 10px;
   width: 747px;
   height: 230px;
   display: flex;
   align-items: center;
-  //background: url('../../../public/svgs/personal-data.png') top no-repeat,
-  //  #ffffff;
   position: relative;
   margin: 10px;
+  box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
+  border-radius: 10px;
 
   .avatar {
-    background: #4778ec;
+    background: $color-blue;
     border-radius: 18px;
     margin-left: 37px;
     width: 181px;
@@ -29,58 +26,65 @@
 
   .information {
     margin-left: 38px;
-    align-self: flex-end;
 
     & p.name {
-      font-size: 18px;
-      font-weight: 700;
-      font-family: 'Montserrat Alternates', sans-serif;
+      font: $font-subheader;
       color: $color-black;
     }
 
     & p.informationItem {
-      font-size: 14px;
-      font-weight: 600;
-      font-family: 'Montserrat', sans-serif;
-      color: #babec6;
+      font: $font-small;
+      color: $color-gray;
       margin-top: 10px;
 
       & span {
-        font-size: 14px;
-        font-weight: 600;
-        font-family: 'Montserrat', sans-serif;
-        color: #4778ec;
+        font: $font-small;
+        color: $color-blue;
         margin-left: 12px;
       }
     }
   }
 
-  .informationWrapper {
+  .wrapperInformationItem {
+    display: flex;
+  }
+
+  .wrapperInformation {
     width: 472px;
+    height: 164px;
     display: flex;
     justify-content: space-between;
+    align-self: flex-end;
+  }
+
+  .wrapperStatistics {
+    align-self: self-end;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+
+    div {
+      margin-bottom: 25px;
+    }
   }
 
   .wrapperAchievements {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    margin-bottom: 15px;
   }
 
   .iconAchievement {
     margin-left: 14px;
     margin-top: 12px;
-    width: 25px;
-    height: 31px;
-
-    & label {
-
-    }
+    width: 22px;
+    height: 28px;
   }
 
   .icons {
     position: absolute;
-    top: 33px;
+    top: 25px;
     right: 23px;
     display: flex;
   }
@@ -91,10 +95,12 @@
 
   text-decoration-line: underline;
   color: $color-gray;
+
 }
 
 .button {
   width: 200px;
   height: 40px;
-  margin-bottom: 16px;
+  margin-bottom: 6px;
+
 }

@@ -1,0 +1,44 @@
+.button {
+  width: 154px;
+  height: 45px;
+  font: $font-small;
+  color: #000000;
+  text-align: left;
+  padding-left: 12px;
+  background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
+  box-shadow: inset -4px -4px 12px rgba(253, 255, 255, 0.8), inset 4px 4px 12px rgba(187, 195, 206, 0.6);
+  border-radius: 10px;
+
+  &:hover {
+    background: linear-gradient(0deg, #3A8DF5, #3A8DF5), #35AADE;
+    box-shadow: none;
+    border-radius: 10px;
+    color: #FFFFFF;
+  }
+}
+
+.buttonAdd {
+  width: 154px;
+  height: 45px;
+  font: $font-small;
+  color: $color-blue;
+  text-align: left;
+  padding-left: 12px;
+  background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
+  border: 1px solid $color-blue;
+  border-radius: 10px;
+
+  &:hover {
+    background: $color-blue;
+    color: #FFFFFF;
+    border: 1px solid $color-blue;
+    border-radius: 10px 0 0 10px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 32px;
+}

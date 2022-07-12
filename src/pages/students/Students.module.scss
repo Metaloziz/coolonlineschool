@@ -7,10 +7,9 @@
   background: url(#{$path-svg}/pages/lamp-bg.svg) top right no-repeat;
 }
 
-.description {
-flex: 0 0 35%;
-  font: $font-small;
-  color: #000000;
+.wrapperList {
+  display: flex;
+  position: relative;
 }
 
 .select {
@@ -19,28 +18,9 @@ flex: 0 0 35%;
   margin-right: 17px;
 }
 
-.wrapper {
-  width: 369px;
-  display: flex;
-  align-items: center;
-  margin-bottom: 23px;
-
-  & label {
-    flex: 0 0 35%;
-  }
-}
-
-.submitBtn {
-  width: 130px;
-  height: 40px;
-  background: #AFD46B;
-  border-radius: 10px;
-  padding: 7px 64px;
-}
-
-.input {
-}
-
 .homeworks {
   width: 617px;
+  margin-left: 108px;
+  margin-right: 22px;
+  z-index: 50;
 }
