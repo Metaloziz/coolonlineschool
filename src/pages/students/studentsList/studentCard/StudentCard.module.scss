@@ -1,0 +1,100 @@
+
+.blockPersonal {
+  box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
+  border-radius: 10px;
+  width: 747px;
+  height: 230px;
+  display: flex;
+  align-items: center;
+  //background: url('../../../public/svgs/personal-data.png') top no-repeat,
+  //  #ffffff;
+  position: relative;
+  margin: 10px;
+
+  .avatar {
+    background: #4778ec;
+    border-radius: 18px;
+    margin-left: 37px;
+    width: 181px;
+    height: 173px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .avatarImg {
+      border-radius: 14px;
+    }
+  }
+
+
+  .information {
+    margin-left: 38px;
+    align-self: flex-end;
+
+    & p.name {
+      font-size: 18px;
+      font-weight: 700;
+      font-family: 'Montserrat Alternates', sans-serif;
+      color: $color-black;
+    }
+
+    & p.informationItem {
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+      color: #babec6;
+      margin-top: 10px;
+
+      & span {
+        font-size: 14px;
+        font-weight: 600;
+        font-family: 'Montserrat', sans-serif;
+        color: #4778ec;
+        margin-left: 12px;
+      }
+    }
+  }
+
+  .informationWrapper {
+    width: 472px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .wrapperAchievements {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .iconAchievement {
+    margin-left: 14px;
+    margin-top: 12px;
+    width: 25px;
+    height: 31px;
+
+    & label {
+
+    }
+  }
+
+  .icons {
+    position: absolute;
+    top: 33px;
+    right: 23px;
+    display: flex;
+  }
+}
+
+.statistics {
+  font: $font-small;
+
+  text-decoration-line: underline;
+  color: $color-gray;
+}
+
+.button {
+  width: 200px;
+  height: 40px;
+  margin-bottom: 16px;
+}

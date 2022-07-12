@@ -1,0 +1,46 @@
+.innerContent {
+  padding: 35px 0 85px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background: url(#{$path-svg}/pages/lamp-bg.svg) top right no-repeat;
+}
+
+.description {
+flex: 0 0 35%;
+  font: $font-small;
+  color: #000000;
+}
+
+.select {
+  width: 140px;
+  border-radius: 10px;
+  margin-right: 17px;
+}
+
+.wrapper {
+  width: 369px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 23px;
+
+  & label {
+    flex: 0 0 35%;
+  }
+}
+
+.submitBtn {
+  width: 130px;
+  height: 40px;
+  background: #AFD46B;
+  border-radius: 10px;
+  padding: 7px 64px;
+}
+
+.input {
+}
+
+.homeworks {
+  width: 617px;
+}

@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 import { IHomework } from '@app/types';
-import { Homework } from '@components';
+import { Button, Homework } from '@components';
 import cl from './Homeworks.module.scss';
 
 interface IHomeworks {
@@ -18,6 +18,7 @@ const Homeworks: FC<IHomeworks> = ({ homeworks, className }) => {
           <Homework className={cl.homework} key={homework.id} {...homework} />
         ))}
       </div>
+      <Button className={cl.button}>Изменить домашнее задание </Button>
     </div>
   );
 };
