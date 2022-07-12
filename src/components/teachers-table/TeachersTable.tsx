@@ -1,7 +1,9 @@
 import { FC } from 'react';
+
 import { RusTeacherStatuses, TeacherStatuses } from '@app/enums';
 import { Table } from '@components';
 import { convertToDateString } from '@utils/Date';
+
 import cl from './TeachersTable.module.scss';
 
 interface ITeachersRow {
@@ -25,25 +27,22 @@ const formatRow = ({ registrationDate, status, ...cells }: ITeachersRow) => ({
   ...cells,
 });
 
-const getFormattedRows = (rows: ITeachersRow[]) =>
-  rows.map((row) => formatRow(row));
+const getFormattedRows = (rows: ITeachersRow[]) => rows.map(row => formatRow(row));
 
-const TeachersTable: FC<ITeachersTable> = ({ rows }) => {
-  return (
-    <Table
-      headers={[
-        ['id', '№'],
-        ['fullName', 'ФИО учителя'],
-        ['lessonsAmount', 'Сумма уроков'],
-        ['registrationDate', 'Дата регистрации'],
-        ['workedHoursAmount', 'Сумма отработанных часов'],
-        ['childrenNumber', 'Сколько детей у учителя'],
-        ['status', 'Статус'],
-      ]}
-      rows={getFormattedRows(rows)}
-      gridClassName={cl.grid}
-    />
-  );
-};
+const TeachersTable: FC<ITeachersTable> = ({ className, rows }) => (
+  <Table
+    headers={[
+      ['id', '№'],
+      ['fullName', 'ФИО учителя'],
+      ['lessonsAmount', 'Сумма уроков'],
+      ['registrationDate', 'Дата регистрации'],
+      ['workedHoursAmount', 'Сумма отработанных часов'],
+      ['childrenNumber', 'Сколько детей у учителя'],
+      ['status', 'Статус'],
+    ]}
+    rows={getFormattedRows(rows)}
+    gridClassName={cl.grid}
+  />
+);
 
 export default TeachersTable;

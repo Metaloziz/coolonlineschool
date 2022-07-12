@@ -1,6 +1,8 @@
-import classNames from 'classnames';
 import { FC } from 'react';
+
+import classNames from 'classnames';
 import Select from 'react-select';
+
 import cl from './CustomSelect.module.scss';
 
 interface ICustomSelect {
@@ -13,22 +15,15 @@ interface ICustomSelect {
   className?: string;
 }
 
-const CustomSelect: FC<ICustomSelect> = ({
-  options,
-  placeholder,
-  size = 'auto',
-  className,
-}) => {
-  return (
-    <div className={classNames(cl.container, className)}>
-      <Select
-        placeholder={placeholder}
-        options={options}
-        components={{ IndicatorSeparator: () => null }}
-        className={cl[size]}
-      />
-    </div>
-  );
-};
+const CustomSelect: FC<ICustomSelect> = ({ options, placeholder, size = 'auto', className }) => (
+  <div className={classNames(cl.container, className)}>
+    <Select
+      placeholder={placeholder}
+      options={options}
+      components={{ IndicatorSeparator: () => null }}
+      className={cl[size]}
+    />
+  </div>
+);
 
 export default CustomSelect;

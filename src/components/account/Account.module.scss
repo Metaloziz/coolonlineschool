@@ -2,7 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 700px) {
+    justify-content: flex-end;
+  }
+
 }
+
 .avatar {
   position: relative;
   display: flex;
@@ -20,7 +26,18 @@
       display: initial;
     }
   }
+
+  @media (max-width: 700px) {
+    margin: 0;
+  }
+
+  @media (max-width: 440px) {
+    width: 40px;
+    height: 40px;
+  }
+
 }
+
 .notification {
   display: none;
   position: absolute;
@@ -31,10 +48,15 @@
   background: #ff4e4a;
   border-radius: 50%;
 }
+
 $logout-font-map: (
   text-decoration: underline,
 );
 
 .logout {
   @include link-font($logout-font-map...);
+
+  @media (max-width: 700px) {
+    width: 48%;
+  }
 }

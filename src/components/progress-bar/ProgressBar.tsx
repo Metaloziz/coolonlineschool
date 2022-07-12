@@ -1,7 +1,9 @@
-import classNames from 'classnames';
 import { FC } from 'react';
+
 import { ProgressBarSizes } from '@app/enums';
 import { IProgressBar } from '@app/types';
+import classNames from 'classnames';
+
 import cl from './ProgressBar.module.scss';
 
 const ProgressBar: FC<IProgressBar> = ({
@@ -25,16 +27,9 @@ const ProgressBar: FC<IProgressBar> = ({
   const circlePos = svgSize / 2;
 
   return (
-    <div
-      className={classNames(cl.container, cl[colorTheme], cl[size], className)}
-    >
+    <div className={classNames(cl.container, cl[colorTheme], cl[size], className)}>
       <div className={cl.innerContainer}>
-        <svg
-          width={svgSize}
-          height={svgSize}
-          version="1.1"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width={svgSize} height={svgSize} version="1.1" xmlns="http://www.w3.org/2000/svg">
           <circle
             className={cl.circle}
             r={radius}
@@ -43,7 +38,7 @@ const ProgressBar: FC<IProgressBar> = ({
             strokeDashoffset={0}
             strokeDasharray={c}
             strokeWidth={isBig ? 30 : 20}
-          ></circle>
+          />
           <circle
             className={cl.bar}
             r={radius}
@@ -52,13 +47,9 @@ const ProgressBar: FC<IProgressBar> = ({
             strokeDashoffset={pct}
             strokeDasharray={c}
             strokeWidth={isBig ? 50 : 40}
-          ></circle>
+          />
         </svg>
-        {isBig ? (
-          <span className={cl.percentToComplete}>{percent}%</span>
-        ) : (
-          children
-        )}
+        {isBig ? <span className={cl.percentToComplete}>{percent}%</span> : children}
       </div>
       {isNormal && <span className={cl.percentToComplete}>{percent}%</span>}
       <span className={cl.title}>{title}</span>

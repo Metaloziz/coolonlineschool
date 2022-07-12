@@ -10,6 +10,14 @@
   scrollbar-width: thin;
   scrollbar-color: $color-secondary-visualiser #f8f8ff;
 
+  @media (max-width: 1500px) {
+    min-height: 400px;
+  }
+
+  @media (max-width: 1280px) {
+    order: 3;
+  }
+
   /* для Chrome/Edge/Safari */
   &::-webkit-scrollbar {
     height: 10px;

@@ -1,5 +1,7 @@
-import classNames from 'classnames';
 import { FC, useState } from 'react';
+
+import classNames from 'classnames';
+
 import cl from './Slider.module.scss';
 
 interface ISliderItem {
@@ -15,38 +17,26 @@ interface ISlider {
   size?: 'long' | 'normal';
 }
 
-const Slider: FC<ISlider> = ({
-  size = 'normal',
-  colorTheme = 'blue',
-  options,
-  className,
-}) => {
+const Slider: FC<ISlider> = ({ size = 'normal', colorTheme = 'blue', options, className }) => {
   const [activeId, setActiveId] = useState<number | null>(null);
 
-  const containerClassNames = classNames(
-    cl.container,
-    className,
-    cl[colorTheme],
-    cl[size],
-  );
+  const containerClassNames = classNames(cl.container, className, cl[colorTheme], cl[size]);
 
   return (
     <div className={containerClassNames}>
-      {options.map(({ text, isActive = false, id }) => {
-        return (
-          <button
-            key={id}
-            className={classNames(cl.option, {
-              [cl.active]: activeId ? activeId === id : isActive,
-            })}
-            onClick={() => {
-              setActiveId(id);
-            }}
-          >
-            {text}
-          </button>
-        );
-      })}
+      {options.map(({ text, isActive = false, id }) => (
+        <button
+          key={id}
+          className={classNames(cl.option, {
+            [cl.active]: activeId ? activeId === id : isActive,
+          })}
+          onClick={() => {
+            setActiveId(id);
+          }}
+        >
+          {text}
+        </button>
+      ))}
     </div>
   );
 };

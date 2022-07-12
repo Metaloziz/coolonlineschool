@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { IconVariants } from '@app/enums';
 import { ISvg } from '@app/types';
 
@@ -9,9 +10,7 @@ enum filesFill {
   zoom = '#4778EC',
 }
 
-const getColor = (icon: IconVariants): string => {
-  return filesFill[icon];
-};
+const getColor = (icon: IconVariants): string => filesFill[icon];
 
 const files: {
   [key: string]: {
@@ -101,19 +100,12 @@ const files: {
   },
 };
 
-const Svg: FC<ISvg> = ({
-  icon,
-  height: h,
-  width: w,
-  className = '',
-  fill,
-  ...attrs
-}) => {
+const Svg: FC<ISvg> = ({ icon, height: h, width: w, className = '', fill, ...attrs }) => {
   const file = files[icon];
 
   const width = w || file.width;
   const height = h || file.height;
-  const viewBox = file.viewBox ? file.viewBox.join(' ') : '0 0 ' + w + ' ' + h;
+  const viewBox = file.viewBox ? file.viewBox.join(' ') : `0 0 ${w} ${h}`;
   let finaleFill = file.fill;
 
   if (fill) {

@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { FC } from 'react';
+
 import {
   ButtonColorThemes,
   PaymentStatuses,
@@ -10,6 +10,8 @@ import {
 import { Button, Table } from '@components';
 import chequeIcon from '@svgs/button/cheque-download-icon.svg';
 import { convertToDateString } from '@utils/Date';
+import Image from 'next/image';
+
 import cl from './PaymentsTable.module.scss';
 
 interface IPaymentsRow {
@@ -53,26 +55,23 @@ const formatRow = ({
   ...cells,
 });
 
-const getFormattedRows = (rows: IPaymentsRow[]) =>
-  rows.map((row) => formatRow(row));
+const getFormattedRows = (rows: IPaymentsRow[]) => rows.map(row => formatRow(row));
 
-const PaymentsTable: FC<IPaymentsTable> = ({ rows, className = '' }) => {
-  return (
-    <Table
-      headers={[
-        ['id', 'ID'],
-        ['moneyAmount', 'Сумма'],
-        ['description', 'Описание'],
-        ['paymentDate', 'Дата оплаты'],
-        ['tariffPlan', 'Тариф'],
-        ['status', 'Статус'],
-        ['chequeLink', 'Чек'],
-      ]}
-      rows={getFormattedRows(rows)}
-      className={className}
-      gridClassName={cl.grid}
-    />
-  );
-};
+const PaymentsTable: FC<IPaymentsTable> = ({ rows, className = '' }) => (
+  <Table
+    headers={[
+      ['id', 'ID'],
+      ['moneyAmount', 'Сумма'],
+      ['description', 'Описание'],
+      ['paymentDate', 'Дата оплаты'],
+      ['tariffPlan', 'Тариф'],
+      ['status', 'Статус'],
+      ['chequeLink', 'Чек'],
+    ]}
+    rows={getFormattedRows(rows)}
+    className={className}
+    gridClassName={cl.grid}
+  />
+);
 
 export default PaymentsTable;

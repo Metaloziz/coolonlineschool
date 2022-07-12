@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router';
 import { AuthGuard } from '@app/common/AuthGuard';
 import { Routes } from '@constants/Routes';
 import { useAuthContext } from '@contexts/AuthContext';
+import { useRouter } from 'next/router';
 
-export default function Protected() {
+const Protected = () => {
   const router = useRouter();
   const { auth, profile } = useAuthContext();
 
@@ -26,7 +26,9 @@ export default function Protected() {
       <button onClick={() => router.push(Routes.Signout)}>Sign out</button>
     </>
   );
-}
+};
+
+export default Protected;
 
 Protected.guard = {
   allowAuth: true,

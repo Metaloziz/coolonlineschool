@@ -1,10 +1,4 @@
-import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
-  DocumentContext,
-} from 'next/document';
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -15,7 +9,7 @@ class MyDocument extends Document {
   public render(): JSX.Element {
     return (
       <Html>
-        <Head></Head>
+        <Head />
         <body>
           <Main />
           <NextScript />

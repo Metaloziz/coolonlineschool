@@ -3,9 +3,39 @@
   padding-left: 50px;
   padding-right: 50px;
   background: url(#{$path-svg}/header-bg.svg) right top no-repeat,
-    #84f1de;
+  #84f1de;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 700px) {
+    height: auto;
+    padding: 10px 50px;
+  }
+
+  @media (max-width: 600px) {
+    padding: 10px;
+    background: url(#{$path-svg}/header-bg.svg) left top no-repeat, #84f1de;
+  }
+
+  .accountBlock {
+    display: flex;
+    align-items: center;
+  }
+
+  .burgerBlock {
+    position: relative;
+    margin-right: 30px;
+    display: none;
+
+    @media (max-width: 1280px) {
+      display: block;
+    }
+
+    @media (max-width: 550px) {
+      margin-right: 10px;
+    }
+  }
 }
+

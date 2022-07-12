@@ -3,6 +3,7 @@ import { Button, Slider, CustomSelect } from '@components';
 import CustomPagination from '@components/custom-pagination/CustomPagination';
 import Article from '@pages/articles/Article';
 import { getRandomId } from '@utils/RandomId';
+
 import styles from './Articles.module.scss';
 
 const articlesInfo = [
@@ -32,72 +33,53 @@ const articlesInfo = [
   },
 ];
 
-const IndexPage = () => {
-  return (
-    <div className={styles.innerContent}>
-      <div className={styles.buttonsTop}>
-        <Button
-          className={styles.buttonAdd}
-          colorTheme={ButtonColorThemes.blueGradient}
-        >
-          Добавить
-        </Button>
-        <p>
-          <span>Тип</span>
-        </p>
-        <Slider
-          size="long"
-          options={[
-            {
-              text: 'Статья для учителя',
-              isActive: true,
-              id: getRandomId(),
-            },
-            {
-              text: 'Урок для ученика',
-              id: getRandomId(),
-            },
-          ]}
-        />
-        <CustomSelect
-          options={[{ label: 'ФИО автора', value: 'fio' }]}
-          placeholder="ФИО автора"
-        />
-        <CustomSelect
-          options={[{ label: 'Наименование статьи', value: 'articleName' }]}
-          placeholder="Наименование статьи"
-        />
-        <Button
-          type="submit"
-          colorTheme={ButtonColorThemes.green}
-          className={styles.search}
-        >
-          Найти
-        </Button>
-      </div>
-      <div className={styles.blockArticles}>
-        {articlesInfo.map((item, index) => {
-          return (
-            <Article
-              edit={item.edit}
-              title={item.title}
-              description={item.description}
-              key={index}
-            />
-          );
-        })}
-      </div>
-      <div className={styles.pagination}>
-        <CustomPagination
-          paginate={() => true}
-          count={1}
-          next={() => true}
-          prev={() => true}
-          total={5}
-        />
-      </div>
+const IndexPage = () => (
+  <div className={styles.innerContent}>
+    <div className={styles.buttonsTop}>
+      <Button className={styles.buttonAdd} colorTheme={ButtonColorThemes.blueGradient}>
+        Добавить
+      </Button>
+      <p>
+        <span>Тип</span>
+      </p>
+      <Slider
+        size="long"
+        options={[
+          {
+            text: 'Статья для учителя',
+            isActive: true,
+            id: getRandomId(),
+          },
+          {
+            text: 'Урок для ученика',
+            id: getRandomId(),
+          },
+        ]}
+      />
+      <CustomSelect options={[{ label: 'ФИО автора', value: 'fio' }]} placeholder="ФИО автора" />
+      <CustomSelect
+        options={[{ label: 'Наименование статьи', value: 'articleName' }]}
+        placeholder="Наименование статьи"
+      />
+      <Button type="submit" colorTheme={ButtonColorThemes.green} className={styles.search}>
+        Найти
+      </Button>
     </div>
-  );
-};
+    <div className={styles.blockArticles}>
+      {articlesInfo.map((item, index) => (
+        <Article edit={item.edit} title={item.title} description={item.description} key={index} />
+      ))}
+    </div>
+    <div className={styles.pagination}>
+      <CustomPagination
+        paginate={() => true}
+        count={1}
+        next={() => true}
+        prev={() => true}
+        total={5}
+      />
+    </div>
+  </div>
+);
 
 export default IndexPage;

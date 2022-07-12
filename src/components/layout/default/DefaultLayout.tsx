@@ -1,7 +1,10 @@
 import { FC, ReactNode } from 'react';
+
 import { SidebarNav } from '@components';
-import cl from './DefaultLayout.module.scss';
+
 import Header from '../../header/Header';
+
+import cl from './DefaultLayout.module.scss';
 
 interface Props {
   children?: ReactNode;

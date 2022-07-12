@@ -1,13 +1,15 @@
-import Image from 'next/image';
 import React, { useState } from 'react';
+
 import downloadImage from '@svgs/button/download-image.svg';
+import Image from 'next/image';
+
 import styles from './InputFile.module.scss';
 
 const InputFile = () => {
   const [fileName, setFileName] = useState('');
 
   const getFileName = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
+    const { files } = e.target;
     if (files && files.length > 0) {
       setFileName(files[0].name);
     }

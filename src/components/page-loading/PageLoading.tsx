@@ -1,6 +1,8 @@
+import { useEffect, useState, FC } from 'react';
+
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
-import { useEffect, useState, FC } from 'react';
+
 import cl from './PageLoading.module.scss';
 
 const PageLoading: FC = () => {

@@ -5,6 +5,7 @@ import numberFigureWord from '@svgs/games/number-figure-word.svg';
 import readingWithGrid from '@svgs/games/reading-with-grid.svg';
 import tableShulte from '@svgs/games/table-Shulte.svg';
 import tangram from '@svgs/games/tangram.svg';
+
 import cl from './Games.module.scss';
 
 const gamesCardInfo = [
@@ -46,21 +47,17 @@ const gamesCardInfo = [
   },
 ];
 
-const IndexPage = () => {
-  return (
-    <div className={cl.innerContent}>
-      {gamesCardInfo.map((item, index) => {
-        return (
-          <BlockGame
-            imageCard={item.imageCard.src}
-            title={item.title}
-            description={item.description}
-            key={index}
-          />
-        );
-      })}
-    </div>
-  );
-};
+const IndexPage = () => (
+  <div className={cl.innerContent}>
+    {gamesCardInfo.map((item, index) => (
+      <BlockGame
+        imageCard={item.imageCard.src}
+        title={item.title}
+        description={item.description}
+        key={index}
+      />
+    ))}
+  </div>
+);
 
 export default IndexPage;

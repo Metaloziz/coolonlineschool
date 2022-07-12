@@ -2,16 +2,45 @@
   padding: 30px 25px 0;
   background: #ffffff;
   border-radius: 10px;
+
+  @media (max-width: 1280px) {
+    order: 5;
+  }
+
+  @media (max-width: 550px) {
+    padding: 30px 10px 0;
+  }
 }
+
 .title {
   text-align: center;
   font: $font-header;
   color: $color-visualiser;
 }
+
 .progressBars {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
+  @media (max-width: 1200px) {
+    justify-content: flex-start;
+    > div {
+      width: 25%;
+
+      @media (max-width: 800px) {
+        width: 33%;
+      }
+
+      @media (max-width: 700px) {
+        width: 50%;
+      }
+
+      @media (max-width: 550px) {
+        width: 100%;
+      }
+    }
+  }
 }
 
 .progressBar {
@@ -27,6 +56,10 @@
       position: absolute;
       left: -10px;
       top: 0;
+
+      @media (max-width: 1200px) {
+        display: none;
+      }
     }
   }
 }

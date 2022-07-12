@@ -2,13 +2,13 @@ import { AuthGuard } from '@app/common/AuthGuard';
 import BlankLayout from '@components/layout/blank/BlankLayout';
 import { Routes } from '@constants/Routes';
 
-export default function SignUp() {
-  return (
-    <>
-      <div>SignUp</div>
-    </>
-  );
-}
+const SignUp = () => (
+  <>
+    <div>SignUp</div>
+  </>
+);
+
+export default SignUp;
 
 SignUp.layout = BlankLayout;
 
