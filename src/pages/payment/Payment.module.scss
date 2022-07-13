@@ -1,12 +1,76 @@
 @import "../../styles/global";
 
 .container {
-  padding: 30px 20px;
+  margin: 30px 20px;
   display: grid;
   gap: 20px;
-  grid-template-columns: 765px 575px;
+  grid-template-columns: auto;
   background: url(#{$path-svg}/pages/abacus-bg.svg) right bottom no-repeat;
+
+  @media (max-width: 550px) {
+    margin: 30px 15px;
+  }
+
+  .topBlock{
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
+
+    > div {
+      width: 48%;
+
+      @media (max-width: 800px) {
+        width: 100%;
+
+        + div {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
 }
 .paymentsTable {
   grid-column: 1 / -1;
+
+  @media (max-width: 1200px) {
+    width: 1200px;
+  }
+}
+
+.balanceBlock {
+  justify-content: space-between;
+
+  @media (max-width: 1400px) {
+   flex-direction: column-reverse;
+    padding: 20px 10px;
+
+    > div {
+      width: 100%;
+
+       + div {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.planBlock {
+
+  @media (max-width: 1400px){
+    padding: 0 10px 20px;
+  }
+
+  > ul{
+    @media (max-width: 1800px){
+      max-height: 100%;
+      flex-wrap: nowrap;
+
+      > li {
+        max-width: 100%;
+      }
+    }
+  }
 }

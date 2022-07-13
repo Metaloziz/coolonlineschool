@@ -1,3 +1,5 @@
+import IndexPage from '../pages/single-game/index.page';
+
 import Account from './account/Account';
 import Balance from './balance/Balance';
 import Button from './button/Button';
@@ -100,4 +102,5 @@ export {
   TeachersTable,
   TextFieldCalendar,
   VerticalSlider,
+  IndexPage,
 };

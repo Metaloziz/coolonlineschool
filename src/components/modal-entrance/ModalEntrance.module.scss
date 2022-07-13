@@ -7,13 +7,6 @@
   text-align: center;
   position: relative;
 
-  .robot_vhod {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: -1;
-  }
-
   @media (max-width: 550px) {
     padding: 30px 15px;
   }
@@ -37,7 +30,8 @@
     line-height: 17px;
     color: #BABEC6;
     text-decoration: underline;
-
+    width: 100%;
+    text-align: center;
     @media (max-width: 550px) {
       font-size: 14px;
       line-height: 20px;
@@ -71,11 +65,9 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 11px 16px;
-
     background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
     box-shadow: inset -4px -4px 12px rgba(253, 255, 255, 0.8), inset 4px 4px 12px rgba(187, 195, 206, 0.6);
     border-radius: 10px;
-
     @media (max-width: 550px) {
       font-size: 18px;
       line-height: 20px;
@@ -85,4 +77,13 @@
   .modalInput div > div {
     width: 100%;
   }
+}
+
+.btnEntries {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.userData > div > label {
+  display: none;
 }

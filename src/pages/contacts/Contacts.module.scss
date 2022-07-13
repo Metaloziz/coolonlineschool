@@ -1,7 +1,7 @@
 @import "../../styles/global";
 
 .innerContent {
-  padding: 35px 0 85px 20px;
+  margin: 35px 20px;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -11,7 +11,7 @@
   & .blockPersonal {
     box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
     border-radius: 10px;
-    width: 747px;
+    width: 48%;
     height: 220px;
     display: flex;
     align-items: center;
@@ -19,6 +19,33 @@
       #ffffff;
     position: relative;
     margin: 10px;
+    padding-right: 85px;
+
+    @media (max-width: 1280px) {
+      height: auto;
+      padding: 10px 85px 10px 10px;
+    }
+
+    @media (max-width: 1200px) {
+     width: 100%;
+      background: url('../../../public/svgs/personal-data.png') right no-repeat, #ffffff;
+    }
+
+    @media (max-width: 800px) {
+     flex-direction: column;
+      padding-right: 10px;
+      margin: 0 0 20px;
+      background: url('../../../public/svgs/personal-data.png') bottom no-repeat,
+      #ffffff;
+    }
+
+    @media (max-width: 600px) {
+      padding-top: 50px;
+    }
+
+    @media (max-width: 440px) {
+      text-align: center;
+    }
 
     & .avatar {
       background: #4778ec;
@@ -29,6 +56,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      @media (max-width: 1600px) {
+        height: auto;
+      }
+
+      @media (max-width: 800px) {
+       margin-left: 0;
+        margin-bottom: 20px;
+      }
 
       & .avatarImg {
         border-radius: 14px;
@@ -46,10 +82,19 @@
       border-radius: 18px;
       margin-left: 37px;
       //padding: 54px 65px 55px 65px;
+
+      @media (max-width: 800px) {
+        margin: 0 0 20px
+      }
     }
 
     & .information {
       margin-left: 38px;
+
+      @media (max-width: 800px) {
+        margin-left: 0;
+
+      }
 
       & p.name {
         font-size: 18px;
@@ -76,6 +121,9 @@
 
       & .informationAdd {
         display: flex;
+        > div{
+          margin-left: 0;
+        }
       }
     }
 
@@ -84,6 +132,10 @@
       top: 33px;
       right: 23px;
       display: flex;
+
+      @media (max-width: 600px) {
+       top: 10px;
+      }
     }
   }
 }

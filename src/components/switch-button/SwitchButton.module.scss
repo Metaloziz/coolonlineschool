@@ -9,17 +9,21 @@
     .switchBtn {
       &::after {
         left: 20px;
+        right: auto;
       }
     }
   }
 }
+
 .label {
   font: $font-small;
   font-weight: 700;
 }
+
 .checkbox {
   display: none;
 }
+
 .switchBtn {
   display: inline-block;
   width: 40px; /* ширина */
@@ -41,5 +45,7 @@
     background: $color-button; /* цвет кнопки */
     position: absolute;
     z-index: 1;
+    top: 0;
+    right: 0;
   }
 }

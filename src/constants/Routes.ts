@@ -11,5 +11,6 @@ export const Routes = {
   Signup: '/account/signup',
   ForgotPassword: '/account/forgot-password',
   ResetPassword: '/account/reset-password',
+  SingleGame: '/single-game',
   TestPage: '/test-page',
 };

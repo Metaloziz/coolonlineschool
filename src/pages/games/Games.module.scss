@@ -7,6 +7,15 @@
   flex-wrap: wrap;
   background: url(#{$path-svg}/pages/puzzles-bg.svg) center / cover no-repeat;
 
+  @media (max-width: 1280px) {
+    padding: 0;
+    margin: 30px 20px;
+  }
+
+  @media (max-width: 550px) {
+    margin: 30px 10px;
+  }
+
   & .blockGame {
     background: #ffffff;
     box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
@@ -16,10 +25,26 @@
     padding: 16px 92px 24px 61px;
     margin-bottom: 12px;
 
+    @media (max-width: 1280px) {
+      height: auto;
+    }
+
+    @media (max-width: 1000px) {
+      padding: 20px;
+    }
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
+
     & .startGame {
       //margin: 16px 75px 0 0;
       width: 151px;
       flex: none;
+
+      @media (max-width: 800px) {
+        margin: 0 auto 20px;
+      }
 
       & .playButton {
         background: #4778ec;
@@ -64,9 +89,17 @@
     & .descriptionGame {
       padding: 5px 0 0 75px;
 
+      @media (max-width: 800px) {
+        padding: 0;
+      }
+
       & .heading {
         display: flex;
         align-items: center;
+
+        @media (max-width: 800px) {
+          justify-content: center;
+        }
 
         & h3 {
           padding-right: 25px;
@@ -88,6 +121,10 @@
         font-size: 14px;
         line-height: 25px;
         color: #0f123f;
+
+        @media (max-width: 1280px) {
+          width: 100%;
+        }
       }
     }
   }

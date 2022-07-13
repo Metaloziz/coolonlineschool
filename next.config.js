@@ -12,10 +12,10 @@ module.exports = removeImports({
   i18n: {
     // These are all the locales you want to support in
     // your application
-    locales: ['en'],
+    locales: ['ru'],
     // This is the default locale you want to be used when visiting
     // a non-locale prefixed path e.g. `/hello`
-    defaultLocale: 'en',
+    defaultLocale: 'ru',
   },
   typescript: {
     ignoreBuildErrors: true,
