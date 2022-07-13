@@ -10,16 +10,19 @@ const Payment = () => {
 
   return (
     <div className={cl.container}>
-      <TariffPlan tariffPlan={TariffPlansEnum.personal} />
-      <Balance
-        balanceFunds={4200}
-        lessonCount={4}
-        tariffPlanFirst="Тариф 1"
-        tariffPlanSecond="Тариф 2"
-        openModal={() => {
-          setIsModal(true);
-        }}
-      />
+      <div className={cl.topBlock}>
+        <TariffPlan tariffPlan={TariffPlansEnum.personal} className={cl.planBlock} />
+        <Balance
+          className={cl.balanceBlock}
+          balanceFunds={4200}
+          lessonCount={4}
+          tariffPlanFirst="Тариф 1"
+          tariffPlanSecond="Тариф 2"
+          openModal={() => {
+            setIsModal(true);
+          }}
+        />
+      </div>
       <PaymentsTable
         className={cl.paymentsTable}
         rows={[
