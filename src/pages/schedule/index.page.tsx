@@ -11,6 +11,7 @@ import cl from './Schedule.module.scss';
 const Schedule = () => (
   <div className={cl.container}>
     <StudentCard
+      className={cl.cardBlock}
       options={{
         studentName: 'Днепровский Александр Алексеевич',
         status: StudentStatuses.beginner,
@@ -36,7 +37,7 @@ const Schedule = () => (
         console.log(e, 'Form has submitted');
       }}
     />
-    <TaskVisualizersList />
+    <TaskVisualizersList className={cl.blockVisualizer} />
     <ScheduleComponent className={cl.schedule} searchedDate={new Date(0, 0, 4)} />
   </div>
 );
