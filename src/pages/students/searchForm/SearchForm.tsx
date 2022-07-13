@@ -2,8 +2,8 @@ import { ReactElement } from 'react';
 
 import { ButtonColorThemes } from '@app/enums';
 import { Button } from '@components';
-import CustomPagination from '@components/custom-pagination/CustomPagination';
 import TextField from '@components/text-fild/TextFild';
+import Step from '@pages/step/Step';
 import styles from '@pages/students/searchForm/SearchForm.module.scss';
 import CustomSelect from 'src/components/custom-select/CustomSelect';
 
@@ -14,13 +14,7 @@ export const SearchForm = (): ReactElement => (
     <div className={styles.wrapperPagination}>
       <CustomSelect size="normal" className={styles.select} options={OPTIONS} placeholder="год" />
       <CustomSelect size="normal" className={styles.select} options={OPTIONS} placeholder="месяц" />
-      <CustomPagination
-        paginate={() => true}
-        count={1}
-        next={() => true}
-        prev={() => true}
-        total={12}
-      />
+      <Step countStep={12} />
     </div>
     <form className={styles.container}>
       <div className={styles.wrapper}>
@@ -30,7 +24,7 @@ export const SearchForm = (): ReactElement => (
         </div>
         <div className={styles.wrapperField}>
           <p className={styles.description}>Город</p>
-          <TextField className={styles.input} />
+          <TextField />
         </div>
         <div className={styles.wrapperField}>
           <p className={styles.description}>Группа</p>
@@ -38,7 +32,7 @@ export const SearchForm = (): ReactElement => (
         </div>
         <div className={styles.wrapperField}>
           <p className={styles.description}>ФИО ученика</p>
-          <TextField className={styles.input} />
+          <TextField />
         </div>
       </div>
       <div className={styles.wrapper}>
