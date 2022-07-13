@@ -66,7 +66,7 @@ const StudentCard: FC<IStudentCardWithCl> = ({
         <span className={cl.infoVisualiser}>{status}</span>
       </div>
       {(isNormal || isExtended) && (
-        <div className={classNames(cl.info, cl.pointsInfo)}>
+        <div className={classNames(cl.info)}>
           <span className={cl.infoText}>Ваши очки:</span>
           <span className={cl.infoVisualiser}>{pointsNumber}</span>
           {isExtended && (

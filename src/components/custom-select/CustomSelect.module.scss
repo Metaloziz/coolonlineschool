@@ -1,8 +1,10 @@
+@import "../../styles/global";
+
 .container {
   font: $font-small;
   white-space: nowrap;
   background: #ffffff;
-  box-shadow: 0px 0px 20px rgba(186, 198, 216, 0.2);
+  box-shadow: 0 0 20px rgba(186, 198, 216, 0.2);
 
   & > div > div {
     padding: 2px 7px;

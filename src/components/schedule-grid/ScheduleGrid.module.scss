@@ -1,3 +1,5 @@
+@import "../../styles/global";
+
 .container {
   display: flex;
   column-gap: 15px;
@@ -16,8 +18,8 @@
   overflow: hidden;
   flex-grow: 1;
   background-color: white;
-  box-shadow: 0px 0px 40px rgba(86, 89, 146, 0.15);
-  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
+  border-radius: 10px 10px 0 0;
 }
 .row {
   display: flex;
@@ -39,8 +41,8 @@
   display: flex;
   height: 40px;
   background-color: #e8eff6;
-  box-shadow: 0px 0px 40px rgba(86, 89, 146, 0.15);
-  border-radius: 10px 10px 0px 0px;
+  box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
+  border-radius: 10px 10px 0 0;
 }
 .headerCell {
   text-align: center;

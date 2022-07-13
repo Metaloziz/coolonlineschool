@@ -21,7 +21,7 @@ const Button: FC<IButton> = ({
 }) => {
   const btnClassNames = classNames(cl.container, cl[colorTheme], className);
   return (
-    <button {...attrs} className={btnClassNames}>
+    <button type="button" {...attrs} className={btnClassNames}>
       <b>{children}</b>
       {icon}
     </button>

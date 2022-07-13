@@ -1,7 +1,9 @@
+@import "../../styles/global";
+
 .container {
   padding: 20px 45px;
   background: #ffffff;
-  box-shadow: 0px 0px 40px rgba(86, 89, 146, 0.15);
+  box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
   border-radius: 10px;
 
   @media (max-width: 1280px) {

@@ -1,3 +1,5 @@
+@import "../../styles/global";
+
 .container {
   width: 745px;
   height: 215px;
@@ -13,7 +15,7 @@
   background: white url(#{$path-svg}/student-card/bg-small.svg) no-repeat bottom
     right;
   border-radius: 10px;
-  box-shadow: 0px 0px 40px rgba(86, 89, 146, 0.15);
+  box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
 
   &Extended {
     width: 965px;

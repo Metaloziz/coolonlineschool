@@ -1,3 +1,5 @@
+@import "../../styles/global";
+
 .innerContent {
   margin: 35px 0 0 20px;
 
@@ -44,7 +46,7 @@
     }
 
     & .blockAchievement {
-      background: url('../../../public/svgs/bg-card-achieve.svg') left top
+      background: url(#{$path-svg}/bg-card-achieve.svg) left top
           no-repeat,
         #ffffff;
       box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);

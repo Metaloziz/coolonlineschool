@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "typeRoots": ["src", "node_modules/@types"],
     "target": "es2020",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
@@ -27,5 +28,6 @@
     "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["next-env.d.ts",
+    "index.scss.d.ts", "**/*.ts", "**/*.tsx"]
 }

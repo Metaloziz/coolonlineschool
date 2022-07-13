@@ -1,6 +1,8 @@
 const path = require('path');
 
-module.exports = {
+const removeImports = require('next-remove-imports')();
+
+module.exports = removeImports({
   reactStrictMode: true,
   pageExtensions: ['page.tsx', 'page.ts', 'api.ts'],
   sassOptions: {
@@ -18,4 +20,4 @@ module.exports = {
   typescript: {
     ignoreBuildErrors: true,
   },
-};
+});
