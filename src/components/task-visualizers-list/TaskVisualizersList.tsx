@@ -4,8 +4,12 @@ import classNames from 'classnames';
 
 import cl from './TaskVisualizersList.module.scss';
 
-const TaskVisualizersList: FC = () => (
-  <div className={cl.container}>
+interface Props {
+  className?: string;
+}
+
+const TaskVisualizersList: FC<Props> = ({ className }) => (
+  <div className={classNames(cl.container, className)}>
     <div className={cl.option}>
       <div className={classNames(cl.mentalArithmeticVisualizer, cl.visualizer)} />
       <span className={cl.text}>
