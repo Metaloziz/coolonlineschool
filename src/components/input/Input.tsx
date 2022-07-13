@@ -11,13 +11,7 @@ interface IInput extends InputHTMLAttributes<HTMLInputElement> {
   placeholder?: string;
 }
 
-const Input: FC<IInput> = ({
-  labelText,
-  type = 'text',
-  className,
-  placeholder,
-  ...attrs
-}) => {
+const Input: FC<IInput> = ({ labelText, type = 'text', className, placeholder, ...attrs }) => {
   const inputId = String(getRandomId());
 
   return (
