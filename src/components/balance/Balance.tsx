@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { ButtonColorThemes } from '@app/enums';
 import { Button, SwitchButton } from '@components';
 import contractIcon from '@svgs/button/contract-icon.svg';
+import cn from 'classnames';
 import Image from 'next/image';
 
 import cl from './Balance.module.scss';
@@ -12,6 +13,7 @@ interface IBalance {
   tariffPlanFirst: string;
   tariffPlanSecond: string;
   balanceFunds: number;
+  className?: string;
   openModal: () => void;
 }
 
@@ -20,9 +22,10 @@ const Balance: FC<IBalance> = ({
   lessonCount,
   tariffPlanFirst,
   tariffPlanSecond,
+  className,
   openModal,
 }) => (
-  <div className={cl.container}>
+  <div className={cn(cl.container, className)}>
     <div className={cl.left}>
       <div className={cl.infoGroup}>
         <b className={cl.infoTitle}>Доступно:</b>

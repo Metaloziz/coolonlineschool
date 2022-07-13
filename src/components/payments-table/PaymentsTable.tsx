@@ -58,20 +58,22 @@ const formatRow = ({
 const getFormattedRows = (rows: IPaymentsRow[]) => rows.map(row => formatRow(row));
 
 const PaymentsTable: FC<IPaymentsTable> = ({ rows, className = '' }) => (
-  <Table
-    headers={[
-      ['id', 'ID'],
-      ['moneyAmount', 'Сумма'],
-      ['description', 'Описание'],
-      ['paymentDate', 'Дата оплаты'],
-      ['tariffPlan', 'Тариф'],
-      ['status', 'Статус'],
-      ['chequeLink', 'Чек'],
-    ]}
-    rows={getFormattedRows(rows)}
-    className={className}
-    gridClassName={cl.grid}
-  />
+  <div className={cl.tableBlock}>
+    <Table
+      headers={[
+        ['id', 'ID'],
+        ['moneyAmount', 'Сумма'],
+        ['description', 'Описание'],
+        ['paymentDate', 'Дата оплаты'],
+        ['tariffPlan', 'Тариф'],
+        ['status', 'Статус'],
+        ['chequeLink', 'Чек'],
+      ]}
+      rows={getFormattedRows(rows)}
+      className={className}
+      gridClassName={cl.grid}
+    />
+  </div>
 );
 
 export default PaymentsTable;
