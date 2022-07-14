@@ -4,6 +4,7 @@
   box-shadow: inset -4px -4px 12px rgba(253, 255, 255, 0.8), inset 4px 4px 12px rgba(187, 195, 206, 0.6);
   border-radius: 10px;
   height: 40px;
+  width: fit-content;
 
   .prevBtn {
     position: absolute;
@@ -28,6 +29,7 @@
     align-items: center;
     justify-content: center;
     height: 40px;
+    margin-left: 0;
 
     .countItem {
       width: 40px;

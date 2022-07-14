@@ -1,7 +1,8 @@
-import style from '@pages/students/studentsList/studentCard/icons/Icons.module.scss';
 import questionTrue from '@svgs/studentsIcon/question.svg';
 import questionFalse from '@svgs/studentsIcon/questionFalse.svg';
 import Image from 'next/image';
+
+import style from './Icons.module.scss';
 
 interface QuestionProps {
   isQuestion: boolean;

@@ -10,6 +10,17 @@
   box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
   border-radius: 10px;
 
+  + blockPersonal {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+    height: auto;
+    width: auto;
+  }
+
+
   .avatar {
     background: $color-blue;
     border-radius: 18px;
@@ -23,8 +34,18 @@
     & .avatarImg {
       border-radius: 14px;
     }
-  }
 
+    @media (max-width: 950px) {
+      margin: 20px 0;
+
+    }
+
+    @media (max-width: 440px) {
+      width: 150px;
+      height: auto;
+    }
+
+  }
 
   .information {
     margin-left: 38px;
@@ -32,6 +53,9 @@
     & p.name {
       font: $font-subheader;
       color: $color-black;
+      @media (max-width: 440px) {
+        text-align: center;
+      }
     }
 
     & p.informationItem {
@@ -39,11 +63,19 @@
       color: $color-gray;
       margin-top: 10px;
 
+      @media (max-width: 440px) {
+        margin-left: 10px;
+      }
+
       & span {
         font: $font-small;
         color: $color-blue;
         margin-left: 12px;
       }
+    }
+
+    @media (max-width: 950px) {
+      margin-left: 0;
     }
   }
 
@@ -57,6 +89,15 @@
     display: flex;
     justify-content: space-between;
     align-self: flex-end;
+
+    @media (max-width: 650px) {
+      height: auto;
+      width: auto;
+    }
+
+    @media (max-width: 500px) {
+      flex-direction: column;
+    }
   }
 
   .wrapperStatistics {
@@ -67,6 +108,11 @@
 
     div {
       margin-bottom: 25px;
+    }
+
+    @media (max-width: 500px) {
+      align-self: auto;
+      align-items: center;
     }
   }
 
@@ -89,20 +135,25 @@
     top: 25px;
     right: 23px;
     display: flex;
+
+    @media (max-width: 650px) {
+      flex-direction: column-reverse;
+    }
+
+    @media (max-width: 440px) {
+      right: 10px;
+    }
   }
 }
 
 .statistics {
   font: $font-small;
-
   text-decoration-line: underline;
   color: $color-gray;
-
 }
 
 .button {
   width: 200px;
   height: 40px;
   margin-bottom: 6px;
-
 }

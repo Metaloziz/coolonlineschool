@@ -53,7 +53,11 @@
 .button {
   width: 300px;
   height: 40px;
-  margin: 26px;
+  margin-bottom: 26px;
   align-self: center;
   align-items: flex-start;
+  
+  @media (max-width: 440px) {
+    width: 100%;
+  }
 }

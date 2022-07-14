@@ -1,14 +1,15 @@
 import { StudentStatuses } from '@app/enums';
 import { Homeworks } from '@components';
-import { GroupsList } from '@pages/students/groupsList/GroupsList';
-import { SearchForm } from '@pages/students/searchForm/SearchForm';
+import { GroupsList } from '@pages/students/groups-list/GroupsList';
+import { SearchForm } from '@pages/students/search-form/SearchForm';
 import StudentsList, { IStudent } from '@pages/students/studentsList/StudentsList';
 import goodJobClass from '@svgs/studentsIcon/goodJobClass.svg';
 import participationCompetitions from '@svgs/studentsIcon/participationCompetitions.svg';
 import participationOlympiad from '@svgs/studentsIcon/participationOlympiad.svg';
 import tenHomeworks from '@svgs/studentsIcon/tenHomeworks.svg';
 import { getRandomId } from '@utils/RandomId';
-import styles from 'src/pages/students/Students.module.scss';
+
+import styles from './Students.module.scss';
 
 const STUDENTS: IStudent[] = [
   {
@@ -18,14 +19,14 @@ const STUDENTS: IStudent[] = [
     status: StudentStatuses.beginner,
     pointsNumber: 1,
     achievements: [
-      { title: 'tenHomeworks', imageUrl: tenHomeworks },
-      { title: 'participationOlympiad', imageUrl: participationCompetitions },
-      { title: 'goodJobClass', imageUrl: goodJobClass },
-      { title: 'participationCompetitions', imageUrl: participationOlympiad },
-      { title: 'tenHomeworks', imageUrl: tenHomeworks },
-      { title: 'participationOlympiad', imageUrl: participationCompetitions },
-      { title: 'goodJobClass', imageUrl: goodJobClass },
-      { title: 'participationCompetitions', imageUrl: participationOlympiad },
+      { id: '1', title: 'tenHomeworks', imageUrl: tenHomeworks },
+      { id: '2', title: 'participationOlympiad', imageUrl: participationCompetitions },
+      { id: '3', title: 'goodJobClass', imageUrl: goodJobClass },
+      { id: '4', title: 'participationCompetitions', imageUrl: participationOlympiad },
+      { id: '5', title: 'tenHomeworks', imageUrl: tenHomeworks },
+      { id: '6', title: 'participationOlympiad', imageUrl: participationCompetitions },
+      { id: '7', title: 'goodJobClass', imageUrl: goodJobClass },
+      { id: '8', title: 'participationCompetitions', imageUrl: participationOlympiad },
     ],
     options: {
       isCheck: true,
@@ -40,10 +41,10 @@ const STUDENTS: IStudent[] = [
     status: StudentStatuses.beginner,
     pointsNumber: 1,
     achievements: [
-      { title: 'tenHomeworks', imageUrl: tenHomeworks },
-      { title: 'participationOlympiad', imageUrl: participationCompetitions },
-      { title: 'goodJobClass', imageUrl: goodJobClass },
-      { title: 'participationCompetitions', imageUrl: participationOlympiad },
+      { id: '1', title: 'tenHomeworks', imageUrl: tenHomeworks },
+      { id: '2', title: 'participationOlympiad', imageUrl: participationCompetitions },
+      { id: '3', title: 'goodJobClass', imageUrl: goodJobClass },
+      { id: '4', title: 'participationCompetitions', imageUrl: participationOlympiad },
     ],
     options: {
       isQuestion: false,
@@ -114,9 +115,12 @@ const IndexPage = () => (
     <SearchForm />
 
     <div className={styles.wrapperList}>
-      <GroupsList groups={GROUPS} />
-      <Homeworks isEdit className={styles.homeworks} homeworks={HOMEWORKS} />
-      <StudentsList students={STUDENTS} />
+      <div className={styles.wrapperHomeworks}>
+        <GroupsList groups={GROUPS} />
+        <Homeworks isEdit className={styles.homeworks} homeworks={HOMEWORKS} />
+      </div>
+
+      <StudentsList className={styles.studentsList} students={STUDENTS} />
     </div>
   </div>
 );

@@ -5,3 +5,4 @@ export const submitButton: string;
 export const wrapper: string;
 export const wrapperField: string;
 export const wrapperPagination: string;
+export const wrapperSelects: string;

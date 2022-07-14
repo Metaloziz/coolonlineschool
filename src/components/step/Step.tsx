@@ -25,6 +25,7 @@ const Step: FC<StepProps> = ({ countStep, isRenderButtons, onChange }) => {
     <div className={styles.step}>
       {isRenderButtons && (
         <button
+          type="button"
           disabled={activeStepCount === 1}
           className={styles.prevBtn}
           onClick={() => setActiveStepCount(activeStepCount - 1)}
@@ -47,6 +48,7 @@ const Step: FC<StepProps> = ({ countStep, isRenderButtons, onChange }) => {
       </ul>
       {isRenderButtons && (
         <button
+          type="button"
           disabled={steps.length === activeStepCount}
           className={styles.nextBtn}
           onClick={() => setActiveStepCount(activeStepCount + 1)}

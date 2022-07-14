@@ -6,6 +6,7 @@ export const Routes = {
   Achievements: './achievements',
   Games: './games',
   Contacts: './contacts',
+  Students: './students',
   Signin: '/account/signin',
   Signout: '/account/signout',
   Signup: '/account/signup',

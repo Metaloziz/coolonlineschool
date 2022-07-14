@@ -2,11 +2,23 @@
 
 .container {
   display: flex;
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+  }
 }
 
 .wrapperPagination {
   display: flex;
   margin-bottom: 23px;
+
+  .wrapperSelects {
+    display: flex;
+  }
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+  }
 }
 
 .wrapperField {
@@ -14,12 +26,21 @@
   display: flex;
   align-items: center;
   margin-bottom: 23px;
+
+  @media (max-width: 440px) {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .wrapper {
-display: flex;
+  display: flex;
   flex-direction: column;
   margin-right: 92px;
+
+  @media (max-width: 500px) {
+    margin-right: 0;
+  }
 }
 
 .description {
@@ -36,4 +57,10 @@ display: flex;
 .select {
   border-radius: 10px;
   margin-right: 17px;
+
+  @media (max-width: 950px) {
+    flex-direction: column;
+    margin-bottom: 15px;
+
+  }
 }

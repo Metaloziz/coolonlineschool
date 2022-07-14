@@ -7,10 +7,25 @@
   flex-wrap: wrap;
   align-content: flex-start;
   background: url(#{$path-svg}/pages/lamp-bg.svg) top right no-repeat;
+
+  @media (max-width: 750px) {
+    padding-right: 20px;
+  }
 }
 
 .wrapperList {
   display: flex;
+
+  @media (max-width: 1280px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 750px) {
+    width: 100%;
+  }
+}
+
+.wrapperHomeworks {
   position: relative;
 }
 
@@ -20,9 +35,37 @@
   margin-right: 17px;
 }
 
+.studentsList {
+  width: 787px;
+
+  @media (max-width: 1280px) {
+    margin-left: 108px;
+    width: auto;
+  }
+
+  @media (max-width: 750px) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
 .homeworks {
-  width: 617px;
+  height: 759px;
   margin-left: 108px;
   margin-right: 22px;
+  position: relative;
   z-index: 50;
+
+  @media (max-width: 1280px) {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: 750px) {
+    margin-left: 0;
+  }
+
+  @media (max-width: 500px) {
+    padding: 20px 15px 0;
+  }
 }

@@ -1,11 +1,13 @@
 import { FC } from 'react';
 
 import { StudentStatuses } from '@app/enums';
-import StudentCard from '@pages/students/studentsList/studentCard/StudentCard';
+import StudentCard from '@pages/students/studentsList/student-card/StudentCard';
 import classNames from 'classnames';
-import cl from 'src/pages/students/studentsList/StudentsList.module.scss';
+
+import cl from './StudentsList.module.scss';
 
 interface IAchievement {
+  id: string;
   title: string;
   imageUrl: string;
 }

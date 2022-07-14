@@ -1,15 +1,13 @@
 import { ButtonColorThemes } from '@app/enums';
 import { Button } from '@components';
 import avatar from '@mock/public/avatar.png';
-import { Add } from '@pages/students/studentsList/studentCard/icons/Add';
-import { Camera } from '@pages/students/studentsList/studentCard/icons/Camera';
-import { Check } from '@pages/students/studentsList/studentCard/icons/Check';
-import { Question } from '@pages/students/studentsList/studentCard/icons/Question';
-import styles from '@pages/students/studentsList/studentCard/StudentCard.module.scss';
 import { IStudent } from '@pages/students/studentsList/StudentsList';
 import statistics from '@svgs/studentsIcon/statistics.svg';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { Question, Check, Camera, Add } from './icons';
+import styles from './StudentCard.module.scss';
 
 interface BlockContactsProps {
   student: IStudent;
@@ -21,8 +19,8 @@ interface BlockContactsProps {
 const StudentCard = ({ isCheck, isQuestion, isCamera, student }: BlockContactsProps) => {
   const { studentName, city, status, pointsNumber, achievements } = student;
 
-  const achievementsMap = achievements.map(({ title, imageUrl }) => (
-    <div key={title} className={styles.iconAchievement}>
+  const achievementsMap = achievements.map(({ imageUrl, id }) => (
+    <div key={id} className={styles.iconAchievement}>
       <Image alt="achievement" src={imageUrl} width={22} height={28} />
     </div>
   ));

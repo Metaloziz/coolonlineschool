@@ -17,6 +17,13 @@
     border-radius: 10px;
     color: #FFFFFF;
   }
+
+  @media (max-width: 750px) {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-left: 0;
+  }
 }
 
 .buttonAdd {
@@ -36,6 +43,21 @@
     border: 1px solid $color-blue;
     border-radius: 10px 0 0 10px;
   }
+
+  @media (max-width: 750px) {
+    width: 108px;
+    text-align: center;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    padding-left: 0;
+  }
+
+  @media (max-width: 750px) {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+    padding-left: 0;
+  }
 }
 
 .wrapper {
@@ -43,4 +65,12 @@
   flex-direction: column;
   position: absolute;
   top: 32px;
+  z-index: 0;
+
+  @media (max-width: 750px) {
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    top: auto;
+  }
 }
