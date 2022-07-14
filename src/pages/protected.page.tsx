@@ -13,7 +13,9 @@ const Protected = () => {
       <>
         <h1>Access denied</h1>
         Not signed in <br />
-        <button onClick={() => router.push(Routes.Signin)}>Sign in</button>
+        <button type="button" onClick={() => router.push(Routes.Signin)}>
+          Sign in
+        </button>
       </>
     );
   }
@@ -23,7 +25,9 @@ const Protected = () => {
     <>
       <h1>Protected Page</h1>
       Signed in as {profile?.email} <br />
-      <button onClick={() => router.push(Routes.Signout)}>Sign out</button>
+      <button type="button" onClick={() => router.push(Routes.Signout)}>
+        Sign out
+      </button>
     </>
   );
 };

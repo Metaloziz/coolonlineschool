@@ -17,6 +17,7 @@ const PlayButton: FC<Props> = ({
   oneGame = false,
 }) => (
   <button
+    type="button"
     className={classNames(cl.container, className, {
       [cl.containerSmalled]: size === PlayButtonSizes.small,
       [cl.containerOneGame]: oneGame,

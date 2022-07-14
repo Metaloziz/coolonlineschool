@@ -111,13 +111,8 @@ const IndexPage = () => (
       />
     </div>
     <div className={cl.wrapContent}>
-      {achievementCardsInfo.map((item, index) => (
-        <BlockAchievement
-          key={index}
-          imageCard={item.imageCard.src}
-          isActive={item.isActive}
-          title={item.title}
-        />
+      {achievementCardsInfo.map(({ title, imageCard, isActive }) => (
+        <BlockAchievement key={title} imageCard={imageCard.src} isActive={isActive} title={title} />
       ))}
     </div>
   </div>

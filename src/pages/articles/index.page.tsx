@@ -66,8 +66,8 @@ const IndexPage = () => (
       </Button>
     </div>
     <div className={styles.blockArticles}>
-      {articlesInfo.map((item, index) => (
-        <Article edit={item.edit} title={item.title} description={item.description} key={index} />
+      {articlesInfo.map(({ edit, title, description }) => (
+        <Article edit={edit} title={title} description={description} key={title} />
       ))}
     </div>
     <div className={styles.pagination}>

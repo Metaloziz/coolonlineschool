@@ -26,6 +26,7 @@ const Slider: FC<ISlider> = ({ size = 'normal', colorTheme = 'blue', options, cl
     <div className={containerClassNames}>
       {options.map(({ text, isActive = false, id }) => (
         <button
+          type="button"
           key={id}
           className={classNames(cl.option, {
             [cl.active]: activeId ? activeId === id : isActive,

@@ -15,6 +15,7 @@ const Account: FC = () => {
   return (
     <div className={cl.container}>
       <button
+        type="button"
         className={classNames(cl.avatar, {
           [cl.activeNotification]: activeNotification,
         })}
@@ -23,7 +24,7 @@ const Account: FC = () => {
         <div className={cl.notification} />
       </button>
 
-      <button className={cl.logout}>
+      <button type="button" className={cl.logout}>
         <Link href={Signout}>Выйти из аккаунта</Link>
       </button>
     </div>

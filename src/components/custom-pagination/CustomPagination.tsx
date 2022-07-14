@@ -21,7 +21,7 @@ const CustomPagination: FC<Props> = ({ count, total, paginate, prev, next }) => 
 
   return (
     <div className={styles.paginationWrapper}>
-      <button className={styles.prev} onClick={() => prev()}>
+      <button type="button" className={styles.prev} onClick={() => prev()}>
         <PaginationPrev />
       </button>
       <ul className={styles.list}>
@@ -31,7 +31,7 @@ const CustomPagination: FC<Props> = ({ count, total, paginate, prev, next }) => 
           </li>
         ))}
       </ul>
-      <button className={styles.next} onClick={() => next()}>
+      <button type="button" className={styles.next} onClick={() => next()}>
         <PaginationNext />
       </button>
     </div>

@@ -31,7 +31,7 @@ const SidebarNavItem: FC<Props> = ({
   return (
     <div className={wrapperClassName}>
       <Link passHref href={href}>
-        <button className={linkClassNames}>
+        <button type="button" className={linkClassNames}>
           <div className={imageClassName}>
             <SidebarNavSvg icon={svgId} />
           </div>

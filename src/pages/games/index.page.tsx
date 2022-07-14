@@ -49,13 +49,8 @@ const gamesCardInfo = [
 
 const IndexPage = () => (
   <div className={cl.innerContent}>
-    {gamesCardInfo.map((item, index) => (
-      <BlockGame
-        imageCard={item.imageCard.src}
-        title={item.title}
-        description={item.description}
-        key={index}
-      />
+    {gamesCardInfo.map(({ imageCard, title, description }) => (
+      <BlockGame imageCard={imageCard.src} title={title} description={description} key={title} />
     ))}
   </div>
 );

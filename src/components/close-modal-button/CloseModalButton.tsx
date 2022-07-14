@@ -7,7 +7,7 @@ type Props = {
 };
 
 const CloseModalButton: FC<Props> = ({ onClick }) => (
-  <button className={cl.container} onClick={onClick} />
+  <button type="button" className={cl.container} onClick={onClick} />
 );
 
 export default CloseModalButton;
