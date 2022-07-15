@@ -1,3 +1,5 @@
+@import '../../styles/global';
+
 .container {
   width: min-content;
   height: min-content;
@@ -12,16 +14,20 @@
       background-color: $color-secondary-button;
     }
   }
+
   &.long {
     background: #f8f8ff;
+
     .option {
       padding: 10px 40px;
     }
+
     .option.active {
       padding: 10px 45px;
     }
   }
 }
+
 .option {
   white-space: nowrap;
   color: black;

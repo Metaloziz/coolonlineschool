@@ -8,7 +8,6 @@ export const tag: string;
 export const info: string;
 export const infoText: string;
 export const infoVisualiser: string;
-export const pointsInfo: string;
 export const fiveImage: string;
 export const addNewLessonBtn: string;
 export const zoomBtn: string;

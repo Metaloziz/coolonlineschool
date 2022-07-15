@@ -1,9 +1,12 @@
+@import "../../styles/global";
+
 .container {
-  width: 1140px;
-  padding: 20px 30px;
-  background-color: white;
-  border-radius: 10px;
+  //width: 1095px;
+  //padding: 20px 30px;
+  //background-color: white;
+  //border-radius: 10px;
 }
+
 .header {
   display: grid;
   grid-template-columns: 1fr repeat(2, 160px) 1fr;

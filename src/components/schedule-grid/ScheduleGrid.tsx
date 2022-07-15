@@ -26,38 +26,40 @@ const getWeekDates = (mondayDateObj: Date): Date[] => {
 
 const ScheduleGrid: FC<IScheduleGrid> = ({ mondayDate, children, className }) => (
   <div className={classNames(cl.container, className)}>
-    <div className={cl.timeIntervals}>
-      {Array(24)
-        .fill(null)
-        .map((_value, key) => (
-          <span key={key} className={cl.halfHour}>
-            {convertToTimeString(
-              key !== 23 ? new Date(0, 0, 0, 8, key * 30) : new Date(0, 0, 0, 20),
-            )}
-          </span>
-        ))}
-    </div>
-    <div className={cl.grid}>
-      <div className={classNames(cl.rowHeader, cl.row)}>
-        {getWeekDates(mondayDate).map(date => (
-          <div key={date.valueOf()} className={classNames(cl.headerCell, cl.cell)}>
-            {convertToDateString(date)}
-          </div>
-        ))}
+    <div className={cl.innerContainer}>
+      <div className={cl.timeIntervals}>
+        {Array(24)
+          .fill(null)
+          .map((_value, key) => (
+            <span key={key} className={cl.halfHour}>
+              {convertToTimeString(
+                key !== 23 ? new Date(0, 0, 0, 8, key * 30) : new Date(0, 0, 0, 20),
+              )}
+            </span>
+          ))}
       </div>
-      {Array(24)
-        .fill(null)
-        .map((_value, key) => (
-          <div key={key} className={cl.row}>
-            {Array(7)
-              .fill(null)
-              // eslint-disable-next-line @typescript-eslint/no-shadow
-              .map((_value, key) => (
-                <div key={key} className={cl.cell} />
-              ))}
-          </div>
-        ))}
-      {children}
+      <div className={cl.grid}>
+        <div className={classNames(cl.rowHeader, cl.row)}>
+          {getWeekDates(mondayDate).map(date => (
+            <div key={date.valueOf()} className={classNames(cl.headerCell, cl.cell)}>
+              {convertToDateString(date)}
+            </div>
+          ))}
+        </div>
+        {Array(24)
+          .fill(null)
+          .map((_value, key) => (
+            <div key={key} className={cl.row}>
+              {Array(7)
+                .fill(null)
+                // eslint-disable-next-line @typescript-eslint/no-shadow
+                .map((_value, key) => (
+                  <div key={key} className={cl.cell} />
+                ))}
+            </div>
+          ))}
+        {children}
+      </div>
     </div>
   </div>
 );
