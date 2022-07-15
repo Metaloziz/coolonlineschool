@@ -1,9 +1,61 @@
 .container {
   display: grid;
-  grid-template-columns: 695px 595px 270px;
+  grid-template-columns: auto;
   grid-template-rows: repeat(2, min-content);
   gap: 50px 20px;
   padding: 25px 50px 60px 20px;
+
+  @media (max-width: 1000px) {
+    padding: 30px 20px;
+  }
+}
+
+.topBlock {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 1000px) {
+   flex-direction: column;
+  }
+}
+
+.searchBlock {
+  width: 595px;
+
+  @media (max-width: 1700px) {
+    width: 45%;
+
+    > button {
+      margin: 0 auto 10px;
+    }
+
+    > div {
+      width: 100%;
+      margin-right: 0;
+
+      > div:first-child {
+        width: 100%;
+
+        > input {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1600px) {
+    width: 40%;
+  }
+
+  @media (max-width: 1400px) {
+    padding: 20px 15px;
+    width: 35%;
+  }
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    margin: 20px 0;
+  }
 }
 
 .schedule {
@@ -12,8 +64,44 @@
 
 .cardBlock {
   width: 695px;
+
+  @media (max-width: 1900px) {
+    width: 560px;
+    height: auto;
+  }
+
+  @media (max-width: 1700px) {
+    width: 33%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    > div {
+      margin-bottom: 10px;
+    }
+  }
+
+  @media (max-width: 1400px) {
+    padding: 20px 15px;
+    width: 30%;
+  }
+
+  @media (max-width: 1000px) {
+    width: 100%;
+  }
 }
 
 .blockVisualizer {
   width: 270px;
+
+  @media (max-width: 1000px) {
+    width: 50%;
+    margin: 20px auto 0;
+  }
+
+  @media (max-width: 550px) {
+    width: 100%;
+  }
 }

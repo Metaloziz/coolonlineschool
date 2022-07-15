@@ -1,18 +1,33 @@
 @import "../../styles/global";
 
 .container {
+  @media (max-width: 1600px) {
+    position: relative;
+    width: 100%;
+    overflow-x: scroll;
+  }
+}
+
+.innerContainer {
   display: flex;
   column-gap: 15px;
+
+  @media (max-width: 1600px) {
+   width: 1600px;
+  }
 }
+
 .timeIntervals {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
 }
+
 .halfHour {
   margin-top: auto;
   font: $font-smaller;
 }
+
 .grid {
   position: relative;
   overflow: hidden;
@@ -21,6 +36,7 @@
   box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
   border-radius: 10px 10px 0 0;
 }
+
 .row {
   display: flex;
   height: 43px;
@@ -29,6 +45,7 @@
     background-color: #f8f8ff;
   }
 }
+
 .cell {
   flex-grow: 1;
   border-right: 1px solid #e0dfdd;
@@ -37,6 +54,7 @@
     border-right: none;
   }
 }
+
 .rowHeader {
   display: flex;
   height: 40px;
@@ -44,6 +62,7 @@
   box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
   border-radius: 10px 10px 0 0;
 }
+
 .headerCell {
   text-align: center;
   font: $font-small;

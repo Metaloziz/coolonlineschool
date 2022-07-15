@@ -2,6 +2,7 @@ import { FC, FormHTMLAttributes } from 'react';
 
 import { ButtonColorThemes } from '@app/enums';
 import { Button, CustomSelect, Input, TextFieldCalendar } from '@components';
+import cn from 'classnames';
 
 import cl from './ScheduleSearchForm.module.scss';
 
@@ -13,10 +14,16 @@ interface ISelectOption {
 interface IScheduleSearchForm extends FormHTMLAttributes<HTMLFormElement> {
   groupList: ISelectOption[];
   cityList: ISelectOption[];
+  className?: string;
 }
 
-const ScheduleSearchForm: FC<IScheduleSearchForm> = ({ groupList, cityList, ...attrs }) => (
-  <form {...attrs} className={cl.container}>
+const ScheduleSearchForm: FC<IScheduleSearchForm> = ({
+  groupList,
+  className,
+  cityList,
+  ...attrs
+}) => (
+  <form {...attrs} className={cn(cl.container, className)}>
     <TextFieldCalendar className={cl.calendar} text="Дата" />
     <CustomSelect
       size="normal"
