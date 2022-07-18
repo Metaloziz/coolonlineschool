@@ -64,7 +64,7 @@ const IndexPage = () => (
       </div>
       <div className={styles.time}>
         <p>Время выполнения</p>
-        <div className={styles.timeText}>
+        <div>
           <input type="text" />
         </div>
       </div>
