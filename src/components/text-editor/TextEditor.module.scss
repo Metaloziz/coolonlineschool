@@ -18,10 +18,22 @@
     border-radius: 10px 10px 0 0;
     background: #F8F8FF;
     display: flex;
-    justify-content: space-between !important;
+    border: 0;
+
+    > div:nth-child(3)  {
+      margin-left: 20px;
+      border: 0;
+    }
+
+    > div:nth-child(5)  {
+      margin-left: 20px;
+    }
+
 
     & > div > div {
       background: #F8F8FF;
+      margin-right: 10px;
+      border: 0;
     }
   }
 }

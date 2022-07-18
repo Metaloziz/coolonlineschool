@@ -1,5 +1,7 @@
 export const Routes = {
   Index: '/',
+  articles: '/articles',
+  newArticles: '/articles/new-articles',
   Schedule: '/schedule',
   Results: '/results',
   Payment: '/payment',

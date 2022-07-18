@@ -8,6 +8,7 @@ import { EditorProps } from 'react-draft-wysiwyg';
 import styles from './TextEditor.module.scss';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 
+// @ts-ignore
 const Editor = dynamic<EditorProps>(() => import('react-draft-wysiwyg').then(mod => mod.Editor), {
   ssr: false,
 });
