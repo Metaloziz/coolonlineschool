@@ -11,7 +11,7 @@ type ModalAddUserParentPropsType = {
 }
 
 
-const ModalAddUserParent = ({closeMode, setOpen, open}: ModalAddUserParentPropsType) => {
+const ModalAddUser = ({closeMode, setOpen, open}: ModalAddUserParentPropsType) => {
 
   return (
     <ModalBasic visibility={open} changeVisibility={setOpen}>
@@ -23,7 +23,7 @@ const ModalAddUserParent = ({closeMode, setOpen, open}: ModalAddUserParentPropsT
   );
 };
 
-export default ModalAddUserParent;
+export default ModalAddUser;
 
 
 
