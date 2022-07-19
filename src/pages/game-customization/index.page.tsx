@@ -6,7 +6,8 @@ import buttonAdd from '@svgs/settings-games-add.svg';
 import { getRandomId } from '@utils/RandomId';
 import Image from 'next/image';
 
-import styles from './GameСustomization.module.scss';
+import styles from '@pages/game-customization/GameСustomization.module.scss';
+
 
 const IndexPage = () => (
   <div className={styles.innerContent}>
