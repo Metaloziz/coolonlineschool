@@ -17,3 +17,4 @@ export const timeText: string;
 export const titleDescription: string;
 export const description: string;
 export const buttonSubmit: string;
+export const button: string;
