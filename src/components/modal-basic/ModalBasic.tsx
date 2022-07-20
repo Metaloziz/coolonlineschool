@@ -1,26 +1,25 @@
 import React from 'react';
 
-import styles from './ModalBasic.module.scss';
-
 import ButtonClose from 'public/svgs/modal/index';
 
+import styles from './ModalBasic.module.scss';
 
 type ModalAddUserPropsType = {
-  visibility: boolean
-  changeVisibility: (n: boolean) => void
-  children: React.ReactNode
-}
+  visibility: boolean;
+  changeVisibility: (n: boolean) => void;
+  children: React.ReactNode;
+};
 
-const ModalBasic = ({visibility, changeVisibility, children}: ModalAddUserPropsType) => {
+const ModalBasic = ({ visibility, changeVisibility, children }: ModalAddUserPropsType) => {
   if (!visibility) {
-    return null
+    return null;
   }
   return (
     <div className={styles.modal} onClick={() => changeVisibility(false)}>
       <div className={styles.content} onClick={e => e.stopPropagation()}>
-        <div onClick={
-          () => changeVisibility(false)
-        } className={styles.image}><ButtonClose/></div>
+        <div onClick={() => changeVisibility(false)} className={styles.image}>
+          <ButtonClose />
+        </div>
         {children}
       </div>
     </div>
@@ -28,6 +27,3 @@ const ModalBasic = ({visibility, changeVisibility, children}: ModalAddUserPropsT
 };
 
 export default ModalBasic;
-
-
-

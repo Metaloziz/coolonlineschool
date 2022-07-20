@@ -1,7 +1,7 @@
-import {FC} from 'react';
+import { FC } from 'react';
 
 import cn from 'classnames';
-import Select, {ActionMeta, SingleValue} from 'react-select';
+import Select, { ActionMeta, SingleValue } from 'react-select';
 
 import styles from './SimpleSelect.module.scss';
 
@@ -18,7 +18,7 @@ interface Props {
 }
 
 const SimpleSelect: FC<Props> = props => {
-  const {options, placeholder, className, onChange, title, value, error} = props;
+  const { options, placeholder, className, onChange, title, value, error } = props;
   // const id = new ();
   // const instanceId = useId();
   const handleChange = (v: SingleValue<Option> | null, actionMeta: ActionMeta<Option>) => {
@@ -26,22 +26,33 @@ const SimpleSelect: FC<Props> = props => {
   };
   return (
     <div className={cn(styles.selectWrap, className)}>
-      {title && <div className={ (title === "Роль:" || title === "Группа:") ? styles.labelAfter : styles.label}>{title}</div>}
-      <div className={(title === "Роль:" || title === "Группа:") ? styles.selectWrap__boxAfter : styles.selectWrap__box}>
+      {title && (
+        <div
+          className={title === 'Роль:' || title === 'Группа:' ? styles.labelAfter : styles.label}
+        >
+          {title}
+        </div>
+      )}
+      <div
+        className={
+          title === 'Роль:' || title === 'Группа:'
+            ? styles.selectWrap__boxAfter
+            : styles.selectWrap__box
+        }
+      >
         <Select
           // id={id}
           // instanceId={instanceId}
 
-          placeholder={"dsd"}
+          placeholder="dsd"
           options={options}
           onChange={handleChange}
           value={value}
-          components={{IndicatorSeparator: () => null}}
+          components={{ IndicatorSeparator: () => null }}
         />
         {error && <p className={styles.error}>{error}</p>}
       </div>
     </div>
-
   );
 };
 

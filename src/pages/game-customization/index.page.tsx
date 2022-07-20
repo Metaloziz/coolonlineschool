@@ -1,13 +1,11 @@
 import { ButtonColorThemes } from '@app/enums';
 import { Button, Slider } from '@components';
 import TextEditor from '@components/text-editor/TextEditor';
+import styles from '@pages/game-customization/GameСustomization.module.scss';
 import goBack from '@svgs/go-back-img.svg';
 import buttonAdd from '@svgs/settings-games-add.svg';
 import { getRandomId } from '@utils/RandomId';
 import Image from 'next/image';
-
-import styles from '@pages/game-customization/GameСustomization.module.scss';
-
 
 const IndexPage = () => (
   <div className={styles.innerContent}>

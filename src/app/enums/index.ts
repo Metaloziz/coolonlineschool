@@ -108,7 +108,6 @@ export enum ClientStatus {
   Archived = 'archived',
 }
 
-
 export enum EditAddLabels {
   Edit = 'Редактировать',
   Add = 'Добавить',

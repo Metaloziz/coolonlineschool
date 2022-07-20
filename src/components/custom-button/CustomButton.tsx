@@ -1,16 +1,22 @@
-import styles from './CustomButton.module.scss'
-import Image from 'next/image'
-import arrow from '@public/svgs/arrow-footer 1.svg'
+import { FC } from 'react';
+
+import arrow from '@public/svgs/arrow-footer 1.svg';
+import Image from 'next/image';
+
+import styles from './CustomButton.module.scss';
 
 type CustomButtonType = {
-  title: string
-}
+  title: string;
+};
 
-export default function CustomButton({title}: CustomButtonType) {
+const CustomButton: FC<CustomButtonType> = props => {
+  const { title } = props;
   return (
     <div className={styles.button}>
       <div>{title}</div>
-      <Image className={styles.image} src={arrow}/>
+      <Image className={styles.image} src={arrow} />
     </div>
-  )
-}
+  );
+};
+
+export default CustomButton;
