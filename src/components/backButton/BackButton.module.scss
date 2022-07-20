@@ -1,0 +1,22 @@
+.backButton {
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      margin-right: 12px;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}

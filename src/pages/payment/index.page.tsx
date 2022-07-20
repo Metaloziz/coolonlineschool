@@ -13,6 +13,7 @@ const Payment = () => {
       <div className={cl.topBlock}>
         <TariffPlan tariffPlan={TariffPlansEnum.personal} className={cl.planBlock} />
         <Balance
+          isAutoRefill={false}
           className={cl.balanceBlock}
           balanceFunds={4200}
           lessonCount={4}

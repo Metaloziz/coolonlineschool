@@ -17,3 +17,4 @@ export const rangeLevels: string;
 export const slider: string;
 export const time: string;
 export const titleDescription: string;
+export const timeText: string;

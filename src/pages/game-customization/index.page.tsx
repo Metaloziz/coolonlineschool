@@ -1,38 +1,36 @@
 import { ButtonColorThemes } from '@app/enums';
 import { Button, Slider } from '@components';
+import BackButton from '@components/backButton/BackButton';
 import TextEditor from '@components/text-editor/TextEditor';
-import styles from '@pages/game-customization/GameСustomization.module.scss';
-import goBack from '@svgs/go-back-img.svg';
 import buttonAdd from '@svgs/settings-games-add.svg';
 import { getRandomId } from '@utils/RandomId';
 import Image from 'next/image';
 
+import styles from './GameСustomization.module.scss';
+
 const IndexPage = () => (
   <div className={styles.innerContent}>
     <div className={styles.blockButtons}>
-      <div className={styles.goBack}>
-        <div className={styles.image}>
-          <Image src={goBack} width={36} height={36} alt="goBack" />
+      <BackButton />
+      <div className={styles.sliderBlock}>
+        <Slider
+          size="long"
+          className={styles.slider}
+          options={[
+            {
+              text: 'Для младшей группы',
+              isActive: true,
+              id: getRandomId(),
+            },
+            {
+              text: 'Скорочтение',
+              id: getRandomId(),
+            },
+          ]}
+        />
+        <div className={styles.buttonAdd}>
+          <Image src={buttonAdd} width={31} height={31} alt="goBack" />
         </div>
-        <p>На предыдущую страницу</p>
-      </div>
-      <Slider
-        size="long"
-        className={styles.slider}
-        options={[
-          {
-            text: 'Для младшей группы',
-            isActive: true,
-            id: getRandomId(),
-          },
-          {
-            text: 'Скорочтение',
-            id: getRandomId(),
-          },
-        ]}
-      />
-      <div className={styles.buttonAdd}>
-        <Image src={buttonAdd} width={31} height={31} alt="goBack" />
       </div>
     </div>
     <div className={styles.pattern}>

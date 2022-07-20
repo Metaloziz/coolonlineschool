@@ -1,7 +1,7 @@
 @import "../../styles/global";
 
 .innerContent {
-  padding: 25px 0 0 20px;
+  padding: 30px 20px;
   display: flex;
   flex-direction: column;
   background: url(#{$path-svg}/pages/lamp-bg.svg) right center no-repeat;
@@ -12,8 +12,19 @@
     display: flex;
     justify-content: space-between;
 
+    @media (max-width: 1500px) {
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+    }
+
     & p {
       margin: auto 22px auto 57px;
+
+      @media (max-width: 800px) {
+        margin: 20px 0;
+        text-align: center;
+      }
     }
   }
 
@@ -21,6 +32,10 @@
     width: 1515px;
     display: flex;
     flex-wrap: wrap;
+
+    @media (max-width: 1600px) {
+      width: 100%;
+    }
 
     & .article {
       background: #ffffff;
@@ -69,6 +84,19 @@
     display: flex;
     margin: 42px 0 58px 0;
     justify-content: center;
+
+    @media (max-width: 1600px) {
+      width: 100%;
+    }
+
+    @media (max-width: 500px) {
+      > div > button {
+        margin: 0;
+      }
+      > div > ul {
+        margin: 0;
+      }
+    }
   }
 }
 
@@ -82,4 +110,61 @@
 
 .search {
   padding: 11px 41px;
+  margin-left: 10px;
+
+  @media (max-width: 800px) {
+    margin-left: 0;
+  }
+}
+
+.selectBlock {
+  margin: 0 10px;
+  width: 250px;
+  > div {
+    width: 100%;
+  }
+  @media (max-width: 800px) {
+    width: 100%;
+    margin: 0 0 20px;
+  }
+
+}
+
+.leftBlock {
+  display: flex;
+  width: 48%;
+  justify-content: space-between;
+
+  @media (max-width: 1500px) {
+    width: 100%;
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+}
+
+.rightBlock {
+  display: flex;
+  width: 48%;
+  justify-content: space-between;
+
+  @media (max-width: 1500px) {
+    width: 100%;
+    justify-content: center;
+  }
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+}
+
+.sliderBlock {
+  margin: 0 auto;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
 }

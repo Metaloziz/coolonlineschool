@@ -14,8 +14,8 @@ interface Props {
 const Game: FC<Props> = ({ title, description }) => (
   <div className={cl.contentGame}>
     <div className={cl.blockGame}>
-      <div className={cl.imagePlay}>
-        <Image src={gameImg} width={461} height={461} alt="goBack" />
+      <div className={cl.imgBlock}>
+        <Image src={gameImg} alt="goBack" />
         <div className={cl.player}>
           <PlayButton oneGame />
         </div>
