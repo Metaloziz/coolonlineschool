@@ -107,3 +107,10 @@ export enum ClientStatus {
   Actived = 'actived',
   Archived = 'archived',
 }
+
+export enum colorThemeStatistic {
+  aquamarine = 'aquamarine',
+  gradientViolet = 'gradientViolet',
+  gradientBlueDarker = 'gradientBlueDarker',
+  blue = 'blue',
+}
