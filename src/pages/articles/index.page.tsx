@@ -36,34 +36,44 @@ const articlesInfo = [
 const IndexPage = () => (
   <div className={styles.innerContent}>
     <div className={styles.buttonsTop}>
-      <Button className={styles.buttonAdd} colorTheme={ButtonColorThemes.blueGradient}>
-        Добавить
-      </Button>
-      <p>
-        <span>Тип</span>
-      </p>
-      <Slider
-        size="long"
-        options={[
-          {
-            text: 'Статья для учителя',
-            isActive: true,
-            id: getRandomId(),
-          },
-          {
-            text: 'Урок для ученика',
-            id: getRandomId(),
-          },
-        ]}
-      />
-      <CustomSelect options={[{ label: 'ФИО автора', value: 'fio' }]} placeholder="ФИО автора" />
-      <CustomSelect
-        options={[{ label: 'Наименование статьи', value: 'articleName' }]}
-        placeholder="Наименование статьи"
-      />
-      <Button type="submit" colorTheme={ButtonColorThemes.green} className={styles.search}>
-        Найти
-      </Button>
+      <div className={styles.leftBlock}>
+        <Button className={styles.buttonAdd} colorTheme={ButtonColorThemes.blueGradient}>
+          Добавить
+        </Button>
+        <p>
+          <span>Тип</span>
+        </p>
+        <Slider
+          className={styles.sliderBlock}
+          size="long"
+          options={[
+            {
+              text: 'Статья для учителя',
+              isActive: true,
+              id: getRandomId(),
+            },
+            {
+              text: 'Урок для ученика',
+              id: getRandomId(),
+            },
+          ]}
+        />
+      </div>
+      <div className={styles.rightBlock}>
+        <CustomSelect
+          options={[{ label: 'ФИО автора', value: 'fio' }]}
+          placeholder="ФИО автора"
+          className={styles.selectBlock}
+        />
+        <CustomSelect
+          options={[{ label: 'Наименование статьи', value: 'articleName' }]}
+          placeholder="Наименование статьи"
+          className={styles.selectBlock}
+        />
+        <Button type="submit" colorTheme={ButtonColorThemes.green} className={styles.search}>
+          Найти
+        </Button>
+      </div>
     </div>
     <div className={styles.blockArticles}>
       {articlesInfo.map(({ edit, title, description }) => (

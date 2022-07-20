@@ -12,20 +12,52 @@ const IndexPage: FC = () => (
   <div className={styles.innerContent}>
     <div className={styles.wrapBlock}>
       <div className={styles.infoBlock1}>
-        <InformationItem title="Выполнил Д/З" variant="select" option={homework} />
+        <InformationItem
+          title="Выполнил Д/З"
+          variant="select"
+          option={homework}
+          className={styles.selectBlock}
+        />
         <InformationItem size="large" title="Город" variant="input" option={city} />
-        <InformationItem title="Группа" variant="select" option={group} />
+        <InformationItem
+          title="Группа"
+          variant="select"
+          option={group}
+          className={styles.selectBlock}
+        />
         <InformationItem title="ФИО ученика" variant="input" size="large" />
       </div>
       <div className={styles.infoBlock2}>
-        <InformationItem title="Оплачен" variant="select" option={paidFor} />
-        <InformationItem title="Дата рождения" variant="calendar" />
-        <InformationItem title="Возраст" variant="select" />
+        <InformationItem
+          title="Оплачен"
+          variant="select"
+          option={paidFor}
+          className={styles.selectBlock}
+        />
+        <InformationItem
+          title="Дата рождения"
+          variant="calendar"
+          className={styles.calendarBlock}
+        />
+        <InformationItem title="Возраст" variant="select" className={styles.selectBlock} />
       </div>
       <div className={styles.infoBlock3}>
-        <InformationItem title="Статус" variant="select" option={status} />
-        <InformationItem title="Дата начала действия" variant="calendar" />
-        <InformationItem title="Дата окончания действия" variant="calendar" />
+        <InformationItem
+          title="Статус"
+          variant="select"
+          option={status}
+          className={styles.selectBlock}
+        />
+        <InformationItem
+          title="Дата начала действия"
+          variant="calendar"
+          className={styles.calendarBlock}
+        />
+        <InformationItem
+          title="Дата окончания действия"
+          variant="calendar"
+          className={styles.calendarBlock}
+        />
         <div className={styles.btnBlock}>
           <Button className={styles.buttonSize} colorTheme={ButtonColorThemes.green}>
             Найти
@@ -152,7 +184,7 @@ const IndexPage: FC = () => (
         />
       </div>
       <div className={styles.rightBlock}>
-        <AdminInfoList />
+        <AdminInfoList className={styles.listBlock} />
       </div>
     </div>
   </div>

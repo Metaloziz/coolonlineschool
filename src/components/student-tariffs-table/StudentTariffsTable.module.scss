@@ -1,4 +1,8 @@
 .grid {
   display: grid;
   grid-template-columns: 55px 205px repeat(4, 155px) 175px 155px 100px;
+
+  @media (max-width: 1280px) {
+    display: flex;
+  }
 }

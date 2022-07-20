@@ -13,17 +13,39 @@ const IndexPage: FC = () => (
     <div className={styles.wrapBlock}>
       <div className={styles.infoBlock1}>
         <InformationItem size="large" title="Город" variant="input" option={city} />
-        <InformationItem title="Группа" variant="select" option={group} />
+        <InformationItem
+          title="Группа"
+          variant="select"
+          option={group}
+          className={styles.selectBlock}
+        />
         <InformationItem title="ФИО ученика" variant="input" size="large" />
       </div>
       <div className={styles.infoBlock2}>
-        <InformationItem title="Дата рождения" variant="calendar" />
+        <InformationItem
+          title="Дата рождения"
+          variant="calendar"
+          className={styles.calendarBlock}
+        />
         <InformationItem title="Возраст" variant="input" />
-        <InformationItem title="Статус" variant="select" option={status} />
+        <InformationItem
+          title="Статус"
+          variant="select"
+          option={status}
+          className={styles.selectBlock}
+        />
       </div>
       <div className={styles.infoBlock3}>
-        <InformationItem title="Дата начала периода" variant="calendar" />
-        <InformationItem title="Дата окончания периода" variant="calendar" />
+        <InformationItem
+          title="Дата начала периода"
+          variant="calendar"
+          className={styles.calendarBlock}
+        />
+        <InformationItem
+          title="Дата окончания периода"
+          variant="calendar"
+          className={styles.calendarBlock}
+        />
         <div className={styles.btnBlock}>
           <Button className={styles.buttonSize} colorTheme={ButtonColorThemes.green}>
             Найти
@@ -120,6 +142,42 @@ const IndexPage: FC = () => (
             },
             {
               id: 10,
+              fullName: 'Днепровский А.А.',
+              lessonsAmount: 122,
+              registrationDate: new Date(),
+              workedHoursAmount: 236,
+              childrenNumber: 12,
+              status: TeacherStatuses.active,
+            },
+            {
+              id: 11,
+              fullName: 'Днепровский А.А.',
+              lessonsAmount: 122,
+              registrationDate: new Date(),
+              workedHoursAmount: 236,
+              childrenNumber: 12,
+              status: TeacherStatuses.active,
+            },
+            {
+              id: 12,
+              fullName: 'Днепровский А.А.',
+              lessonsAmount: 122,
+              registrationDate: new Date(),
+              workedHoursAmount: 236,
+              childrenNumber: 12,
+              status: TeacherStatuses.active,
+            },
+            {
+              id: 13,
+              fullName: 'Днепровский А.А.',
+              lessonsAmount: 122,
+              registrationDate: new Date(),
+              workedHoursAmount: 236,
+              childrenNumber: 12,
+              status: TeacherStatuses.active,
+            },
+            {
+              id: 14,
               fullName: 'Днепровский А.А.',
               lessonsAmount: 122,
               registrationDate: new Date(),

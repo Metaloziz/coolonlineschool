@@ -1,5 +1,5 @@
 .wrapper {
-  margin: 25px 0 30px 20px;
+  margin: 30px 20px;
 
   .innerContent {
     background: #ffffff;
@@ -11,6 +11,15 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
+
+    @media (max-width: 1600px) {
+      width: 100%;
+    }
+
+    @media (max-width: 1400px) {
+      padding: 30px 15px;
+    }
+
 
     & h4 {
       font-family: 'Montserrat Alternates', sans-serif;
@@ -25,6 +34,37 @@
       align-items: center;
       margin-bottom: 25px;
 
+      @media (max-width: 800px) {
+        flex-direction: column;
+      }
+
+      .textFieldBlock {
+        width: 510px;
+        margin-right: 60px;
+
+        @media (max-width: 1400px) {
+          width: 400px;
+        }
+
+        @media (max-width: 1100px) {
+          width: 300px;
+        }
+
+        @media (max-width: 800px) {
+          width: 100%;
+          margin: 0 0 20px;
+        }
+
+
+        ::placeholder {
+          font-family: 'Montserrat Alternates', sans-serif;
+          font-weight: 700;
+          font-size: 16px;
+          line-height: 20px;
+          color: #0F123F;
+        }
+      }
+
       & h3 {
         width: 569px;
       }
@@ -33,9 +73,20 @@
         display: flex;
         align-items: center;
 
+        @media (max-width: 600px) {
+         flex-direction: column;
+          > div {
+            flex-direction: column;
+          }
+        }
+
         & p {
           font-weight: 600;
           margin-right: 20px;
+
+          @media (max-width: 600px) {
+            margin: 0 0 20px;
+          }
         }
       }
     }
@@ -45,6 +96,48 @@
       grid-template-columns: 225px 350px 225px 350px;
       row-gap: 25px;
       align-items: center;
+
+      @media (max-width: 1500px) {
+        grid-template-columns: 200px 280px 200px 280px;
+      }
+
+      @media (max-width: 1000px) {
+        grid-template-columns: 185px 220px 185px 220px;
+      }
+
+      @media (max-width: 900px) {
+        grid-template-columns: 180px 200px 180px 200px;
+      }
+
+      @media (max-width: 800px) {
+        display: flex;
+        flex-direction: column;
+
+        > div {
+          width: 100%;
+          text-align: center;
+        }
+
+        .calendarBlock {
+          width: 100%;
+
+          > div:first-child {
+            width: 100%;
+          }
+        }
+      }
+
+      .statusBlock{
+        width: 140px;
+
+        @media (max-width: 900px) {
+         width: 100%;
+
+          > div {
+            width: 100%;
+          }
+        }
+      }
     }
 
     & .description {
@@ -54,11 +147,27 @@
     & .tarifDescription {
       display: flex;
 
+      @media (max-width: 1000px) {
+        flex-direction: column;
+      }
+
       & .informationTarif {
         margin: 0 0 0 60px;
 
+        @media (max-width: 1100px) {
+          margin: 0 0 0 20px;
+        }
+
+        @media (max-width: 1000px) {
+          margin: 0;
+        }
+
         & p {
           margin: 0 0 25px 0;
+
+          @media (max-width: 550px) {
+            width: 70%;
+          }
         }
       }
     }
@@ -69,6 +178,14 @@
     display: flex;
     margin: 30px 0 30px 0;
     justify-content: right;
+
+    @media (max-width: 1600px) {
+      width: 100%;
+    }
+
+    @media (max-width: 550px) {
+      justify-content: center;
+    }
 
     & .button {
       padding: 11px 103px;
@@ -84,10 +201,12 @@
     display: flex;
     padding: 15px;
     justify-content: center;
+
+    @media (max-width: 1600px) {
+      width: 100%;
+    }
   }
 }
-
-
 
 .calendar {
   width: 140px;
@@ -102,8 +221,45 @@
   width: 170px;
 }
 
-.textEditor {
+.editorBlock {
   width: 640px;
+
+  @media (max-width: 1500px) {
+    width: 500px;
+  }
+
+  @media (max-width: 1100px) {
+    width: 400px;
+  }
+
+  @media (max-width: 1000px) {
+    width: 800px;
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: 900px) {
+    width: 700px;
+  }
+
+  @media (max-width: 800px) {
+    width: 500px;
+  }
+
+  @media (max-width: 600px) {
+    width: 350px;
+  }
+
+  @media (max-width: 440px) {
+    width: 280px;
+  }
+
+  @media (max-width: 374px) {
+    width: 250px;
+  }
+
+}
+
+.textEditor {
   height: 185px;
 }
 
@@ -134,8 +290,16 @@ $form-control-color: #4778EC;
       display: flex;
       align-items: center;
 
+      @media (max-width: 440px) {
+        flex-direction: column;
+      }
+
       & .text {
         margin: 0 30px 0 0;
+
+        @media (max-width: 440px) {
+          margin: 0 0 20px;
+        }
       }
     }
   }

@@ -15,7 +15,7 @@ const IndexPage = () => (
   <div className={styles.wrapper}>
     <div className={styles.innerContent}>
       <div className={styles.nameTarif}>
-        <h3>Имя тарифа</h3>
+        <TextField placeholder="Имя тарифа" className={styles.textFieldBlock} />
         <div className={styles.buttons}>
           <p>
             <span>Тип: </span>
@@ -38,27 +38,53 @@ const IndexPage = () => (
       </div>
       <div className={styles.tarif}>
         <div>Статус</div>
-        <CustomSelect options={status} placeholder="" size="normal" />
+        <CustomSelect
+          options={status}
+          className={styles.statusBlock}
+          placeholder=""
+          size="normal"
+        />
         <div>
           <p>Тариф после</p>
         </div>
-        <CustomSelect options={tarif} placeholder="" size="xnormal" />
+        <CustomSelect
+          options={tarif}
+          className={styles.statusBlock}
+          placeholder=""
+          size="xnormal"
+        />
         <div>
           <p>Дата начала действия</p>
         </div>
-        <CustomCalendarInput classNameTextField={styles.calendar} />
+        <CustomCalendarInput
+          classNameTextField={styles.calendar}
+          className={styles.calendarBlock}
+        />
         <div>
           <p>Д/З</p>
         </div>
-        <CustomSelect options={homeworkType} placeholder="" size="xnormal" />
+        <CustomSelect
+          options={homeworkType}
+          className={styles.statusBlock}
+          placeholder=""
+          size="xnormal"
+        />
         <div>
           <p>Дата окончания действия</p>
         </div>
-        <CustomCalendarInput classNameTextField={styles.calendar} />
+        <CustomCalendarInput
+          classNameTextField={styles.calendar}
+          className={styles.calendarBlock}
+        />
         <div>
           <p>Доступные игры</p>
         </div>
-        <CustomSelect options={games} placeholder="" size="xnormal" />
+        <CustomSelect
+          options={games}
+          className={styles.statusBlock}
+          placeholder=""
+          size="xnormal"
+        />
         <div>
           <p>Код тарифа</p>
         </div>
@@ -70,7 +96,9 @@ const IndexPage = () => (
       </div>
       <div className={styles.description}>Описание</div>
       <div className={styles.tarifDescription}>
-        <TextEditor className={styles.textEditor} />
+        <div className={styles.editorBlock}>
+          <TextEditor className={styles.textEditor} />
+        </div>
         <div className={styles.informationTarif}>
           <div className={styles.radioButtons}>
             <div>

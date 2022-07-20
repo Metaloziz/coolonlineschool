@@ -23,6 +23,7 @@ interface Props {
   option?: Option[];
   size?: SizeType;
   placeholder?: string;
+  className?: string;
 }
 
 const InformationItem: FC<Props> = ({
@@ -31,6 +32,7 @@ const InformationItem: FC<Props> = ({
   option = [],
   size = 'normal',
   placeholder = '',
+  className,
 }) => {
   const finalStyle = `${size === 'large' ? styles.large : styles.normal}`;
 
@@ -44,7 +46,7 @@ const InformationItem: FC<Props> = ({
   );
 
   return (
-    <div className={styles.wrapBlockItem}>
+    <div className={classNames(styles.wrapBlockItem, className)}>
       <div>
         <p>{title}</p>
       </div>
