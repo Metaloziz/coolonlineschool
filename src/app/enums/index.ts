@@ -3,6 +3,8 @@ export enum IconVariants {
   edit = 'edit',
   add = 'add',
   zoom = 'zoom',
+  arrow = 'arrow',
+  arrowTest = 'arrowTest',
 }
 
 export enum LessonsTypes {
