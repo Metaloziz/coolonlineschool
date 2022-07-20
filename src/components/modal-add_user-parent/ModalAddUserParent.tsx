@@ -1,43 +1,42 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+
+import CustomButton from '@components/custom-button/CustomButton';
+import FormAddUser from '@components/modal-add-user/form-user/FormAddUser';
+import FormParent from '@components/modal-add_user-parent/form-parent/FormParent';
+import ModalBasic from '@components/modal-basic/ModalBasic';
 
 import styles from './ModalAddUserParent.module.scss';
-import FormAddUser from "@components/modal-add-user/form-user/FormAddUser";
-import ModalBasic from "@components/modal-basic/ModalBasic";
-import FormParent from "@components/modal-add_user-parent/form-parent/FormParent";
-import CustomButton from "@components/custom-button/CustomButton";
 
 type ModalAddUserParentPropsType = {
   closeMode: () => void;
   setOpen: (n: boolean) => void;
-  open: boolean
-}
+  open: boolean;
+};
 
-
-const ModalAddUserParent = ({closeMode, setOpen, open}: ModalAddUserParentPropsType) => {
-  const [person,setPerson] = useState([1])
+const ModalAddUserParent = ({ closeMode, setOpen, open }: ModalAddUserParentPropsType) => {
+  const [person, setPerson] = useState([1]);
 
   const addParent = () => {
-    setPerson([...person,1])
-  }
+    setPerson([...person, 1]);
+  };
 
   return (
     <ModalBasic visibility={open} changeVisibility={setOpen}>
       <div className={styles.modal}>
-        <FormAddUser onCloseModal={closeMode}/>
-        {person.map(m => <div>
-          <div className={styles.line}></div>
-          <FormParent onCloseModal={closeMode}/>
-        </div>)}
+        <FormAddUser onCloseModal={closeMode} />
+        {person.map((m,index) => (
+          <div key={index}>
+            <div className={styles.line} />
+            <FormParent onCloseModal={closeMode} />
+          </div>
+        ))}
         <div onClick={addParent} className={styles.button}>
-          <span></span>
+          <span />
         </div>
-        <CustomButton title={"Сохранить"}/>
+        <CustomButton title="Сохранить" />
       </div>
     </ModalBasic>
   );
 };
 
 export default ModalAddUserParent;
-
-
-
