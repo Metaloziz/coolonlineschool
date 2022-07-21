@@ -2,6 +2,7 @@
 
 .container {
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
@@ -50,13 +51,69 @@
   row-gap: 10px;
 }
 
+.olympics {
+  .homeworks {
+    margin-top: 43px;
+  }
+}
+
+.title {
+  align-self: center;
+  top: 0;
+  position: absolute;
+  width: 477px;
+  height: 35px;
+  background: linear-gradient(90deg, #2E8EFE 0%, #2675F6 100%);
+  margin-bottom: 30px;
+  display: block;
+
+  font: $font-subheader;
+  color: #FFFFFF;
+  text-align: center;
+  line-height: 35px;
+  border-radius: 0 0 5px 5px;
+
+  @media (max-width: 650px) {
+    width: 300px;
+  }
+
+  @media (max-width: 500px) {
+    width: 200px;
+    font: $font-small;
+    line-height: 35px;
+  }
+
+  &:after {
+    box-sizing: border-box;
+    position: absolute;
+    content: '';
+    left: 99.7%;
+    width: 0;
+    height: 0;
+    border-top: 35px solid #2675F6;
+    border-right: 15px solid transparent;
+  }
+
+  &:before {
+    box-sizing: border-box;
+    position: absolute;
+    content: '';
+    right: 99.7%;
+    width: 0;
+    height: 0;
+    border-top: 35px solid #2E8EFE;
+    border-left: 15px solid transparent;
+  }
+}
+
+
 .button {
   width: 300px;
   height: 40px;
   margin-bottom: 26px;
   align-self: center;
   align-items: flex-start;
-  
+
   @media (max-width: 440px) {
     width: 100%;
   }
