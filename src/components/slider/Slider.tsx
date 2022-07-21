@@ -6,7 +6,7 @@ import cl from './Slider.module.scss';
 
 interface ISliderItem {
   text: string;
-  isActive?: boolean;
+  onClick?: (n: number) => void;
   id: number;
 }
 
@@ -18,20 +18,21 @@ interface ISlider {
 }
 
 const Slider: FC<ISlider> = ({ size = 'normal', colorTheme = 'blue', options, className }) => {
-  const [activeId, setActiveId] = useState<number | null>(null);
+  const [activeId, setActiveId] = useState<number>(1);
 
   const containerClassNames = classNames(cl.container, className, cl[colorTheme], cl[size]);
 
   return (
     <div className={containerClassNames}>
-      {options.map(({ text, isActive = false, id }) => (
+      {options.map(({ text, onClick, id }) => (
         <button
           type="button"
           key={id}
           className={classNames(cl.option, {
-            [cl.active]: activeId ? activeId === id : isActive,
+            [cl.active]: activeId ? activeId === id : false,
           })}
           onClick={() => {
+            onClick && onClick(id);
             setActiveId(id);
           }}
         >
