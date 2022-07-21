@@ -1,7 +1,7 @@
 export const Routes = {
   Index: '/',
-  articles: '/articles',
-  newArticles: '/articles/new-articles',
+  Articles: '/articles',
+  NewArticles: '/articles/new-articles',
   Schedule: '/schedule',
   Results: '/results',
   Payment: '/payment',
@@ -16,4 +16,5 @@ export const Routes = {
   ResetPassword: '/account/reset-password',
   SingleGame: '/single-game',
   TestPage: '/test-page',
+  CheckingHomework: '/checking-homework',
 };

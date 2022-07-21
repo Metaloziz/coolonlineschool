@@ -42,6 +42,7 @@ const Home = () => {
       <main className={cl.main}>
         <StudentCard
           options={{
+            id: '1',
             studentName: 'Днепровский Александр Алексеевич',
             status: StudentStatuses.beginner,
             city: 'Москва',

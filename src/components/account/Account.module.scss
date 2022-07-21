@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .container {
   display: flex;
   justify-content: space-between;
@@ -54,7 +56,7 @@ $logout-font-map: (
 );
 
 .logout {
-  @include link-font($logout-font-map...);
+  //@include link-font($logout-font-map...);
 
   @media (max-width: 700px) {
     width: 48%;

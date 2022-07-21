@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { colorThemeStatistic } from '@app/enums';
+import { colorThemeDoughnut } from '@app/value-objects/colorThemeDoughnut';
 import { Chart, DoughnutController, ArcElement, ChartConfiguration } from 'chart.js';
 import DoughnutLabel from 'chartjs-plugin-doughnutlabel-rebourne';
 import { Doughnut } from 'react-chartjs-2';
@@ -13,13 +14,6 @@ interface CustomDoughnutProps {
   color: colorThemeStatistic;
   percent: number;
 }
-
-export const colorThemeDoughnut = {
-  aquamarine: '#00B8D9',
-  gradientViolet: '#7A28D3',
-  gradientBlueDarker: '#102CA6',
-  blue: '#2E8DFD',
-};
 
 const CustomDoughnut: FC<CustomDoughnutProps> = ({ color, percent }) => {
   const config: ChartConfiguration<'doughnut'> = {

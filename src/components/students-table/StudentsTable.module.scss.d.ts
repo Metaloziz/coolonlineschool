@@ -1,4 +1,3 @@
-export const container: string;
 export const fullName: string;
 export const fullNameTitle: string;
 export const header: string;
