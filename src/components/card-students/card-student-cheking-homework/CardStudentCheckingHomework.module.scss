@@ -4,7 +4,6 @@
   width: 747px;
   height: 246px;
   display: flex;
-  align-items: center;
   position: relative;
   margin: 10px;
   box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
@@ -16,11 +15,13 @@
 
   @media (max-width: 950px) {
     flex-direction: column;
+    align-items: center;
     height: auto;
-    width: auto;
+    width: 100%;
   }
 
   .avatar {
+    margin-top: 29px;
     background: $color-blue;
     border-radius: 18px;
     margin-left: 37px;
@@ -36,18 +37,18 @@
 
     @media (max-width: 950px) {
       margin: 20px 0;
-
     }
 
     @media (max-width: 440px) {
       width: 150px;
       height: auto;
     }
-
   }
 
   .information {
     margin-left: 38px;
+    align-self: flex-start;
+    margin-top: 29px;
 
     & p.name {
       font: $font-subheader;
@@ -60,7 +61,26 @@
     & p.informationItem {
       font: $font-small;
       color: $color-gray;
-      margin-top: 10px;
+      position: relative;
+      margin-top: 20px;
+
+      &:last-child {
+        margin-top: 30px;
+
+        &:after {
+          position: absolute;
+          content: '';
+          background-color: #BABEC6;
+          top: -15px;
+          left: 0;
+          width: 440px;
+          height: 2px;
+          @media (max-width: 550px) {
+            width: 90%;
+          }
+        }
+      }
+
 
       @media (max-width: 440px) {
         margin-left: 10px;
@@ -74,7 +94,7 @@
     }
 
     @media (max-width: 950px) {
-      margin-left: 0;
+      margin-left: 20px;
       margin-bottom: 20px;
     }
   }
@@ -85,12 +105,13 @@
 
   .wrapperInformation {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-self: flex-end;
 
     @media (max-width: 650px) {
       height: auto;
-      width: auto;
+      width: 100%;
     }
 
     @media (max-width: 500px) {
