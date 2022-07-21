@@ -119,3 +119,10 @@ export enum SexEnum {
   Male = 'Мужской',
   Female = 'Женский',
 }
+
+export enum colorThemeStatistic {
+  aquamarine = 'aquamarine',
+  gradientViolet = 'gradientViolet',
+  gradientBlueDarker = 'gradientBlueDarker',
+  blue = 'blue',
+}

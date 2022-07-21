@@ -3,6 +3,8 @@ import IndexPage from '../pages/single-game/index.page';
 import Account from './account/Account';
 import Balance from './balance/Balance';
 import Button from './button/Button';
+import CardStudentCheckingHomework from './card-students/card-student-cheking-homework/CardStudentCheckingHomework';
+import CheckingHomework from './checking-homework/CheckingHomework';
 import CloseModalButton from './close-modal-button/CloseModalButton';
 import CustomCalendar from './custom-calendar/CustomCalendar';
 import CustomImageWrapper from './custom-image-wrapper/CustomImageWrapper';
@@ -24,6 +26,7 @@ import PaginationPrev from './pagination-prev/PaginationPrev';
 import PaymentsTable from './payments-table/PaymentsTable';
 import PlayButton from './play-button/PlayButton';
 import ProgressBar from './progress-bar/ProgressBar';
+import ProgressLine from './progress-line/ProgressLine';
 import ScheduleGrid from './schedule-grid/ScheduleGrid';
 import ScheduleLesson from './schedule-lesson/ScheduleLesson';
 import ScheduleLessonsList from './schedule-lessons-list/ScheduleLessonsList';
@@ -33,6 +36,7 @@ import SelectHomeworksForm from './select-homeworks-form/SelectHomeworksForm';
 import SidebarNavItem from './sidebar-nav-item/SidebarNavItem';
 import SidebarNav from './sidebar-nav/SidebarNav';
 import Slider from './slider/Slider';
+import StatisticsList from './statistics-list/StatisticsList';
 import StudentCardBottom from './student-card-bottom/StudentCardBottom';
 import StudentCardSlider from './student-card-slider/StudentCardSlider';
 import StudentCard from './student-card/StudentCard';
@@ -103,4 +107,8 @@ export {
   TextFieldCalendar,
   VerticalSlider,
   IndexPage,
+  ProgressLine,
+  StatisticsList,
+  CardStudentCheckingHomework,
+  CheckingHomework,
 };

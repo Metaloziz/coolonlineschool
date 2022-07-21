@@ -10,13 +10,16 @@ interface IHomeworks {
   className?: string;
   homeworks: IHomework[];
   isEdit?: boolean;
+  isOlympics?: boolean;
 }
 
-const Homeworks: FC<IHomeworks> = ({ homeworks, className, isEdit }) => (
+const Homeworks: FC<IHomeworks> = ({ homeworks, className, isEdit, isOlympics }) => (
   <div className={classNames(styles.container, className)}>
+    {isOlympics && <p className={styles.title}>Наименование олимпиады</p>}
+
     <div>
-      <p className={styles.panel}>Домашнее задание на 7 октября 2021</p>
-      <div className={styles.homeworks}>
+      {!isOlympics && <p className={styles.panel}>Домашнее задание на 7 октября 2021</p>}
+      <div className={classNames(styles.homeworks, isOlympics && styles.olympics)}>
         {homeworks.map(homework => (
           <Homework className={styles.homeworks} key={homework.id} {...homework} />
         ))}

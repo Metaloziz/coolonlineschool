@@ -27,7 +27,7 @@ const ProgressBar: FC<IProgressBar> = ({
   const circlePos = svgSize / 2;
 
   return (
-    <div className={classNames(cl.container, cl[colorTheme], cl[size], className)}>
+    <div className={classNames(cl.container, cl[colorTheme], className)}>
       <div className={cl.innerContainer}>
         <svg width={svgSize} height={svgSize} version="1.1" xmlns="http://www.w3.org/2000/svg">
           <circle

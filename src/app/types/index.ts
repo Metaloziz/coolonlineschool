@@ -32,6 +32,7 @@ export interface ISchedule {
 }
 
 export interface IStudentCard {
+  id: string;
   studentName: string;
   status: StudentStatuses;
   city?: string;
@@ -43,6 +44,7 @@ export interface IStudentCard {
   classroomZoomLink?: string;
   nextLessonData?: Date;
   tag?: number;
+  teacher?: string;
 }
 
 export interface IHomework {
