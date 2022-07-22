@@ -18,6 +18,7 @@ import IconButton from './icon-button/IconButton';
 import Input from './input/Input';
 import KeepPlaying from './keep-playing/KeepPlaying';
 import Logo from './logo/Logo';
+import ModalBasic from './modal-basic/ModalBasic';
 import Modal from './modal/Modal';
 import PageContainer from './page-container/PageContainer';
 import PageLoading from './page-loading/PageLoading';
@@ -53,6 +54,7 @@ import TaskVisualizersList from './task-visualizers-list/TaskVisualizersList';
 import TeacherComment from './teacher-comment/TeacherComment';
 import TeachersTable from './teachers-table/TeachersTable';
 import TextFieldCalendar from './text-field-calendar/TextFieldCalendar';
+import TextField from './text-fild/TextFild';
 import VerticalSlider from './vertical-slider/VerticalSlider';
 
 export {
@@ -111,4 +113,6 @@ export {
   StatisticsList,
   CardStudentCheckingHomework,
   CheckingHomework,
+  TextField,
+  ModalBasic,
 };

@@ -1,10 +1,10 @@
-import { FC } from 'react';
+import { DetailedHTMLProps, FC, InputHTMLAttributes } from 'react';
 
 import classNames from 'classnames';
 
 import styles from './TextFild.module.scss';
 
-interface Props {
+interface Props extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   type?: string;
   id?: string;
   className?: string;

@@ -15,6 +15,6 @@ export const pattern: string;
 export const patternNames: string;
 export const rangeLevels: string;
 export const slider: string;
+export const sliderBlock: string;
 export const time: string;
 export const titleDescription: string;
-export const timeText: string;

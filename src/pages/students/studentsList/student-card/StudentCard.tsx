@@ -1,5 +1,7 @@
 import { ButtonColorThemes } from '@app/enums';
 import { Button } from '@components';
+import { ModalAddPoints } from '@components/modal-add-points/ModalAddPoints';
+import { useModal } from '@hooks';
 import avatar from '@mock/public/avatar.png';
 import { IStudent } from '@pages/students/studentsList/StudentsList';
 import statistics from '@svgs/studentsIcon/statistics.svg';
@@ -18,6 +20,8 @@ interface BlockContactsProps {
 
 const StudentCard = ({ isCheck, isQuestion, isCamera, student }: BlockContactsProps) => {
   const { studentName, city, status, pointsNumber, achievements } = student;
+
+  const [isActiveAddPointModal, openAddPointModal, closeAddPointModal] = useModal();
 
   const achievementsMap = achievements.map(({ imageUrl, id }) => (
     <div key={id} className={styles.iconAchievement}>
@@ -52,17 +56,22 @@ const StudentCard = ({ isCheck, isQuestion, isCamera, student }: BlockContactsPr
               <p className={styles.informationItem}>
                 Баллы:<span>{pointsNumber}</span>
               </p>
-              <Add />
+              <Add openModal={openAddPointModal} />
+              <ModalAddPoints
+                isActive={isActiveAddPointModal}
+                closeModal={closeAddPointModal}
+                studentsName="Днепровский Александр Алексеевич"
+              />
             </div>
             <div className={styles.wrapperAchievements}>
               {achievements && achievementsMap}
-              <Add />
+              <Add openModal={() => {}} />
             </div>
           </div>
           <div className={styles.wrapperStatistics}>
             <div>
-              <Link href="/students">
-                <a href="/students" className={styles.statistics}>
+              <Link href="students">
+                <a href="students" className={styles.statistics}>
                   Статистика
                   <Image src={statistics} alt="statistics" width={27} height={27} />
                 </a>
