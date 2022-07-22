@@ -13,12 +13,10 @@ interface ITariffPlansItem extends ITariffCard {
 
 interface ITariffsList {
   tariffPlans: ITariffPlansItem[];
-  closeModal: () => void;
 }
 
-const TariffsList: FC<ITariffsList> = ({ tariffPlans, closeModal }) => (
+const TariffsList: FC<ITariffsList> = ({ tariffPlans }) => (
   <div className={cl.container}>
-    <CloseModalButton onClick={closeModal} />
     <b className={cl.title}>Тарифные планы</b>
     <div className={cl.tariffCards}>
       {tariffPlans.map(({ id, ...tariffPlansItem }) => (
@@ -27,6 +25,7 @@ const TariffsList: FC<ITariffsList> = ({ tariffPlans, closeModal }) => (
     </div>
     <div className={cl.bottom}>
       <Slider
+        className={cl.innerSlider}
         options={[
           {
             id: getRandomId(),

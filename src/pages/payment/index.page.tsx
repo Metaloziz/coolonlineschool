@@ -1,13 +1,13 @@
 import { useState } from 'react';
 
 import { PaymentStatuses, TariffPlans as TariffPlansEnum } from '@app/enums';
-import { Balance, Modal, TariffPlan, TariffPlans, PaymentsTable } from '@components';
+import { Balance, TariffPlan, TariffPlans, PaymentsTable } from '@components';
+import ModalBasic from '@components/modal-basic/ModalBasic';
 
 import cl from './Payment.module.scss';
 
 const Payment = () => {
-  const [isModal, setIsModal] = useState(false);
-
+  const [showModal, setShowModal] = useState<boolean>(false);
   return (
     <div className={cl.container}>
       <div className={cl.topBlock}>
@@ -20,7 +20,7 @@ const Payment = () => {
           tariffPlanFirst="Тариф 1"
           tariffPlanSecond="Тариф 2"
           openModal={() => {
-            setIsModal(true);
+            setShowModal(true);
           }}
         />
       </div>
@@ -84,38 +84,37 @@ const Payment = () => {
         ]}
       />
 
-      <Modal isOpen={isModal}>
-        <TariffPlans
-          closeModal={() => {
-            setIsModal(false);
-          }}
-          tariffPlans={[
-            {
-              id: 1,
-              moneyAmount: 4547,
-              tariffPlan: TariffPlansEnum.introductory,
-              percentDiscount: 50,
-            },
-            {
-              id: 2,
-              moneyAmount: 3300,
-              tariffPlan: TariffPlansEnum.independent,
-            },
-            {
-              id: 3,
-              moneyAmount: 4200,
-              tariffPlan: TariffPlansEnum.advanced,
-              isExtraOption: true,
-            },
-            {
-              id: 4,
-              moneyAmount: 5000,
-              tariffPlan: TariffPlansEnum.personal,
-              isExtraOption: true,
-            },
-          ]}
-        />
-      </Modal>
+      <ModalBasic isVisibility={showModal} changeVisibility={setShowModal}>
+        <div className={cl.tariffModal}>
+          <TariffPlans
+            tariffPlans={[
+              {
+                id: 1,
+                moneyAmount: 4547,
+                tariffPlan: TariffPlansEnum.introductory,
+                percentDiscount: 50,
+              },
+              {
+                id: 2,
+                moneyAmount: 3300,
+                tariffPlan: TariffPlansEnum.independent,
+              },
+              {
+                id: 3,
+                moneyAmount: 4200,
+                tariffPlan: TariffPlansEnum.advanced,
+                isExtraOption: true,
+              },
+              {
+                id: 4,
+                moneyAmount: 5000,
+                tariffPlan: TariffPlansEnum.personal,
+                isExtraOption: true,
+              },
+            ]}
+          />
+        </div>
+      </ModalBasic>
     </div>
   );
 };

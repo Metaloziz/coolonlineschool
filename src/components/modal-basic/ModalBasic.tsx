@@ -1,24 +1,41 @@
-import React from 'react';
+import React, { FC, SyntheticEvent } from 'react';
 
-import ButtonClose from 'public/svgs/modal/index';
+import buttonClose from '@svgs/button-close.svg';
+import cn from 'classnames';
+import Image from 'next/image';
 
 import styles from './ModalBasic.module.scss';
 
 type ModalAddUserPropsType = {
-  visibility: boolean;
+  isVisibility: boolean;
   changeVisibility: (n: boolean) => void;
   children: React.ReactNode;
+  className?: string;
 };
 
-const ModalBasic = ({ visibility, changeVisibility, children }: ModalAddUserPropsType) => {
-  if (!visibility) {
+const ModalBasic: FC<ModalAddUserPropsType> = ({
+  isVisibility,
+  className,
+  changeVisibility,
+  children,
+}) => {
+  if (!isVisibility) {
     return null;
   }
+
+  const handlerStopPropagation = (e: SyntheticEvent) => {
+    e.stopPropagation();
+  };
+
+  const closeModal = () => {
+    changeVisibility(false);
+  };
+
   return (
-    <div className={styles.modal} onClick={() => changeVisibility(false)}>
-      <div className={styles.content} onClick={e => e.stopPropagation()}>
-        <div onClick={() => changeVisibility(false)} className={styles.image}>
-          <ButtonClose />
+    <div className={cn(styles.modal, className)} onClick={closeModal}>
+      <div className={styles.content} onClick={handlerStopPropagation}>
+        <div className={styles.btnClose} onClick={closeModal}>
+          <Image src={buttonClose} width="14" height="14" alt="close" />
         </div>
         {children}
       </div>

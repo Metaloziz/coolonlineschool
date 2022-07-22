@@ -13,7 +13,7 @@ type BlockGameProps = {
 const BlockGame = ({ imageCard, title, description }: BlockGameProps) => (
   <div className={cl.blockGame}>
     <div className={cl.startGame}>
-      <div className={cl.image}>
+      <div>
         <Image src={imageCard} width={151} height={151} alt="game" />
       </div>
       <PlayButton />

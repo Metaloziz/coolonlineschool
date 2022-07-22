@@ -18,7 +18,6 @@ import IconButton from './icon-button/IconButton';
 import Input from './input/Input';
 import KeepPlaying from './keep-playing/KeepPlaying';
 import Logo from './logo/Logo';
-import Modal from './modal/Modal';
 import PageContainer from './page-container/PageContainer';
 import PageLoading from './page-loading/PageLoading';
 import PaginationNext from './pagination-next/PaginationNext';
@@ -75,7 +74,6 @@ export {
   Input,
   KeepPlaying,
   Logo,
-  Modal,
   PageContainer,
   PageLoading,
   PaymentsTable,

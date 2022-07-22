@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 import { ButtonColorThemes } from '@app/enums';
-import BasicModal from '@components/basic-modal/BasicModal';
 import Button from '@components/button/Button';
 import Input from '@components/input/Input';
+import ModalBasic from '@components/modal-basic/ModalBasic';
 import { Routes } from '@constants/Routes';
 import Link from 'next/link';
 
@@ -13,12 +13,12 @@ const ModalEntrance = () => {
   const [showModal, setShowModal] = useState<boolean>(true);
   const { Signout } = Routes;
   return (
-    <BasicModal visibility={showModal} changeVisibility={setShowModal}>
+    <ModalBasic isVisibility={showModal} changeVisibility={setShowModal}>
       <div className={styles.wrapContent}>
         <h2>Вход</h2>
         <div className={styles.userData}>
-          <Input className={styles.input} placeholder="Почта / телефон" />
-          <Input className={styles.input} placeholder="Пароль" />
+          <Input placeholder="Почта / телефон" />
+          <Input placeholder="Пароль" />
         </div>
         <Button className={styles.btnEntries} colorTheme={ButtonColorThemes.red}>
           Вход
@@ -28,7 +28,7 @@ const ModalEntrance = () => {
           <Link href={Signout}>Регистрация</Link>
         </div>
       </div>
-    </BasicModal>
+    </ModalBasic>
   );
 };
 export default ModalEntrance;

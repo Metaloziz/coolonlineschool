@@ -12,7 +12,7 @@ type ModalAddUserParentPropsType = {
 };
 
 const ModalAddUser = ({ closeMode, setOpen, open }: ModalAddUserParentPropsType) => (
-  <ModalBasic visibility={open} changeVisibility={setOpen}>
+  <ModalBasic isVisibility={open} changeVisibility={setOpen}>
     <div className={styles.modal}>
       <FormAddUser onCloseModal={closeMode} />
     </div>
