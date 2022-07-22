@@ -56,7 +56,6 @@ const Results = () => (
             { text: 'Параметр 4', id: getRandomId() },
             { text: 'Параметр 5', id: getRandomId() },
           ]}
-          className={cl.verticalSlider}
         />
       </div>
       <div className={cl.rightBlock}>

@@ -12,8 +12,8 @@ import styles from './Settings.module.scss';
 
 const IndexPage = () => (
   <div className={styles.innerContent}>
-    <h4>Система оплаты</h4>
-    <h4>Настройки</h4>
+    <h4 className={styles.systemTitle}>Система оплаты</h4>
+    <h4 className={styles.settingsTitle}>Настройки</h4>
     <div className={styles.systemPay}>
       <p>ShopID</p>
       <TextField />
@@ -27,29 +27,32 @@ const IndexPage = () => (
       </div>
       <div className={styles.typeGroup}>
         <p>Тип групп</p>
-        <Slider
-          size="normal"
-          options={[
-            {
-              text: 'Младшая',
-              isActive: true,
-              id: getRandomId(),
-            },
-            {
-              text: 'Старшая',
-              id: getRandomId(),
-            },
-            {
-              text: 'Список1',
-              id: getRandomId(),
-            },
-          ]}
-        />
-        <div className={styles.buttonAdd}>
-          <Image src={buttonAdd} width={31} height={31} alt="goBack" />
+        <div className={styles.typeSlider}>
+          <Slider
+            className={styles.choiceSlider}
+            size="normal"
+            options={[
+              {
+                text: 'Младшая',
+                isActive: true,
+                id: getRandomId(),
+              },
+              {
+                text: 'Старшая',
+                id: getRandomId(),
+              },
+              {
+                text: 'Список1',
+                id: getRandomId(),
+              },
+            ]}
+          />
+          <div className={styles.buttonAdd}>
+            <Image src={buttonAdd} width={31} height={31} alt="goBack" />
+          </div>
         </div>
       </div>
-      <div>
+      <div className={styles.inputFile}>
         <InputFile />
       </div>
     </div>

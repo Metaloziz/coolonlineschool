@@ -11,7 +11,7 @@
     margin: 30px 15px;
   }
 
-  .topBlock{
+  .topBlock {
     display: flex;
     justify-content: space-between;
 
@@ -31,7 +31,26 @@
       }
     }
   }
+
+  .tariffModal {
+    @media (max-width: 1300px) {
+      width: 1000px;
+    }
+
+    @media (max-width: 1000px) {
+      width: 800px;
+    }
+
+    @media (max-width: 800px) {
+      width: 600px;
+    }
+
+    @media (max-width: 600px) {
+      width: 100%;
+    }
+  }
 }
+
 .paymentsTable {
   grid-column: 1 / -1;
 
@@ -44,13 +63,13 @@
   justify-content: space-between;
 
   @media (max-width: 1400px) {
-   flex-direction: column-reverse;
+    flex-direction: column-reverse;
     padding: 20px 10px;
 
     > div {
       width: 100%;
 
-       + div {
+      + div {
         margin-bottom: 20px;
       }
     }
@@ -59,12 +78,12 @@
 
 .planBlock {
 
-  @media (max-width: 1400px){
+  @media (max-width: 1400px) {
     padding: 0 10px 20px;
   }
 
-  > ul{
-    @media (max-width: 1800px){
+  > ul {
+    @media (max-width: 1800px) {
       max-height: 100%;
       flex-wrap: nowrap;
 

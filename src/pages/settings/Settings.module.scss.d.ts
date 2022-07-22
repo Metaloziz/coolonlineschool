@@ -6,3 +6,8 @@ export const lessons: string;
 export const settings: string;
 export const systemPay: string;
 export const typeGroup: string;
+export const systemTitle: string;
+export const settingsTitle: string;
+export const typeSlider: string;
+export const choiceSlider: string;
+export const inputFile: string;
