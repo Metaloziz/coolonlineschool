@@ -22,7 +22,7 @@ const CustomSelect: FC<ICustomSelect> = ({ options, placeholder, size = 'auto', 
       options={options}
       components={{ IndicatorSeparator: () => null }}
       className={cl[size]}
-      instanceId={`${options[0].label}`}
+      instanceId={`${options[0] && options[0].label}`}
     />
   </div>
 );
