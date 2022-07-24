@@ -1,44 +1,46 @@
+import { getRandomId } from '@utils/RandomId';
+
 export const HOMEWORKS = [
   {
     gameTitle: 'Память и ритм',
-    id: 1,
+    id: getRandomId(),
     description: {
       needToDo: '',
       minutesLeft: 10,
       tips: [
         {
           text: '1',
-          id: 11,
+          id: getRandomId(),
         },
         {
           text: '2',
-          id: 12,
+          id: getRandomId(),
         },
         {
           text: '3',
-          id: 13,
+          id: getRandomId(),
         },
       ],
     },
   },
   {
-    gameTitle: 'Память и ритм',
-    id: 2,
+    gameTitle: 'Число - фигура - слово',
+    id: getRandomId(),
     description: {
-      needToDo: '',
-      minutesLeft: 10,
+      needToDo: 'Присесть 1070 раз и сделать 1200 отжиманий',
+      minutesLeft: 120,
       tips: [
         {
-          text: '1',
-          id: 21,
+          text: 'test',
+          id: getRandomId(),
         },
         {
-          text: '2',
-          id: 22,
+          text: 'test2',
+          id: getRandomId(),
         },
         {
-          text: '3',
-          id: 23,
+          text: 'test3',
+          id: getRandomId(),
         },
       ],
     },

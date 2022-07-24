@@ -1,0 +1,72 @@
+@import "src/styles/global";
+
+.container {
+  padding: 40px 47px;
+  width: 940px;
+  height: 450px;
+
+  @media (max-width: 750px) {
+    padding: 20px;
+  }
+
+  @media (max-width: 550px) {
+    padding: 10px;
+  }
+}
+
+.title {
+  font: $font-secondary-visualiser-big;
+  color: $color-black;
+  text-align: center;
+
+  span {
+    color: $color-blue;
+
+    @media (max-width: 1100px) {
+      margin-top: 5px;
+      display: block;
+    }
+  }
+
+  @media (max-width: 550px) {
+    font: $font-secondary-subheader;
+  }
+}
+
+.wrapperTextEditor {
+  margin: 30px 0;
+
+  @media (max-width: 550px) {
+    margin: 10px 0;
+  }
+}
+
+.textEditor {
+  height: 170px !important;
+}
+
+.wrapperButton {
+  display: flex;
+  justify-content: space-evenly;
+
+  @media (max-width: 550px) {
+    flex-direction: column;
+  }
+}
+
+.button {
+  width: 246px;
+  align-self: center;
+
+  @media (max-width: 750px) {
+    width: 170px
+  }
+
+  @media (max-width: 550px) {
+    width: 100%;
+
+    &:last-child {
+      margin-top: 10px;
+    }
+  }
+}

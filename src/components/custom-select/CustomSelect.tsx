@@ -22,6 +22,7 @@ const CustomSelect: FC<ICustomSelect> = ({ options, placeholder, size = 'auto', 
       options={options}
       components={{ IndicatorSeparator: () => null }}
       className={cl[size]}
+      menuPosition="fixed"
       instanceId={`${options[0] && options[0].label}`}
     />
   </div>
