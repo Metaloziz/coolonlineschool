@@ -8,4 +8,4 @@ export const progressBar: string;
 export const resultForm: string;
 export const rightBlock: string;
 export const table: string;
-export const rightBlock: string;
+export const verticalSlider: string;
