@@ -16,7 +16,7 @@ const ModalTextEditor = ({
   closeModal,
   studentsName,
 }: ModalAddPointsProps): ReactElement => (
-  <ModalBasic visibility={isActive} changeVisibility={closeModal} className={styles.container}>
+  <ModalBasic isVisibility={isActive} changeVisibility={closeModal} className={styles.container}>
     <p className={styles.title}>
       Обратная связь для ученика: <span>{studentsName}</span>
     </p>

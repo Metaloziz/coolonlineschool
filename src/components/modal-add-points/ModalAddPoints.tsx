@@ -31,7 +31,7 @@ const ModalAddPoints = ({
   };
 
   return (
-    <ModalBasic visibility={isActive} changeVisibility={closeModal} className={styles.container}>
+    <ModalBasic isVisibility={isActive} changeVisibility={closeModal} className={styles.container}>
       <p className={styles.title}>
         Баллы для ученика: <span>{studentsName}</span>
       </p>

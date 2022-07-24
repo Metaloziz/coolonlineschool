@@ -19,7 +19,6 @@ const IndexPage = () => (
           options={[
             {
               text: 'Для младшей группы',
-              isActive: true,
               id: getRandomId(),
             },
             {

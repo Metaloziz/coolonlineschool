@@ -74,7 +74,7 @@ const ModalAddLesson = () => {
   const [open, setOpen] = useState(true);
 
   return (
-    <ModalBasic visibility={open} changeVisibility={setOpen}>
+    <ModalBasic isVisibility={open} changeVisibility={setOpen}>
       <div className={styles.modalAddLessons}>
         <h2>Добавление уроков</h2>
         <div className={styles.levelBlock}>
