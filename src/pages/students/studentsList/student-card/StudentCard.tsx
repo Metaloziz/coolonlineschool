@@ -1,6 +1,5 @@
 import { ButtonColorThemes } from '@app/enums';
-import { Button } from '@components';
-import { ModalAddPoints } from '@components/modal-add-points/ModalAddPoints';
+import { Button, ModalTextEditor, ModalAddPoints } from '@components';
 import { useModal } from '@hooks';
 import avatar from '@mock/public/avatar.png';
 import { IStudent } from '@pages/students/studentsList/StudentsList';
@@ -8,7 +7,7 @@ import statistics from '@svgs/studentsIcon/statistics.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Question, Check, Camera, Add } from './icons';
+import { Question, Check, Camera, ButtonAdd } from './icons';
 import styles from './StudentCard.module.scss';
 
 interface BlockContactsProps {
@@ -22,6 +21,7 @@ const StudentCard = ({ isCheck, isQuestion, isCamera, student }: BlockContactsPr
   const { studentName, city, status, pointsNumber, achievements } = student;
 
   const [isActiveAddPointModal, openAddPointModal, closeAddPointModal] = useModal();
+  const [isActiveFeedbackModal, openFeedbackModal, closeFeedbackModal] = useModal();
 
   const achievementsMap = achievements.map(({ imageUrl, id }) => (
     <div key={id} className={styles.iconAchievement}>
@@ -56,7 +56,7 @@ const StudentCard = ({ isCheck, isQuestion, isCamera, student }: BlockContactsPr
               <p className={styles.informationItem}>
                 Баллы:<span>{pointsNumber}</span>
               </p>
-              <Add openModal={openAddPointModal} />
+              <ButtonAdd openModal={openAddPointModal} />
               <ModalAddPoints
                 isActive={isActiveAddPointModal}
                 closeModal={closeAddPointModal}
@@ -65,7 +65,7 @@ const StudentCard = ({ isCheck, isQuestion, isCamera, student }: BlockContactsPr
             </div>
             <div className={styles.wrapperAchievements}>
               {achievements && achievementsMap}
-              <Add openModal={() => {}} />
+              <ButtonAdd openModal={() => {}} />
             </div>
           </div>
           <div className={styles.wrapperStatistics}>
@@ -77,13 +77,22 @@ const StudentCard = ({ isCheck, isQuestion, isCamera, student }: BlockContactsPr
                 </a>
               </Link>
             </div>
-            <Button colorTheme={ButtonColorThemes.red} className={styles.button}>
+            <Button
+              onClick={openFeedbackModal}
+              colorTheme={ButtonColorThemes.red}
+              className={styles.button}
+            >
               Комментарий по Д/З
             </Button>
             <Button colorTheme={ButtonColorThemes.red} className={styles.button}>
               Изменить Д/З
             </Button>
           </div>
+          <ModalTextEditor
+            isActive={isActiveFeedbackModal}
+            closeModal={closeFeedbackModal}
+            studentsName="Днепровский Александр Алексеевич"
+          />
         </div>
       </div>
     </div>

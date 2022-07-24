@@ -14,7 +14,7 @@ interface ModalAddPointsProps {
 
 const INITIAL_POINT = '1';
 
-export const ModalAddPoints = ({
+const ModalAddPoints = ({
   isActive,
   closeModal,
   studentsName,
@@ -59,3 +59,5 @@ export const ModalAddPoints = ({
     </ModalBasic>
   );
 };
+
+export default ModalAddPoints;
