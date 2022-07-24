@@ -72,12 +72,17 @@
   font: $font-small;
   color: $color-text;
   white-space: nowrap;
+  margin-top: 10px;
 }
 .percentToComplete {
   font: $font-visualiser-big;
   color: $color-visualiser;
   margin-top: 5px;
   margin-bottom: 5px;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  font-size: 40px;
 }
 .innerContainer {
   position: relative;
