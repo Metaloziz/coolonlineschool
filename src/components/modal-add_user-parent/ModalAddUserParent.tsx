@@ -24,7 +24,7 @@ const ModalAddUserParent = ({ closeMode, setOpen, open }: ModalAddUserParentProp
     <ModalBasic visibility={open} changeVisibility={setOpen}>
       <div className={styles.modal}>
         <FormAddUser onCloseModal={closeMode} />
-        {person.map((m,index) => (
+        {person.map((m, index) => (
           <div key={index}>
             <div className={styles.line} />
             <FormParent onCloseModal={closeMode} />
