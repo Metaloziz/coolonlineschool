@@ -16,21 +16,23 @@ const ModalTextEditor = ({
   closeModal,
   studentsName,
 }: ModalAddPointsProps): ReactElement => (
-  <ModalBasic isVisibility={isActive} changeVisibility={closeModal} className={styles.container}>
-    <p className={styles.title}>
-      Обратная связь для ученика: <span>{studentsName}</span>
-    </p>
-    <div className={styles.wrapperTextEditor}>
-      <TextEditor className={styles.textEditor} />
-    </div>
+  <ModalBasic isVisibility={isActive} changeVisibility={closeModal}>
+    <div className={styles.container}>
+      <p className={styles.title}>
+        Обратная связь для ученика: <span>{studentsName}</span>
+      </p>
+      <div className={styles.wrapperTextEditor}>
+        <TextEditor className={styles.textEditor} />
+      </div>
 
-    <div className={styles.wrapperButton}>
-      <Button className={styles.button} type="button" colorTheme={ButtonColorThemes.blueGradient}>
-        Изменить
-      </Button>
-      <Button className={styles.button} type="button" colorTheme={ButtonColorThemes.red}>
-        Сохранить
-      </Button>
+      <div className={styles.wrapperButton}>
+        <Button className={styles.button} type="button" colorTheme={ButtonColorThemes.blueGradient}>
+          Изменить
+        </Button>
+        <Button className={styles.button} type="button" colorTheme={ButtonColorThemes.red}>
+          Сохранить
+        </Button>
+      </div>
     </div>
   </ModalBasic>
 );

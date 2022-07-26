@@ -32,8 +32,8 @@ const ModalBasic: FC<ModalAddUserPropsType> = ({
   };
 
   return (
-    <div className={styles.modal} onClick={closeModal}>
-      <div className={cn(styles.content, className)} onClick={handlerStopPropagation}>
+    <div className={cn(styles.modal, className)} onClick={closeModal}>
+      <div className={styles.content} onClick={handlerStopPropagation}>
         <div className={styles.btnClose} onClick={closeModal}>
           <Image src={buttonClose} width="14" height="14" alt="close" />
         </div>

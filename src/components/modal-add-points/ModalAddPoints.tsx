@@ -31,31 +31,33 @@ const ModalAddPoints = ({
   };
 
   return (
-    <ModalBasic isVisibility={isActive} changeVisibility={closeModal} className={styles.container}>
-      <p className={styles.title}>
-        Баллы для ученика: <span>{studentsName}</span>
-      </p>
-      <div className={styles.wrapper}>
-        <p>Баллы</p>
-        <TextField
-          type="text"
-          value={points}
-          onChange={onPointsChange}
-          className={styles.textField}
-        />
-        <p>Выданы за:</p>
-        <CustomSelect
-          className={styles.select}
-          options={ADD_POINTS_OPTIONS_SELECT}
-          placeholder=""
-        />
-        <Button type="button" colorTheme={ButtonColorThemes.red}>
-          Сохранить
+    <ModalBasic isVisibility={isActive} changeVisibility={closeModal}>
+      <div className={styles.container}>
+        <p className={styles.title}>
+          Баллы для ученика: <span>{studentsName}</span>
+        </p>
+        <div className={styles.wrapper}>
+          <p>Баллы</p>
+          <TextField
+            type="text"
+            value={points}
+            onChange={onPointsChange}
+            className={styles.textField}
+          />
+          <p>Выданы за:</p>
+          <CustomSelect
+            className={styles.select}
+            options={ADD_POINTS_OPTIONS_SELECT}
+            placeholder=""
+          />
+          <Button type="button" colorTheme={ButtonColorThemes.red}>
+            Сохранить
+          </Button>
+        </div>
+        <Button className={styles.button} type="button" colorTheme={ButtonColorThemes.blueGradient}>
+          Изменить
         </Button>
       </div>
-      <Button className={styles.button} type="button" colorTheme={ButtonColorThemes.blueGradient}>
-        Изменить
-      </Button>
     </ModalBasic>
   );
 };
