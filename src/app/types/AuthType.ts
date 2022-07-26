@@ -1,7 +1,5 @@
-export type RequestLogin = {
-  email: string;
-  phone: string;
-};
+export type RequestSMS = { phone: string };
+export type RequestLogin = { phone: string; smsCode: number };
 
 export type ResponseMe = {
   id: string;
@@ -19,3 +17,5 @@ export type ResponseLogin = {
     id: string;
   };
 };
+
+export type ResponseSMS = { code: number };

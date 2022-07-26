@@ -3,13 +3,15 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import { AuthGuard } from '@app/common/AuthGuard';
 import { AuthService } from '@app/services/AuthService';
 import { Roles } from '@app/store/appStore';
-import Button from '@components/button/Button';
+import Button from '@components/custom-button/CustomButton';
 import ModalEntrance from '@components/modal-entrance/ModalEntrance';
 import { Routes } from '@constants/Routes';
 import { useAuthContext } from '@contexts/AuthContext';
 import { getProfile } from '@utils/Auth';
 import { useRouter } from 'next/router';
 import { SubmitHandler, useForm } from 'react-hook-form';
+
+import styles from './Signin.module.scss';
 
 const func = (isTester: boolean, isAnalytic: boolean) => {
   if (isTester) return '7970';
@@ -35,23 +37,8 @@ const SignIn = () => {
       case Roles.Student:
         setPhone(`${func(isTester, isAnalytic)}8008080`);
         break;
-      case Roles.TeacherEducation:
-        setPhone(`${func(isTester, isAnalytic)}7007070`);
-        break;
       case Roles.Teacher:
         setPhone(`${func(isTester, isAnalytic)}6006060`);
-        break;
-      case Roles.FranchiseeAdmin:
-        setPhone(`${func(isTester, isAnalytic)}5005050`);
-        break;
-      case Roles.Franchisee:
-        setPhone(`${func(isTester, isAnalytic)}4004040`);
-        break;
-      case Roles.Methodist:
-        setPhone(`${func(isTester, isAnalytic)}3003030`);
-        break;
-      case Roles.Tutor:
-        setPhone(`${func(isTester, isAnalytic)}2002020`);
         break;
       case Roles.Admin:
         setPhone(`${func(isTester, isAnalytic)}1001010`);
@@ -72,9 +59,22 @@ const SignIn = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<Inputs> = async data => {
+  // const onSubmit: SubmitHandler<Inputs> = async data => {
+  //   try {
+  //     const res2 = await AuthService.login({ phone, email: data.email });
+  //     await localStorage.setItem('user_secret', JSON.stringify(`Bearer ${res2.data.token}`));
+  //     // await appStore.setUser();
+  //     // const userData = await AuthService.loadme();
+  //     // appStore.setRole(userData.role as Roles);
+  //   } catch (e) {
+  //     console.warn(e);
+  //   }
+  // };
+
+  const loginHandler = async () => {
     try {
-      const res2 = await AuthService.login({ phone, email: data.email });
+      const res1 = await AuthService.sms({ phone });
+      const res2 = await AuthService.login({ phone, smsCode: res1.code });
       await localStorage.setItem('user_secret', JSON.stringify(`Bearer ${res2.data.token}`));
       // await appStore.setUser();
       // const userData = await AuthService.loadme();
@@ -86,21 +86,37 @@ const SignIn = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div style={{}}>
-          <Button onClick={() => setIsAnalytic(true)}>Кнопка для аналитика</Button>
-          <Button onClick={() => setIsTester(true)}>Кнопка для тестировщика</Button>
-          <Button onClick={resetRole}>Сброс номера на основной</Button>
-          <Button
-            onClick={() => {
-              setIsReady(true);
-            }}
-          >
-            login
-          </Button>
+      <div className={styles.wrapper}>
+        <div
+          className={styles.button}
+          onClick={() => {
+            setIsAnalytic(true);
+            qwe(Roles.Student);
+          }}
+        >
+          Ученик
         </div>
-        <ModalEntrance changeVisibility={setIsReady} isVisibility={isReady} register={register} />
-      </form>
+        <div
+          className={styles.button}
+          onClick={() => {
+            setIsTester(true);
+            qwe(Roles.Teacher);
+          }}
+        >
+          Учитель
+        </div>
+        <div
+          className={styles.button}
+          onClick={() => {
+            resetRole();
+            qwe(Roles.Admin);
+          }}
+        >
+          Администратор
+        </div>
+        <Button title="Login" onClick={loginHandler} />
+      </div>
+      <ModalEntrance changeVisibility={setIsReady} isVisibility={isReady} register={register} />
     </>
   );
 };
