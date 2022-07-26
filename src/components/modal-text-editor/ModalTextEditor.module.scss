@@ -5,12 +5,12 @@
   width: 940px;
   height: 450px;
 
-  @media (max-width: 750px) {
-    padding: 20px;
+  @media (max-width: 950px) {
+    width: 700px;
   }
 
-  @media (max-width: 550px) {
-    padding: 10px;
+  @media (max-width: 750px) {
+    width: 100%;
   }
 }
 
