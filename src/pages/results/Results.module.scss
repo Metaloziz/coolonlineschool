@@ -49,6 +49,21 @@
   @media (max-width: 550px) {
     transform: scale(0.8);
   }
+
+  > div > span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px 4px rgb(15 18 63 / 25%);
+    width: 145px;
+    height: 145px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .bigSlider {
@@ -127,14 +142,13 @@
 
 .rightBlock {
   display: flex;
-  //flex-direction: column;
 
   @media (max-width: 1700px) {
     flex-direction: column;
   }
 
   @media (max-width: 800px) {
-   width: 100%;
+    width: 100%;
   }
 }
 
