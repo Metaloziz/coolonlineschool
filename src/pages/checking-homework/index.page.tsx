@@ -1,4 +1,4 @@
-import { CheckingHomework } from '@components';
+import { CheckingHomework } from 'src/components/modules';
 
 import styles from './CheckingHomework.module.scss';
 

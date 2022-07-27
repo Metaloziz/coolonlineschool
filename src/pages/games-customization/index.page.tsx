@@ -1,7 +1,5 @@
 import { ButtonColorThemes } from '@app/enums';
-import { Button, Slider } from '@components';
-import TextEditor from '@components/text-editor/TextEditor';
-import TextField from '@components/text-fild/TextFild';
+import { Button, Slider, TextEditor, TextField } from '@components';
 import { getRandomId } from '@utils/RandomId';
 
 import styles from './GamesCustomization.module.scss';
@@ -18,7 +16,6 @@ const IndexPage = () => (
         options={[
           {
             text: 'Статья для учителя',
-            isActive: true,
             id: getRandomId(),
           },
           {

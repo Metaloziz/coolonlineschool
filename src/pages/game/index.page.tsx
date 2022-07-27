@@ -1,8 +1,6 @@
 import { FC } from 'react';
 
-import BackButton from '@components/backButton/BackButton';
-import goBack from '@svgs/go-back-img.svg';
-import Image from 'next/image';
+import BackButton from '@components/elements/backButton/BackButton';
 
 import Game from './Game';
 import cl from './Game.module.scss';

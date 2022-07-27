@@ -1,0 +1,44 @@
+@import "src/styles/global";
+
+.container {
+  padding: 20px 45px;
+  background: #ffffff;
+  box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
+  border-radius: 10px;
+
+  @media (max-width: 1280px) {
+    order: 4;
+  }
+
+  @media (max-width: 550px) {
+   padding: 20px 10px;
+  }
+}
+.title {
+  font: $font-subheader;
+  color: $color-visualiser;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.comment {
+  margin-bottom: 20px;
+  font: $font-base;
+  color: $color-text-darker;
+}
+.buttons {
+  display: flex;
+  column-gap: 15px;
+  justify-content: center;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
+}
+.btn {
+  padding-right: 65px;
+  padding-left: 65px;
+
+  @media (max-width: 800px) {
+   margin-top: 20px;
+  }
+}

@@ -1,4 +1,4 @@
-import GamePlay from '@components/game-play/GamePlay';
+import GamePlay from '@components/elements/game-play/GamePlay';
 
 const TestPage = () => (
   <>

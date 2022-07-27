@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import { ButtonColorThemes, TeacherStatuses } from '@app/enums';
 import { Button, TeachersTable } from '@components';
-import CustomPagination from '@components/custom-pagination/CustomPagination';
-import InformationItem from '@components/information-item/InformationItem';
+import CustomPagination from '@components/elements/custom-pagination/CustomPagination';
+import InformationItem from '@components/elements/information-item/InformationItem';
 import { city, group, status } from '@mock/moks-data-select';
 
 import styles from './TeachersReport.module.scss';

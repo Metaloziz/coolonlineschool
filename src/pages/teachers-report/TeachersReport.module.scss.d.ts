@@ -10,4 +10,5 @@ export const rightBlock: string;
 export const selectBlock: string;
 export const tableBlock: string;
 export const tableContent: string;
+export const tariffsTable: string;
 export const wrapBlock: string;

@@ -1,12 +1,10 @@
 import { ButtonColorThemes } from '@app/enums';
-import { Button, Slider } from '@components';
-import CustomCalendarInput from '@components/custom-calendar-input/CustomCalendarInput';
-import TextEditor from '@components/text-editor/TextEditor';
-import TextField from '@components/text-fild/TextFild';
+import { Button, Slider, TextEditor, TextField } from '@components';
+import CustomCalendarInput from '@components/elements/custom-calendar-input/CustomCalendarInput';
 import { games, group, homeworkType, status, tarif } from '@mock/moks-data-select';
 import { getRandomId } from '@utils/RandomId';
 
-import CustomSelect from '../../components/custom-select/CustomSelect';
+import CustomSelect from '../../components/elements/custom-select/CustomSelect';
 
 import BtnAddImg from './btn-add-img/BtnAddImg';
 import styles from './Rates.module.scss';
@@ -25,7 +23,6 @@ const IndexPage = () => (
             options={[
               {
                 text: 'Ментальная арифметика',
-                isActive: true,
                 id: getRandomId(),
               },
               {

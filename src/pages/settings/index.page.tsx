@@ -1,8 +1,6 @@
 import { ButtonColorThemes } from '@app/enums';
-import { Button, Slider } from '@components';
-import CustomSelect from '@components/custom-select/CustomSelect';
-import InputFile from '@components/input-file/InputFile';
-import TextField from '@components/text-fild/TextFild';
+import { Button, CustomSelect, Slider, TextField } from '@components';
+import InputFile from '@components/elements/input-file/InputFile';
 import { homework } from '@mock/moks-data-select';
 import buttonAdd from '@svgs/settings-games-add.svg';
 import { getRandomId } from '@utils/RandomId';
@@ -34,7 +32,6 @@ const IndexPage = () => (
             options={[
               {
                 text: 'Младшая',
-                isActive: true,
                 id: getRandomId(),
               },
               {

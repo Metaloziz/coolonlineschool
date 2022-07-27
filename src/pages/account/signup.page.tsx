@@ -1,5 +1,5 @@
 import { AuthGuard } from '@app/common/AuthGuard';
-import BlankLayout from '@components/layout/blank/BlankLayout';
+import BlankLayout from '@components/modules/layout/blank/BlankLayout';
 import { Routes } from '@constants/Routes';
 
 const SignUp = () => (

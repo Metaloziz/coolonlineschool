@@ -1,68 +1,61 @@
 import IndexPage from '../pages/single-game/index.page';
 
-import Account from './account/Account';
-import Balance from './balance/Balance';
-import Button from './button/Button';
-import CardStudentCheckingHomework from './card-students/card-student-cheking-homework/CardStudentCheckingHomework';
-import CheckingHomework from './checking-homework/CheckingHomework';
-import CloseModalButton from './close-modal-button/CloseModalButton';
-import CustomCalendar from './custom-calendar/CustomCalendar';
-import CustomImageWrapper from './custom-image-wrapper/CustomImageWrapper';
-import CustomSelect from './custom-select/CustomSelect';
-import GetResultsForm from './get-results-form/GetResultsForm';
-import Guard from './guard/Guard';
-import Header from './header/Header';
-import Homework from './homework/Homework';
-import Homeworks from './homeworks/Homeworks';
-import IconButton from './icon-button/IconButton';
-import Input from './input/Input';
-import KeepPlaying from './keep-playing/KeepPlaying';
-import Logo from './logo/Logo';
-import ModalAddPoints from './modal-add-points/ModalAddPoints';
-import ModalBasic from './modal-basic/ModalBasic';
-import ModalTextEditor from './modal-text-editor/ModalTextEditor';
-import Modal from './modal/Modal';
-import PageContainer from './page-container/PageContainer';
-import PageLoading from './page-loading/PageLoading';
-import PaginationNext from './pagination-next/PaginationNext';
-import PaginationPrev from './pagination-prev/PaginationPrev';
-import PaymentsTable from './payments-table/PaymentsTable';
-import PlayButton from './play-button/PlayButton';
-import ProgressBar from './progress-bar/ProgressBar';
-import ProgressLine from './progress-line/ProgressLine';
-import ScheduleGrid from './schedule-grid/ScheduleGrid';
-import ScheduleLesson from './schedule-lesson/ScheduleLesson';
-import ScheduleLessonsList from './schedule-lessons-list/ScheduleLessonsList';
-import ScheduleSearchForm from './schedule-search-form/ScheduleSearchForm';
-import Schedule from './schedule/Schedule';
-import SelectHomeworksForm from './select-homeworks-form/SelectHomeworksForm';
-import SidebarNavItem from './sidebar-nav-item/SidebarNavItem';
-import SidebarNav from './sidebar-nav/SidebarNav';
-import Slider from './slider/Slider';
-import StatisticsList from './statistics-list/StatisticsList';
-import StudentCardBottom from './student-card-bottom/StudentCardBottom';
-import StudentCardSlider from './student-card-slider/StudentCardSlider';
-import StudentCard from './student-card/StudentCard';
-import StudentTariffsTable from './student-tariffs-table/StudentTariffsTable';
-import StudentsTable from './students-table/StudentsTable';
-import SwitchButton from './switch-button/SwitchButton';
-import TableRow from './table-row/TableRow';
-import Table from './table/Table';
-import TariffCard from './tariff-card/TariffCard';
-import TariffPlanOptions from './tariff-plan-options/TariffPlanOptions';
-import TariffPlan from './tariff-plan/TariffPlan';
-import TariffPlans from './tariff-plans/TariffPlans';
-import TaskVisualizersList from './task-visualizers-list/TaskVisualizersList';
-import TeacherComment from './teacher-comment/TeacherComment';
-import TeachersTable from './teachers-table/TeachersTable';
-import TextEditor from './text-editor/TextEditor';
-import TextFieldCalendar from './text-field-calendar/TextFieldCalendar';
-import TextField from './text-fild/TextFild';
-import VerticalSlider from './vertical-slider/VerticalSlider';
+import Account from './elements/account/Account';
+import Balance from './elements/balance/Balance';
+import Button from './elements/button/Button';
+import CardStudentCheckingHomework from './elements/card-students/card-student-cheking-homework/CardStudentCheckingHomework';
+import CloseModalButton from './elements/close-modal-button/CloseModalButton';
+import CustomCalendar from './elements/custom-calendar/CustomCalendar';
+import CustomImageWrapper from './elements/custom-image-wrapper/CustomImageWrapper';
+import CustomSelect from './elements/custom-select/CustomSelect';
+import GetResultsForm from './elements/get-results-form/GetResultsForm';
+import Guard from './elements/guard/Guard';
+import Homework from './elements/homework/Homework';
+import Homeworks from './elements/homeworks/Homeworks';
+import IconButton from './elements/icon-button/IconButton';
+import Input from './elements/input/Input';
+import KeepPlaying from './elements/keep-playing/KeepPlaying';
+import Logo from './elements/logo/Logo';
+import ModalAddPoints from './elements/modals/modal-add-points/ModalAddPoints';
+import ModalBasic from './elements/modals/modal-basic/ModalBasic';
+import ModalTextEditor from './elements/modals/modal-text-editor/ModalTextEditor';
+import PageLoading from './elements/page-loading/PageLoading';
+import PaymentsTable from './elements/payments-table/PaymentsTable';
+import PlayButton from './elements/play-button/PlayButton';
+import ProgressBar from './elements/progress-bar/ProgressBar';
+import ProgressLine from './elements/progress-line/ProgressLine';
+import ScheduleGrid from './elements/schedule-grid/ScheduleGrid';
+import ScheduleLesson from './elements/schedule-lesson/ScheduleLesson';
+import ScheduleLessonsList from './elements/schedule-lessons-list/ScheduleLessonsList';
+import ScheduleSearchForm from './elements/schedule-search-form/ScheduleSearchForm';
+import Schedule from './elements/schedule/Schedule';
+import SelectHomeworksForm from './elements/select-homeworks-form/SelectHomeworksForm';
+import SidebarNavItem from './elements/sidebar-nav-item/SidebarNavItem';
+import Slider from './elements/slider/Slider';
+import StatisticsList from './elements/statistics-list/StatisticsList';
+import StudentCardBottom from './elements/student-card-bottom/StudentCardBottom';
+import StudentCardSlider from './elements/student-card-slider/StudentCardSlider';
+import StudentCard from './elements/student-card/StudentCard';
+import StudentTariffsTable from './elements/student-tariffs-table/StudentTariffsTable';
+import StudentsTable from './elements/students-table/StudentsTable';
+import SwitchButton from './elements/switch-button/SwitchButton';
+import TableRow from './elements/table-row/TableRow';
+import Table from './elements/table/Table';
+import TariffCard from './elements/tariff/tariff-card/TariffCard';
+import TariffPlanOptions from './elements/tariff/tariff-plan-options/TariffPlanOptions';
+import TariffPlan from './elements/tariff/tariff-plan/TariffPlan';
+import TariffPlans from './elements/tariff/tariff-plans/TariffPlans';
+import TaskVisualizersList from './elements/task-visualizers-list/TaskVisualizersList';
+import TeacherComment from './elements/teacher-comment/TeacherComment';
+import TeachersTable from './elements/teachers-table/TeachersTable';
+import TextEditor from './elements/text-editor/TextEditor';
+import TextFieldCalendar from './elements/text-field-calendar/TextFieldCalendar';
+import TextField from './elements/text-fild/TextFild';
+import VerticalSlider from './elements/vertical-slider/VerticalSlider';
+import Header from './modules/header/Header';
+import SidebarNav from './modules/sidebar-nav/SidebarNav';
 
 export {
-  PaginationNext,
-  PaginationPrev,
   IconButton,
   Account,
   Balance,
@@ -80,7 +73,6 @@ export {
   Input,
   KeepPlaying,
   Logo,
-  PageContainer,
   PageLoading,
   PaymentsTable,
   ProgressBar,
@@ -114,7 +106,6 @@ export {
   ProgressLine,
   StatisticsList,
   CardStudentCheckingHomework,
-  CheckingHomework,
   TextField,
   ModalBasic,
   TextEditor,

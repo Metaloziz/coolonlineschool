@@ -1,8 +1,5 @@
 import { ButtonColorThemes } from '@app/enums';
-import Button from '@components/button/Button';
-import CustomSelect from '@components/custom-select/CustomSelect';
-import TextEditor from '@components/text-editor/TextEditor';
-import TextField from '@components/text-fild/TextFild';
+import { Button, CustomSelect, TextEditor, TextField } from '@components';
 
 import styles from './NewArticle.module.scss';
 

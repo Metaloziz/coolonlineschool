@@ -1,7 +1,6 @@
 import { ButtonColorThemes } from '@app/enums';
-import { Button, Slider } from '@components';
-import BackButton from '@components/backButton/BackButton';
-import TextEditor from '@components/text-editor/TextEditor';
+import { Button, Slider, TextEditor } from '@components';
+import BackButton from '@components/elements/backButton/BackButton';
 import buttonAdd from '@svgs/settings-games-add.svg';
 import { getRandomId } from '@utils/RandomId';
 import Image from 'next/image';

@@ -1,0 +1,15 @@
+@import "src/styles/global";
+
+.container {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+
+  font: $font-small;
+  color: black;
+  white-space: nowrap;
+}
+
+.input {
+  width: 110px;
+}

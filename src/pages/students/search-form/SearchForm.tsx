@@ -1,11 +1,10 @@
 import { ReactElement, useEffect, useState } from 'react';
 
 import { ButtonColorThemes } from '@app/enums';
-import { Button } from '@components';
-import Step from '@components/step/Step';
-import TextField from '@components/text-fild/TextFild';
+import { Button, TextField } from '@components';
+import Step from '@components/elements/step/Step';
 import { useWindowSize } from '@hooks/useWindowSize';
-import CustomSelect from 'src/components/custom-select/CustomSelect';
+import CustomSelect from 'src/components/elements/custom-select/CustomSelect';
 
 import styles from './SearchForm.module.scss';
 

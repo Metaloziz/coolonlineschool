@@ -1,8 +1,7 @@
 import { useState } from 'react';
 
 import { PaymentStatuses, TariffPlans as TariffPlansEnum } from '@app/enums';
-import { Balance, TariffPlan, TariffPlans, PaymentsTable } from '@components';
-import ModalBasic from '@components/modal-basic/ModalBasic';
+import { Balance, TariffPlan, TariffPlans, PaymentsTable, ModalBasic } from '@components';
 
 import cl from './Payment.module.scss';
 

@@ -9,12 +9,10 @@ import {
   StudentsTable,
   VerticalSlider,
 } from '@components';
-import Graph from '@components/graph/Graph';
+import Graph from '@components/elements/graph/Graph';
 import { getRandomId } from '@utils/RandomId';
 
 import cl from './Results.module.scss';
-
-const dd = true;
 
 const Results = () => {
   const [isReady, setIsReady] = useState<number>(1);
@@ -31,6 +29,7 @@ const Results = () => {
             status: StudentStatuses.beginner,
             studentName: 'Днепровский Александр Алексеевич',
             city: 'Москва',
+            id: '1',
           }}
           className={cl.cardStudent}
         />
@@ -68,7 +67,6 @@ const Results = () => {
               { text: 'Параметр 4', id: getRandomId() },
               { text: 'Параметр 5', id: getRandomId() },
             ]}
-            className={cl.verticalSlider}
           />
         </div>
         <div className={cl.rightBlock}>

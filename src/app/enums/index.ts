@@ -61,7 +61,7 @@ export enum RusTariffPlans {
 export enum ProgressBarColorThemes {
   red = 'red',
   blue = 'blue',
-  yellowLight = 'yellow-light',
+  yellowLight = 'yellowLight',
   violet = 'violet',
   green = 'green',
   yellow = 'yellow',

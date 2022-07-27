@@ -1,12 +1,11 @@
-import { FC, useEffect, useState, useMemo, ReactNode } from 'react';
+import { FC, useEffect, useState, useMemo } from 'react';
 
 import { AuthGuard } from '@app/common/AuthGuard';
 import { UserAuth } from '@app/models/auth/UserAuth';
 import { Client } from '@app/models/user/Client';
 import { Manager } from '@app/models/user/Manager';
-import Guard from '@components/guard/Guard';
-import Layout from '@components/layout/Layout';
-import PageLoading from '@components/page-loading/PageLoading';
+import { Guard, PageLoading } from '@components';
+import Layout from '@components/modules/layout/Layout';
 import { AuthKey } from '@constants/Common';
 import { AppContext, stores } from '@contexts/AppContext';
 import AuthContext, { AuthContextValue } from '@contexts/AuthContext';
@@ -90,7 +89,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
 App.getInitialProps = async (appContext: NextAppContext) => {
   // Server side render
-  const isSsr = appContext.router.isSsr !== false;
+  const { isSsr } = appContext.router;
   if (isSsr) {
     const pageProps = await checkUserAuthenticated(appContext.ctx);
     return { pageProps };

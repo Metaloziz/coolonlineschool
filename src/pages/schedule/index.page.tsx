@@ -18,6 +18,7 @@ const Schedule = () => (
           status: StudentStatuses.beginner,
           pointsNumber: 5,
           city: 'Москва',
+          id: '1',
         }}
       />
       <ScheduleSearchForm

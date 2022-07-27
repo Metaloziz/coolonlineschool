@@ -1,0 +1,141 @@
+@import "src/styles/global";
+
+.container {
+  width: 745px;
+  height: 215px;
+
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-template-rows: repeat(4, min-content) 60px;
+  align-items: flex-end;
+  column-gap: 40px;
+
+  padding: 25px 35px;
+
+  background: white url(../../../../public/svgs/student-card/bg-small.svg) no-repeat bottom
+    right;
+  border-radius: 10px;
+  box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
+
+  &Extended {
+    width: 965px;
+    height: 250px;
+    grid-template-rows: repeat(5, 45px);
+    align-items: center;
+    column-gap: 30px;
+    padding: 20px 45px 10px;
+    background-image: url(../../../../public/svgs/student-card/bg.svg);
+
+    @media (max-width: 1280px) {
+      width: 100%;
+      order: 1;
+      height: auto;
+    }
+
+    @media (max-width: 1000px) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 550px) {
+      padding: 20px 10px;
+    }
+
+    .avatar {
+      grid-row: span 4;
+    }
+  }
+
+  &Minimal {
+    width: 500px;
+    height: 170px;
+    align-items: flex-start;
+    column-gap: 45px;
+    padding: 25px 30px;
+    grid-template-rows: 70px 35px min-content;
+    background-image: initial;
+
+    .avatar {
+      grid-row: span 3;
+      width: 128px;
+      height: 122px;
+    }
+
+    .infoVisualiser {
+      color: $color-red;
+    }
+  }
+}
+.avatar {
+  width: 180px;
+  height: 170px;
+  grid-row: span 5;
+}
+.studentNameContainer {
+  display: flex;
+  column-gap: 35px;
+  align-items: center;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+
+  @media (max-width: 700px) {
+    text-align: center;
+    flex-direction: column;
+
+    > div + div {
+      margin-top: 20px;
+    }
+  }
+}
+.studentName {
+  font: $font-secondary-subheader;
+  color: $color-text-darker;
+}
+.tag {
+  padding: 11px 15px;
+  background: #f8f8ff;
+  border-radius: 10px;
+  font: $font-small;
+  color: $color-secondary-text;
+}
+.info {
+  display: flex;
+  align-items: center;
+  column-gap: 15px;
+  font: $font-small;
+
+  @media (max-width: 1000px) {
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &Text {
+    white-space: nowrap;
+    color: $color-secondary-text;
+  }
+  &Visualiser {
+    color: $color-visualiser;
+  }
+}
+.fiveImage {
+  width: 40px;
+  height: 55px;
+  margin-left: 50px;
+  background: url(../../../../public/svgs/student-card/5.svg) no-repeat center;
+
+  @media (max-width: 1000px) {
+    background-size: contain;
+    margin-left: 0;
+  }
+}
+.zoomBtn {
+  width: 190px;
+}
+.addNewLessonBtn {
+  width: 225px;
+}

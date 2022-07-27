@@ -2,8 +2,8 @@ import { FC } from 'react';
 
 import { ButtonColorThemes, TariffPlans, TariffStatuses } from '@app/enums';
 import { Button, StudentTariffsTable } from '@components';
-import AdminInfoList from '@components/admin-info-list/AdminInfoList';
-import InformationItem from '@components/information-item/InformationItem';
+import AdminInfoList from '@components/elements/admin-info-list/AdminInfoList';
+import InformationItem from '@components/elements/information-item/InformationItem';
 import { city, group, homework, paidFor, status } from '@mock/moks-data-select';
 
 import styles from './Admin.module.scss';

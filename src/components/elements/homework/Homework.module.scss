@@ -1,0 +1,32 @@
+@import "src/styles/global";
+
+.container {
+  color: $color-text;
+  font: $font-base;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+.gameTitle {
+  font: $font-base;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+.needToDoTitle {
+  color: $color-visualiser;
+  text-decoration: underline;
+}
+.tipsTitle {
+  margin-left: 20px;
+}
+.tips {
+  margin-left: 30px;
+  list-style-type: none;
+}
+.tip::before {
+  content: '•';
+  padding-right: 10px;
+  color: $color-text;
+}

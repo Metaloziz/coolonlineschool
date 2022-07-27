@@ -107,6 +107,7 @@ const IndexPage = () => (
           status: StudentStatuses.beginner,
           pointsNumber: 1,
           city: 'Москва',
+          id: '1',
         }}
       />
     </div>

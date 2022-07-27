@@ -5,6 +5,7 @@ export const buttonSubmit: string;
 export const description: string;
 export const fromTo: string;
 export const fromToText: string;
+export const goBack: string;
 export const image: string;
 export const innerContent: string;
 export const levels: string;
