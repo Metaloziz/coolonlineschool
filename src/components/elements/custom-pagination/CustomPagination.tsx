@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
-import PaginationNext from '@components/pagination-next/PaginationNext';
-import PaginationPrev from '@components/pagination-prev/PaginationPrev';
-import styles from 'src/components/elements/custom-pagination/CustomPagination.module.scss';
+import styles from './CustomPagination.module.scss';
+import PaginationNext from './pagination-next/PaginationNext';
+import PaginationPrev from './pagination-prev/PaginationPrev';
 
 interface Props {
   count: number;
