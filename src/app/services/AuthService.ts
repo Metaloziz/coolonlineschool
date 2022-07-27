@@ -1,27 +1,36 @@
 import { Paths } from '@app/enums/Paths';
 import { instance } from '@app/services/instance';
+import TokenService from '@app/services/tokenService';
 import {
   RequestLogin,
   RequestSMS,
+  ResponseLoadMe,
   ResponseLogin,
   ResponseMe,
   ResponseSMS,
 } from '@app/types/AuthType';
-import { AxiosResponse } from 'axios';
 
 export const AuthService = {
   login: async (data: RequestLogin) => {
-    const res: AxiosResponse<ResponseLogin> = await instance.post(Paths.Login, data, {});
+    const res = await instance.post<ResponseLogin>(Paths.Login, data, {});
     return res.data;
   },
 
   sms: async (data: RequestSMS) => {
-    const res: AxiosResponse<ResponseSMS> = await instance.post(Paths.SMS, data);
+    const res = await instance.post<ResponseSMS>(Paths.SMS, data);
     return res.data;
   },
 
   me: async () => {
-    const res: AxiosResponse<ResponseMe> = await instance.get(Paths.Me);
+    const res = await instance.get<ResponseMe>(Paths.Me);
+    return res.data;
+  },
+
+  loadme: async () => {
+    const res = await instance.get<ResponseLoadMe>(
+      Paths.LoadMe,
+      TokenService.getConfigHeadersWithToken(),
+    );
     return res.data;
   },
 };
