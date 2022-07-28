@@ -15,7 +15,7 @@
   &.demo {
     $color: #A0A1A2;
 
-    background-image: url(#{$path-svg}/tariff-card/bg-demo.svg),
+    background-image: url(../../../../../public/svgs/tariff-card/bg-demo.svg),
     linear-gradient(180deg, #A0A1A2 0%, #D6DFEF 100%, #0A44B4 100%);
 
     &:hover {
@@ -26,7 +26,7 @@
   &.introductory {
     $color: #195bf8;
 
-    background-image: url(#{$path-svg}/tariff-card/bg-introductory.svg),
+    background-image: url(../../../../../public/svgs/tariff-card/bg-introductory.svg),
     linear-gradient(180deg, $color 0%, rgba(74, 71, 236, 0.74) 100%);
 
     &:hover {
@@ -37,7 +37,7 @@
   &.independent {
     $color: #012884;
 
-    background-image: url(#{$path-svg}/tariff-card/bg-independent.svg),
+    background-image: url(../../../../../public/svgs/tariff-card/bg-independent.svg),
     linear-gradient(180deg, $color 0%, rgba(75, 17, 85, 0.74) 100%);
 
     &:hover {
@@ -48,7 +48,7 @@
   &.advanced {
     $color: #045337;
 
-    background-image: url(#{$path-svg}/tariff-card/bg-advanced.svg),
+    background-image: url(../../../../../public/svgs/tariff-card/bg-advanced.svg),
     linear-gradient(
         180deg,
         #045337 0%,
@@ -64,7 +64,7 @@
   &.personal {
     $color: #132d28;
 
-    background-image: url(#{$path-svg}/tariff-card/bg-personal.svg),
+    background-image: url(../../../../../public/svgs/tariff-card/bg-personal.svg),
     linear-gradient(
         180deg,
         #132d28 0%,
@@ -100,7 +100,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url(#{$path-svg}/tariff-card/bg-discount.svg) -6px -6px;
+  background: url(../../../../../public/svgs/tariff-card/bg-discount.svg) -6px -6px;
   border-radius: 50%;
 }
 

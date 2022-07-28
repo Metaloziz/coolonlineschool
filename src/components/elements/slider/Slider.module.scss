@@ -9,6 +9,10 @@
   filter: drop-shadow(0px 0px 40px rgba(86, 89, 146, 0.15));
   font: $font-small;
 
+  &::after {
+    display: none !important;
+  }
+
   &.red {
     .option.active {
       background-color: $color-secondary-button;
