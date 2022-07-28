@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { AuthGuard } from '@app/common/AuthGuard';
 import { AuthService } from '@app/services/AuthService';
 import { Roles } from '@app/store/appStore';
+import { auth } from '@app/store/authStore';
 import Button from '@components/custom-button/CustomButton';
 import ModalEntrance from '@components/modal-entrance/ModalEntrance';
 import { Routes } from '@constants/Routes';
@@ -17,7 +18,7 @@ const SignIn = () => {
   const [isReady, setIsReady] = useState(false);
 
   const roles = {
-    student: '79601001010',
+    student: '79608008080',
     teacher: '79606006060',
     admin: '79601001010',
   };
@@ -52,10 +53,8 @@ const SignIn = () => {
       const { code } = await AuthService.sms({ phone });
       const res = await AuthService.login({ phone, smsCode: code });
       await localStorage.setItem('user_secret', JSON.stringify(`Bearer ${res.data.token}`));
-      // await localStorage.setItem('user_secret', JSON.stringify(`Bearer ${token}`));
-      // await appStore.setUser();
       const userData = await AuthService.loadme();
-      console.log(userData);
+      auth.setLoadMe(userData);
       // appStore.setRole(userData.role as Roles);
     } catch (e) {
       console.warn(e);

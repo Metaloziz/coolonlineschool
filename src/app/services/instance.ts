@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const instance = axios.create({
-  baseURL: 'https://backschool.sitetopic.ru/',
+  baseURL: 'https://coolbackschool.sitetopic.ru/',
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
