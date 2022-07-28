@@ -1,0 +1,127 @@
+@import "../../styles/global";
+
+.innerContainer {
+  margin: 30px 20px;
+
+  @media (max-width: 550px) {
+   margin: 30px 10px;
+  }
+}
+
+.dataBlock {
+  margin: 0 auto 24px;
+
+  @media (max-width: 1400px) {
+    padding: 25px 80px;
+  }
+
+  @media (max-width: 1400px) {
+    padding: 25px;
+  }
+
+  @media (max-width: 550px) {
+    padding: 25px 10px;
+  }
+}
+
+.tariffBlock {
+  background-color: transparent;
+  padding: 0;
+
+  > div {
+    margin-bottom: 0;
+
+    @media (max-width: 1500px) {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    > div {
+      width: 287px;
+
+      @media (max-width: 1600px) {
+        width: 20%;
+      }
+
+      @media (max-width: 1500px) {
+        width: 33%;
+        margin-top: 20px;
+      }
+
+      @media (max-width: 1100px) {
+        width: 48%;
+      }
+
+      @media (max-width: 800px) {
+        width: 100%;
+      }
+    }
+  }
+
+  > div > div:nth-child(1) {
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-image: url(#{$path-svg}/tariff-card/one.svg);
+      width: 26px;
+      height: 101px;
+
+    }
+  }
+
+  > div > div:nth-child(2) {
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-image: url(#{$path-svg}/tariff-card/two.svg);
+      width: 65px;
+      height: 103px;
+    }
+  }
+
+  > div > div:nth-child(3) {
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-image: url(#{$path-svg}/tariff-card/three.svg);
+      width: 63px;
+      height: 103px;
+    }
+  }
+
+  > div > div:nth-child(4) {
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-image: url(#{$path-svg}/tariff-card/four.svg);
+      width: 82px;
+      height: 101px;
+    }
+  }
+
+  > div > div:nth-child(5) {
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background-image: url(#{$path-svg}/tariff-card/five.svg);
+      width: 65px;
+      height: 103px;
+    }
+  }
+}

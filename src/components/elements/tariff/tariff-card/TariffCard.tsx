@@ -12,11 +12,12 @@ const TariffCard: FC<ITariffCard> = ({
   tariffPlan,
   percentDiscount,
   isExtraOption,
+  className,
 }) => {
   const { advanced, personal } = TariffPlans;
 
   return (
-    <div className={classNames(cl.container, cl[tariffPlan])}>
+    <div className={classNames(cl.container, cl[tariffPlan], className)}>
       <div className={cl.titleContainer}>
         <strong>{RusTariffPlans[tariffPlan]}</strong>
         {percentDiscount && (
@@ -42,7 +43,7 @@ const TariffCard: FC<ITariffCard> = ({
           </strong>
         </div>
       ) : (
-        <strong className={cl.moneyAmount}>{moneyAmount}₽</strong>
+        <strong className={cl.moneyAmount}>{moneyAmount}</strong>
       )}
       <Button className={cl.btn} colorTheme={ButtonColorThemes.yellow}>
         Попробовать

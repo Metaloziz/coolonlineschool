@@ -48,3 +48,8 @@ export const tarif = [
 export const homeworkType = [{ value: '1', label: 'Видеоуроки' }];
 
 export const games = [{ value: '1', label: 'Игры' }];
+
+export const sexParents = [
+  {value: 'Женский', label: 'Женский'},
+  {value: 'Мужской', label: 'Мужской'},
+]

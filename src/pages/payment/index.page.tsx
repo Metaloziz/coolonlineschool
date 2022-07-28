@@ -86,6 +86,8 @@ const Payment = () => {
       <ModalBasic isVisibility={showModal} changeVisibility={setShowModal}>
         <div className={cl.tariffModal}>
           <TariffPlans
+            className={cl.planModal}
+            isRender
             tariffPlans={[
               {
                 id: 1,

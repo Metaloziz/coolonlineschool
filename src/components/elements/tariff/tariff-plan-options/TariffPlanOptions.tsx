@@ -16,7 +16,7 @@ const TariffPlanOptions: FC<Props> = ({
   extraOptionClassName,
   isExtraOption = false,
 }) => {
-  const { introductory, independent, advanced, personal } = TariffPlans;
+  const { demo, introductory, independent, advanced, personal } = TariffPlans;
 
   const options: string[] = [];
   let includedTariffPlan: typeof independent | typeof advanced | undefined;
@@ -27,6 +27,9 @@ const TariffPlanOptions: FC<Props> = ({
   }
 
   switch (tariffPlan) {
+    case demo:
+      options.push();
+      break;
     case introductory:
       options.push(
         '6 видеоуроков “Разбор заданий”',

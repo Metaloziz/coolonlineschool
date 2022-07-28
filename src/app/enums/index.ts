@@ -45,6 +45,7 @@ export enum RusTariffStatuses {
 }
 
 export enum TariffPlans {
+  demo = 'demo',
   introductory = 'introductory',
   independent = 'independent',
   advanced = 'advanced',
@@ -52,6 +53,7 @@ export enum TariffPlans {
 }
 
 export enum RusTariffPlans {
+  demo = 'Демо',
   introductory = 'Вводный',
   independent = 'Самостоятельный',
   advanced = 'Продвинутый',
