@@ -15,7 +15,7 @@ import { checkUserAuthenticated } from '@utils/Auth';
 import { setCookie } from '@utils/Cookie';
 import { NextComponentType, NextPageContext } from 'next';
 import { AppContext as NextAppContext, AppProps as NextAppProps } from 'next/app';
-
+// import type { AppProps } from 'next/app';
 import '@styles/normalize.scss';
 
 type AppProps<P = { auth?: UserAuth; profile?: Client | Manager }> = {
@@ -25,6 +25,8 @@ type AppProps<P = { auth?: UserAuth; profile?: Client | Manager }> = {
     guard?: AuthGuard;
   };
 } & Omit<NextAppProps<P>, 'pageProps'>;
+
+// const App = ({ Component, pageProps }: AppProps) => <Component {...pageProps} />;
 
 const App = ({ Component, pageProps }: AppProps) => {
   const [auth, setAuth] = useState<UserAuth | undefined>(pageProps.auth);
@@ -77,7 +79,7 @@ const App = ({ Component, pageProps }: AppProps) => {
         <AuthContext.Provider value={authContextValue}>
           <PageLoading />
           <Guard guard={Component.guard}>
-            <Layout layout={Component.layout}>
+            <Layout>
               <Component {...pageProps} />
             </Layout>
           </Guard>
