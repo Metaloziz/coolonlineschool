@@ -47,6 +47,64 @@
 
     @media (max-width: 600px) {
       width: 100%;
+      > div {
+        padding: 30px 10px;
+      }
+    }
+
+    .planModal {
+      > div > div:nth-child(1) {
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          background-image: url(#{$path-svg}/tariff-card/one.svg);
+          width: 26px;
+          height: 101px;
+
+        }
+      }
+
+      > div > div:nth-child(2) {
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          background-image: url(#{$path-svg}/tariff-card/two.svg);
+          width: 65px;
+          height: 103px;
+        }
+      }
+
+      > div > div:nth-child(3) {
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          background-image: url(#{$path-svg}/tariff-card/three.svg);
+          width: 63px;
+          height: 103px;
+        }
+      }
+
+      > div > div:nth-child(4) {
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          background-image: url(#{$path-svg}/tariff-card/four.svg);
+          width: 82px;
+          height: 101px;
+        }
+      }
     }
   }
 }

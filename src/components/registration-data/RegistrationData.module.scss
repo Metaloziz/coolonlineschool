@@ -1,0 +1,183 @@
+@import "../../styles/global";
+
+.container {
+  background-color: #fff;
+  padding: 21px 133px 16px;
+  max-width: 1210px;
+  box-shadow: 0 0 40px rgba(86, 89, 146, 0.15);
+  border-radius: 10px;
+
+  .sliderBlock {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 28px;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+      justify-content:center;
+      align-items: center;
+    }
+
+    h2{
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 29px;
+      color: #000000;
+
+      @media (max-width: 900px) {
+        margin-bottom: 15px;
+      }
+    }
+
+    .sliderInfo {
+      display: flex;
+      align-items: center;
+
+      @media (max-width: 900px) {
+        flex-direction: column;
+      }
+
+      p {
+        margin-right: 14px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+
+        @media (max-width: 900px) {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    .bigSlider {
+      background-color: #f8f8ff;
+      filter: none;
+
+      @media (max-width: 440px) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  label {
+    display: none;
+  }
+
+  .blockChoice {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #E8E8E8;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
+
+    .inputBlock {
+      width: 100%;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      color: #BABEC6;
+      background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
+      box-shadow: inset -4px -4px 12px rgba(253, 255, 255, 0.8), inset 4px 4px 12px rgba(187, 195, 206, 0.6);
+      border-radius: 10px;
+      border: none;
+    }
+
+    .selectBlock {
+      width: 100%;
+      background: #F8F8FF !important;
+      border-radius: 10px;
+
+      > div {
+        width: 100%;
+
+        > div {
+          background-color: transparent;
+        }
+      }
+    }
+
+    > div {
+      width: 48%;
+
+      @media (max-width: 900px) {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+
+    .blockParents {
+      display: flex;
+      justify-content: space-between;
+
+      @media (max-width: 600px) {
+        flex-direction: column;
+      }
+
+      > div {
+        width: 48%;
+
+        @media (max-width: 600px) {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        > div + div {
+          margin-top: 10px;
+        }
+      }
+    }
+
+    .blockChildren {
+      display: flex;
+      justify-content: space-between;
+
+      @media (max-width: 600px) {
+        flex-direction: column;
+      }
+
+      > div {
+        width: 48%;
+
+        @media (max-width: 600px) {
+          width: 100%;
+          margin-bottom: 10px;
+        }
+
+        > div + div {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+  .codeBlock {
+    width: 48%;
+    padding-top: 26px;
+
+    @media (max-width: 900px) {
+      width: 100%;
+    }
+
+    .inputBlock {
+      width: 100%;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      color: #BABEC6;
+      background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
+      box-shadow: inset -4px -4px 12px rgba(253, 255, 255, 0.8), inset 4px 4px 12px rgba(187, 195, 206, 0.6);
+      border-radius: 10px;
+      border: none;
+    }
+  }
+
+  .btnReg {
+    width: 201px;
+    margin: 28px auto 0;
+  }
+}

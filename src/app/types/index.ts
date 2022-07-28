@@ -67,9 +67,10 @@ export type IRow = { [key: string]: ICell };
 
 export interface ITariffCard {
   tariffPlan: TariffPlans;
-  moneyAmount: number;
+  moneyAmount: number | string;
   percentDiscount?: number;
   isExtraOption?: boolean;
+  className?: string;
 }
 
 export interface IProgressBar {
