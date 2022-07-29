@@ -1,11 +1,9 @@
 import { FC, useState } from 'react';
 
 import { ButtonColorThemes } from '@app/enums';
-import { Button, CustomSelect, Slider } from '@components';
+import { Button, CustomSelect, Input, Slider } from '@components';
 import { sexParents } from '@mock/moks-data-select';
 import cn from 'classnames';
-
-import Input from '../input/Input';
 
 import cl from './RegistrationData.module.scss';
 
