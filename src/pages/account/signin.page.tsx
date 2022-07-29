@@ -48,18 +48,18 @@ const SignIn = () => {
   //   }
   // };
 
-  const loginHandler = async () => {
-    try {
-      const { code } = await AuthService.sms({ phone });
-      const res = await AuthService.login({ phone, smsCode: code });
-      await localStorage.setItem('user_secret', JSON.stringify(`Bearer ${res.data.token}`));
-      const userData = await AuthService.loadme();
-      auth.setLoadMe(userData);
-      // appStore.setRole(userData.role as Roles);
-    } catch (e) {
-      console.warn(e);
-    }
-  };
+  // const loginHandler = async () => {
+  //   try {
+  //     const { code } = await AuthService.sms({ phone });
+  //     const res = await AuthService.login({ phone, smsCode: code });
+  //     await localStorage.setItem('user_secret', JSON.stringify(`Bearer ${res.data.token}`));
+  //     const userData = await AuthService.loadme();
+  //     auth.setLoadMe(userData);
+  //     // appStore.setRole(userData.role as Roles);
+  //   } catch (e) {
+  //     console.warn(e);
+  //   }
+  // };
 
   return (
     <>
@@ -88,7 +88,7 @@ const SignIn = () => {
         >
           Администратор
         </div>
-        <Button title="Login" onClick={loginHandler} />
+        <Button title="Login" />
       </div>
       <ModalEntrance changeVisibility={setIsReady} isVisibility={isReady} register={register} />
     </>

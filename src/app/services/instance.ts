@@ -2,10 +2,12 @@ import axios from 'axios';
 
 export const instance = axios.create({
   baseURL: 'https://coolbackschool.sitetopic.ru/',
-  withCredentials: true,
+  // withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': 'https://backschool.sitetopic.ru/',
+    'Access-Control-Allow-Origin': 'https://coolbackschool.sitetopic.ru/',
+    // 'Access-Control-Allow-Credentials':true,
+    // mode: 'no-cors',
   },
 });
 

@@ -13,17 +13,17 @@ import {
 export const AuthService = {
   login: async (data: RequestLogin) => {
     const res = await instance.post<ResponseLogin>(Paths.Login, data, {});
-    return res.data;
+    return res;
   },
 
   sms: async (data: RequestSMS) => {
     const res = await instance.post<ResponseSMS>(Paths.SMS, data);
-    return res.data;
+    return res;
   },
 
   me: async () => {
     const res = await instance.get<ResponseMe>(Paths.Me);
-    return res.data;
+    return res;
   },
 
   loadme: async () => {
@@ -31,6 +31,6 @@ export const AuthService = {
       Paths.LoadMe,
       TokenService.getConfigHeadersWithToken(),
     );
-    return res.data;
+    return res;
   },
 };
