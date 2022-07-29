@@ -1,59 +1,96 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { useState } from 'react';
 
 import { AuthGuard } from '@app/common/AuthGuard';
-import authService from '@app/services/AuthService';
+import { AuthService } from '@app/services/AuthService';
+import { Roles } from '@app/store/appStore';
+import { auth } from '@app/store/authStore';
+import Button from '@components/custom-button/CustomButton';
+import ModalEntrance from '@components/modal-entrance/ModalEntrance';
 import { Routes } from '@constants/Routes';
-import { useAuthContext } from '@contexts/AuthContext';
-import { getProfile } from '@utils/Auth';
-import { useRouter } from 'next/router';
+import { useForm } from 'react-hook-form';
+
+import styles from './Signin.module.scss';
 
 const SignIn = () => {
-  const router = useRouter();
-  const { setUserAuthenticated, clearUserAuthenticated } = useAuthContext();
-  const [inputs, setInputs] = useState({
-    email: '',
-    password: '',
-  });
+  // const router = useRouter();
+  // const { setUserAuthenticated, clearUserAuthenticated } = useAuthContext();
 
-  const handleChange = (event: ChangeEvent) => {
-    const { name, value } = event.target as any;
-    setInputs(values => ({ ...values, [name]: value }));
+  const [isReady, setIsReady] = useState(false);
+
+  const roles = {
+    student: '79608008080',
+    teacher: '79606006060',
+    admin: '79601001010',
   };
 
-  async function handleSubmit(event: FormEvent) {
-    event.preventDefault();
-    try {
-      const result = await authService.login(inputs.email, inputs.password, {
-        locale: router.locale,
-      });
-      const auth = {
-        token: result.token,
-        userId: result.userId,
-        roleId: result.roleId,
-      };
-      const profile = await getProfile(result.token, result.roleId, router.locale);
+  const [phone, setPhone] = useState('79601001010');
 
-      setUserAuthenticated({ auth, profile });
-      router.push((router.query.redirect as string) || Routes.Index);
-    } catch ({ message }) {
-      clearUserAuthenticated();
-      console.log(message);
-    }
-  }
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>({
+    defaultValues: {
+      email: phone,
+    },
+  });
+
+  // const onSubmit: SubmitHandler<Inputs> = async data => {
+  //   try {
+  //     const res2 = await AuthService.login({ phone, email: data.email });
+  //     await localStorage.setItem('user_secret', JSON.stringify(`Bearer ${res2.data.token}`));
+  //     // await appStore.setUser();
+  //     // const userData = await AuthService.loadme();
+  //     // appStore.setRole(userData.role as Roles);
+  //   } catch (e) {
+  //     console.warn(e);
+  //   }
+  // };
+
+  // const loginHandler = async () => {
+  //   try {
+  //     const { code } = await AuthService.sms({ phone });
+  //     const res = await AuthService.login({ phone, smsCode: code });
+  //     await localStorage.setItem('user_secret', JSON.stringify(`Bearer ${res.data.token}`));
+  //     const userData = await AuthService.loadme();
+  //     auth.setLoadMe(userData);
+  //     // appStore.setRole(userData.role as Roles);
+  //   } catch (e) {
+  //     console.warn(e);
+  //   }
+  // };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email
-          <input name="email" type="text" value={inputs.email} onChange={handleChange} />
-        </label>
-        <label>
-          Password
-          <input name="password" type="password" value={inputs.password} onChange={handleChange} />
-        </label>
-        <button type="submit">Sign in</button>
-      </form>
+      <div className={styles.wrapper}>
+        <div
+          className={styles.button}
+          onClick={() => {
+            setPhone(roles[Roles.Student]);
+          }}
+        >
+          Ученик
+        </div>
+        <div
+          className={styles.button}
+          onClick={() => {
+            setPhone(roles[Roles.Teacher]);
+          }}
+        >
+          Учитель
+        </div>
+        <div
+          className={styles.button}
+          onClick={() => {
+            setPhone(roles[Roles.Admin]);
+          }}
+        >
+          Администратор
+        </div>
+        <Button title="Login" />
+      </div>
+      <ModalEntrance changeVisibility={setIsReady} isVisibility={isReady} register={register} />
     </>
   );
 };
@@ -64,3 +101,8 @@ SignIn.guard = {
   disallowAuth: true,
   redirect: Routes.Index,
 } as AuthGuard;
+
+export type Inputs = {
+  email: string;
+  password: string;
+};

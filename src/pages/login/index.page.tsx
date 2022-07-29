@@ -1,5 +1,11 @@
-import { FC } from 'react';
+import React,{ FC } from 'react';
 
-const IndexPage: FC = () => <div>login</div>;
+import Login from './Login';
+
+const IndexPage: FC = () => (
+  <div>
+    <Login />
+  </div>
+);
 
 export default IndexPage;

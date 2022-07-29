@@ -6,12 +6,13 @@ import styles from 'src/components/elements/custom-button/CustomButton.module.sc
 
 type CustomButtonType = {
   title: string;
+  onClick?: () => void;
 };
 
 const CustomButton: FC<CustomButtonType> = props => {
-  const { title } = props;
+  const { title, onClick } = props;
   return (
-    <div className={styles.button}>
+    <div onClick={onClick} className={styles.button}>
       <div>{title}</div>
       <Image className={styles.image} src={arrow} />
     </div>

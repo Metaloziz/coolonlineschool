@@ -1,21 +1,36 @@
-import { DataResponse } from '@app/common/Response';
-import { UserAuth } from '@app/models/auth/UserAuth';
-import { Api, ApiOptions } from '@utils/Api';
+import { Paths } from '@app/enums/Paths';
+import { instance } from '@app/services/instance';
+import TokenService from '@app/services/tokenService';
+import {
+  RequestLogin,
+  RequestSMS,
+  ResponseLoadMe,
+  ResponseLogin,
+  ResponseMe,
+  ResponseSMS,
+} from '@app/types/AuthType';
 
-const authService = {
-  authenticate: async (options?: ApiOptions) => {
-    const { data } = await Api.get<DataResponse<UserAuth>>('/api/v1/auths', options);
-    return data;
+export const AuthService = {
+  login: async (data: RequestLogin) => {
+    const res = await instance.post<ResponseLogin>(Paths.Login, data, {});
+    return res;
   },
 
-  login: async (email: string, password: string, options?: ApiOptions) => {
-    const { data } = await Api.post<DataResponse<UserAuth>>(
-      '/api/v1/auths/login',
-      { email, password },
-      options,
+  sms: async (data: RequestSMS) => {
+    const res = await instance.post<ResponseSMS>(Paths.SMS, data);
+    return res;
+  },
+
+  me: async () => {
+    const res = await instance.get<ResponseMe>(Paths.Me);
+    return res;
+  },
+
+  loadme: async () => {
+    const res = await instance.get<ResponseLoadMe>(
+      Paths.LoadMe,
+      TokenService.getConfigHeadersWithToken(),
     );
-    return data;
+    return res;
   },
 };
-
-export default authService;

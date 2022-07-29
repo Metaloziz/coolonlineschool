@@ -1,24 +1,30 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 
 import { ButtonColorThemes } from '@app/enums';
 import { Button, Input, ModalBasic } from '@components';
 import { Routes } from '@constants/Routes';
+import { Inputs } from '@pages/account/signin.page';
 import Link from 'next/link';
+import { SubmitHandler, useForm, UseFormRegister } from 'react-hook-form';
 
 import styles from './ModalEntrance.module.scss';
 
-const ModalEntrance = () => {
-  const [showModal, setShowModal] = useState<boolean>(true);
+const ModalEntrance: FC<ModalEntrancePropsType> = ({
+  register,
+  isVisibility,
+  changeVisibility,
+}) => {
+  const [showModal, setShowModal] = useState<boolean>(false);
   const { Signout } = Routes;
   return (
-    <ModalBasic isVisibility={showModal} changeVisibility={setShowModal}>
+    <ModalBasic isVisibility={isVisibility} changeVisibility={changeVisibility}>
       <div className={styles.wrapContent}>
         <h2>Вход</h2>
         <div className={styles.userData}>
-          <Input placeholder="Почта / телефон" />
-          <Input placeholder="Пароль" />
+          <Input {...register('email', { required: true })} placeholder="Почта / телефон" />
+          <Input {...register('password', { required: true })} placeholder="Пароль" />
         </div>
-        <Button className={styles.btnEntries} colorTheme={ButtonColorThemes.red}>
+        <Button type="submit" className={styles.btnEntries} colorTheme={ButtonColorThemes.red}>
           Вход
         </Button>
         <div>
@@ -30,3 +36,9 @@ const ModalEntrance = () => {
   );
 };
 export default ModalEntrance;
+
+type ModalEntrancePropsType = {
+  register: UseFormRegister<Inputs>;
+  isVisibility: boolean;
+  changeVisibility: (n: boolean) => void;
+};
