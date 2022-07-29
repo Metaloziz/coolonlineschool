@@ -8,7 +8,7 @@ import Link from 'next/link';
 import cl from 'src/components/elements/account/Account.module.scss';
 
 const Account: FC = () => {
-  const { Signout } = Routes;
+  const { Index } = Routes;
   const activeNotification = false;
 
   return (
@@ -24,7 +24,7 @@ const Account: FC = () => {
       </button>
 
       <button type="button" className={cl.logout}>
-        <Link href={Signout}>Выйти из аккаунта</Link>
+        <Link href={Index}>Выйти из аккаунта</Link>
       </button>
     </div>
   );

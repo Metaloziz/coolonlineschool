@@ -1,30 +1,36 @@
 import { useState, FC } from 'react';
 
-import { Account, Logo } from '@components';
-import Burger from '@components/elements/burger/Burger';
-import DropDownMenu from '@components/elements/drop-down-menu/DropDownMenu';
+import { Account, Logo, Burger, DropDownMenu } from '@components/elements';
 import classNames from 'classnames';
 
 import cl from './Header.module.scss';
 
-type Props = { className: string };
+type Props = {
+  className: string;
+  isActiveMenuBurger: boolean;
+};
 
-const Header: FC<Props> = ({ className }) => {
+const Header: FC<Props> = ({ className, isActiveMenuBurger }) => {
   const [active, setActive] = useState<boolean>(false);
-  const [isOpen] = useState(false);
+
   const handleClose = () => {
     setActive(false);
   };
+
   return (
     <header className={classNames(cl.header, className)}>
       <div className={cl.accountBlock}>
-        <div className={cl.burgerBlock} onClick={() => setActive(!active)}>
-          <Burger />
-        </div>
+        {!isActiveMenuBurger ? null : (
+          <>
+            <div className={cl.burgerBlock} onClick={() => setActive(!active)}>
+              <Burger />
+            </div>
+            <DropDownMenu active={active} onClose={handleClose} />
+          </>
+        )}
         <Logo />
       </div>
       <Account />
-      <DropDownMenu active={active} onClose={handleClose} />
     </header>
   );
 };
