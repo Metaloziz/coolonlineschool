@@ -1,6 +1,5 @@
 import IndexPage from '../pages/single-game/index.page';
 
-import Account from './elements/account/Account';
 import Balance from './elements/balance/Balance';
 import Button from './elements/button/Button';
 import CardStudentCheckingHomework from './elements/card-students/card-student-cheking-homework/CardStudentCheckingHomework';
@@ -15,7 +14,6 @@ import Homeworks from './elements/homeworks/Homeworks';
 import IconButton from './elements/icon-button/IconButton';
 import Input from './elements/input/Input';
 import KeepPlaying from './elements/keep-playing/KeepPlaying';
-import Logo from './elements/logo/Logo';
 import ModalAddPoints from './elements/modals/modal-add-points/ModalAddPoints';
 import ModalBasic from './elements/modals/modal-basic/ModalBasic';
 import ModalTextEditor from './elements/modals/modal-text-editor/ModalTextEditor';
@@ -57,7 +55,6 @@ import SidebarNav from './modules/sidebar-nav/SidebarNav';
 
 export {
   IconButton,
-  Account,
   Balance,
   PlayButton,
   Button,
@@ -72,7 +69,6 @@ export {
   Homeworks,
   Input,
   KeepPlaying,
-  Logo,
   PageLoading,
   PaymentsTable,
   ProgressBar,

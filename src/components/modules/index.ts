@@ -1,3 +1,4 @@
 import CheckingHomework from './checking-homework/CheckingHomework';
+import Layout from './layout/Layout';
 
-export { CheckingHomework };
+export { CheckingHomework, Layout };
