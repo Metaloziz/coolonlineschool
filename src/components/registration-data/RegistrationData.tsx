@@ -2,13 +2,12 @@ import { FC, useState } from 'react';
 
 import { ButtonColorThemes } from '@app/enums';
 import { Button, CustomSelect, Input, Slider } from '@components';
+import InformationItem from '@components/elements/information-item/InformationItem';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { sexParents } from '@mock/moks-data-select';
 import cn from 'classnames';
 import { SubmitHandler, useForm, Controller } from 'react-hook-form';
 import * as yup from 'yup';
-
-import InformationItem from '../information-item/InformationItem';
 
 import cl from './RegistrationData.module.scss';
 
@@ -290,4 +289,3 @@ const RegistrationData: FC<Props> = ({ className }) => {
 };
 
 export default RegistrationData;
-
