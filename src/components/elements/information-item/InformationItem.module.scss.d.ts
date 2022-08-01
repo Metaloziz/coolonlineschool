@@ -4,3 +4,4 @@ export const inputCalendar: string;
 export const large: string;
 export const normal: string;
 export const wrapBlockItem: string;
+export const content: string;
