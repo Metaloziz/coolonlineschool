@@ -9,3 +9,4 @@ export const selectBlock: string;
 export const blockChildren: string;
 export const codeBlock: string;
 export const btnReg: string;
+export const inputNumberBlock: string;

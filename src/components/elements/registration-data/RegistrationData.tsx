@@ -290,4 +290,3 @@ const RegistrationData: FC<Props> = ({ className }) => {
 };
 
 export default RegistrationData;
-

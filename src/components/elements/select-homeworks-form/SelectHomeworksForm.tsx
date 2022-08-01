@@ -20,10 +20,6 @@ const SelectHomeworksForm: FC<ISelectHomeworksForm> = ({
 }) => {
   const [isReady, setIsReady] = useState<number>(1);
 
-  const updateStatus = (id: number) => {
-    setIsReady(id);
-  };
-
   return (
     <div className={cl.container}>
       <CustomSelect
@@ -53,13 +49,13 @@ const SelectHomeworksForm: FC<ISelectHomeworksForm> = ({
         options={[
           {
             text: 'Ментальная арифметика',
-            onClick: () => setIsReady(isReady),
-            id: getRandomId(),
+            onClick: setIsReady,
+            id: 1,
           },
           {
             text: 'Скорочтение',
-            id: getRandomId(),
-            onClick: updateStatus,
+            id: 2,
+            onClick: setIsReady,
           },
         ]}
       />

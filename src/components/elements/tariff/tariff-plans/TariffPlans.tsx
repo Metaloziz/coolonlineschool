@@ -21,10 +21,6 @@ interface ITariffsList {
 const TariffsList: FC<ITariffsList> = ({ isRender, tariffPlans, className }) => {
   const [isReady, setIsReady] = useState<number>(1);
 
-  const updateStatus = (id: number) => {
-    setIsReady(id);
-  };
-
   return (
     <div className={cn(cl.container, className)}>
       {isRender && <b className={cl.title}>Тарифные планы</b>}
@@ -38,8 +34,8 @@ const TariffsList: FC<ITariffsList> = ({ isRender, tariffPlans, className }) => 
           <Slider
             className={cl.innerSlider}
             options={[
-              { id: 1, text: 'Ментальная арифметика', onClick: updateStatus },
-              { id: 2, text: 'Скорочтение', onClick: updateStatus },
+              { id: 1, text: 'Ментальная арифметика', onClick: setIsReady },
+              { id: 2, text: 'Скорочтение', onClick: setIsReady },
             ]}
           />
           <Button colorTheme={ButtonColorThemes.red} className={cl.btn}>

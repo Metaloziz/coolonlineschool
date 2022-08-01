@@ -2,7 +2,7 @@ import { FC } from 'react';
 
 import { TariffPlans as TariffPlansEnum } from '@app/enums';
 import { TariffPlans } from '@components';
-import RegistrationData from '@components/registration-data/RegistrationData';
+import RegistrationData from '@components/elements/registration-data/RegistrationData';
 
 import cl from './Registration.module.scss';
 

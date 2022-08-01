@@ -47,6 +47,7 @@
     "react-dom": "^18.2.0",
     "react-draft-wysiwyg": "^1.14.7",
     "react-hook-form": "^7.33.1",
+    "react-number-format": "^4.9.3",
     "react-paginate": "^8.1.2",
     "react-select": "^5.2.2",
     "react-wysiwyg-typescript": "^1.0.2",
