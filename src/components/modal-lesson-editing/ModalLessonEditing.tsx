@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
-import Button from '@components/button/Button';
-import CustomButton from '@components/custom-button/CustomButton';
+import CustomButton from '@components/elements/custom-button/CustomButton';
 import InformationItem from '@components/information-item/InformationItem';
 
-import styles, { nameGroup } from './ModalLessonEditing.module.scss';
+import styles from './ModalLessonEditing.module.scss';
 
 const ModalLessonEditing = () => {
   const [isShow, setShow] = useState(false);
@@ -16,7 +15,7 @@ const ModalLessonEditing = () => {
     <div className={styles.wrapperModal}>
       <h2>Редактирование урока</h2>
       <div className={styles.lesson}>
-        <div className={styles.dateLesson}>
+        <div>
           <p>Дата урока</p>
           <InformationItem
             variant="calendar"
@@ -24,13 +23,13 @@ const ModalLessonEditing = () => {
             placeholder="21/03/2021"
           />
         </div>
-        <div className={styles.startLesson}>
+        <div>
           <p>Начало урока</p>
-          <InformationItem variant="input" className={styles.startInput} placeholder="14:00" />
+          <InformationItem variant="input" placeholder="14:00" />
         </div>
-        <div className={styles.endLesson}>
+        <div>
           <p>Конец урока</p>
-          <InformationItem variant="input" className={styles.endInput} placeholder="14:00" />
+          <InformationItem variant="input" placeholder="14:00" />
         </div>
       </div>
       {!isShow && (
@@ -40,7 +39,6 @@ const ModalLessonEditing = () => {
             <InformationItem
               variant="select"
               placeholder="Активен"
-              className={styles.activeSelect}
             />
           </div>
           <div className={styles.lessonBtn}>
@@ -61,7 +59,6 @@ const ModalLessonEditing = () => {
               <InformationItem
                 variant="select"
                 placeholder="Активен"
-                className={styles.activeSelect}
               />
             </div>
             <div className={styles.btnTeacher}>
