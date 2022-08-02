@@ -1,3 +1,5 @@
+import { Roles } from '@app/store/appStore';
+
 export type RequestSMS = { phone: string };
 export type RequestLogin = { phone: string; smsCode: number };
 
@@ -25,7 +27,7 @@ export type ResponseLoadMe = {
   lastName: string;
   email: string;
   phone: string;
-  role: string;
+  role: Roles;
   franchise: null | string;
   city: null | string;
   birthdate: TimeZoneType;
