@@ -1,11 +1,21 @@
-import React,{ FC } from 'react';
+import React from 'react';
 
-import Login from './Login';
+import { auth } from '@app/store/authStore';
+import CodeLogin from '@components/code-login/CodeLogin';
+import PhoneLogin from '@components/phone-login/PhoneLogin';
+import { observer } from 'mobx-react-lite';
 
-const IndexPage: FC = () => (
-  <div>
-    <Login />
+import style from './Login.module.scss';
+
+const Login = () => (
+  <div className={style.wrapper}>
+    <div>{!auth.code ? <PhoneLogin /> : <CodeLogin />}</div>
   </div>
 );
 
-export default IndexPage;
+export default observer(Login);
+
+export type Inputs = {
+  phone: string;
+  code: number;
+};

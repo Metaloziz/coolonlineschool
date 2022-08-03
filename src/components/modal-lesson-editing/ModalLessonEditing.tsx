@@ -36,10 +36,7 @@ const ModalLessonEditing = () => {
         <div className={styles.saveItem}>
           <div className={styles.saveSelect}>
             <p>Статус</p>
-            <InformationItem
-              variant="select"
-              placeholder="Активен"
-            />
+            <InformationItem variant="select" placeholder="Активен" />
           </div>
           <div className={styles.lessonBtn}>
             <CustomButton
@@ -56,10 +53,7 @@ const ModalLessonEditing = () => {
           <div className={styles.statusLesson}>
             <div className={styles.btnStatus}>
               <p>Статус</p>
-              <InformationItem
-                variant="select"
-                placeholder="Активен"
-              />
+              <InformationItem variant="select" placeholder="Активен" />
             </div>
             <div className={styles.btnTeacher}>
               <p>ФИО Учителя</p>
