@@ -1,8 +1,8 @@
-import GamePlay from '@components/elements/game-play/GamePlay';
+import ModalLessonEditing from '@components/modal-lesson-editing/ModalLessonEditing';
 
 const TestPage = () => (
   <>
-    <GamePlay />
+    <ModalLessonEditing />
   </>
 );
 

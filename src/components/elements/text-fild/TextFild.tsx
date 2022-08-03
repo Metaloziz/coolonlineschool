@@ -10,9 +10,9 @@ interface Props extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>,
   placeholder?: string;
 }
 
-const TextField: FC<Props> = ({ type, id, className, ...props }) => (
+const TextField: FC<Props> = ({ type, id, className, placeholder, ...props }) => (
   <div className={classNames(styles.textField, className)}>
-    <input type={type} id={id} {...props} />
+    <input type={type} id={id} {...props} placeholder={placeholder} />
   </div>
 );
 

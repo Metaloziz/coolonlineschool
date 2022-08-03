@@ -42,6 +42,11 @@
   }
 }
 
+.content {
+  width: auto;
+  max-width: 100%;
+}
+
 .wrapBlockItem + .wrapBlockItem {
   margin-top: 23px;
 }

@@ -1,0 +1,213 @@
+.wrapperModal {
+  background: #FFFFFF;
+  box-shadow: 0px 20px 70px rgba(86, 89, 146, 0.1);
+  border-radius: 30px;
+  padding: 37px 120px 46px;
+  width: 1065px;
+  flex: 0 !important;
+
+  h2 {
+    font-family: 'Montserrat Alternates', sans-serif;
+    margin-bottom: 46px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 23px;
+    text-align: center;
+    background: linear-gradient(90deg, #0439AD 0%, #38028F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .lesson {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 43px;
+
+    .calendarLessons {
+      width: 100%;
+
+      > div:first-child {
+        display: none;
+      }
+
+      > div {
+        width: 100%;
+
+        > div {
+          width: 100%;
+
+          > div {
+            width: 100px;
+          }
+        }
+      }
+    }
+
+    > div {
+      display: flex;
+      width: 33%;
+      align-items: center;
+
+      p {
+        flex: 0 0 35%;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+      }
+    }
+  }
+
+  .saveItem {
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 17px;
+      color: #000000;
+    }
+
+    .saveSelect {
+      display: flex;
+      align-items: center;
+    }
+
+    .lessonBtn {
+      display: flex;
+      align-items: center;
+
+      .btnEdit {
+        width: 247px;
+
+        > div {
+          font-size: 14px;
+          line-height: 17px;
+          font-weight: 700;
+        }
+      }
+
+      .btnSave {
+        width: 155px;
+
+        > div {
+          font-size: 14px;
+          line-height: 17px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .bottomContainer {
+    margin-top: 43px;
+
+    .statusLesson {
+      margin-bottom: 52px;
+      display: flex;
+      justify-content: space-between;
+
+      .btnStatus {
+        width: 40%;
+        display: flex;
+        align-items: center;
+
+        > p {
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 17px;
+          color: #000000;
+        }
+
+      }
+
+      .btnTeacher {
+        width: 55%;
+        display: flex;
+        align-items: center;
+
+        p {
+          font-weight: 600;
+          font-size: 14px;
+          line-height: 17px;
+          color: #000000;
+          flex: 0 0 25%;
+        }
+
+        .teacherInput {
+          width: 100%;
+
+          > div:first-child {
+            display: none;
+          }
+
+          > div {
+            width: 100%;
+            max-width: 100%;
+          }
+        }
+      }
+
+    }
+  }
+
+  .groupSection {
+    display: flex;
+    justify-content: space-between;
+
+    .nameGroup {
+      display: flex;
+      align-items: center;
+
+      > p {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+      }
+
+      .nameInput {
+        > div:first-child {
+          display: none;
+        }
+
+        > div {
+          width: 100%;
+          max-width: 100%;
+          margin-left: 20px;
+        }
+      }
+
+
+    }
+
+    .lvlGroup {
+      display: flex;
+      align-items: center;
+
+      .lvlGame {
+        > div:first-child {
+          display: none;
+        }
+
+        > div {
+          width: 100%;
+          max-width: 100%;
+          margin-left: 20px;
+        }
+      }
+
+      > p {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+      }
+
+    }
+  }
+}
+
+

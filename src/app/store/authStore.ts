@@ -1,4 +1,3 @@
-import { StatusCode } from '@app/enums/statusCode';
 import { AuthService } from '@app/services/AuthService';
 import { appStore, Roles } from '@app/store/appStore';
 import { ResponseLoadMe } from '@app/types/AuthType';

@@ -6,7 +6,7 @@ import { observer } from 'mobx-react-lite';
 import { useRouter } from 'next/router';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-const CodeLogin = observer(() => {
+const CodeLogin = () => {
   const [isDisabled, setIsDisabled] = useState<boolean>(false);
   const router = useRouter();
 
@@ -35,6 +35,6 @@ const CodeLogin = observer(() => {
       </div>
     </form>
   );
-});
+};
 
-export default CodeLogin;
+export default observer(CodeLogin);
