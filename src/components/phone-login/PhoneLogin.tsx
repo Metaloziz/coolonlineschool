@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import { Roles } from '@app/store/appStore';
 import { auth } from '@app/store/authStore';
-import styles from '@pages/login/Login.module.scss';
+import CustomButton from '@components/elements/custom-button/CustomButton';
+import style from '@pages/login/Login.module.scss';
 import { observer } from 'mobx-react-lite';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-export const PhoneLogin = observer(() => {
+export const PhoneLogin = () => {
+  const roles = {
+    student: '79608008080',
+    teacher: '79606006060',
+    admin: '79601001010',
+  };
+
+  const [iphone, setIphone] = useState('79601001010');
+
   const {
-    register,
     handleSubmit,
     formState: { errors },
   } = useForm<{ phone: string }>({
@@ -17,20 +26,50 @@ export const PhoneLogin = observer(() => {
   });
 
   const onSubmit: SubmitHandler<{ phone: string }> = ({ phone }) => {
-    auth.postLoginPhone(phone);
+    auth.postLoginPhone(iphone);
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className={styles.wrapper}>
-        <div>Авторизация</div>
-        <div>Ваш номер телефона</div>
-        <input type="text" {...register('phone')} />
-        <button>Войти</button>
-        <div>Зарегистрироваться</div>
-      </div>
-    </form>
-  );
-});
+    <>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {/* <div className={styles.wrapper}> */}
+        {/*  <div>Авторизация</div> */}
+        {/*  <div>Ваш номер телефона</div> */}
+        {/*  <input type="text" {...register('phone')} /> */}
+        {/*  <button>Войти</button> */}
+        {/*  <div>Зарегистрироваться</div> */}
+        {/* </div> */}
 
-export default PhoneLogin;
+        <div>
+          <div
+            className={style.button}
+            onClick={() => {
+              setIphone(roles[Roles.Student]);
+            }}
+          >
+            Ученик
+          </div>
+          <div
+            className={style.button}
+            onClick={() => {
+              setIphone(roles[Roles.Teacher]);
+            }}
+          >
+            Учитель
+          </div>
+          <div
+            className={style.button}
+            onClick={() => {
+              setIphone(roles[Roles.Admin]);
+            }}
+          >
+            Администратор
+          </div>
+          <button className={style.button}>login</button>
+        </div>
+      </form>
+    </>
+  );
+};
+
+export default observer(PhoneLogin);
