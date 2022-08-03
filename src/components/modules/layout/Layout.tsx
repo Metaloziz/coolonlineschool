@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 
+import { AlertSnackbars } from '@components/elements/AlertSnackbars/AlertSnackbars';
 import { SidebarNav, Header } from '@components/modules';
 import { Routes } from '@constants/Routes';
 import { useRouter } from 'next/router';
@@ -21,6 +22,7 @@ const Layout = ({ children }: Props) => {
       <div id="default-layout" className={styles.layout}>
         <Header isActiveMenuBurger={false} className={styles.header} />
         <div className={styles.content}>{children}</div>
+        <AlertSnackbars />
       </div>
     );
   }
@@ -30,6 +32,7 @@ const Layout = ({ children }: Props) => {
       <Header isActiveMenuBurger className={styles.header} />
       <SidebarNav />
       <div className={styles.content}>{children}</div>
+      <AlertSnackbars />
     </div>
   );
 };
