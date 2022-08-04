@@ -25,11 +25,11 @@ const ModalLessonEditing = () => {
         </div>
         <div>
           <p>Начало урока</p>
-          <InformationItem variant="input" placeholder="14:00" />
+          <InformationItem variant="input" placeholder="14:00" className={styles.startLesson} />
         </div>
         <div>
           <p>Конец урока</p>
-          <InformationItem variant="input" placeholder="14:00" />
+          <InformationItem variant="input" placeholder="14:00" className={styles.endLesson} />
         </div>
       </div>
       {!isShow && (
@@ -53,7 +53,11 @@ const ModalLessonEditing = () => {
           <div className={styles.statusLesson}>
             <div className={styles.btnStatus}>
               <p>Статус</p>
-              <InformationItem variant="select" placeholder="Активен" />
+              <InformationItem
+                variant="select"
+                placeholder="Активен"
+                className={styles.statusSelect}
+              />
             </div>
             <div className={styles.btnTeacher}>
               <p>ФИО Учителя</p>

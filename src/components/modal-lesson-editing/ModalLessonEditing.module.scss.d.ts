@@ -15,3 +15,6 @@ export const nameGroup: string;
 export const lvlGroup: string;
 export const nameInput: string;
 export const lvlGame: string;
+export const startLesson: string;
+export const endLesson: string;
+export const statusSelect: string;
