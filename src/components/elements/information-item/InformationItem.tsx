@@ -60,6 +60,10 @@ const InformationItem: FC<Props> = props => {
 
   let part;
 
+  const handlerChangeEvent = (values: ChangeEvent<HTMLInputElement>) => {
+    onChange && onChange(values.target.value);
+  };
+
   switch (variant) {
     case 'calendar':
       renderCalendar();
@@ -74,7 +78,7 @@ const InformationItem: FC<Props> = props => {
           format="+7 (###) ###-####"
           mask="_"
           id={id}
-          onChange={onChangeEvent}
+          onChange={handlerChangeEvent}
           placeholder={placeholder}
           onBlur={onBlur}
         />
@@ -98,16 +102,6 @@ const InformationItem: FC<Props> = props => {
       <div className={cn(styles.content, size === 'large' && styles.large, inputClassName)}>
         {part}
       </div>
-      {/* {variant === 'calendar' ? ( */}
-      {/*   renderCalendar() */}
-      {/* ) : ( */}
-      {/*   <div className={finalStyle}> */}
-      {/*     {variant === 'select' && ( */}
-      {/*       <CustomSelect options={option} placeholder={placeholder} size={size} /> */}
-      {/*     )} */}
-      {/*     {variant === 'input' && <TextField />} */}
-      {/*   </div> */}
-      {/* )} */}
     </div>
   );
 };

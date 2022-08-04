@@ -1,11 +1,19 @@
+import { StatusCode } from '@app/enums/statusCode';
 import { AuthService } from '@app/services/AuthService';
-import { ResponseLoadMe } from '@app/types/AuthType';
-import { makeAutoObservable } from 'mobx';
+import { ResponseLoadMe, ResponseRegister } from '@app/types/AuthType';
+import { AxiosError } from 'axios';
+import { makeAutoObservable, runInAction } from 'mobx';
+
+import { appStore } from './appStore';
 
 class AuthStore {
   constructor() {
     makeAutoObservable(this);
   }
+
+  isRegister = false;
+
+  isLoading = false;
 
   loadMe = {} as ResponseLoadMe;
 
@@ -43,6 +51,31 @@ class AuthStore {
   setError(error: string) {
     this.error = error;
   }
+
+  register = async (formData: ResponseRegister) => {
+    this.isLoading = true;
+    try {
+      const res = await AuthService.register(formData);
+      if (res.status === StatusCode.Success) {
+        runInAction(() => {
+          appStore.setIsInitialize(true);
+          this.isRegister = true;
+        });
+        console.log(res);
+      }
+    } catch (error) {
+      const { response } = error as AxiosError;
+      const status = response?.status;
+
+      if (status === StatusCode.Unauthorized) {
+        runInAction(() => {
+          appStore.setIsInitialize(true);
+        });
+      }
+    } finally {
+      this.isLoading = false;
+    }
+  };
 }
 
 export const auth = new AuthStore();

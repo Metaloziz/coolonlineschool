@@ -10,6 +10,11 @@
   }
 }
 
+.myLayout {
+  display: flex;
+  flex-direction: column;
+}
+
 .header {
   grid-column: 1 / -1;
 }

@@ -3,10 +3,11 @@ import { FC } from 'react';
 import { TariffPlans as TariffPlansEnum } from '@app/enums';
 import { TariffPlans } from '@components';
 import RegistrationData from '@components/elements/registration-data/RegistrationData';
+import { observer } from 'mobx-react-lite';
 
 import cl from './Registration.module.scss';
 
-const Registration: FC = () => (
+const Registration: FC = observer(() => (
   <div className={cl.innerContainer}>
     <RegistrationData className={cl.dataBlock} />
     <TariffPlans
@@ -19,7 +20,7 @@ const Registration: FC = () => (
         },
         {
           id: 2,
-          moneyAmount: '4000',
+          moneyAmount: 4000,
           tariffPlan: TariffPlansEnum.introductory,
           percentDiscount: 50,
         },
@@ -43,6 +44,6 @@ const Registration: FC = () => (
       ]}
     />
   </div>
-);
+));
 
 export default Registration;
