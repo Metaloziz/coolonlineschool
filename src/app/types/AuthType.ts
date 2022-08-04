@@ -1,3 +1,6 @@
+import { Paths } from '@app/enums/Paths';
+import { instance } from '@app/services/instance';
+
 export type RequestSMS = { phone: string };
 export type RequestLogin = { phone: string; smsCode: number };
 
@@ -44,3 +47,24 @@ export type TimeZoneType = {
 };
 
 export type ResponseSMS = { code: number };
+
+export type RequestRegister = {
+  result: {
+    success: string;
+  };
+};
+
+export type ResponseRegister = {
+  phone: string;
+  email: string;
+  parentFirstName: string;
+  parentMiddleName: string;
+  parentLastName: string;
+  studentFirstName: string;
+  studentMiddleName: string;
+  studentLastName: string;
+  city: string;
+  birthdate: Date;
+  parentSex: boolean;
+  studentSex: boolean;
+};

@@ -97,18 +97,18 @@ const Payment = () => {
               },
               {
                 id: 2,
-                moneyAmount: 3300,
+                moneyAmount: '3300₽',
                 tariffPlan: TariffPlansEnum.independent,
               },
               {
                 id: 3,
-                moneyAmount: 4200,
+                moneyAmount: '4200₽',
                 tariffPlan: TariffPlansEnum.advanced,
                 isExtraOption: true,
               },
               {
                 id: 4,
-                moneyAmount: 5000,
+                moneyAmount: '5000₽',
                 tariffPlan: TariffPlansEnum.personal,
                 isExtraOption: true,
               },

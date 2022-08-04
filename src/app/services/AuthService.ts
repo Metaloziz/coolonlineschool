@@ -8,6 +8,8 @@ import {
   ResponseLogin,
   ResponseMe,
   ResponseSMS,
+  RequestRegister,
+  ResponseRegister,
 } from '@app/types/AuthType';
 
 export const AuthService = {
@@ -33,4 +35,6 @@ export const AuthService = {
     );
     return res;
   },
+
+  register: (data: ResponseRegister) => instance.post<RequestRegister>(Paths.Register, data),
 };

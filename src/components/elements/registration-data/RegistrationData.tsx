@@ -1,9 +1,11 @@
 import { FC, useState } from 'react';
 
 import { ButtonColorThemes } from '@app/enums';
+import { auth } from '@app/store/authStore';
 import { Button, CustomSelect, Input, Slider } from '@components';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { sexParents } from '@mock/moks-data-select';
+import { convert } from '@utils/convert';
 import cn from 'classnames';
 import { SubmitHandler, useForm, Controller } from 'react-hook-form';
 import * as yup from 'yup';
@@ -17,18 +19,18 @@ export enum SexEnum {
   Female = 'Женский',
 }
 
-type Inputs = {
+export type RegisterData = {
   parentsLastName: string;
   parentsName: string;
   parentsPatronymic: string;
   parentsEmail: string;
-  parentsSex: SexEnum | null;
+  parentSex: null | SexEnum;
   parentsPhone: string;
   studentsLastName: string;
   studentsName: string;
   studentsPatronymic: string;
-  studentsBirthDate: number | null;
-  studentsSex: SexEnum | null;
+  studentsBirthDate: Date | null;
+  studentSex: null | SexEnum;
   studentsCity: string;
   codeTariff: number | null;
 };
@@ -38,12 +40,12 @@ const defaultValues = {
   parentsName: '',
   parentsPatronymic: '',
   parentsEmail: '',
-  parentsSex: null,
+  parentSex: null,
   parentsPhone: '',
   studentsLastName: '',
   studentsPatronymic: '',
   studentsBirthDate: null,
-  studentsSex: null,
+  studentSex: null,
   studentsCity: '',
   codeTariff: null,
 };
@@ -56,22 +58,22 @@ const RegistrationData: FC<Props> = ({ className }) => {
   const [isReady, setIsReady] = useState<number>(1);
 
   const schema = yup.object().shape({
-    parentsLastName: yup.string().required('Обязательное поле'),
-    parentsName: yup.string().required('Обязательное поле'),
-    parentsPatronymic: yup.string().required('Обязательное поле'),
-    parentsEmail: yup
-      .string()
-      .required('Обязательное поле')
-      .email()
-      .matches(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i, 'Не валидный email'),
-    parentsSex: yup.string().required('Обязательное поле').nullable(),
+    parentsLastName: yup.string().required('Обязательное поле').min(3),
+    parentsName: yup.string().required('Обязательное поле').min(3),
+    parentsPatronymic: yup.string().required('Обязательное поле').min(3),
+    parentsEmail: yup.string().required('Обязательное поле').email(),
+    parentSex: yup.string().required('Обязательное поле').nullable(),
     parentsPhone: yup.string().required('Обязательное поле'),
-    studentsLastName: yup.string().required('Обязательное поле'),
-    studentsName: yup.string().required('Обязательное поле'),
-    studentsPatronymic: yup.string().required('Обязательное поле'),
-    studentsBirthDate: yup.number().required('Обязательное поле').nullable().positive().integer(),
-    studentsSex: yup.string().required('Обязательное поле').nullable(),
-    studentsCity: yup.string().required('Обязательное поле'),
+    studentsLastName: yup.string().required('Обязательное поле').min(3),
+    studentsName: yup.string().required('Обязательное поле').min(3),
+    studentsPatronymic: yup.string().required('Обязательное поле').min(3),
+    studentsBirthDate: yup
+      .date()
+      .required('Обязательное поле')
+      .nullable()
+      .min(new Date(1900, 0, 1)),
+    studentSex: yup.string().required('Обязательное поле').nullable(),
+    studentsCity: yup.string().required('Обязательное поле').min(3),
     codeTariff: yup.string().required('Обязательное поле').nullable(),
   });
 
@@ -83,28 +85,29 @@ const RegistrationData: FC<Props> = ({ className }) => {
         parentsName,
         parentsPatronymic,
         parentsEmail,
-        parentsSex,
+        parentSex,
         parentsPhone,
         studentsLastName,
         studentsName,
         studentsPatronymic,
         studentsBirthDate,
-        studentsSex,
+        studentSex,
         studentsCity,
         codeTariff,
       },
+      isValid,
     },
     handleSubmit,
     reset,
     control,
-  } = useForm<Inputs>({
+  } = useForm<RegisterData>({
     resolver: yupResolver(schema),
     defaultValues,
     mode: 'onBlur',
   });
 
-  const onSubmit: SubmitHandler<Inputs> = data => {
-    console.log(data);
+  const onSubmit: SubmitHandler<RegisterData> = async data => {
+    await auth.register(convert(data));
     // reset();
   };
   return (
@@ -167,7 +170,7 @@ const RegistrationData: FC<Props> = ({ className }) => {
               <span>{parentsEmail?.message}</span>
               <Controller
                 control={control}
-                name="parentsSex"
+                name="parentSex"
                 render={({ field: { onChange, onBlur } }) => (
                   <CustomSelect
                     onBlur={onBlur}
@@ -178,7 +181,7 @@ const RegistrationData: FC<Props> = ({ className }) => {
                   />
                 )}
               />
-              <span>{parentsSex?.message}</span>
+              <span>{parentSex?.message}</span>
               <Controller
                 control={control}
                 name="parentsPhone"
@@ -238,7 +241,7 @@ const RegistrationData: FC<Props> = ({ className }) => {
               <span>{studentsBirthDate?.message}</span>
               <Controller
                 control={control}
-                name="studentsSex"
+                name="studentSex"
                 render={({ field: { onChange, onBlur } }) => (
                   <CustomSelect
                     onBlur={onBlur}
@@ -249,15 +252,7 @@ const RegistrationData: FC<Props> = ({ className }) => {
                   />
                 )}
               />
-              {/* <CustomSelect */}
-              {/*  className={cl.selectBlock} */}
-              {/*  options={sexParents} */}
-              {/*  placeholder="Пол ученика" */}
-              {/*  {...register('studentsSex', { */}
-              {/*    required: true, */}
-              {/*  })} */}
-              {/* /> */}
-              <span>{studentsSex?.message}</span>
+              <span>{studentSex?.message}</span>
               <Input
                 id="10"
                 className={cl.inputBlock}
@@ -281,7 +276,12 @@ const RegistrationData: FC<Props> = ({ className }) => {
           />
           <span>{codeTariff?.message}</span>
         </div>
-        <Button colorTheme={ButtonColorThemes.red} className={cl.btnReg} type="submit">
+        <Button
+          colorTheme={ButtonColorThemes.red}
+          className={cl.btnReg}
+          type="submit"
+          disabled={auth.isLoading}
+        >
           Зарегестрироваться
         </Button>
       </form>

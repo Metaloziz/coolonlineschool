@@ -204,6 +204,10 @@
   .btnReg {
     width: 201px;
     margin: 28px auto 0;
+
+    &:disabled {
+      background-color: grey;
+    }
   }
 }
 
