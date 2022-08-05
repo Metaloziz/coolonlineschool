@@ -10,15 +10,16 @@ type CustomButtonType = {
   title: string;
   className?: string;
   onClick?: () => void;
+  type: 'button' | 'submit' | 'reset' | undefined;
 };
 
 const CustomButton: FC<CustomButtonType> = props => {
-  const { title, className, onClick } = props;
+  const { title, className, onClick, type } = props;
   return (
-    <div className={cn(styles.button, className)} onClick={onClick}>
+    <button type={type} className={cn(styles.button, className)} onClick={onClick}>
       <div>{title}</div>
       <Image className={styles.image} src={arrow} />
-    </div>
+    </button>
   );
 };
 
