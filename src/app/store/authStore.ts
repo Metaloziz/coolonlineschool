@@ -7,8 +7,6 @@ import { ResponseLoadMe, ResponseRegister, ResponseMe } from '@app/types/AuthTyp
 import { AxiosError } from 'axios';
 import { makeAutoObservable, runInAction } from 'mobx';
 
-import { appStore, Roles } from './appStore';
-
 class AuthStore {
   isLogin = false;
 
@@ -152,7 +150,7 @@ class AuthStore {
     this.isLoading = true;
     try {
       await AuthService.logout();
-      tokenService.removeUser();
+      TokenService.removeUser();
       const { setRole } = appStore;
       setRole(Roles.Unauthorized);
     } catch (error) {
