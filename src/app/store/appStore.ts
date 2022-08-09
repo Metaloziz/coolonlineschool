@@ -15,7 +15,9 @@ export enum Roles {
 class AppStore {
   isInitialize = false;
 
-  error: Nullable<string> = null;
+  errorMessage: Nullable<string> = null;
+
+  successMessage: Nullable<string> = null;
 
   constructor() {
     makeAutoObservable(this);
@@ -25,9 +27,13 @@ class AppStore {
     this.isInitialize = isInitialize;
   }
 
-  setError(error: Nullable<string>) {
-    this.error = error;
-  }
+  setErrorMessage = (message: Nullable<string>) => {
+    this.errorMessage = message;
+  };
+
+  setSuccessMessage = (message: Nullable<string>) => {
+    this.successMessage = message;
+  };
 }
 
 export const appStore = new AppStore();

@@ -1,3 +1,6 @@
+import { Roles } from '@app/store/appStore';
+import { Nullable } from '@app/types/index';
+
 import { Paths } from '@app/enums/Paths';
 import { instance } from '@app/services/instance';
 
@@ -6,9 +9,17 @@ export type RequestLogin = { phone: string; smsCode: number };
 
 export type ResponseMe = {
   id: string;
-  email: string;
-  phone: string;
-  role: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  phone: Nullable<string>;
+  email: Nullable<string>;
+  roleCode: string;
+  city: Nullable<string>;
+  active: string;
+  payed: Nullable<string>;
+  groups: [];
+  avatar: null;
 };
 
 export type ResponseLogin = {
@@ -18,6 +29,7 @@ export type ResponseLogin = {
   data: {
     token: string;
     id: string;
+    refreshToken: Nullable<string>;
   };
 };
 
@@ -28,7 +40,7 @@ export type ResponseLoadMe = {
   lastName: string;
   email: string;
   phone: string;
-  role: string;
+  role: Roles;
   franchise: null | string;
   city: null | string;
   birthdate: TimeZoneType;

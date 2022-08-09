@@ -1,60 +1,40 @@
-import axios from 'axios';
+import { StatusCode } from '@app/enums/statusCode';
+import TokenService from '@app/services/tokenService';
+import { appStore, auth, Roles } from '@app/store';
+import axios, { AxiosRequestConfig } from 'axios';
 
 export const instance = axios.create({
   baseURL: 'https://coolbackschool.sitetopic.ru/',
-  // withCredentials: true,
   headers: {
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': 'https://coolbackschool.sitetopic.ru/',
-    // 'Access-Control-Allow-Credentials':true,
-    // mode: 'no-cors',
   },
 });
 
-// instance.interceptors.request.use(
-//   (config: AxiosRequestConfig<{ headers: { 'Content-Type': string } }>) => {
-//     const token = TokenService.getLocalAccessToken();
-//     // console.log(token);
-//     if (token) {
-//       // @ts-ignore
-//       // axios.defaults.headers.Authorization = token;
-//       // config.headers.Authorization = token;
-//     }
-//     return config;
-//   },
-//   error => {
-//     console.log(error, 'error');
-//     return Promise.reject(error);
-//   },
-// );
-//
-// instance.interceptors.request.use(
-//   config => {
-//     const token = TokenService.getLocalAccessToken();
-//     console.log(token);
-//     if (token) {
-//       axios.defaults.headers.common.Authorization = token;
-//       // config.headers.Authorization = token;
-//     }
-//     return config;
-//   },
-//   error => {
-//     console.log(error, 'error');
-//     return Promise.reject(error);
-//   },
-// );
-//
-// instance.interceptors.request.use(
-//   config => {
-//     const localStorageToken = localStorage.getItem('user_secret');
-//     const token = localStorageToken && JSON.parse(localStorageToken);
-//
-//     if (token) {
-//       // @ts-ignore
-//       // config.headers.common = token;
-//       axios.defaults.headers.common.Authorization = token;
-//     }
-//     return config;
-//   },
-//   error => Promise.reject(error),
-// );
+instance.interceptors.request.use(
+  (config: AxiosRequestConfig<{ headers: { 'Content-Type': string } }>) => {
+    const token = TokenService.getLocalAccessToken();
+    if (token && config.headers) {
+      config.headers.Authorization = token;
+    }
+    return config;
+  },
+  error => Promise.reject(error),
+);
+
+instance.interceptors.response.use(
+  res => {
+    const token = res.headers.Authorization;
+    if (token) {
+      TokenService.updateLocalAccessToken(token);
+    }
+    return res;
+  },
+  rej => {
+    if (rej.response.status === StatusCode.Unauthorized) {
+      auth.setRole(Roles.Unauthorized);
+      appStore.setIsInitialize(true);
+    }
+    return Promise.reject(rej);
+  },
+);

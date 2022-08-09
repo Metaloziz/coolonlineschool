@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { AuthGuard } from '@app/common/AuthGuard';
 import { Roles } from '@app/store/appStore';
 import Button from '@components/elements/custom-button/CustomButton';
+import ModalEntrance from '@components/elements/modals/modal-entrance/ModalEntrance';
 import { Routes } from '@constants/Routes';
 import { useForm } from 'react-hook-form';
 
