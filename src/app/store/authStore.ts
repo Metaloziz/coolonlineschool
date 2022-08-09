@@ -1,10 +1,11 @@
 import { StatusCode } from '@app/enums/statusCode';
 import { AuthService } from '@app/services/AuthService';
-import { ResponseLoadMe, ResponseRegister, ResponseMe} from '@app/types/AuthType';
-import { AxiosError } from 'axios';
-import { Nullable } from '@app/types';
-import { makeAutoObservable, runInAction } from 'mobx';
+import TokenService from '@app/services/tokenService';
 import { appStore, Roles } from '@app/store/appStore';
+import { Nullable } from '@app/types';
+import { ResponseLoadMe, ResponseRegister, ResponseMe } from '@app/types/AuthType';
+import { AxiosError } from 'axios';
+import { makeAutoObservable, runInAction } from 'mobx';
 
 class AuthStore {
   isLogin = false;
@@ -27,7 +28,6 @@ class AuthStore {
     makeAutoObservable(this);
   }
 
-
   setUser(data: ResponseMe) {
     this.me = data;
   }
@@ -47,8 +47,8 @@ class AuthStore {
   async login(code: number, phone: string) {
     this.isLoading = true;
     try {
-      const { data } = await AuthService.login({ phone, smsCode: Number(code) });
-      await localStorage.setItem('user_secret', JSON.stringify(`Bearer ${data.data.token}`));
+      const { data } = await AuthService.login({ phone, smsCode: code });
+      await TokenService.setUser(data.data.token);
       runInAction(() => {
         this.isLogin = true;
         appStore.setSuccessMessage('Успешный вход.');
