@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
-import { InformationItem } from '@components/elements';
+import { TextFieldCalendar } from '@components';
 import CustomButton from '@components/elements/custom-button/CustomButton';
+import InformationItem from '@components/information-item/InformationItem';
 
 import styles from './ModalLessonEditing.module.scss';
 
@@ -17,11 +18,7 @@ const ModalLessonEditing = () => {
       <div className={styles.lesson}>
         <div>
           <p>Дата урока</p>
-          <InformationItem
-            variant="calendar"
-            className={styles.calendarLessons}
-            placeholder="21/03/2021"
-          />
+          <TextFieldCalendar className={styles.calendarLessons} placeholder="21/03/2021" />
         </div>
         <div>
           <p>Начало урока</p>

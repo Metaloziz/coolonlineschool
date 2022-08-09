@@ -62,3 +62,26 @@ $logout-font-map: (
     width: 48%;
   }
 }
+
+.modalBlock{
+  padding: 40px 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  h2{
+    margin: 0 auto 20px;
+    text-align: center;
+    width: 80%;
+  }
+
+  .btnBlock {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  button {
+    width: 50px;
+    height: 40px;
+  }
+}

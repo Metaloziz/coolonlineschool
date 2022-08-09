@@ -61,9 +61,10 @@ export type TimeZoneType = {
 export type ResponseSMS = { code: number };
 
 export type RequestRegister = {
-  result: {
+  result?: {
     success: string;
   };
+  error?: string;
 };
 
 export type ResponseRegister = {
@@ -72,11 +73,14 @@ export type ResponseRegister = {
   parentFirstName: string;
   parentMiddleName: string;
   parentLastName: string;
+  parentSex: boolean;
   studentFirstName: string;
   studentMiddleName: string;
   studentLastName: string;
   city: string;
   birthdate: Date;
-  parentSex: boolean;
   studentSex: boolean;
+  smsCode: number;
 };
+
+export type RequestLogout = string[];
