@@ -2,8 +2,9 @@ import { ReactElement } from 'react';
 
 import { appStore } from '@app/store';
 import { Nullable } from '@app/types';
-import { AlertSnackbar } from '@components/elements/AlertSnackbars/AlertSnackbar';
 import { observer } from 'mobx-react-lite';
+
+import { AlertSnackbar } from './AlertSnackbar';
 
 export const AlertSnackbars = observer((): Nullable<ReactElement> => {
   const { setSuccessMessage, successMessage, errorMessage, setErrorMessage } = appStore;
@@ -15,5 +16,6 @@ export const AlertSnackbars = observer((): Nullable<ReactElement> => {
   if (successMessage !== null) {
     return <AlertSnackbar type="success" onClose={setSuccessMessage} message={successMessage} />;
   }
+
   return null;
 });

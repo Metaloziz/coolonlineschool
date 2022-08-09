@@ -10,7 +10,7 @@ import {
 } from '@app/types/AuthType';
 
 export const AuthService = {
-  login: (data: RequestLogin) => instance.post<ResponseLogin>(Paths.Login, data, {}),
+  login: (data: RequestLogin) => instance.post<ResponseLogin>(Paths.Login, data),
 
   sms: (data: RequestSMS) => instance.post<ResponseSMS>(Paths.SMS, data),
 

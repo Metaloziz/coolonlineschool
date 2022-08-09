@@ -1,13 +1,22 @@
 import { Roles } from '@app/store/appStore';
+import { Nullable } from '@app/types/index';
 
 export type RequestSMS = { phone: string };
 export type RequestLogin = { phone: string; smsCode: number };
 
 export type ResponseMe = {
   id: string;
-  email: string;
-  phone: string;
-  role: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  phone: Nullable<string>;
+  email: Nullable<string>;
+  roleCode: string;
+  city: Nullable<string>;
+  active: string;
+  payed: Nullable<string>;
+  groups: [];
+  avatar: null;
 };
 
 export type ResponseLogin = {
@@ -17,6 +26,7 @@ export type ResponseLogin = {
   data: {
     token: string;
     id: string;
+    refreshToken: Nullable<string>;
   };
 };
 

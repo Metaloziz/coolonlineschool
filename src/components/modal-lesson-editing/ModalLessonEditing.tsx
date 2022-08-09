@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
+import { InformationItem } from '@components/elements';
 import CustomButton from '@components/elements/custom-button/CustomButton';
-import InformationItem from '@components/information-item/InformationItem';
 
 import styles from './ModalLessonEditing.module.scss';
 

@@ -2,11 +2,11 @@ import { FC, ChangeEvent, FocusEventHandler } from 'react';
 
 import { CustomSelect, TextField } from '@components';
 import cn from 'classnames';
-import NumberFormat from 'react-number-format';
+import NumberFormat, { NumberFormatValues } from 'react-number-format';
 import CustomCalendar from 'src/components/elements/custom-calendar/CustomCalendar';
 import styles from 'src/components/elements/information-item/InformationItem.module.scss';
 
-type VariantType = 'select' | 'input' | 'calendar' | 'phone';
+type VariantType = 'select' | 'input' | 'calendar' | 'phone' | 'pin';
 
 type SizeType = 'large' | 'normal';
 
@@ -23,12 +23,15 @@ interface Props {
   placeholder?: string;
   className?: string;
   value?: string;
+  defaultValue?: string;
   id?: string;
   type?: string;
   onChange?: (value: string) => void;
+  onChangeNumber?: (value: number) => void;
   onChangeEvent?: (value: ChangeEvent<HTMLInputElement>) => void;
   inputClassName?: string;
   onBlur?: FocusEventHandler<HTMLInputElement>;
+  displayType?: 'input' | 'text';
 }
 
 const InformationItem: FC<Props> = props => {
@@ -44,8 +47,11 @@ const InformationItem: FC<Props> = props => {
     type,
     onChange,
     onChangeEvent,
+    onChangeNumber,
     inputClassName,
     onBlur,
+    defaultValue,
+    displayType = 'input',
   } = props;
   const finalStyle = `${size === 'large' ? styles.large : styles.normal}`;
 
@@ -60,6 +66,12 @@ const InformationItem: FC<Props> = props => {
 
   let part;
 
+  const handlerChangeEvent = (values: NumberFormatValues) => {
+    onChangeNumber && values.floatValue && onChangeNumber(values.floatValue);
+
+    onChange && onChange(`7${values.value}`);
+  };
+
   switch (variant) {
     case 'calendar':
       renderCalendar();
@@ -70,13 +82,34 @@ const InformationItem: FC<Props> = props => {
     case 'phone':
       part = (
         <NumberFormat
+          onValueChange={handlerChangeEvent}
           className={cn(className)}
-          format="+7 (###) ###-####"
+          format="+7 (###) ### ## ##"
           mask="_"
           id={id}
-          onChange={onChangeEvent}
+          value={value}
           placeholder={placeholder}
           onBlur={onBlur}
+          displayType={displayType}
+          defaultValue={defaultValue}
+          allowEmptyFormatting
+        />
+      );
+      break;
+    case 'pin':
+      part = (
+        <NumberFormat
+          onValueChange={handlerChangeEvent}
+          className={cn(className)}
+          format="# # # #"
+          mask="_"
+          id={id}
+          value={value}
+          placeholder={placeholder}
+          onBlur={onBlur}
+          displayType={displayType}
+          defaultValue={defaultValue}
+          allowEmptyFormatting
         />
       );
       break;
@@ -98,16 +131,6 @@ const InformationItem: FC<Props> = props => {
       <div className={cn(styles.content, size === 'large' && styles.large, inputClassName)}>
         {part}
       </div>
-      {/* {variant === 'calendar' ? ( */}
-      {/*   renderCalendar() */}
-      {/* ) : ( */}
-      {/*   <div className={finalStyle}> */}
-      {/*     {variant === 'select' && ( */}
-      {/*       <CustomSelect options={option} placeholder={placeholder} size={size} /> */}
-      {/*     )} */}
-      {/*     {variant === 'input' && <TextField />} */}
-      {/*   </div> */}
-      {/* )} */}
     </div>
   );
 };

@@ -10,11 +10,16 @@
   font: $font-small;
   color: white;
   border-radius: 10px;
+
   &.red {
     background-color: $color-secondary-button;
 
     &:hover {
       background-color: #cc1c1b;
+    }
+
+    &:disabled {
+      background-color: $color-gray;
     }
   }
 
@@ -23,6 +28,10 @@
 
     &:hover {
       background-image: linear-gradient(90deg, #0439ad 0%, #38028f 100%);
+    }
+
+    &:disabled {
+      background-color: $color-gray;
     }
   }
 
@@ -34,6 +43,10 @@
     &:hover {
       background-color: $color-button;
       color: white;
+    }
+
+    &:disabled {
+      background-color: $color-gray;
     }
   }
 
@@ -54,6 +67,10 @@
 
     &:hover {
       background-color: $color-green;
+    }
+
+    &:disabled {
+      background-color: $color-gray;
     }
   }
 

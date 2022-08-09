@@ -1,5 +1,7 @@
-import tokenService from '@app/services/tokenService';
-import axios from 'axios';
+import { StatusCode } from '@app/enums/statusCode';
+import TokenService from '@app/services/tokenService';
+import { appStore, auth, Roles } from '@app/store';
+import axios, { AxiosRequestConfig } from 'axios';
 
 export const instance = axios.create({
   baseURL: 'https://coolbackschool.sitetopic.ru/',
@@ -9,12 +11,30 @@ export const instance = axios.create({
   },
 });
 
-instance.interceptors.request.use(config => {
-  const token = tokenService.getLocalAccessToken();
+instance.interceptors.request.use(
+  (config: AxiosRequestConfig<{ headers: { 'Content-Type': string } }>) => {
+    const token = TokenService.getLocalAccessToken();
+    if (token && config.headers) {
+      config.headers.Authorization = token;
+    }
+    return config;
+  },
+  error => Promise.reject(error),
+);
 
-  config.headers = {
-    Authorization: token,
-  };
-
-  return config;
-});
+instance.interceptors.response.use(
+  res => {
+    const token = res.headers.Authorization;
+    if (token) {
+      TokenService.updateLocalAccessToken(token);
+    }
+    return res;
+  },
+  rej => {
+    if (rej.response.status === StatusCode.Unauthorized) {
+      auth.setRole(Roles.Unauthorized);
+      appStore.setIsInitialize(true);
+    }
+    return Promise.reject(rej);
+  },
+);

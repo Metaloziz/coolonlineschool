@@ -9,25 +9,25 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 
 const App = observer(({ Component, pageProps }: AppProps) => {
-  const { me, isLogin, loadMe } = auth;
+  const { getMe, isLogin, me } = auth;
   const { isInitialize } = appStore;
   const { push, asPath } = useRouter();
-  const { Login, Index } = Routes;
+  const { Login, Index, Registration } = Routes;
 
   useEffect(() => {
-    me();
+    getMe();
   }, []);
 
   useEffect(() => {
     if (!isLogin && isInitialize) {
       push(Login);
     }
-    if (asPath === Login && loadMe.role !== Roles.Unauthorized) {
+    if ((asPath === Login || asPath === Registration) && me.roleCode !== Roles.Unauthorized) {
       push(Index);
     }
   }, [isLogin, isInitialize]);
 
-  if (!isInitialize || (!isLogin && asPath !== Login) || (isLogin && asPath === Login)) {
+  if (!isInitialize || (!isLogin && asPath !== Login && asPath !== Registration)) {
     return <div>Loading...</div>;
   }
 
