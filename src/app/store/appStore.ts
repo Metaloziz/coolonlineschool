@@ -15,6 +15,8 @@ export enum Roles {
 class AppStore {
   isInitialize = false;
 
+  role: Roles = Roles.Unauthorized;
+
   error: Nullable<string> = null;
 
   constructor() {
@@ -24,6 +26,10 @@ class AppStore {
   setIsInitialize(isInitialize: boolean) {
     this.isInitialize = isInitialize;
   }
+
+  setRole = (role: Roles): void => {
+    this.role = role;
+  };
 
   setError(error: Nullable<string>) {
     this.error = error;

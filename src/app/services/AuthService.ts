@@ -10,6 +10,7 @@ import {
   ResponseSMS,
   RequestRegister,
   ResponseRegister,
+  RequestLogout,
 } from '@app/types/AuthType';
 
 export const AuthService = {
@@ -37,4 +38,6 @@ export const AuthService = {
   },
 
   register: (data: ResponseRegister) => instance.post<RequestRegister>(Paths.Register, data),
+
+  logout: () => instance.get<RequestLogout>(Paths.Logout),
 };

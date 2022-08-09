@@ -17,5 +17,8 @@ export const convert = (value: RegisterData) => {
   }
   convertType.parentSex = value.parentSex === SexEnum.Male;
   convertType.studentSex = value.studentSex === SexEnum.Male;
+  if (value.codeTariff) {
+    convertType.smsCode = value.codeTariff;
+  }
   return convertType;
 };

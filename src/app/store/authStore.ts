@@ -1,10 +1,11 @@
 import { StatusCode } from '@app/enums/statusCode';
 import { AuthService } from '@app/services/AuthService';
+import tokenService from '@app/services/tokenService';
 import { ResponseLoadMe, ResponseRegister } from '@app/types/AuthType';
 import { AxiosError } from 'axios';
 import { makeAutoObservable, runInAction } from 'mobx';
 
-import { appStore } from './appStore';
+import { appStore, Roles } from './appStore';
 
 class AuthStore {
   constructor() {
@@ -57,21 +58,34 @@ class AuthStore {
     try {
       const res = await AuthService.register(formData);
       if (res.status === StatusCode.Success) {
+        if (res.data.error) {
+          console.log(res.data.error);
+        }
+        if (res.data.result) {
+          console.log(res.data.result);
+        }
+
         runInAction(() => {
-          appStore.setIsInitialize(true);
           this.isRegister = true;
         });
         console.log(res);
       }
     } catch (error) {
-      const { response } = error as AxiosError;
-      const status = response?.status;
+      console.log(error);
+    } finally {
+      this.isLoading = false;
+    }
+  };
 
-      if (status === StatusCode.Unauthorized) {
-        runInAction(() => {
-          appStore.setIsInitialize(true);
-        });
-      }
+  logout = async () => {
+    this.isLoading = true;
+    try {
+      await AuthService.logout();
+      tokenService.removeUser();
+      const { setRole } = appStore;
+      setRole(Roles.Unauthorized);
+    } catch (error) {
+      console.log(error);
     } finally {
       this.isLoading = false;
     }
