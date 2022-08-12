@@ -49,9 +49,13 @@ class AuthStore {
     try {
       const { data } = await AuthService.login({ phone, smsCode: code });
       await TokenService.setUser(data.data.token);
+      const {
+        data: { roleCode },
+      } = await AuthService.me();
       runInAction(() => {
         this.isLogin = true;
         appStore.setSuccessMessage('Успешный вход.');
+        appStore.setRole(roleCode);
       });
     } catch (error) {
       const { response } = error as AxiosError;
@@ -92,20 +96,13 @@ class AuthStore {
     this.error = error;
   }
 
-  setRole(role: Roles) {
-    this.me.roleCode = role;
-  }
-
-  setIni(role: Roles) {
-    this.me.roleCode = role;
-  }
-
   getMe = async () => {
     try {
       const { status, data } = await AuthService.me();
       if (status === StatusCode.Success) {
         this.setUser(data);
         runInAction(() => {
+          appStore.setRole(data.roleCode);
           appStore.setIsInitialize(true);
           this.isLogin = true;
         });
@@ -147,12 +144,17 @@ class AuthStore {
   };
 
   logout = async () => {
+    const { setRole } = appStore;
+
     this.isLoading = true;
     try {
       await AuthService.logout();
+
       TokenService.removeUser();
-      const { setRole } = appStore;
-      setRole(Roles.Unauthorized);
+      runInAction(() => {
+        this.isLogin = false;
+        setRole(Roles.Unauthorized);
+      });
     } catch (error) {
       console.log(error);
     } finally {

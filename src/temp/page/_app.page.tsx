@@ -1,6 +1,6 @@
 // import { AuthGuard } from '@app/common/AuthGuard';
 // import { UserAuth } from '@app/models/auth/UserAuth';
-// import { Client } from '@app/models/user/Client';
+// import { Client } from '@app/models/user-home/Client';
 // import { Guard, PageLoading } from '@components';
 // import Layout from '@components/modules/layout/Layout';
 // import '@styles/normalize.scss';

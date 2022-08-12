@@ -18,17 +18,16 @@ class AppStore {
   errorMessage: Nullable<string> = null;
 
   successMessage: Nullable<string> = null;
-  role: Roles = Roles.Unauthorized;
 
-  error: Nullable<string> = null;
+  role: Roles = Roles.Unauthorized;
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  setIsInitialize(isInitialize: boolean) {
+  setIsInitialize = (isInitialize: boolean) => {
     this.isInitialize = isInitialize;
-  }
+  };
 
   setErrorMessage = (message: Nullable<string>) => {
     this.errorMessage = message;
@@ -37,13 +36,10 @@ class AppStore {
   setSuccessMessage = (message: Nullable<string>) => {
     this.successMessage = message;
   };
+
   setRole = (role: Roles): void => {
     this.role = role;
   };
-
-  setError(error: Nullable<string>) {
-    this.error = error;
-  }
 }
 
 export const appStore = new AppStore();

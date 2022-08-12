@@ -1,8 +1,10 @@
 import { ReactNode } from 'react';
 
-import { AlertSnackbars } from '@components/elements/AlertSnackbars/AlertSnackbars';
+import { AlertSnackbars } from '@components/elements';
 import { SidebarNav, Header } from '@components/modules';
+import cl from '@components/modules/layout/default/DefaultLayout.module.scss';
 import { Routes } from '@constants/Routes';
+import cn from 'classnames';
 import { useRouter } from 'next/router';
 
 import styles from './Layout.module.scss';
@@ -19,7 +21,7 @@ const Layout = ({ children }: Props) => {
 
   if (isLoginPage) {
     return (
-      <div id="default-layout" className={styles.layout}>
+      <div id="default-layout" className={cn(cl.layout, cl.myLayout)}>
         <Header isActiveMenuBurger={false} className={styles.header} />
         <div className={styles.content}>{children}</div>
         <AlertSnackbars />

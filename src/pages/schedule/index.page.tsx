@@ -1,49 +1,22 @@
-import { StudentStatuses } from '@app/enums';
-import {
-  Schedule as ScheduleComponent,
-  ScheduleSearchForm,
-  StudentCard,
-  TaskVisualizersList,
-} from '@components';
+import { appStore, Roles } from '@app/store';
+import { Schedule } from '@components/modules';
+import { Routes } from '@constants/Routes';
+import { observer } from 'mobx-react-lite';
+import { useRouter } from 'next/router';
 
-import cl from './Schedule.module.scss';
+const IndexPage = () => {
+  const { role } = appStore;
+  const { push } = useRouter();
+  const { NotFount } = Routes;
 
-const Schedule = () => (
-  <div className={cl.container}>
-    <div className={cl.topBlock}>
-      <StudentCard
-        className={cl.cardBlock}
-        options={{
-          studentName: 'Днепровский Александр Алексеевич',
-          status: StudentStatuses.beginner,
-          pointsNumber: 5,
-          city: 'Москва',
-          id: '1',
-        }}
-      />
-      <ScheduleSearchForm
-        className={cl.searchBlock}
-        groupList={[
-          { label: '1', value: '1' },
-          { label: '2', value: '2' },
-          { label: '3', value: '3' },
-          { label: '4', value: '4' },
-          { label: '5', value: '5' },
-        ]}
-        cityList={[
-          { label: 'Москва', value: 'Moscow' },
-          { label: 'Санкт-Петербург', value: 'Saint-Petersburg' },
-          { label: 'Новосибирск', value: 'Novosibirsk' },
-        ]}
-        onSubmit={e => {
-          e.preventDefault();
-          console.log(e, 'Form has submitted');
-        }}
-      />
-      <TaskVisualizersList className={cl.blockVisualizer} />
-    </div>
-    <ScheduleComponent className={cl.schedule} searchedDate={new Date(0, 0, 4)} />
-  </div>
-);
-
-export default Schedule;
+  switch (role) {
+    case Roles.Admin:
+    case Roles.Student:
+    case Roles.Teacher:
+      return <Schedule />;
+    default:
+      push(NotFount);
+  }
+  return <div />;
+};
+export default observer(IndexPage);

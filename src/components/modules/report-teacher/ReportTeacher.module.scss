@@ -1,0 +1,217 @@
+@import "src/styles/global";
+
+$widthBlock: 1360px;
+
+.innerContent {
+  padding: 25px 20px 20px 20px;
+  background: url(../../../../public/svgs/pages/abacus-bg.svg) right center no-repeat;
+
+  & .wrapBlock {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 23px;
+    width: $widthBlock;
+
+    @media (max-width: 1280px) {
+      width: 100%;
+    }
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
+
+    & .infoBlock1 {
+      width: 33%;
+
+      @media (max-width: 1100px) {
+        > div {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+
+          p {
+            margin-bottom: 10px;
+          }
+
+          > div {
+            width: 100%;
+            max-width: 90%;
+            @media (max-width: 800px) {
+              max-width: 100%;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 800px) {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+
+    & .infoBlock2 {
+      width: 33%;
+
+      @media (max-width: 1100px) {
+        > div {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+
+          p {
+            margin-bottom: 10px;
+          }
+
+          > div {
+            width: 100%;
+            max-width: 90%;
+
+            @media (max-width: 800px) {
+              max-width: 100%;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 800px) {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+
+    & .infoBlock3 {
+      width: 33%;
+
+      @media (max-width: 1100px) {
+        > div {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+
+          p {
+            margin-bottom: 10px;
+          }
+
+          > div {
+            width: 100%;
+            max-width: 90%;
+            @media (max-width: 800px) {
+              max-width: 100%;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 800px) {
+        width: 100%;
+      }
+
+      & .btnBlock {
+        margin-top: 24px;
+        display: flex;
+        justify-content: flex-end;
+
+        & button {
+          margin-left: 20px;
+
+          @media (max-width: 800px) {
+            margin-left: 0;
+          }
+        }
+
+        & .buttonSize {
+          padding: 11px 33px;
+
+          @media (max-width: 1100px) {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  & .tableBlock {
+    width: $widthBlock;
+
+    @media (max-width: 1280px) {
+      width: 100%;
+      position: relative;
+
+      > div {
+        width: 100%;
+        position: relative;
+        overflow-x: scroll;
+      }
+    }
+
+    & .tableContent {
+      & .tariffsTable {
+        color: #ffffff;
+      }
+    }
+
+    & .rightBlock {
+      width: 287px;
+      margin-left: 20px;
+    }
+  }
+
+  & .pagination {
+    width: $widthBlock;
+    display: flex;
+    margin: 42px 0 58px 0;
+    justify-content: center;
+
+    @media (max-width: 1280px) {
+      width: 100%;
+    }
+
+    @media (max-width: 550px) {
+      > div > button {
+        margin: 0;
+      }
+      > div > ul {
+        margin: 0;
+      }
+    }
+  }
+}
+
+.selectBlock {
+  @media (max-width: 1100px) {
+    > div:last-child > div > div {
+      width: 100%;
+    }
+  }
+}
+
+.calendarBlock {
+  @media (max-width: 1100px) {
+    > div:last-child {
+      justify-content: space-between;
+
+      @media (max-width: 800px) {
+        width: 100%;
+      }
+
+      > div:last-child {
+        @media (max-width: 800px) {
+          width: auto;
+          margin-right: 0;
+        }
+      }
+
+      > div {
+        max-width: 100%;
+        @media (max-width: 800px) {
+          width: 100%;
+        }
+      }
+    }
+    @media (max-width: 800px) {
+      > div + div > div:first-child > div {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -15,7 +15,7 @@ import ModalBasic from '../modals/modal-basic/ModalBasic';
 const Account: FC = observer(() => {
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const { Index, Signin } = Routes;
+  const { Login } = Routes;
   const activeNotification = false;
 
   const { push } = useRouter();
@@ -23,7 +23,7 @@ const Account: FC = observer(() => {
   const handlerShow = async () => {
     setShowModal(false);
     await auth.logout();
-    await push(Signin);
+    await push(Login);
   };
 
   const noOutAccount = () => {

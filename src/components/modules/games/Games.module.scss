@@ -1,0 +1,19 @@
+@import "src/styles/global";
+
+.innerContent {
+  padding: 25px 120px 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: url(../../../../public/svgs/pages/puzzles-bg.svg) center / cover no-repeat;
+
+  @media (max-width: 1280px) {
+    padding: 0;
+    margin: 30px 20px;
+  }
+
+  @media (max-width: 550px) {
+    margin: 30px 10px;
+  }
+
+}

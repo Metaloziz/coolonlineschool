@@ -1,0 +1,21 @@
+@import "src/styles/global";
+
+.innerContent {
+  padding: 50px 20px 20px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 30px;
+  background: url(../../../../public/svgs/pages/puzzles-bg.svg) center / cover no-repeat;
+
+  & .goBack {
+    display: flex;
+    align-items: center;
+    margin-bottom: 17px;
+
+    & .image {
+      margin-right: 12px;
+      display: flex;
+      cursor: pointer;
+    }
+  }
+}

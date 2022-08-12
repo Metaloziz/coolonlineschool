@@ -1,9 +1,6 @@
 import { Roles } from '@app/store/appStore';
 import { Nullable } from '@app/types/index';
 
-import { Paths } from '@app/enums/Paths';
-import { instance } from '@app/services/instance';
-
 export type RequestSMS = { phone: string };
 export type RequestLogin = { phone: string; smsCode: number };
 
@@ -14,7 +11,7 @@ export type ResponseMe = {
   lastName: string;
   phone: Nullable<string>;
   email: Nullable<string>;
-  roleCode: string;
+  roleCode: Roles;
   city: Nullable<string>;
   active: string;
   payed: Nullable<string>;

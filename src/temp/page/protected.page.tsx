@@ -1,5 +1,4 @@
 import { AuthGuard } from '@app/common/AuthGuard';
-import { Routes } from '@constants/Routes';
 import { useAuthContext } from '@contexts/AuthContext';
 import { useRouter } from 'next/router';
 
@@ -13,9 +12,9 @@ const Protected = () => {
       <>
         <h1>Access denied</h1>
         Not signed in <br />
-        <button type="button" onClick={() => router.push(Routes.Signin)}>
-          Sign in
-        </button>
+        {/* <button type="button" onClick={() => router.push(Routes.Signin)}> */}
+        Sign in
+        {/* </button> */}
       </>
     );
   }
@@ -25,9 +24,9 @@ const Protected = () => {
     <>
       <h1>Protected Page</h1>
       Signed in as {profile?.email} <br />
-      <button type="button" onClick={() => router.push(Routes.Signout)}>
-        Sign out
-      </button>
+      {/* <button type="button" onClick={() => router.push(Routes.Signout)}> */}
+      Sign out
+      {/* </button> */}
     </>
   );
 };

@@ -1,6 +1,6 @@
 import { StatusCode } from '@app/enums/statusCode';
 import TokenService from '@app/services/tokenService';
-import { appStore, auth, Roles } from '@app/store';
+import { appStore, Roles } from '@app/store';
 import axios, { AxiosRequestConfig } from 'axios';
 
 export const instance = axios.create({
@@ -32,7 +32,7 @@ instance.interceptors.response.use(
   },
   rej => {
     if (rej.response.status === StatusCode.Unauthorized) {
-      auth.setRole(Roles.Unauthorized);
+      appStore.setRole(Roles.Unauthorized);
       appStore.setIsInitialize(true);
     }
     return Promise.reject(rej);

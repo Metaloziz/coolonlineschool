@@ -1,5 +1,3 @@
-import IndexPage from '../pages/single-game/index.page';
-
 import Balance from './elements/balance/Balance';
 import Button from './elements/button/Button';
 import CardStudentCheckingHomework from './elements/card-students/card-student-cheking-homework/CardStudentCheckingHomework';
@@ -98,7 +96,6 @@ export {
   TeachersTable,
   TextFieldCalendar,
   VerticalSlider,
-  IndexPage,
   ProgressLine,
   StatisticsList,
   CardStudentCheckingHomework,

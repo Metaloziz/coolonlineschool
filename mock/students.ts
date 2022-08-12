@@ -1,6 +1,6 @@
 import { StudentStatuses } from '@app/enums';
 import { IStudentCard } from '@app/types';
-import { IStudent } from '@pages/students/studentsList/StudentsList';
+import { IStudent } from '@pages/class/studentsList/StudentsList';
 import goodJobClass from '@svgs/studentsIcon/goodJobClass.svg';
 import participationCompetitions from '@svgs/studentsIcon/participationCompetitions.svg';
 import participationOlympiad from '@svgs/studentsIcon/participationOlympiad.svg';

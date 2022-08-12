@@ -1,0 +1,67 @@
+
+.container {
+  height: 100%;
+  background: url(../../../../public/svgs/pages/lamp-bg.svg) right center no-repeat;
+}
+
+.main {
+  display: grid;
+  grid-template: 250px 80px 295px auto/ 965px 440px;
+  row-gap: 10px;
+  column-gap: 20px;
+  padding: 25px 20px 20px;
+
+  @media (max-width: 1550px) {
+    grid-template: 250px 80px 410px auto/ 965px 440px;
+  }
+
+  @media (max-width: 1280px) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (max-width: 550px) {
+    padding: 30px 10px;
+  }
+}
+
+.keepPlaying {
+  grid-row: span 4;
+}
+
+.customInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @media (max-width: 800px) {
+    width: 500px;
+    height: 400px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 550px) {
+    width: 390px;
+    height: 300px;
+  }
+
+  @media (max-width: 550px) {
+    width: 100%;
+    height: 100%;
+  }
+
+  h3 {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 49px;
+    color: #3E77B1;
+
+    @media (max-width: 550px) {
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+    }
+  }
+}

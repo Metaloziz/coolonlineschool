@@ -1,40 +1,20 @@
 import { FC } from 'react';
 
 import { SidebarNavItem } from '@components';
-import { Routes } from '@constants/Routes';
+import { useMenu } from '@hooks';
 
 import cl from './SidebarNav.module.scss';
 
 const SidebarNav: FC = () => {
-  const { Index, Payment, Results, Achievements, Contacts, Games, Schedule } = Routes;
-  const links = [
-    { label: 'Главная', href: Index, svgId: 'home' },
-    {
-      label: 'Расписание занятий',
-      href: Schedule,
-      svgId: 'schedule',
-    },
-    {
-      label: 'Ваши достижения',
-      href: Achievements,
-      svgId: 'achievements',
-    },
-    { label: 'Ваши результаты', href: Results, svgId: 'results' },
-    { label: 'Игры', href: Games, svgId: 'games' },
-    {
-      label: 'Личные данные',
-      href: Contacts,
-      svgId: 'personalData',
-    },
-    { label: 'Оплата', href: Payment, svgId: 'payment' },
-  ] as const;
+  const links = useMenu();
+
   return (
     <aside className={cl.sidebar}>
       <nav>
         {links.map(link => (
           <SidebarNavItem
             svgId={link.svgId}
-            key={link.svgId}
+            key={link.label}
             link={link}
             wrapperClassName={cl.linkWrapper}
             imageClassName={cl.linkImage}

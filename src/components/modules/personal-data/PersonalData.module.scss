@@ -1,0 +1,8 @@
+@import "src/styles/global";
+.innerContent {
+  margin: 35px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background: url(../../../../public/svgs/pages/abacus-bg.svg) right calc(100% - 85px) no-repeat;
+}
