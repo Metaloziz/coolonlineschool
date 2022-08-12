@@ -18,3 +18,4 @@ export const lvlGame: string;
 export const startLesson: string;
 export const endLesson: string;
 export const statusSelect: string;
+export const calendarLessons: string;
