@@ -3,8 +3,7 @@ import { useState } from 'react';
 import { TextFieldCalendar } from '@components';
 import { InformationItem } from '@components/elements';
 import CustomButton from '@components/elements/custom-button/CustomButton';
-
-import styles from './ModalLessonEditing.module.scss';
+import styles from 'src/components/elements/modals/modal-lesson-editing/ModalLessonEditing.module.scss';
 
 const ModalLessonEditing = () => {
   const [isShow, setShow] = useState(false);
