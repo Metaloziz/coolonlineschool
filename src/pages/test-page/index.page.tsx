@@ -1,4 +1,4 @@
-import ModalLessonEditing from '@components/modal-lesson-editing/ModalLessonEditing';
+import ModalLessonEditing from '@components/elements/modals/modal-lesson-editing/ModalLessonEditing';
 
 const TestPage = () => (
   <>
