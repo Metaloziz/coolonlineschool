@@ -1,7 +1,7 @@
 import bad from '@svgs/404.svg';
 import Image from 'next/image';
 
-import cl from './404.module.scss';
+import cl from './404/404.module.scss';
 
 const Custom404 = () => (
   <div className={cl.customInner}>
