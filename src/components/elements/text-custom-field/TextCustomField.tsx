@@ -17,7 +17,6 @@ const TextCustomField = (props: Props) => {
       {label && <div className={ln === 1 ? styles.labelParent : styles.label}>{label}</div>}
       <div style={{ width }}>
         <input {...rest} onChange={onChange} value={value} type={type || 'text'} />
-        {error && <p className={styles.error}>{error}</p>}
       </div>
     </div>
   );

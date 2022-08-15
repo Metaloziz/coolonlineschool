@@ -1,3 +1,5 @@
+export const select: string;
+export const defaultSelect: string;
 export const error: string;
 export const label: string;
 export const labelAfter: string;

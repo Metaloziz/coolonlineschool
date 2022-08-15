@@ -105,6 +105,7 @@
     border-radius: 10px !important;
     min-height: 40px !important;
     cursor: pointer;
+    color: #070707;
   }
 
   svg {
@@ -132,4 +133,8 @@
     font-weight: 600;
     transform: translate(-50%);
   }
+}
+
+.select{
+  font-size: 14px;
 }
