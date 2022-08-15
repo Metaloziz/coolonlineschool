@@ -6,7 +6,13 @@ import TextCustomField from '@components/elements/text-custom-field/TextCustomFi
 import avatar from '@images/pervoklasnik/pervoklasnin 1.png';
 import { observer } from 'mobx-react-lite';
 import Image from 'next/image';
-import { Control, Controller, DeepRequired, FieldErrorsImpl } from 'react-hook-form';
+import {
+  Control,
+  Controller,
+  DeepRequired,
+  FieldErrorsImpl,
+  UseFormRegister,
+} from 'react-hook-form';
 import * as yup from 'yup';
 
 import { groupOptions, roleOptions, sexOptions, teacherOptions } from '../ModalAddUser';
@@ -17,6 +23,7 @@ type Props = {
   onCloseModal: () => void;
   control: Control<AddUserType, object>;
   errors: FieldErrorsImpl<DeepRequired<AddUserType>>;
+  register: UseFormRegister<AddUserType>;
 };
 
 type SexType = { label: SexEnum; value: SexEnum };
@@ -38,7 +45,7 @@ export type AddUserType = {
 };
 
 const FormAddUser: FC<Props> = props => {
-  const { control, errors } = props;
+  const { control, errors, register } = props;
 
   return (
     <div className={styles.wrapper}>
@@ -60,6 +67,7 @@ const FormAddUser: FC<Props> = props => {
             )}
             control={control}
           />
+          <div className={styles.errors}>{errors.middleName?.message}</div>
           <Controller
             name="firstName"
             render={({ field }) => (
@@ -72,6 +80,7 @@ const FormAddUser: FC<Props> = props => {
             )}
             control={control}
           />
+          <div className={styles.errors}>{errors.firstName?.message}</div>
           <Controller
             name="lastName"
             render={({ field }) => (
@@ -84,13 +93,17 @@ const FormAddUser: FC<Props> = props => {
             )}
             control={control}
           />
+          <div className={styles.errors}>{errors.lastName?.message}</div>
           <div className={styles.table__select}>
             <Controller
+              rules={{ required: true }}
               name="sex"
               render={({ field }) => (
                 <SimpleSelect
                   {...field}
+                  register={register}
                   title="Пол:"
+                  placeholder="Пол"
                   options={sexOptions}
                   error={errors.sex?.message}
                 />
@@ -103,13 +116,18 @@ const FormAddUser: FC<Props> = props => {
                 <SimpleSelect
                   {...field}
                   title="Роль:"
+                  placeholder="Ваша роль"
                   options={roleOptions}
-                  // @ts-ignore
-                  error={errors.sex?.message}
+                  // // @ts-ignore
+                  // error={errors.sex?.message}
                 />
               )}
               control={control}
             />
+          </div>
+          <div className={styles.selectError}>
+            <div className={styles.errors}>{errors.sex?.message}</div>
+            <div className={styles.errors}>{errors.role?.message}</div>
           </div>
           <Controller
             name="city"
@@ -123,6 +141,7 @@ const FormAddUser: FC<Props> = props => {
             )}
             control={control}
           />
+          <div className={styles.errors}>{errors.city?.message}</div>
           <Controller
             name="phone"
             render={({ field }) => (
@@ -135,97 +154,37 @@ const FormAddUser: FC<Props> = props => {
             )}
             control={control}
           />
-          <div className={styles.table__row}>
-            <div className={styles.table__column}>
-              <div className={styles.table__birthdate}>
-                <Controller
-                  name="birthdate"
-                  render={({ field }) => (
-                    <TextCustomField
-                      width="140px"
-                      {...field}
-                      label="Дата рождения:"
-                      error={errors.birthdate?.message}
-                    />
-                  )}
-                  control={control}
+          <div className={styles.errors}>{errors.phone?.message}</div>
+          <div className={styles.table__birthdate}>
+            <Controller
+              name="birthdate"
+              render={({ field }) => (
+                <TextCustomField
+                  width="400px"
+                  {...field}
+                  label="Дата рождения:"
+                  error={errors.birthdate?.message}
                 />
-              </div>
-              <div className={styles.table__teacher}>
-                <Controller
-                  name="teacher"
-                  render={({ field }) => (
-                    <SimpleSelect
-                      {...field}
-                      title="Учитель:"
-                      options={teacherOptions}
-                      error={errors.teacher?.message}
-                    />
-                  )}
-                  control={control}
-                />
-              </div>
-              <div className={styles.table__payform}>
-                <Controller
-                  name="payForm"
-                  render={({ field }) => (
-                    <TextCustomField
-                      {...field}
-                      width="95px"
-                      label="Оплачено с:"
-                      error={errors.payForm?.message}
-                    />
-                  )}
-                  control={control}
-                />
-              </div>
-            </div>
-            <div className={styles.table__column}>
-              <div className={styles.table__email}>
-                <Controller
-                  name="email"
-                  render={({ field }) => (
-                    <TextCustomField
-                      {...field}
-                      width="140px"
-                      label="Почта:"
-                      error={errors.email?.message}
-                    />
-                  )}
-                  control={control}
-                />
-              </div>
-              <div className={styles.table__group}>
-                <Controller
-                  name="group"
-                  render={({ field }) => (
-                    <SimpleSelect
-                      {...field}
-                      title="Группа:"
-                      options={groupOptions}
-                      error={errors.group?.message}
-                    />
-                  )}
-                  control={control}
-                />
-              </div>
-              <div className={styles.table__payby}>
-                <Controller
-                  name="payBy"
-                  render={({ field }) => (
-                    <TextCustomField
-                      ln={1}
-                      {...field}
-                      width="95px"
-                      label="Оплачено по:"
-                      error={errors.payBy?.message}
-                    />
-                  )}
-                  control={control}
-                />
-              </div>
-            </div>
+              )}
+              control={control}
+            />
           </div>
+          {errors.birthdate && <div className={styles.errors}>{errors.birthdate?.message}</div>}
+          <div className={styles.table__email}>
+            <Controller
+              name="email"
+              render={({ field }) => (
+                <TextCustomField
+                  {...field}
+                  width="400px"
+                  label="Почта:"
+                  error={errors.email?.message}
+                />
+              )}
+              control={control}
+            />
+          </div>
+          <div className={styles.errors}>{errors.email?.message}</div>
         </div>
       </div>
     </div>

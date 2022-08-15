@@ -1,6 +1,8 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
+import { AddUserType } from '@components/elements/modals/modal-add-user/form-user/FormAddUser';
 import cn from 'classnames';
+import { UseFormRegister } from 'react-hook-form';
 import Select, { ActionMeta, SingleValue } from 'react-select';
 import styles from 'src/components/elements/simple-select/SimpleSelect.module.scss';
 
@@ -14,14 +16,17 @@ interface Props {
   title?: string;
   error?: string;
   value?: Option;
+  register?: UseFormRegister<AddUserType>;
 }
 
 const SimpleSelect: FC<Props> = props => {
-  const { options, placeholder, className, onChange, title, value, error } = props;
+  const [currencyValue, setCurrencyValue] = useState<string | undefined>('');
+  const { options, placeholder, className, onChange, title, value, error, register } = props;
   // const id = new ();
   // const instanceId = useId();
   const handleChange = (v: SingleValue<Option> | null, actionMeta: ActionMeta<Option>) => {
     v && onChange && onChange(v);
+    setCurrencyValue(v?.value);
   };
   return (
     <div className={cn(styles.selectWrap, className)}>
@@ -40,13 +45,10 @@ const SimpleSelect: FC<Props> = props => {
         }
       >
         <Select
-          // id={id}
-          // instanceId={instanceId}
-
-          placeholder="dsd"
+          className={styles.select}
+          placeholder={placeholder}
           options={options}
           onChange={handleChange}
-          value={value}
           components={{ IndicatorSeparator: () => null }}
         />
         {error && <p className={styles.error}>{error}</p>}

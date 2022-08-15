@@ -16,7 +16,7 @@ export type RequestUsersType = {
   sex: boolean;
 };
 
-class usersStore {
+class UsersStore {
   constructor() {
     makeAutoObservable(this);
   }
@@ -49,5 +49,4 @@ class usersStore {
   }
 }
 
-// eslint-disable-next-line new-cap
-export const users = new usersStore();
+export const users = new UsersStore();

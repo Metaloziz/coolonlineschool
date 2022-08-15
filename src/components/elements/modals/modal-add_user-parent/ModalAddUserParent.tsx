@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 import { ModalBasic } from '@components';
 import CustomButton from '@components/elements/custom-button/CustomButton';
-import FormAddUser from '@components/elements/modals/modal-add-user/form-user/FormAddUser';
 import styles from '@components/elements/modals/modal-add_user-parent/ModalAddUserParent.module.scss';
+import FormUser from 'src/components/elements/modals/modal-add_user-parent/form-user/FormUser';
 
 import FormParent from './form-parent/FormParent';
 
@@ -23,7 +23,7 @@ const ModalAddUserParent = ({ closeMode, setOpen, open }: ModalAddUserParentProp
   return (
     <ModalBasic isVisibility={open} changeVisibility={setOpen}>
       <div className={styles.modal}>
-        <FormAddUser onCloseModal={closeMode} />
+        <FormUser onCloseModal={closeMode} />
         {person.map((m, index) => (
           <div key={index}>
             <div className={styles.line} />
@@ -33,7 +33,7 @@ const ModalAddUserParent = ({ closeMode, setOpen, open }: ModalAddUserParentProp
         <div onClick={addParent} className={styles.button}>
           <span />
         </div>
-        <CustomButton title="Сохранить" />
+        <CustomButton type="button" title="Сохранить" />
       </div>
     </ModalBasic>
   );

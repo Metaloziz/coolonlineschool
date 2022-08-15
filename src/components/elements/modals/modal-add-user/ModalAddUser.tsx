@@ -4,6 +4,7 @@ import { SexEnum } from '@app/enums';
 import { users } from '@app/store/usersStore';
 import { ModalBasic } from '@components';
 import CustomButton from '@components/elements/custom-button/CustomButton';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { observer } from 'mobx-react-lite';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -21,7 +22,6 @@ export const roleOptions = [
   { label: 'Ученик', value: 'student' },
   { label: 'Учитель', value: 'teacher' },
   { label: 'Администратор', value: 'franchiseeAdmin' },
-  { label: 'Франшиза', value: 'franchisee' },
 ];
 
 export const teacherOptions = [
@@ -60,25 +60,21 @@ const schema = yup.object().shape({
   firstName: yup.string().required('Обязательное поле'),
   middleName: yup.string().required('Обязательное поле'),
   lastName: yup.string().required('Обязательное поле'),
-  role: yup.object().required('Обязательное поле'),
-  sex: yup.object().required('Обязательное поле'),
-  city: yup.object().required('Обязательное поле'),
-  // phone: yup.string().required('Обязательное поле'), // todo как сделать не обязательным ?
+  role: yup.object().required('поле'),
+  sex: yup.object().required('dsds'),
+  city: yup.string().required('Обязательное поле'),
+  phone: yup.string().required('Обязательное поле'), // todo как сделать не обязательным ?
   birthdate: yup.string().required('Обязательное поле'),
-  // email: yup.string().required('Обязательное поле').email(), // todo как сделать не обязательным ?
-  // group: yup.object().required('Обязательное поле'),
-  // teacher: yup.string().required('Обязательное поле'),
+  email: yup.string().required('Обязательное поле').email(), // todo как сделать не обязательным ?
 });
 
 const ModalAddUser = ({ closeMode, setOpen, open }: ModalAddUserParentPropsType) => {
   const {
+    register,
     handleSubmit,
     control,
-    reset,
     formState: { errors },
-    watch,
-    // } = useForm({ resolver: yupResolver(schema), defaultValues });
-  } = useForm({ defaultValues });
+  } = useForm({ defaultValues, resolver: yupResolver(schema) });
 
   const onSubmit: SubmitHandler<AddUserType> = data => {
     users.createUser(data);
@@ -88,7 +84,12 @@ const ModalAddUser = ({ closeMode, setOpen, open }: ModalAddUserParentPropsType)
     <ModalBasic isVisibility={open} changeVisibility={setOpen}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.modal}>
-          <FormAddUser control={control} errors={errors} onCloseModal={closeMode} />
+          <FormAddUser
+            register={register}
+            control={control}
+            errors={errors}
+            onCloseModal={closeMode}
+          />
         </div>
         <div className={styles.button}>
           <CustomButton type="submit" title="Сохранить" />
