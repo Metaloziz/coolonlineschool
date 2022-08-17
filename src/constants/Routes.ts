@@ -23,6 +23,8 @@ export const Routes = {
   Rate: '/rate',
   EditRate: '/rate/[rateId]',
   NewRate: '/rate/new',
-
   TestPage: '/test-page',
+  CheckingHomework: '/checking-homework',
+  UserList: '/user',
+  StudentCard: '/student-card',
 };

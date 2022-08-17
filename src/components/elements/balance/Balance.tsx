@@ -71,6 +71,7 @@ const Balance: FC<IBalance> = ({
           Сменить тариф
         </Button>
         <SwitchButton
+          size="small"
           label="Автопополнение"
           name="auto-replenishment"
           isChecked={isChecked}

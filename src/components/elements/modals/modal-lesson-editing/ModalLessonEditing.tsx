@@ -1,9 +1,10 @@
 import { useState } from 'react';
 
 import { TextFieldCalendar } from '@components';
-import { InformationItem } from '@components/elements';
 import CustomButton from '@components/elements/custom-button/CustomButton';
-import styles from 'src/components/elements/modals/modal-lesson-editing/ModalLessonEditing.module.scss';
+import InformationItem from '@components/elements/information-item/InformationItem';
+
+import styles from './ModalLessonEditing.module.scss';
 
 const ModalLessonEditing = () => {
   const [isShow, setShow] = useState(false);
@@ -36,11 +37,12 @@ const ModalLessonEditing = () => {
           </div>
           <div className={styles.lessonBtn}>
             <CustomButton
+              type="button"
               title="Редактировать урок"
               className={styles.btnEdit}
               onClick={toggleShow}
             />
-            <CustomButton title="Сохранить" className={styles.btnSave} />
+            <CustomButton type="button" title="Сохранить" className={styles.btnSave} />
           </div>
         </div>
       )}
@@ -69,7 +71,7 @@ const ModalLessonEditing = () => {
               <p>Уровень группы</p>
               <InformationItem variant="select" placeholder="Активен" className={styles.lvlGame} />
             </div>
-            <CustomButton title="Сохранить" className={styles.btnSave} />
+            <CustomButton type="button" title="Сохранить" className={styles.btnSave} />
           </div>
         </div>
       )}

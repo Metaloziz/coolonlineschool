@@ -75,7 +75,7 @@ export type ResponseRegister = {
   studentMiddleName: string;
   studentLastName: string;
   city: string;
-  birthdate: Date;
+  birthdate: string;
   studentSex: boolean;
   smsCode: number;
 };

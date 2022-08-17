@@ -128,12 +128,11 @@ class AuthStore {
           console.log(res.data.error);
         }
         if (res.data.result) {
+          runInAction(() => {
+            this.isRegister = true;
+          });
           console.log(res.data.result);
         }
-
-        runInAction(() => {
-          this.isRegister = true;
-        });
         console.log(res);
       }
     } catch (error) {

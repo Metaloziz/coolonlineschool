@@ -21,6 +21,8 @@ class AppStore {
 
   role: Roles = Roles.Unauthorized;
 
+  error: Nullable<string> = null;
+
   constructor() {
     makeAutoObservable(this);
   }
@@ -40,6 +42,10 @@ class AppStore {
   setRole = (role: Roles): void => {
     this.role = role;
   };
+
+  setError(error: Nullable<string>) {
+    this.error = error;
+  }
 }
 
 export const appStore = new AppStore();
