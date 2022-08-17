@@ -19,4 +19,6 @@ export const Routes = {
   SingleGame: '/single-game',
   TestPage: '/test-page',
   CheckingHomework: '/checking-homework',
+  UserList: '/user',
+  StudentCard: '/student-card',
 };

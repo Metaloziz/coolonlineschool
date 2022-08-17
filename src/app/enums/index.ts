@@ -16,6 +16,10 @@ export enum StudentStatuses {
   beginner = 'Новичок',
 }
 
+export enum UsersStatuses {
+  student = 'Ученик',
+}
+
 export enum TeacherStatuses {
   active = 'active',
 }

@@ -3,6 +3,7 @@ import { FC, useState } from 'react';
 import { ButtonColorThemes } from '@app/enums';
 import { auth } from '@app/store/authStore';
 import { Button, CustomSelect, Input, Slider } from '@components';
+import ModalBasic from '@components/elements/modals/modal-basic/ModalBasic';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { sexParents } from '@mock/moks-data-select';
 import { convert } from '@utils/convert';
@@ -11,6 +12,7 @@ import { SubmitHandler, useForm, Controller } from 'react-hook-form';
 import * as yup from 'yup';
 
 import InformationItem from '../information-item/InformationItem';
+import ModalSmsCode from '../modals/modal-sms-code/ModalSmsCode';
 
 import cl from './RegistrationData.module.scss';
 
@@ -56,6 +58,7 @@ interface Props {
 
 const RegistrationData: FC<Props> = ({ className }) => {
   const [isReady, setIsReady] = useState<number>(1);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const schema = yup.object().shape({
     parentsLastName: yup.string().required('Обязательное поле').min(3),
@@ -106,10 +109,23 @@ const RegistrationData: FC<Props> = ({ className }) => {
     mode: 'onBlur',
   });
 
-  const onSubmit: SubmitHandler<RegisterData> = async data => {
-    await auth.register(convert(data));
-    // reset();
+  const [saveData, setSaveData] = useState<RegisterData | null>(null);
+
+  const handlerGetCode = async (userCode: number) => {
+    if (saveData) {
+      const convertedData = convert(saveData);
+      await auth.register({ ...convertedData, smsCode: userCode, speciality: 'reading' });
+    }
   };
+
+  const onSubmit: SubmitHandler<RegisterData> = async data => {
+    if (isValid) {
+      setSaveData(data);
+      await auth.sms(data.parentsPhone);
+      setShowModal(true);
+    }
+  };
+
   return (
     <div className={cn(cl.container, className)}>
       <div className={cl.sliderBlock}>
@@ -285,6 +301,9 @@ const RegistrationData: FC<Props> = ({ className }) => {
           Зарегестрироваться
         </Button>
       </form>
+      <ModalBasic isVisibility={showModal} changeVisibility={setShowModal}>
+        <ModalSmsCode onClose={() => setShowModal(false)} getCode={handlerGetCode} />
+      </ModalBasic>
     </div>
   );
 };

@@ -1,0 +1,221 @@
+@import "src/styles/global";
+
+.innerContent {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 36px;
+
+  @media (max-width: 900px) {
+    flex-wrap: wrap;
+  }
+
+  > div {
+    width: 33%;
+    padding: 0 10px;
+
+    @media (max-width: 900px) {
+      width: 100%;
+      padding: 0;
+
+      + div {
+        margin-top: 15px;
+      }
+    }
+
+    .block + .block {
+      margin-top: 15px;
+    }
+
+    .block {
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+
+      @media (max-width: 1280px) {
+        justify-content: space-evenly;
+      }
+
+      p {
+        flex: 0 0 26%;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: #000000;
+
+        @media (max-width: 1280px) {
+          margin-bottom: 10px;
+          flex: 0;
+        }
+      }
+
+      .selectBlock {
+        > div:first-child {
+          display: none;
+        }
+
+        > div {
+          width: 100%;
+
+          @media (max-width: 1280px) {
+            > div > div {
+              width: 100%;
+            }
+          }
+        }
+
+        @media (max-width: 1280px) {
+          width: 100%;
+        }
+      }
+
+      .inputBlock {
+        > div:first-child {
+          display: none;
+        }
+
+        > div {
+          width: 265px;
+        }
+      }
+
+      .btnGreen {
+        width: 130px;
+        height: 40px;
+        margin-right: 10px;
+
+        @media (max-width: 550px) {
+          margin-bottom: 15px;
+        }
+      }
+
+      .btnBlue {
+        width: 215px;
+        height: 40px;
+      }
+    }
+
+    @media (max-width: 1280px) {
+      .dataCalendar {
+        width: 100%;
+
+        > div:first-child {
+          width: 90%;
+        }
+
+        > div:nth-child(2) {
+          width: 10%;
+        }
+
+        > div {
+          column-gap: 0;
+        }
+
+        > div > input {
+          width: 100%;
+        }
+      }
+    }
+
+    @media (max-width: 1280px) {
+      .birthTextField {
+        width: 100%;
+
+        > div:first-child {
+          width: 90%;
+        }
+
+        > div:nth-child(2) {
+          width: 10%;
+        }
+
+        > div {
+          column-gap: 0;
+        }
+
+        > div > input {
+          width: 100%;
+        }
+      }
+    }
+
+    @media (max-width: 1280px) {
+      .inputBlock {
+        width: 100%;
+
+        > div {
+          width: 100% !important;
+        }
+      }
+    }
+
+    @media (max-width: 1280px) {
+      .dataBlock {
+        flex-direction: column;
+      }
+      .choiceBlock {
+        flex-direction: column;
+      }
+      .addressBlock {
+        flex-direction: column;
+      }
+      .paidBlock {
+        flex-direction: column;
+      }
+      .roleBlock {
+        flex-direction: column;
+      }
+      .birthBlock {
+        flex-direction: column;
+      }
+      .nameBlock {
+        flex-direction: column;
+      }
+      .hideBlock {
+        display: none;
+      }
+    }
+  }
+
+  .activeBlock {
+
+    @media (max-width: 1280px) {
+      min-height: 67px !important;
+      align-items: flex-end !important;
+    }
+
+    @media (max-width: 900px) {
+      min-height: auto !important;
+    }
+
+    @media (max-width: 550px) {
+      align-items: center !important;
+      p {
+        margin: 0 !important;
+      }
+
+    }
+  }
+
+  .switchBlock {
+    margin: 0 10px;
+  }
+
+  .btnBlock {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 1280px) {
+      min-height: 67px !important;
+      align-items: flex-end !important;
+    }
+
+    @media (max-width: 900px) {
+      min-height: auto !important;
+    }
+
+    @media (max-width: 550px) {
+      flex-direction: column;
+      align-items: center !important;
+    }
+  }
+}

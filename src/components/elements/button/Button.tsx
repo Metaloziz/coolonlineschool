@@ -22,7 +22,7 @@ const Button: FC<IButton> = ({
   return (
     <button type="button" {...attrs} className={btnClassNames}>
       <b>{children}</b>
-      {icon}
+      <i>{icon}</i>
     </button>
   );
 };

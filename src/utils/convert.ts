@@ -1,5 +1,6 @@
 import { ResponseRegister } from '@app/types/AuthType';
 import { RegisterData, SexEnum } from '@components/elements/registration-data/RegistrationData';
+import { formatDate } from '@utils/FormateDate';
 
 export const convert = (value: RegisterData) => {
   const convertType: ResponseRegister = {} as ResponseRegister;
@@ -13,12 +14,12 @@ export const convert = (value: RegisterData) => {
   convertType.studentLastName = value.studentsLastName;
   convertType.city = value.studentsCity;
   if (value.studentsBirthDate) {
-    convertType.birthdate = value.studentsBirthDate;
+    convertType.birthdate = formatDate(value.studentsBirthDate);
   }
   convertType.parentSex = value.parentSex === SexEnum.Male;
   convertType.studentSex = value.studentSex === SexEnum.Male;
-  if (value.codeTariff) {
-    convertType.smsCode = value.codeTariff;
-  }
+  // if (value.codeTariff) {
+  //   convertType.smsCode = value.codeTariff;
+  // }
   return convertType;
 };

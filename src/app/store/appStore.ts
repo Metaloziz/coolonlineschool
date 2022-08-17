@@ -18,6 +18,7 @@ class AppStore {
   errorMessage: Nullable<string> = null;
 
   successMessage: Nullable<string> = null;
+
   role: Roles = Roles.Unauthorized;
 
   error: Nullable<string> = null;
@@ -37,6 +38,7 @@ class AppStore {
   setSuccessMessage = (message: Nullable<string>) => {
     this.successMessage = message;
   };
+
   setRole = (role: Roles): void => {
     this.role = role;
   };

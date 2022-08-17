@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import { ButtonColorThemes } from '@app/enums';
 import { auth } from '@app/store/authStore';
@@ -8,11 +8,15 @@ import { useReverseTimer } from '@hooks/useReverseTimer';
 import { observer } from 'mobx-react-lite';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
-import styles from './CodeLogin.module.scss';
+import styles from './ModalSmsCode.module.scss';
 
-const CodeLogin = () => {
-  const { phone, setPhone, isLoading, code, sms } = auth;
+interface Props {
+  onClose?: () => void;
+  getCode?: (userCode: number) => void;
+}
 
+const ModalSmsCode: FC<Props> = ({ getCode, onClose }) => {
+  const { phone, isLoading, code, sms } = auth;
   const { seconds, startTimer, clearTimer } = useReverseTimer(60);
 
   const {
@@ -24,12 +28,14 @@ const CodeLogin = () => {
   });
 
   const onSubmit: SubmitHandler<{ userCode: number }> = async ({ userCode }) => {
-    phone && (await auth.login(userCode, phone));
-    clearTimer();
-  };
-
-  const onRenterPhoneClick = () => {
-    setPhone(null);
+    try {
+      if (getCode) {
+        phone && getCode(userCode);
+      }
+      onClose && onClose();
+    } finally {
+      clearTimer();
+    }
   };
 
   const onRequestAgainCodeClick = async () => {
@@ -38,9 +44,9 @@ const CodeLogin = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.wrapContent}>
-      <p className={styles.tempCode}>sms code:{code}</p>
-      <p>Ваш телефон </p>
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.innerContainer}>
+      <p className={styles.getSmsCode}>sms code:{code}</p>
+      <p>Ваш телефон</p>
       <h2>
         <InformationItem
           value={phone?.substring(1) || 'Ошибка'}
@@ -49,9 +55,6 @@ const CodeLogin = () => {
           displayType="text"
         />
       </h2>
-      <p className={styles.description} onClick={onRenterPhoneClick}>
-        Изменить номер телефона
-      </p>
       <p>Временный код</p>
 
       <Controller
@@ -66,12 +69,11 @@ const CodeLogin = () => {
             onBlur={onBlur}
             id="2"
             variant="pin"
-            className={styles.inputNumberBlock}
+            className={styles.codeBlock}
             placeholder="_ _ _ _"
           />
         )}
       />
-
       <Button
         type="submit"
         className={styles.button}
@@ -86,7 +88,7 @@ const CodeLogin = () => {
             Сообщение отправлено. Повторно вы сможете запросить код через {seconds} секунд.
           </p>
         ) : (
-          <p className={styles.code} onClick={onRequestAgainCodeClick}>
+          <p className={styles.sendCode} onClick={onRequestAgainCodeClick}>
             Выслать код повторно
           </p>
         )}
@@ -95,4 +97,4 @@ const CodeLogin = () => {
   );
 };
 
-export default observer(CodeLogin);
+export default observer(ModalSmsCode);

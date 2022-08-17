@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { TextFieldCalendar } from '@components';
 import CustomButton from '@components/elements/custom-button/CustomButton';
-import InformationItem from '@components/information-item/InformationItem';
+import InformationItem from '@components/elements/information-item/InformationItem';
 
 import styles from './ModalLessonEditing.module.scss';
 
