@@ -1,8 +1,8 @@
-import ModalLessonEditing from '@components/elements/modals/modal-lesson-editing/ModalLessonEditing';
+import Rate from '@components/modules/rate/Rate';
 
 const TestPage = () => (
   <>
-    <ModalLessonEditing />
+    <Rate />
   </>
 );
 
