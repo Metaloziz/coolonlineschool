@@ -8,7 +8,7 @@ interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
   colorTheme?: ButtonColorThemes;
   icon?: JSX.Element;
-  children: string;
+  children?: string;
 }
 
 const Button: FC<IButton> = ({

@@ -1,0 +1,258 @@
+.innerContent {
+  background: #FFFFFF;
+  box-shadow: 0px 20px 70px rgba(86, 89, 146, 0.1);
+  border-radius: 30px;
+  padding: 32px 216px 12px 46px;
+  max-width: 1667px;
+  flex: 0 0 !important;
+  @media (max-width: 1800px) {
+    padding: 30px;
+  }
+  @media (max-width: 550px) {
+    padding: 30px 10px;
+  }
+
+  .wrapBlock {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 900px) {
+      flex-direction: column;
+    }
+  }
+
+  p {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+    flex: 0 0 30%;
+
+    @media (max-width: 1100px) {
+      margin-bottom: 10px;
+      flex: 0 0 100%;
+    }
+  }
+
+  .infoBlock1 {
+    width: 47%;
+    @media (max-width: 900px) {
+      width: 100%;
+    }
+
+    .nameTarif {
+      display: flex;
+      align-items: center;
+      @media (max-width: 1100px) {
+        flex-direction: column;
+      }
+    }
+
+    .price {
+      width: 100%;
+
+      > div:first-child {
+        display: none;
+      }
+
+      > div {
+        width: 100%;
+
+        max-width: 100%;
+
+      }
+    }
+
+  }
+
+  .startLesson {
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+
+    @media (max-width: 1100px) {
+      flex-direction: column;
+      > div {
+        width: 100%;
+
+        > div:first-child {
+          width: 90%;
+        }
+
+        > div:nth-child(2) {
+          width: 10%;
+        }
+      }
+    }
+
+    .calendarLessons {
+      > div > input {
+        width: 150px;
+        @media (max-width: 1100px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .blockEndLesson {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 1100px) {
+      flex-direction: column;
+      > div {
+        width: 100%;
+
+        > div:first-child {
+          width: 90%;
+        }
+
+        > div:nth-child(2) {
+          width: 10%;
+        }
+      }
+    }
+
+    .endLesson {
+      > div > input {
+        width: 150px;
+        @media (max-width: 1100px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .infoBlock2 {
+    width: 32%;
+    @media (max-width: 900px) {
+      width: 100%;
+      margin: 15px 0;
+    }
+
+    .blockStatus {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+
+      @media (max-width: 1100px) {
+        flex-direction: column;
+        > div {
+          width: 100%;
+        }
+      }
+
+      .activeStatus {
+        > div {
+          width: 172px;
+          max-width: 172px;
+          @media (max-width: 1600px) {
+            max-width: 140px;
+            width: 140px;
+          }
+          @media (max-width: 1100px) {
+            width: 100%;
+            max-width: 100%;
+          }
+
+          > div > div {
+            width: 100%;
+          }
+        }
+
+        > div:first-child {
+          display: none;
+        }
+      }
+    }
+
+    .priceStart {
+      > div {
+        width: 150px;
+
+        @media (max-width: 1600px) {
+          width: 140px;
+        }
+        @media (max-width: 1500px) {
+          width: 130px;
+        }
+        @media (max-width: 1400px) {
+          width: 120px;
+        }
+        @media (max-width: 1300px) {
+          width: 100%;
+        }
+      }
+
+      > div:first-child {
+        display: none;
+      }
+    }
+
+    .endStart {
+      margin-left: 20px;
+
+      > div {
+        width: 150px;
+        @media (max-width: 1600px) {
+          width: 140px;
+        }
+        @media (max-width: 1500px) {
+          width: 130px;
+        }
+        @media (max-width: 1400px) {
+          width: 120px;
+        }
+        @media (max-width: 1300px) {
+          width: 100%;
+        }
+      }
+
+      > div:first-child {
+        display: none;
+      }
+    }
+  }
+
+  .blockPrice {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 1100px) {
+      flex-direction: column;
+    }
+
+    > div:last-child {
+      margin-top: 0;
+      @media (max-width: 1100px) {
+        margin-left: 0;
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+.infoBlock3 {
+  width: 130px;
+  margin-left: 10px;
+  @media (max-width: 1100px) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+  @media (max-width: 900px) {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  button {
+    width: 100%
+  }
+
+  .btnGreen {
+    margin-top: 15px;
+  }
+}
+
