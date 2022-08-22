@@ -125,6 +125,12 @@ class AuthStore {
       const res = await AuthService.register(formData);
       if (res.status === StatusCode.Success) {
         if (res.data.error) {
+          if (res.data.error === 'email is already in use') {
+            appStore.setErrorMessage('Этот email уже используется');
+          }
+          if (res.data.error === 'phone number is already in use') {
+            appStore.setErrorMessage('Этот номер телефона уже используется');
+          }
           console.log(res.data.error);
         }
         if (res.data.result) {

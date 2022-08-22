@@ -1,7 +1,6 @@
 import React, { FC, useState } from 'react';
 
 import { ButtonColorThemes } from '@app/enums';
-import styles from '@components/elements/modals/modal-basic/ModalBasic.module.scss';
 import Settings from '@components/elements/settings/Settings';
 import avatar from '@mock/public/avatar.png';
 import buttonClose from '@svgs/button-close.svg';

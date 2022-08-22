@@ -37,22 +37,22 @@ export const useMenu = () => {
     {
       label: 'Отчет',
       href: Report,
-      svgId: 'schedule',
+      svgId: 'report',
     },
     {
       label: 'Отчет учетеля',
       href: ReportTeacher,
-      svgId: 'schedule',
+      svgId: 'teacherReport',
     },
     {
       label: 'Группы',
       href: Class,
-      svgId: 'schedule',
+      svgId: 'groups',
     },
     {
       label: 'Статьи',
       href: Blogs,
-      svgId: 'schedule',
+      svgId: 'articles',
     },
     { label: 'Ваши результаты', href: Statistics, svgId: 'results' },
     { label: 'Игры', href: Games, svgId: 'games' },
@@ -64,9 +64,9 @@ export const useMenu = () => {
     {
       label: 'Настройки',
       href: Settings,
-      svgId: 'personalData',
+      svgId: 'settingIcon',
     },
-    { label: 'Тарифы', href: Rate, svgId: 'payment' },
+    { label: 'Тарифы', href: Rate, svgId: 'rate' },
   ];
 
   const linksTeacher: ItemMenuType[] = [
@@ -79,12 +79,12 @@ export const useMenu = () => {
     {
       label: 'Группы',
       href: Class,
-      svgId: 'schedule',
+      svgId: 'groups',
     },
     {
       label: 'Статьи',
       href: Blogs,
-      svgId: 'schedule',
+      svgId: 'articles',
     },
     { label: 'Ваши результаты', href: Statistics, svgId: 'results' },
     { label: 'Игры', href: Games, svgId: 'games' },
@@ -105,7 +105,7 @@ export const useMenu = () => {
     {
       label: 'Статьи',
       href: Blogs,
-      svgId: 'schedule',
+      svgId: 'articles',
     },
     {
       label: 'Ваши достижения',
