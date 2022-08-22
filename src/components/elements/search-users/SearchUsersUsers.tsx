@@ -7,13 +7,13 @@ import cn from 'classnames';
 
 import TextFieldCalendar from '../text-field-calendar/TextFieldCalendar';
 
-import cl from './AddUsers.module.scss';
+import cl from './SearchUsers.module.scss';
 
 interface Props {
   isAutoRefill?: boolean;
 }
 
-const AddUsers: FC<Props> = ({ isAutoRefill }) => {
+const SearchUsers: FC<Props> = ({ isAutoRefill }) => {
   const [isChecked, setIsChecked] = useState(isAutoRefill);
 
   const handleChange = () => {
@@ -80,4 +80,4 @@ const AddUsers: FC<Props> = ({ isAutoRefill }) => {
   );
 };
 
-export default AddUsers;
+export default SearchUsers;

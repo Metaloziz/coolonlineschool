@@ -25,6 +25,6 @@ export const Routes = {
   NewRate: '/rate/new',
   TestPage: '/test-page',
   CheckingHomework: '/checking-homework',
-  UserList: '/user',
+  UserList: '/users',
   StudentCard: '/student-card',
 };

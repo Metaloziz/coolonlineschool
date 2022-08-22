@@ -26,7 +26,6 @@ const SidebarNavItem: FC<Props> = ({
   const router = useRouter();
   const { label, href } = link;
   const isActive = router.asPath === href;
-
   const linkClassNames = classNames(className, isActive && activeClassName);
   return (
     <div className={wrapperClassName}>
