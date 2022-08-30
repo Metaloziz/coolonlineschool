@@ -122,6 +122,7 @@ export enum EditAddLabels {
 }
 
 export enum SexEnum {
+  None = 'None',
   Male = 'Мужской',
   Female = 'Женский',
 }

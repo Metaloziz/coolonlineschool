@@ -529,5 +529,14 @@
 }
 
 .selectError{
+  div{
+    margin: 15px 0 0 150px;
+    &:last-child{
+      margin: 15px 45px 0 0;
+    }
+  }
   display: flex;
+  width: 600px;
+  align-items: center;
+  justify-content: space-between;
 }

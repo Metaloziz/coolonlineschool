@@ -3,6 +3,7 @@ import { FC, useState } from 'react';
 import { AddUserType } from '@components/elements/modals/modal-add-user/form-user/FormAddUser';
 import cn from 'classnames';
 import { UseFormRegister } from 'react-hook-form';
+import { FieldError } from 'react-hook-form/dist/types';
 import Select, { ActionMeta, SingleValue } from 'react-select';
 import styles from 'src/components/elements/simple-select/SimpleSelect.module.scss';
 
@@ -14,7 +15,7 @@ interface Props {
   onChange?: (option: Option) => void;
   className?: string;
   title?: string;
-  error?: string;
+  error?: FieldError;
   value?: Option;
   register?: UseFormRegister<AddUserType>;
 }
@@ -51,7 +52,7 @@ const SimpleSelect: FC<Props> = props => {
           onChange={handleChange}
           components={{ IndicatorSeparator: () => null }}
         />
-        {error && <p className={styles.error}>{error}</p>}
+        {error?.message && <p className={styles.error}>{error.message}</p>}
       </div>
     </div>
   );

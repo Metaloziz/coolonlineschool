@@ -13,6 +13,7 @@ import {
   FieldErrorsImpl,
   UseFormRegister,
 } from 'react-hook-form';
+import Select from 'react-select';
 import * as yup from 'yup';
 
 import { groupOptions, roleOptions, sexOptions, teacherOptions } from '../ModalAddUser';
@@ -26,26 +27,25 @@ type Props = {
   register: UseFormRegister<AddUserType>;
 };
 
-type SexType = { label: SexEnum; value: SexEnum };
+export type SexType = { label: SexEnum; value: SexEnum };
 
 export type AddUserType = {
   firstName: string;
   middleName: string;
   lastName: string;
   role: { label: string; value: string };
+  group: { label: string; value: string };
   sex: SexType;
   city: string;
   phone: string;
   birthdate: string;
   email: string;
-  group: { label: string; value: string };
-  teacher: { label: string; value: string };
-  payForm: string;
-  payBy: string;
 };
 
 const FormAddUser: FC<Props> = props => {
   const { control, errors, register } = props;
+
+  const regex = /^([0-9]{2})\.([0-9]{2})\.([1-2][0-9]{3})$/;
 
   return (
     <div className={styles.wrapper}>
@@ -57,6 +57,7 @@ const FormAddUser: FC<Props> = props => {
         <div className={styles.table}>
           <Controller
             name="middleName"
+            rules={{ required: true }}
             render={({ field }) => (
               <TextCustomField
                 {...field}
@@ -70,6 +71,7 @@ const FormAddUser: FC<Props> = props => {
           <div className={styles.errors}>{errors.middleName?.message}</div>
           <Controller
             name="firstName"
+            rules={{ required: true }}
             render={({ field }) => (
               <TextCustomField
                 {...field}
@@ -83,9 +85,11 @@ const FormAddUser: FC<Props> = props => {
           <div className={styles.errors}>{errors.firstName?.message}</div>
           <Controller
             name="lastName"
-            render={({ field }) => (
+            rules={{ required: true }}
+            render={({ field, fieldState }) => (
               <TextCustomField
                 {...field}
+                {...fieldState}
                 label="Отчество:"
                 width="400px"
                 error={errors.lastName?.message}
@@ -96,16 +100,16 @@ const FormAddUser: FC<Props> = props => {
           <div className={styles.errors}>{errors.lastName?.message}</div>
           <div className={styles.table__select}>
             <Controller
-              rules={{ required: true }}
               name="sex"
-              render={({ field }) => (
+              rules={{ required: true }}
+              render={({ field, fieldState }) => (
                 <SimpleSelect
                   {...field}
+                  {...fieldState}
                   register={register}
                   title="Пол:"
                   placeholder="Пол"
                   options={sexOptions}
-                  error={errors.sex?.message}
                 />
               )}
               control={control}
@@ -113,21 +117,21 @@ const FormAddUser: FC<Props> = props => {
             <Controller
               name="role"
               render={({ field }) => (
+                // <Select {...field} placeholder="sddsa" options={roleOptions} {...errors.role?.message} />
                 <SimpleSelect
                   {...field}
                   title="Роль:"
                   placeholder="Ваша роль"
                   options={roleOptions}
-                  // // @ts-ignore
-                  // error={errors.sex?.message}
+                  {...errors.role?.message}
                 />
               )}
               control={control}
             />
           </div>
           <div className={styles.selectError}>
-            <div className={styles.errors}>{errors.sex?.message}</div>
-            <div className={styles.errors}>{errors.role?.message}</div>
+            <div className={styles.errors}>{errors.sex && 'Обязательное поле'}</div>
+            <div className={styles.errors}>{errors.role && 'Обязательное поле'}</div>
           </div>
           <Controller
             name="city"
@@ -185,6 +189,20 @@ const FormAddUser: FC<Props> = props => {
             />
           </div>
           <div className={styles.errors}>{errors.email?.message}</div>
+          <Controller
+            name="group"
+            render={({ field }) => (
+              // <Select {...field} placeholder="sddsa" options={roleOptions} {...errors.role?.message} />
+              <SimpleSelect
+                {...field}
+                title="Группа:"
+                placeholder="Ваша группа"
+                options={groupOptions}
+                {...errors.role?.message}
+              />
+            )}
+            control={control}
+          />
         </div>
       </div>
     </div>

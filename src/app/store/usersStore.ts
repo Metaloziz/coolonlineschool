@@ -1,20 +1,10 @@
 import { SexEnum } from '@app/enums';
-import { ResponceUsersType, userService } from '@app/services/userService';
+import { RequestUser, ResponceUsersType, userService } from '@app/services/userService';
 import { AddUserType } from '@components/elements/modals/modal-add-user/form-user/FormAddUser';
 import { AxiosError } from 'axios';
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, runInAction } from 'mobx';
 
-export type RequestUsersType = {
-  phone: string;
-  email: string;
-  role: string;
-  firstName: string;
-  lastName: string;
-  middleName: string;
-  city: string;
-  birthdate: string;
-  sex: boolean;
-};
+import { appStore } from './appStore';
 
 class UsersStore {
   constructor() {
@@ -38,13 +28,42 @@ class UsersStore {
       birthdate: data.birthdate,
       sex: data.sex.value === SexEnum.Male,
       middleName: data.middleName,
+      groups: [data.group.label],
     };
     try {
       const res = await userService.createUser(dataRequest);
       this.addUser(res.data);
     } catch (e) {
-      const { message } = e as AxiosError;
-      console.log(message);
+      const { error } = e as { error: string };
+      if (error === 'insufficient rights') {
+        appStore.setErrorMessage('Этот номер телефона уже используется');
+      }
+      console.log(error);
+      // runInAction(() => {
+      //   appStore.setErrorMessage(JSON.stringify(e));
+      // });
+    }
+  }
+
+  async editUser(data: AddUserType, id: string) {
+    const dataRequest = {
+      phone: !data.phone ? null : data.phone,
+      email: !data.email ? null : data.email,
+      role: data.role.label === '0' ? null : data.role.value,
+      firstName: !data.firstName ? null : data.firstName,
+      lastName: !data.lastName ? null : data.lastName,
+      city: !data.lastName ? null : data.city,
+      birthdate: !data.birthdate ? null : data.birthdate,
+      sex: data.sex.label === 'None' ? null : data.sex.value === SexEnum.Male,
+      middleName: !data.middleName ? null : data.middleName,
+      groups: data.group.label === '0' ? null : [data.group.label],
+    };
+    try {
+      const res = await userService.editUser(dataRequest, id);
+    } catch (e) {
+      runInAction(() => {
+        appStore.setErrorMessage(JSON.stringify(e));
+      });
     }
   }
 }
