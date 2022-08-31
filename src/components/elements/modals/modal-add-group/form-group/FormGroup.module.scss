@@ -1,0 +1,66 @@
+.wrapper{
+  width: 550px;
+  @media(max-width: 600px){
+    width: 450px;
+    padding: 10px;
+  }
+  @media(max-width: 500px){
+    width: 300px;
+    padding: 0;
+  }
+}
+.title{
+  margin: 0 0 10px 0;
+}
+.box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 14px 0;
+
+
+
+  @media(max-width: 500px){
+      flex-direction: column;
+    & > div {
+      margin: 0 0 10px 0;
+    }
+  }
+}
+
+.input {
+  width: 355px;
+}
+.select {
+  width: 355px;
+  & > div{
+    & > div{
+      background-color: rgba(192, 192, 232, 0.1);
+      & > div {
+        //box-shadow: 0 20px 70px rgba(86, 89, 146, 0.1);
+        border-radius: 10px;
+        //border: 1px solid #c73636;
+      }
+    }
+
+  }
+  & > div > div {
+    width: 100%;
+  }
+}
+@media(max-width: 600px){
+  .input {
+    width: 200px;
+  }
+  .select {
+    width: 200px;
+  }
+}
+
+.boxRight{
+
+}
+.error{
+  color: red;
+  height: 14px;
+}

@@ -1,0 +1,25 @@
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  align-items: center;
+  .title{
+    margin: 0 0 40px 0;
+  }
+
+  .addLevelBtn{
+    margin: 35px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button{
+      width: 286px;
+      background: linear-gradient(90deg, #0439AD 0%, #38028F 100%);
+    }
+  }
+  @media(max-width: 500px){
+    //flex-direction: row;
+  }
+}
+
+

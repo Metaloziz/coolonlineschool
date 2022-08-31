@@ -13,8 +13,6 @@ import {
   FieldErrorsImpl,
   UseFormRegister,
 } from 'react-hook-form';
-import Select from 'react-select';
-import * as yup from 'yup';
 
 import { groupOptions, roleOptions, sexOptions, teacherOptions } from '../ModalAddUser';
 
@@ -117,7 +115,6 @@ const FormAddUser: FC<Props> = props => {
             <Controller
               name="role"
               render={({ field }) => (
-                // <Select {...field} placeholder="sddsa" options={roleOptions} {...errors.role?.message} />
                 <SimpleSelect
                   {...field}
                   title="Роль:"
@@ -189,20 +186,22 @@ const FormAddUser: FC<Props> = props => {
             />
           </div>
           <div className={styles.errors}>{errors.email?.message}</div>
-          <Controller
-            name="group"
-            render={({ field }) => (
-              // <Select {...field} placeholder="sddsa" options={roleOptions} {...errors.role?.message} />
-              <SimpleSelect
-                {...field}
-                title="Группа:"
-                placeholder="Ваша группа"
-                options={groupOptions}
-                {...errors.role?.message}
-              />
-            )}
-            control={control}
-          />
+          <div className={styles.table__group}>
+            <Controller
+              name="group"
+              render={({ field }) => (
+                <SimpleSelect
+                  {...field}
+                  title="Группа:"
+                  placeholder="Ваша группа"
+                  options={groupOptions}
+                  {...errors.role?.message}
+                />
+              )}
+              control={control}
+            />
+          </div>
+          <div className={styles.errors}>{errors.email?.message}</div>
         </div>
       </div>
     </div>
