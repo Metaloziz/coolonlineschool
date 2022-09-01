@@ -1,4 +1,4 @@
-import { FC, forwardRef, memo, RefAttributes } from 'react';
+import { FC, FocusEventHandler, forwardRef, memo, RefAttributes } from 'react';
 
 import { getRandomId } from '@utils/RandomId';
 import classNames from 'classnames';
@@ -10,10 +10,11 @@ interface IInput extends RefAttributes<HTMLInputElement> {
   placeholder?: string;
   type?: string;
   id?: string;
+  onBlur?: FocusEventHandler<HTMLInputElement>;
 }
 
 const Input: FC<IInput> = memo(
-  forwardRef(({ labelText, type = 'text', className, placeholder, id, ...attrs }, ref) => {
+  forwardRef(({ labelText, type = 'text', onBlur, className, placeholder, id, ...attrs }, ref) => {
     const inputId = String(getRandomId());
 
     return (
@@ -23,6 +24,7 @@ const Input: FC<IInput> = memo(
         </label>
         <input
           {...attrs}
+          onBlur={onBlur}
           id={inputId}
           type={type}
           className={classNames(cl.input, className)}

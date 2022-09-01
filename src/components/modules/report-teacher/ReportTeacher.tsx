@@ -191,8 +191,9 @@ const ReportTeacher: FC = () => (
     </div>
     <div className={styles.pagination}>
       <CustomPagination
+        currentPage={1}
         paginate={() => true}
-        count={1}
+        perPage={1}
         next={() => true}
         prev={() => true}
         total={5}

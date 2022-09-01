@@ -23,8 +23,6 @@
       font-size: 14px;
       line-height: 17px;
       color: #BABEC6;
-      display: flex;
-      justify-content: space-between;
 
       + p {
         margin-top: 15px;
@@ -32,7 +30,7 @@
 
       span {
         color: #4778EC;
-        flex: 0 0 80%;
+        margin-left: 13px;
       }
     }
   }

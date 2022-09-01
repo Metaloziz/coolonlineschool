@@ -1,29 +1,50 @@
 import { FC } from 'react';
 
-import { UsersStatuses } from '@app/enums';
+import { users } from '@app/store/usersStore';
+import { ResponseSearchUser } from '@app/types/UserTypes';
+import CustomPagination from '@components/elements/custom-pagination/CustomPagination';
 import UserCard from '@components/elements/users/user-card/UserCard';
 
-export interface IUser {
-  id: string;
-  userName: string;
-  status: UsersStatuses;
-  city?: string;
-  phone: string;
-  teacher: string;
-  group: string;
-  isPaid?: boolean;
-}
+import styles from './UsersList.module.scss';
 
 interface IUsersList {
-  users: IUser[];
+  searchUsers: ResponseSearchUser[];
 }
 
-const UsersList: FC<IUsersList> = ({ users }) => (
-  <div>
-    {users.map(user => (
-      <UserCard key={user.id} user={user} />
-    ))}
-  </div>
-);
+const UsersList: FC<IUsersList> = ({ searchUsers }) => {
+  const { userTotalCount, perPage, page, requestUsers } = users;
+
+  const paginate = (pageNumber: number) => {
+    requestUsers({ page: pageNumber });
+  };
+  const nextPage = () => {
+    requestUsers({ page: page + 1 });
+  };
+  const prevPage = () => {
+    requestUsers({ page: page - 1 });
+  };
+
+  return (
+    <div>
+      {searchUsers.length === 0 ? (
+        <div className={styles.noBlocks}>
+          <h3>Пользователь не найден</h3>
+        </div>
+      ) : (
+        searchUsers.map(user => <UserCard key={user.id} user={user} />)
+      )}
+      <div className={styles.paginationList}>
+        <CustomPagination
+          currentPage={page}
+          paginate={paginate}
+          perPage={perPage}
+          next={nextPage}
+          prev={prevPage}
+          total={userTotalCount}
+        />
+      </div>
+    </div>
+  );
+};
 
 export default UsersList;

@@ -1,10 +1,8 @@
 import { Paths } from '@app/enums/Paths';
 import { instance } from '@app/services/instance';
 import TokenService from '@app/services/tokenService';
-import {
-  AddUserType,
-  SexType,
-} from '@components/elements/modals/modal-add-user/form-user/FormAddUser';
+import { ResponseSearchUser, ResponseSearchUserWithPagination } from '@app/types/UserTypes';
+import { WithPagination } from '@app/types/WithPagination';
 
 export type ResponceUsersType = {
   id: string;
@@ -74,5 +72,14 @@ export const userService = {
     id: string,
   ) {
     return instance.post(`${Paths.Users}/${id}`, data, TokenService.getConfigHeadersWithToken());
+  },
+
+  getUsers: async (
+    data?: ResponseSearchUserWithPagination,
+  ): Promise<WithPagination<ResponseSearchUser[]>> => {
+    const res = await instance.get(Paths.Users, {
+      params: data || {},
+    });
+    return res.data;
   },
 };
