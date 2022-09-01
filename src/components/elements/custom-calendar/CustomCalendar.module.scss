@@ -26,7 +26,8 @@
   font-weight: 500;
 }
 
-.myCalendar {
+.myCalendar.showCalendar {
+  display: none;
   width: 380px;
   background: #ffffff;
   border: none !important;
@@ -52,5 +53,9 @@
 
 }
 
+.showCalendar {
+  display: initial;
+  border: none !important;
+}
 
 

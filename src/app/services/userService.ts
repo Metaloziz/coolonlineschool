@@ -2,6 +2,12 @@ import { Paths } from '@app/enums/Paths';
 import { instance } from '@app/services/instance';
 import TokenService from '@app/services/tokenService';
 import { RequestUsersType } from '@app/store/usersStore';
+import {
+  ResponseSearchUser,
+  ResponseSearchUserNewUsers,
+  ResponseSearchUserWithPagination,
+} from '@app/types/UserTypes';
+import { WithPagination } from '@app/types/WithPagination';
 
 export type ResponceUsersType = {
   id: string;
@@ -26,5 +32,14 @@ export const userService = {
       TokenService.getConfigHeadersWithToken(),
     );
     return res;
+  },
+
+  getUsers: async (
+    data?: ResponseSearchUserWithPagination,
+  ): Promise<WithPagination<ResponseSearchUser[]>> => {
+    const res = await instance.get(Paths.Users, {
+      params: data || {},
+    });
+    return res.data;
   },
 };

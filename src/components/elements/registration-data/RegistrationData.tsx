@@ -8,6 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { sexParents } from '@mock/moks-data-select';
 import { convert } from '@utils/convert';
 import cn from 'classnames';
+import { observer } from 'mobx-react-lite';
 import { SubmitHandler, useForm, Controller } from 'react-hook-form';
 import * as yup from 'yup';
 
@@ -101,7 +102,6 @@ const RegistrationData: FC<Props> = ({ className }) => {
       isValid,
     },
     handleSubmit,
-    reset,
     control,
   } = useForm<RegisterData>({
     resolver: yupResolver(schema),
@@ -308,4 +308,4 @@ const RegistrationData: FC<Props> = ({ className }) => {
   );
 };
 
-export default RegistrationData;
+export default observer(RegistrationData);

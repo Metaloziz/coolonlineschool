@@ -1,6 +1,7 @@
 import React, { FC, useState } from 'react';
 
 import { ButtonColorThemes } from '@app/enums';
+import { ResponseSearchUser } from '@app/types/UserTypes';
 import Settings from '@components/elements/settings/Settings';
 import avatar from '@mock/public/avatar.png';
 import buttonClose from '@svgs/button-close.svg';
@@ -8,21 +9,20 @@ import parents from '@svgs/button/parents.svg';
 import Image from 'next/image';
 
 import Button from '../../button/Button';
-import { IUser } from '../users-list/UsersList';
 
 import cl from './UserCard.module.scss';
 
 interface Props {
-  user: IUser;
+  user: ResponseSearchUser;
 }
 
 const UserCard: FC<Props> = ({ user }) => {
-  const { userName, status, city, phone, teacher, group, isPaid } = user;
+  const { firstName, roleCode, city, phone, groups, payed } = user;
 
   const [showModal, setShowModal] = useState<boolean>(false);
 
   const onclickPaid = () => {
-    if (isPaid) {
+    if (payed) {
       setShowModal(true);
       console.log('Оплачено');
       return;
@@ -45,9 +45,9 @@ const UserCard: FC<Props> = ({ user }) => {
             <Image src={avatar} width={171} height={163} alt="avatar" className={cl.avatarImg} />
           </div>
           <div className={cl.infoBlock}>
-            <h3 className={cl.name}>{userName}</h3>
+            <h3 className={cl.name}>{firstName}</h3>
             <p>
-              Статус: <span>{status}</span>
+              Статус: <span>{roleCode}</span>
             </p>
             <p>
               Город: <span>{city}</span>
@@ -56,11 +56,9 @@ const UserCard: FC<Props> = ({ user }) => {
               Телефон: <span>{phone}</span>
             </p>
             <p>
-              Группа: <span>{group}</span>
+              Группа: <span>{groups}</span>
             </p>
-            <p>
-              Учитель: <span>{teacher}</span>
-            </p>
+            <p>{/* Учитель: <span>{teacher}</span> */}</p>
           </div>
         </div>
         <div className={cl.btnBlock}>
@@ -73,10 +71,10 @@ const UserCard: FC<Props> = ({ user }) => {
           </Button>
           <Button
             className={cl.paidFor}
-            colorTheme={isPaid ? ButtonColorThemes.green : ButtonColorThemes.red}
+            colorTheme={payed ? ButtonColorThemes.green : ButtonColorThemes.red}
             onClick={onclickPaid}
           >
-            {isPaid ? 'Оплачен' : 'Не оплачен'}
+            {payed ? 'Оплачен' : 'Не оплачен'}
           </Button>
         </div>
         {showModal && (

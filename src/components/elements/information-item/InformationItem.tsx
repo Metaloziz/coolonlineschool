@@ -58,9 +58,14 @@ const InformationItem: FC<Props> = props => {
   const renderCalendar = () => (
     <div className={styles.calendarStyle}>
       <div className={cn(finalStyle, styles.inputCalendar)}>
-        <TextField />
+        <TextField
+          onChange={e => onChange && onChange(e.target.value)}
+          id={id}
+          type={type}
+          value={value || ''}
+        />
       </div>
-      <CustomCalendar />
+      <CustomCalendar onCustomChange={onChange} />
     </div>
   );
 
@@ -74,10 +79,18 @@ const InformationItem: FC<Props> = props => {
 
   switch (variant) {
     case 'calendar':
-      renderCalendar();
+      part = renderCalendar();
       break;
     case 'select':
-      part = <CustomSelect options={option} placeholder={placeholder} size={size} />;
+      part = (
+        <CustomSelect
+          options={option}
+          placeholder={placeholder}
+          size={size}
+          onChange={onChange}
+          onBlur={onBlur}
+        />
+      );
       break;
     case 'phone':
       part = (
