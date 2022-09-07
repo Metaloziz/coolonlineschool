@@ -6,6 +6,7 @@ import BlockGame from './block-game/BlockGame';
 import BlogItem from './blog/Blog';
 import Burger from './burger/Burger';
 import CodeLogin from './code-login/CodeLogin';
+import { CustomDialogTitle, CustomDialog } from './custom-dialog/CustomDialog';
 import DropDownMenu from './drop-down-menu/DropDownMenu';
 import GroupsList from './groups-list/GroupsList';
 import InformationItem from './information-item/InformationItem';
@@ -38,4 +39,6 @@ export {
   StatisticsList,
   StudentsList,
   AlertSnackbars,
+  CustomDialogTitle,
+  CustomDialog,
 };

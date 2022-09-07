@@ -166,6 +166,13 @@ class AuthStore {
       this.isLoading = false;
     }
   };
+
+  setUnauthorized = () => {
+    TokenService.removeUser();
+    this.isLogin = false;
+    appStore.setRole(Roles.Unauthorized);
+    appStore.setIsInitialize(true);
+  };
 }
 
 export const auth = new AuthStore();

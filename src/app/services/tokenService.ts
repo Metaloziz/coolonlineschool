@@ -10,7 +10,11 @@ class TokenService {
   }
 
   getLocalAccessToken() {
-    const temp = localStorage.getItem('user_secret');
+    let temp;
+    // fix error "ReferenceError: localStorage is not defined" in Next
+    if (typeof window !== 'undefined') {
+      temp = localStorage.getItem('user_secret');
+    }
     return temp && JSON.parse(temp);
   }
 

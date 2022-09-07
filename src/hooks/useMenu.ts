@@ -23,6 +23,8 @@ export const useMenu = () => {
     Settings,
     Class,
     Blogs,
+    Works,
+    Courses,
   } = Routes;
 
   const { role } = appStore;
@@ -40,7 +42,7 @@ export const useMenu = () => {
       svgId: 'report',
     },
     {
-      label: 'Отчет учетеля',
+      label: 'Отчет учителя',
       href: ReportTeacher,
       svgId: 'teacherReport',
     },
@@ -53,6 +55,16 @@ export const useMenu = () => {
       label: 'Статьи',
       href: Blogs,
       svgId: 'articles',
+    },
+    {
+      label: 'Домашнии задания',
+      href: Works,
+      svgId: 'works',
+    },
+    {
+      label: 'Курсы',
+      href: Courses,
+      svgId: 'courses',
     },
     { label: 'Ваши результаты', href: Statistics, svgId: 'results' },
     { label: 'Игры', href: Games, svgId: 'games' },
@@ -85,6 +97,16 @@ export const useMenu = () => {
       label: 'Статьи',
       href: Blogs,
       svgId: 'articles',
+    },
+    {
+      label: 'Домашнии задания',
+      href: Works,
+      svgId: 'works',
+    },
+    {
+      label: 'Курсы',
+      href: Courses,
+      svgId: 'courses',
     },
     { label: 'Ваши результаты', href: Statistics, svgId: 'results' },
     { label: 'Игры', href: Games, svgId: 'games' },
