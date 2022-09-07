@@ -50,7 +50,7 @@ export type ResponseLoadMe = {
 };
 
 export type TimeZoneType = {
-  date: string;
+  date: Date;
   timezone_type: number;
   timezone: string;
 };

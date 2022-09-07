@@ -27,4 +27,6 @@ export const Routes = {
   CheckingHomework: '/checking-homework',
   UserList: '/users',
   StudentCard: '/student-card',
+  Works: '/works',
+  Courses: '/courses',
 };

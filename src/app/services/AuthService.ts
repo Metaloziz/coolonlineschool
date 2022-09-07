@@ -2,14 +2,14 @@ import { Paths } from '@app/enums/Paths';
 import { instance } from '@app/services/instance';
 import {
   RequestLogin,
+  RequestLogout,
+  RequestRegister,
   RequestSMS,
   ResponseLoadMe,
   ResponseLogin,
   ResponseMe,
-  ResponseSMS,
-  RequestRegister,
   ResponseRegister,
-  RequestLogout,
+  ResponseSMS,
 } from '@app/types/AuthType';
 
 export const AuthService = {
