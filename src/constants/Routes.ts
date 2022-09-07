@@ -29,4 +29,5 @@ export const Routes = {
   StudentCard: '/student-card',
   Works: '/works',
   Courses: '/courses',
+  Users: '/users',
 };

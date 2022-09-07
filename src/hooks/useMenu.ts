@@ -25,6 +25,7 @@ export const useMenu = () => {
     Blogs,
     Works,
     Courses,
+    Users,
   } = Routes;
 
   const { role } = appStore;
@@ -50,6 +51,11 @@ export const useMenu = () => {
       label: 'Группы',
       href: Class,
       svgId: 'groups',
+    },
+    {
+      label: 'Пользователи',
+      href: Users,
+      svgId: 'users',
     },
     {
       label: 'Статьи',

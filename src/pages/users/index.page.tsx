@@ -10,8 +10,8 @@ const IndexPage = () => {
 
   switch (role) {
     case Roles.Admin:
-    case Roles.Teacher:
       return <Users />;
+    case Roles.Teacher:
     case Roles.Student:
     default:
       push(NotFount);
