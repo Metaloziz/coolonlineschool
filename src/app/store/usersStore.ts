@@ -8,6 +8,7 @@ import {
 } from '@app/types/UserTypes';
 import { WithPagination } from '@app/types/WithPagination';
 import { AddUserType } from '@components/elements/modals/modal-add-user/form-user/FormAddUser';
+import { DeleteEmptyValue } from '@utils/deleteEmptyValue';
 import { AxiosError } from 'axios';
 import { makeAutoObservable, runInAction } from 'mobx';
 
@@ -87,7 +88,8 @@ class UsersStore {
   requestUsers = async (data?: ResponseSearchUserWithPagination) => {
     this.isLoading = true;
     try {
-      const res = await userService.getUsers(data);
+      const filteredUserData = DeleteEmptyValue(data);
+      const res = await userService.getUsers(filteredUserData);
       runInAction(() => {
         this.usersList = res.items;
         this.userTotalCount = res.total;
@@ -99,7 +101,9 @@ class UsersStore {
       this.usersList = [];
       console.log(error);
     } finally {
-      this.isLoading = false;
+      runInAction(() => {
+        this.isLoading = false;
+      });
     }
   };
 }

@@ -19,8 +19,7 @@ interface Props {
 }
 
 const UserCard: FC<Props> = ({ user }) => {
-  const { firstName, isPaid, id, roleCode, teacher, status, userName, city, phone, groups, payed } =
-    user;
+  const { firstName, middleName, lastName, id, roleCode, city, phone, groups, payed } = user;
 
   const [isEditModal, setIsEditModal] = useState(false);
 
@@ -57,7 +56,9 @@ const UserCard: FC<Props> = ({ user }) => {
               <Image src={avatar} width={171} height={163} alt="avatar" className={cl.avatarImg} />
             </div>
             <div className={cl.infoBlock}>
-              <h3 className={cl.name}>{firstName}</h3>
+              <h3 className={cl.name}>
+                {firstName} {middleName} {lastName}
+              </h3>
               <p>
                 Статус: <span>{roleCode}</span>
               </p>
