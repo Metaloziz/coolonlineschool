@@ -12,7 +12,7 @@ interface IUsersList {
 }
 
 const UsersList: FC<IUsersList> = ({ searchUsers }) => {
-  const { userTotalCount, perPage, page, requestUsers } = users;
+  const { userTotalCount, perPage, page, requestUsers, isLoading } = users;
 
   const paginate = (pageNumber: number) => {
     requestUsers({ page: pageNumber });
@@ -26,13 +26,10 @@ const UsersList: FC<IUsersList> = ({ searchUsers }) => {
 
   return (
     <div>
-      {searchUsers.length === 0 ? (
-        <div className={styles.noBlocks}>
-          <h3>Пользователь не найден</h3>
-        </div>
-      ) : (
-        searchUsers.map(user => <UserCard key={user.id} user={user} />)
-      )}
+      {searchUsers.map(user => (
+        <UserCard key={user.id} user={user} />
+      ))}
+
       <div className={styles.paginationList}>
         <CustomPagination
           currentPage={page}
