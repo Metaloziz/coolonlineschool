@@ -29,7 +29,7 @@ class UsersStore {
 
   users = [] as ResponceUsersType[];
 
-  usersList = [] as ResponseSearchUser[];
+  usersList: ResponseSearchUser[] | null = null;
 
   addUser(data: ResponceUsersType) {
     this.users.push(data);

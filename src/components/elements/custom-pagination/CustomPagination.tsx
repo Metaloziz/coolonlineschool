@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 
-import classNames from 'classNames';
+import classNames from 'classnames';
 
 import styles from './CustomPagination.module.scss';
 import PaginationNext from './pagination-next/PaginationNext';

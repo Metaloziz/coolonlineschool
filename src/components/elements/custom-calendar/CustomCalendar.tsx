@@ -1,7 +1,7 @@
 import { useState, FC, useRef, useEffect, useCallback } from 'react';
 
 import calendarImage from '@svgs/calendar-icon.svg';
-import cn from 'classNames';
+import cn from 'classnames';
 import moment from 'moment';
 import Image from 'next/image';
 import Calendar from 'react-calendar';
@@ -26,7 +26,6 @@ const CustomCalendar: FC<TCustomCalendar> = ({ onCustomChange }) => {
         !(buttonRef.current! as any).contains(e.target) &&
         showCalendar
       ) {
-        console.log('asd', showCalendar);
         setShowCalendar(false);
       }
     },
@@ -34,9 +33,9 @@ const CustomCalendar: FC<TCustomCalendar> = ({ onCustomChange }) => {
   );
 
   useEffect(() => {
-    document.addEventListener('click', clickListener);
+    document.addEventListener('click', clickListener, true);
     return () => {
-      document.removeEventListener('click', clickListener);
+      document.removeEventListener('click', clickListener, true);
     };
   }, [clickListener]);
 
@@ -46,18 +45,18 @@ const CustomCalendar: FC<TCustomCalendar> = ({ onCustomChange }) => {
     setDate(newDate);
     onCustomChange &&
       onCustomChange(title === '' ? '' : moment(title, 'D.M.YYYY').format('DD.MM.YYYY'));
+    setShowCalendar(false);
   };
 
   return (
     <div className={cl.calendar}>
-      <div className={cl.calendarImage} onClick={() => setShowCalendar(!showCalendar)}>
-        <div ref={buttonRef}>
+      <div className={cl.calendarImage}>
+        <div ref={buttonRef} onClick={() => setShowCalendar(!showCalendar)}>
           <Image src={calendarImage} alt="calendar" width={30} height={30} />
         </div>
 
-        <div className={cl.blockCalendar}>
+        <div className={cl.blockCalendar} ref={ref}>
           <Calendar
-            inputRef={ref}
             className={cn(cl.myCalendar, {
               [cl.showCalendar]: !showCalendar,
             })}
