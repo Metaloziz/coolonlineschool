@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 import { Status } from '@app/enums/Status';
 import { course } from '@app/store/courseStore';
+import { groupLevelObject } from '@app/value-objects/groupLevel';
 import { statusObject } from '@app/value-objects/status';
 import AddIcon from '@mui/icons-material/Add';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -78,12 +79,13 @@ const Courses = observer(() => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {course.filteredEntities.length ? (
-                course.filteredEntities.map(entity => {
-                  const date = new Date(entity.createdAt?.date).toLocaleDateString();
+              {course.entities.length ? (
+                course.entities.map(entity => {
+                  const { level, createdAt, status, title, id, worksCount } = entity;
+                  const date = new Date(createdAt.date).toLocaleDateString();
                   return (
                     <TableRow
-                      key={entity.id}
+                      key={id}
                       hover
                       sx={{
                         '& > td': {
@@ -91,11 +93,11 @@ const Courses = observer(() => {
                         },
                       }}
                     >
-                      <TableCell>{entity.title}</TableCell>
-                      <TableCell>{entity.level}</TableCell>
-                      <TableCell>{entity.worksCount}</TableCell>
+                      <TableCell>{title}</TableCell>
+                      <TableCell>{groupLevelObject[level]}</TableCell>
+                      <TableCell>{worksCount}</TableCell>
                       <TableCell>{date}</TableCell>
-                      <TableCell>{statusObject[entity.status]}</TableCell>
+                      <TableCell>{statusObject[status]}</TableCell>
                       <TableCell>
                         <Stack direction="row" justifyContent="flex-end">
                           <IconButton
@@ -107,9 +109,9 @@ const Courses = observer(() => {
                           </IconButton>
                           <IconButton
                             size="small"
-                            onClick={() => course.remove(entity.id!)}
+                            onClick={() => course.remove(id!)}
                             color="error"
-                            disabled={entity.status !== Status.draft}
+                            disabled={status !== Status.draft}
                           >
                             <DeleteIcon fontSize="small" />
                           </IconButton>

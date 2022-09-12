@@ -2,6 +2,7 @@ import { Paths } from '@app/enums/Paths';
 import { Status } from '@app/enums/Status';
 import { HttpClient } from '@app/rest/HttpClient';
 import tokenService from '@app/services/tokenService';
+import { TimeZoneType } from '@app/types/AuthType';
 import { PaginationResponse } from '@app/types/PaginationResponse';
 import { CourseViewModel } from '@app/viewModels/CourseViewModel';
 import { HomeworkViewModel } from '@app/viewModels/HomeworkViewModel';
@@ -12,19 +13,33 @@ type Work = {
   work: Omit<HomeworkViewModel, 'gamePresets' | 'type'> & { id: string };
 };
 
+type Course = {
+  createdAt: TimeZoneType;
+  id: string;
+  level: string;
+  status: Status;
+  title: string;
+  works: Work[];
+  worksCount: number;
+};
+
+export type Error = {
+  error: string;
+};
+
 type CourseType = {
-  course: { id: string; level: string; status: Status; title: string; works: Work[] };
+  course: Course;
   usedInGroups: [];
 };
 
 export class CourseRepository {
   private readonly token = tokenService.getLocalAccessToken();
 
-  readonly list = async (page: number = 0) =>
+  readonly list = async (params: {}) =>
     new HttpClient(Paths.Courses, 'GET')
       .withTimeout(10000)
       .withBearerAuthorization(this.token)
-      .withUrlParamsRequest({ page })
+      .withUrlParamsRequest(params)
       .execute<PaginationResponse<CourseViewModel>>();
 
   readonly course = async (id: string) =>
@@ -38,7 +53,7 @@ export class CourseRepository {
       .withTimeout(10000)
       .withBearerAuthorization(this.token)
       .withJsonRequest(model)
-      .execute();
+      .execute<Course & Error>();
 
   readonly remove = async (id: string) =>
     new HttpClient(`${Paths.Courses}/${id}`, 'DELETE')

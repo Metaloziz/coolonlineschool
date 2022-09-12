@@ -26,6 +26,7 @@ import { AddOrEditDialog } from './AddOrEditDialog';
 
 export const Works = observer(() => {
   useEffect(() => {
+    homework.changeParamsStatus(null);
     homework.pull();
   }, []);
 
@@ -73,46 +74,48 @@ export const Works = observer(() => {
                 <TableCell>Колличество игр</TableCell>
                 <TableCell>Статус</TableCell>
                 <TableCell />
-                <TableCell />
               </TableRow>
             </TableHead>
             <TableBody>
               {homework.entities.length > 0 ? (
-                homework.entities.map(entity => (
-                  <TableRow
-                    key={entity.id}
-                    hover
-                    sx={{
-                      '& > td': {
-                        verticalAlign: 'top',
-                      },
-                    }}
-                  >
-                    <TableCell>{entity.title || ''}</TableCell>
-                    <TableCell>{typeof entity.text === 'string' ? entity.text : '-'}</TableCell>
-                    <TableCell>{(entity.gamePresets || []).length}</TableCell>
-                    <TableCell>{statusObject[entity.status]}</TableCell>
-                    <TableCell>
-                      <Stack direction="row" justifyContent="flex-end">
-                        <IconButton
-                          size="small"
-                          onClick={() => homework.openDialog(entity)}
-                          color="primary"
-                        >
-                          <EditIcon fontSize="small" />
-                        </IconButton>
-                        <IconButton
-                          size="small"
-                          onClick={() => homework.remove(entity.id!)}
-                          color="error"
-                          disabled={entity.status !== Status.draft}
-                        >
-                          <DeleteIcon fontSize="small" />
-                        </IconButton>
-                      </Stack>
-                    </TableCell>
-                  </TableRow>
-                ))
+                homework.entities.map(entity => {
+                  const { id, title, gamePresets, text, status } = entity;
+                  return (
+                    <TableRow
+                      key={id}
+                      hover
+                      sx={{
+                        '& > td': {
+                          verticalAlign: 'top',
+                        },
+                      }}
+                    >
+                      <TableCell>{title || ''}</TableCell>
+                      <TableCell>{typeof text === 'string' ? text : '-'}</TableCell>
+                      <TableCell>{(gamePresets || []).length}</TableCell>
+                      <TableCell>{statusObject[status]}</TableCell>
+                      <TableCell>
+                        <Stack direction="row" justifyContent="flex-end">
+                          <IconButton
+                            size="small"
+                            onClick={() => homework.openDialog(entity)}
+                            color="primary"
+                          >
+                            <EditIcon fontSize="small" />
+                          </IconButton>
+                          <IconButton
+                            size="small"
+                            onClick={() => homework.remove(id!)}
+                            color="error"
+                            disabled={status !== Status.draft}
+                          >
+                            <DeleteIcon fontSize="small" />
+                          </IconButton>
+                        </Stack>
+                      </TableCell>
+                    </TableRow>
+                  );
+                })
               ) : (
                 <TableRow>
                   <TableCell colSpan={4}>Данные отсутствуют...</TableCell>

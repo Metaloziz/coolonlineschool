@@ -3,8 +3,8 @@ import { ChangeEvent } from 'react';
 import { GroupLevel } from '@app/enums/GroupLevel';
 import { Status } from '@app/enums/Status';
 import { CourseRepository } from '@app/services/CourseRepository';
+import { appStore } from '@app/store/appStore';
 import { StoreBase } from '@app/store/storeBase';
-import { Nullable } from '@app/types';
 import { CourseFilterViewModel } from '@app/types/CourseFilterViewModel';
 import { StatusItemMenuType } from '@app/types/StatusItemMenu';
 import { STATUS_MENU } from '@app/value-objects/statusMenu';
@@ -24,6 +24,15 @@ export class CourseStore extends StoreBase {
     status: Status.draft,
   });
 
+  filters: CourseFilterViewModel = {
+    status: null,
+    level: null,
+    created_since: null,
+    created_until: null,
+    title: null,
+    sort: null,
+  };
+
   pagination: {
     page: number;
     rowsPerPage: number;
@@ -42,8 +51,6 @@ export class CourseStore extends StoreBase {
 
   isDialogOpen: boolean = false;
 
-  filter: Nullable<CourseFilterViewModel> = null;
-
   constructor() {
     super();
 
@@ -51,7 +58,8 @@ export class CourseStore extends StoreBase {
       editingEntity: observable,
       entities: observable,
       isDialogOpen: observable,
-      filter: observable,
+      menu: observable,
+      filters: observable,
     });
   }
 
@@ -77,6 +85,7 @@ export class CourseStore extends StoreBase {
     if (!checked) {
       runInAction(() => {
         const currentWork = this.editingEntity.works?.find(work => work.workId === workId);
+
         this.editingEntity.works = this.editingEntity.works
           ?.filter(work => work.workId !== workId)
           .map(work =>
@@ -124,21 +133,37 @@ export class CourseStore extends StoreBase {
 
   list = async () =>
     this.execute(async () => {
-      const paginationResponse = await this._repository.list(this.pagination.page);
+      const params: any = { page: this.pagination.page };
+
+      Object.keys(this.filters).forEach(key => {
+        if (this.filters[key as keyof CourseFilterViewModel]) {
+          params[key] = this.filters[key as keyof CourseFilterViewModel];
+        }
+      });
+
+      const { page, perPage, total, items } = await this._repository.list(params);
       runInAction(() => {
-        this.entities = paginationResponse.items;
+        this.entities = items;
         this.pagination = {
-          page: paginationResponse.page,
-          rowsPerPage: paginationResponse.perPage,
-          total: paginationResponse.total,
+          page,
+          rowsPerPage: perPage,
+          total,
         };
       });
     });
 
   addOrEdit = async () => {
-    this.closeDialog();
     this.execute(async () => {
-      await this._repository.addOrEdit(this.editingEntity);
+      const { error, createdAt } = await this._repository.addOrEdit(this.editingEntity);
+      if (error) {
+        appStore.setErrorMessage(error);
+      }
+      if (createdAt) {
+        const message = this.editingEntity.id ? 'Курс изменен' : 'Курс создан';
+        appStore.setSuccessMessage(message);
+        this.closeDialog();
+      }
+
       await this.pull();
     });
   };
@@ -154,10 +179,11 @@ export class CourseStore extends StoreBase {
     this.execute(async () => this.list());
   };
 
-  onChangeFilter = (filter: Nullable<CourseFilterViewModel>) => {
+  onChangeFilter = (filter: CourseFilterViewModel) => {
     runInAction(() => {
-      this.filter = filter;
+      this.filters = filter;
     });
+    this.execute(async () => this.list());
   };
 
   changeTitle = (event: ChangeEvent<HTMLTextAreaElement>) => {
@@ -188,28 +214,6 @@ export class CourseStore extends StoreBase {
       title: yup.string().required('*'),
       level: yup.string().required('*'),
     });
-  }
-
-  get filteredEntities() {
-    if (!this.filter) {
-      return this.entities;
-    }
-
-    let result: CourseViewModel[] = [];
-
-    if (this.filter.title.trim()) {
-      result = this.entities.filter(entity =>
-        (entity.title ?? '').toLowerCase().includes(this.filter!.title.toLowerCase()),
-      );
-    }
-
-    if (this.filter.level.trim()) {
-      result = this.entities.filter(entity =>
-        (entity.level ?? '').toLowerCase().includes(this.filter!.level.toLowerCase()),
-      );
-    }
-
-    return result;
   }
 }
 

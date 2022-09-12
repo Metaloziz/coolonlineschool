@@ -2,6 +2,7 @@ import { ChangeEvent } from 'react';
 
 import { Status } from '@app/enums/Status';
 import { HomeworkRepository } from '@app/services/HomeworkRepository';
+import { appStore } from '@app/store/appStore';
 import { StoreBase } from '@app/store/storeBase';
 import { Nullable } from '@app/types';
 import { StatusItemMenuType } from '@app/types/StatusItemMenu';
@@ -94,10 +95,17 @@ export class HomeworkStore extends StoreBase {
     });
 
   addOrEdit = async () => {
-    this.closeDialog();
-
     this.execute(async () => {
-      await this._repository.addOrEdit(this.editingEntity);
+      const { error, createdAt } = await this._repository.addOrEdit(this.editingEntity);
+      if (error) {
+        appStore.setErrorMessage(error);
+      }
+      if (createdAt) {
+        const message = this.editingEntity.id ? 'Работа изменена' : 'Работа создана';
+        appStore.setSuccessMessage(message);
+        this.closeDialog();
+      }
+
       await this.pull();
     });
   };
