@@ -16,7 +16,6 @@ const Users = () => {
   }, []);
 
   const isUsersNotFound = usersList?.length === 0 && !isLoading;
-  const isUsersFound = usersList && !isLoading;
 
   return (
     <div className={cl.container}>
@@ -27,8 +26,7 @@ const Users = () => {
           <h3>Пользователь не найден</h3>
         </div>
       )}
-
-      {isUsersFound && <UsersList searchUsers={usersList} />}
+      <UsersList />
     </div>
   );
 };

@@ -17,14 +17,14 @@ export type UserStatus = 'payed' | 'notPayed';
 export type ResponsePersonalData = {
   id: string;
   firstName: string;
-  middleName: null | string;
+  middleName: Nullable<string>;
   lastName: string;
   email: string;
   phone: string;
   role: Roles;
-  city: null | string;
+  city: Nullable<string>;
   birthdate: TimeZoneType;
-  sex: null | string;
+  sex: Nullable<string>;
   active: boolean;
   payed: UserStatus;
   avatar: Nullable<ResponseAvatar>;

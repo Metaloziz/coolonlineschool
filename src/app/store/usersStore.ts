@@ -1,15 +1,9 @@
 import { SexEnum } from '@app/enums';
 import { ResponceUsersType, userService } from '@app/services/userService';
-import { Roles } from '@app/store/appStore';
-import {
-  ResponseSearchUser,
-  ResponseSearchUserNewUsers,
-  ResponseSearchUserWithPagination,
-} from '@app/types/UserTypes';
-import { WithPagination } from '@app/types/WithPagination';
+import { Nullable } from '@app/types';
+import { ResponseSearchUser, ResponseSearchUserWithPagination } from '@app/types/UserTypes';
 import { AddUserType } from '@components/elements/modals/modal-add-user/form-user/FormAddUser';
 import { DeleteEmptyValue } from '@utils/deleteEmptyValue';
-import { AxiosError } from 'axios';
 import { makeAutoObservable, runInAction } from 'mobx';
 
 import { appStore } from './appStore';
@@ -23,13 +17,13 @@ class UsersStore {
 
   userTotalCount = 1;
 
+  users = [] as ResponceUsersType[];
+
+  usersList: Nullable<ResponseSearchUser[]> = null;
+
   constructor() {
     makeAutoObservable(this);
   }
-
-  users = [] as ResponceUsersType[];
-
-  usersList: ResponseSearchUser[] | null = null;
 
   addUser(data: ResponceUsersType) {
     this.users.push(data);
@@ -87,18 +81,18 @@ class UsersStore {
 
   requestUsers = async (data?: ResponseSearchUserWithPagination) => {
     this.isLoading = true;
+
     try {
       const filteredUserData = DeleteEmptyValue(data);
       const res = await userService.getUsers(filteredUserData);
+
       runInAction(() => {
         this.usersList = res.items;
         this.userTotalCount = res.total;
         this.perPage = res.perPage;
         this.page = Number(res.page);
       });
-      console.log('res', res);
     } catch (error) {
-      this.usersList = [];
       console.log(error);
     } finally {
       runInAction(() => {

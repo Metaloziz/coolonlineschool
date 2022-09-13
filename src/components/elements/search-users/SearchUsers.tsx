@@ -23,17 +23,12 @@ const userPaid = [
 const SearchUsers: FC = () => {
   const { requestUsers, isLoading } = users;
 
-  const {
-    formState: { errors, isValid },
-    handleSubmit,
-    control,
-  } = useForm({
+  const { handleSubmit, control } = useForm({
     mode: 'all',
   });
 
   const onSubmit: SubmitHandler<any> = data => {
     requestUsers(data);
-    console.log('Поиск Юзера Родителя', data);
   };
 
   return (
@@ -113,7 +108,7 @@ const SearchUsers: FC = () => {
               render={({ field }) => (
                 <InformationItem
                   placeholder="Фамилия"
-                  id="asd"
+                  id="10"
                   variant="input"
                   type="text"
                   className={cl.inputBlock}
@@ -130,7 +125,7 @@ const SearchUsers: FC = () => {
               render={({ field }) => (
                 <InformationItem
                   placeholder="Имя"
-                  id="asd"
+                  id="20"
                   variant="input"
                   type="text"
                   className={cl.inputBlock}
@@ -147,7 +142,7 @@ const SearchUsers: FC = () => {
               render={({ field }) => (
                 <InformationItem
                   placeholder="Отчество"
-                  id="asd"
+                  id="30"
                   variant="input"
                   type="text"
                   className={cl.inputBlock}
@@ -158,10 +153,10 @@ const SearchUsers: FC = () => {
           </div>
           <div className={cn(cl.block, cl.btnBlock)}>
             <Button
-              onClick={handleSubmit(onSubmit)}
               colorTheme={ButtonColorThemes.green}
               className={cl.btnGreen}
               disabled={isLoading}
+              type="submit"
             >
               Найти
             </Button>

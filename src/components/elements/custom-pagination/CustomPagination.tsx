@@ -24,9 +24,9 @@ const CustomPagination: FC<Props> = ({ currentPage, perPage, prev, next, total, 
   const isPrevDisabled = activeStepCount === 0;
   const isNextDisabled = activeStepCount === countPage - 1;
 
-  const navigate = (page: number, cb: () => void) => {
+  const navigate = (page: number, simply: () => void) => {
     setActiveStepCount(page);
-    cb();
+    simply();
   };
 
   const prevNavigate = () => {
@@ -46,6 +46,10 @@ const CustomPagination: FC<Props> = ({ currentPage, perPage, prev, next, total, 
       paginate(item);
     });
   };
+
+  if (total < perPage) {
+    return null;
+  }
 
   return (
     <div className={styles.paginationWrapper}>
