@@ -24,7 +24,7 @@ export type ResponseSearchUser = {
   phone: string;
   email: string;
   roleCode: string;
-  city: null | string;
+  city: Nullable<string>;
   groups: [];
   active: boolean;
   payed: UserStatus;

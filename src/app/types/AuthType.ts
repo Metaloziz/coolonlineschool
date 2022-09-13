@@ -30,31 +30,6 @@ export type ResponseLogin = {
   };
 };
 
-export type ResponseLoadMe = {
-  id: string;
-  firstName: string;
-  middleName: null | string;
-  lastName: string;
-  email: string;
-  phone: string;
-  role: Roles;
-  franchise: null | string;
-  city: null | string;
-  birthdate: TimeZoneType;
-  sex: null | string;
-  status: string;
-  avatar: {
-    id: string;
-    path: string;
-  };
-};
-
-export type TimeZoneType = {
-  date: Date;
-  timezone_type: number;
-  timezone: string;
-};
-
 export type ResponseSMS = { code: number };
 
 export type RequestRegister = {

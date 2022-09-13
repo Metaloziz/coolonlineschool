@@ -3,7 +3,7 @@ import { AuthService } from '@app/services/AuthService';
 import TokenService from '@app/services/tokenService';
 import { appStore, Roles } from '@app/store/appStore';
 import { Nullable } from '@app/types';
-import { ResponseLoadMe, ResponseRegister, ResponseMe } from '@app/types/AuthType';
+import { ResponseRegister, ResponseMe } from '@app/types/AuthType';
 import { AxiosError } from 'axios';
 import { makeAutoObservable, runInAction } from 'mobx';
 
@@ -11,8 +11,6 @@ class AuthStore {
   isLogin = false;
 
   isLoading = false;
-
-  loadMe = { role: Roles.Unauthorized } as ResponseLoadMe;
 
   me = { roleCode: Roles.Unauthorized } as ResponseMe;
 
@@ -30,10 +28,6 @@ class AuthStore {
 
   setUser(data: ResponseMe) {
     this.me = data;
-  }
-
-  setLoadMe(data: ResponseLoadMe) {
-    this.loadMe = data;
   }
 
   setCode = (code: number) => {
@@ -131,20 +125,19 @@ class AuthStore {
           if (res.data.error === 'phone number is already in use') {
             appStore.setErrorMessage('Этот номер телефона уже используется');
           }
-          console.log(res.data.error);
         }
         if (res.data.result) {
           runInAction(() => {
             this.isRegister = true;
           });
-          console.log(res.data.result);
         }
-        console.log(res);
       }
     } catch (error) {
       console.log(error);
     } finally {
-      this.isLoading = false;
+      runInAction(() => {
+        this.isLoading = false;
+      });
     }
   };
 
@@ -163,7 +156,9 @@ class AuthStore {
     } catch (error) {
       console.log(error);
     } finally {
-      this.isLoading = false;
+      runInAction(() => {
+        this.isLoading = false;
+      });
     }
   };
 

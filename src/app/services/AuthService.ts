@@ -5,7 +5,6 @@ import {
   RequestLogout,
   RequestRegister,
   RequestSMS,
-  ResponseLoadMe,
   ResponseLogin,
   ResponseMe,
   ResponseRegister,
@@ -18,8 +17,6 @@ export const AuthService = {
   sms: (data: RequestSMS) => instance.post<ResponseSMS>(Paths.SMS, data),
 
   me: () => instance.get<ResponseMe>(Paths.Me),
-
-  loadme: () => instance.get<ResponseLoadMe>(Paths.LoadMe),
 
   register: (data: ResponseRegister) => instance.post<RequestRegister>(Paths.Register, data),
 

@@ -14,15 +14,16 @@ class PersonalDataStore {
   getPersonalData = async () => {
     this.isLoading = true;
     try {
-      const res = await personalDataService.loadme();
+      const { data } = await personalDataService.loadme();
       runInAction(() => {
-        this.personalData = res.data;
+        this.personalData = data;
       });
-      console.log('getPersonalData16', res.data);
     } catch (error) {
       console.log('getPersonalData', error);
     } finally {
-      this.isLoading = false;
+      runInAction(() => {
+        this.isLoading = false;
+      });
     }
   };
 }

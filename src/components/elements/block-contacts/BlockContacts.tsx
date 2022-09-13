@@ -28,7 +28,7 @@ const BlockContacts = ({
   userData,
   isCanBeEdited = false,
 }: BlockContactsProps) => {
-  const birthdate = formatDate(new Date(userData.birthdate.date));
+  const birthdate = new Date(userData.birthdate.date).toLocaleDateString();
   const [isEdit, setIsEdit] = useState(false);
 
   const handleEditMode = () => {

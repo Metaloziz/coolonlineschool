@@ -1,4 +1,4 @@
-import { FC, ChangeEvent, FocusEventHandler } from 'react';
+import { FC, forwardRef, ChangeEvent, FocusEventHandler } from 'react';
 
 import { CustomSelect, TextField } from '@components';
 import cn from 'classnames';
@@ -28,13 +28,12 @@ interface Props {
   type?: string;
   onChange?: (value: string) => void;
   onChangeNumber?: (value: number) => void;
-  onChangeEvent?: (value: ChangeEvent<HTMLInputElement>) => void;
   inputClassName?: string;
   onBlur?: FocusEventHandler<HTMLInputElement>;
   displayType?: 'input' | 'text';
 }
 
-const InformationItem: FC<Props> = props => {
+const InformationItem: FC<Props> = forwardRef((props, ref) => {
   const {
     title,
     value,
@@ -46,7 +45,6 @@ const InformationItem: FC<Props> = props => {
     id,
     type,
     onChange,
-    onChangeEvent,
     onChangeNumber,
     inputClassName,
     onBlur,
@@ -63,6 +61,7 @@ const InformationItem: FC<Props> = props => {
           id={id}
           type={type}
           value={value || ''}
+          ref={ref}
         />
       </div>
       <CustomCalendar onCustomChange={onChange} />
@@ -89,6 +88,7 @@ const InformationItem: FC<Props> = props => {
           size={size}
           onChange={onChange}
           onBlur={onBlur}
+          ref={ref}
         />
       );
       break;
@@ -106,6 +106,7 @@ const InformationItem: FC<Props> = props => {
           displayType={displayType}
           defaultValue={defaultValue}
           allowEmptyFormatting
+          getInputRef={ref}
         />
       );
       break;
@@ -123,6 +124,7 @@ const InformationItem: FC<Props> = props => {
           displayType={displayType}
           defaultValue={defaultValue}
           allowEmptyFormatting
+          getInputRef={ref}
         />
       );
       break;
@@ -134,6 +136,7 @@ const InformationItem: FC<Props> = props => {
           placeholder={placeholder}
           type={type}
           value={value || ''}
+          ref={ref}
         />
       );
   }
@@ -146,6 +149,6 @@ const InformationItem: FC<Props> = props => {
       </div>
     </div>
   );
-};
+});
 
 export default InformationItem;

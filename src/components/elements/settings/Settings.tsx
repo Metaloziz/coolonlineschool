@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react';
 
-import settingsHover from '@svgs/settings-hover.svg';
 import settings from '@svgs/settings.svg';
 import Image from 'next/image';
 
