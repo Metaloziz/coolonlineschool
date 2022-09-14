@@ -48,7 +48,7 @@ const UserCard: FC<Props> = ({ user }) => {
     <>
       <div className={cl.inner}>
         <div className={cl.container}>
-          <div className={cl.img}>
+          <div className={cl.img} onClick={editHandle}>
             <Settings />
           </div>
           <div className={cl.leftBlock}>

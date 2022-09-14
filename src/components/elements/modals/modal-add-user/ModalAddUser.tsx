@@ -14,13 +14,13 @@ import styles from './ModalAddUser.module.scss';
 
 type ModalAddUserParentPropsType = {
   idUser: string;
-  setting: Setting;
+  setting: SettingType;
   closeMode: () => void;
   setOpen: (n: boolean) => void;
   open: boolean;
 };
 
-type Setting = 'add' | 'edit';
+export type SettingType = 'add' | 'edit';
 export const roleOptions = [
   { label: '', value: '0' },
   { label: 'Ученик', value: 'student' },
@@ -122,6 +122,7 @@ const ModalAddUser = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.modal}>
           <FormAddUser
+            setting={setting}
             register={register}
             control={control}
             errors={errors}

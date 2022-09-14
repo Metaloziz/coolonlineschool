@@ -14,7 +14,13 @@ import {
   UseFormRegister,
 } from 'react-hook-form';
 
-import { groupOptions, roleOptions, sexOptions, teacherOptions } from '../ModalAddUser';
+import {
+  groupOptions,
+  roleOptions,
+  SettingType,
+  sexOptions,
+  teacherOptions,
+} from '../ModalAddUser';
 
 import styles from './FormAddUser.module.scss';
 
@@ -23,6 +29,7 @@ type Props = {
   control: Control<AddUserType, object>;
   errors: FieldErrorsImpl<DeepRequired<AddUserType>>;
   register: UseFormRegister<AddUserType>;
+  setting: SettingType;
 };
 
 export type SexType = { label: SexEnum; value: SexEnum };
@@ -41,13 +48,17 @@ export type AddUserType = {
 };
 
 const FormAddUser: FC<Props> = props => {
-  const { control, errors, register } = props;
+  const { control, errors, register, setting } = props;
 
   const regex = /^([0-9]{2})\.([0-9]{2})\.([1-2][0-9]{3})$/;
 
   return (
     <div className={styles.wrapper}>
-      <h2 className={styles.title}>Добавление/изменение пользователя</h2>
+      {setting === 'edit' ? (
+        <h2 className={styles.title}>Изменение пользователя</h2>
+      ) : (
+        <h2 className={styles.title}>Добавление пользователя</h2>
+      )}
       <div className={styles.row}>
         <div className={styles.imageWrapper}>
           <Image src={avatar} width="290" height="290" alt="student" />
