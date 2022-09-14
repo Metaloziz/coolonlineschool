@@ -1,10 +1,10 @@
 import { Paths } from '@app/enums/Paths';
 import { instance } from '@app/services/instance';
-import TokenService from '@app/services/tokenService';
+import tokenService from '@app/services/tokenService';
 import { ResponseSearchUser, ResponseSearchUserWithPagination } from '@app/types/UserTypes';
 import { WithPagination } from '@app/types/WithPagination';
 
-export type ResponceUsersType = {
+export type ResponseUsersType = {
   id: string;
   firstName: string;
   middleName: string;
@@ -19,7 +19,7 @@ export type ResponceUsersType = {
   avatar: null | string;
 };
 
-export type RequestUser = {
+export type PayloadUser = {
   firstName: string;
   middleName: string;
   lastName: string;
@@ -48,14 +48,13 @@ type RequestUserEdit = {
 };
 
 export const userService = {
-  createUser(data: RequestUser) {
-    const res = instance.post<ResponceUsersType>(
-      Paths.Users,
-      data,
-      TokenService.getConfigHeadersWithToken(),
-    );
-    return res;
+  token: tokenService.getLocalAccessToken(),
+
+  async createUser(user: PayloadUser): Promise<ResponseUsersType> {
+    const { data } = await instance.post(Paths.Users, user, this.token);
+    return data;
   },
+
   editUser(
     data: {
       firstName: null | string;
@@ -71,7 +70,7 @@ export const userService = {
     },
     id: string,
   ) {
-    return instance.post(`${Paths.Users}/${id}`, data, TokenService.getConfigHeadersWithToken());
+    return instance.post(`${Paths.Users}/${id}`, data, this.token);
   },
 
   getUsers: async (

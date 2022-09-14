@@ -1,13 +1,15 @@
 import { FC } from 'react';
 
-import { users } from '@app/store/usersStore';
+import userStore from '@app/store/usersStore';
 import CustomPagination from '@components/elements/custom-pagination/CustomPagination';
 import UserCard from '@components/elements/users/user-card/UserCard';
 
 import styles from './UsersList.module.scss';
 
 const UsersList: FC = () => {
-  const { userTotalCount, perPage, page, requestUsers, usersList } = users;
+  const { userTotalCount, perPage, page, requestUsers, usersList } = userStore;
+
+  console.log('usersList', [usersList]);
 
   const paginate = (pageNumber: number) => {
     requestUsers({ page: pageNumber });

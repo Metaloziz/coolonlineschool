@@ -1,13 +1,12 @@
 import { FC, useState } from 'react';
 
+import { Option } from '@app/types/Option';
 import { AddUserType } from '@components/elements/modals/modal-add-user/form-user/FormAddUser';
 import cn from 'classnames';
 import { UseFormRegister } from 'react-hook-form';
 import { FieldError } from 'react-hook-form/dist/types';
 import Select, { ActionMeta, SingleValue } from 'react-select';
 import styles from 'src/components/elements/simple-select/SimpleSelect.module.scss';
-
-export type Option = { label: string; value: string | undefined };
 
 interface Props {
   options: Option[];

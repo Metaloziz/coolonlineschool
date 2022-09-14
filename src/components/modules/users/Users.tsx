@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 
-import { users } from '@app/store/usersStore';
-import SearchUsers from '@components/elements/search-users/SearchUsers';
+import userStore from '@app/store/usersStore';
+import { SearchUsers } from '@components/elements/search-users/SearchUsers';
 import UsersList from '@components/elements/users/users-list/UsersList';
 import styles from '@components/elements/users/users-list/UsersList.module.scss';
 import { observer } from 'mobx-react-lite';
@@ -9,7 +9,7 @@ import { observer } from 'mobx-react-lite';
 import cl from './Users.module.scss';
 
 const Users = () => {
-  const { usersList, requestUsers, isLoading } = users;
+  const { usersList, requestUsers, isLoading } = userStore;
 
   useEffect(() => {
     requestUsers();

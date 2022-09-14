@@ -1,13 +1,8 @@
 import { Roles } from '@app/store';
+import { TimeZoneType } from '@app/types/TimeZoneType';
 import { WithPagination } from '@app/types/WithPagination';
 
 import { Nullable } from './index';
-
-export type TimeZoneType = {
-  date: string;
-  timezone_type: number;
-  timezone: string;
-};
 
 export type UserStatus = 'payed' | 'notPayed';
 
@@ -44,3 +39,48 @@ export type ResponseSearchUserNewUsers = {
 };
 
 export type ResponseSearchUserWithPagination = Partial<WithPagination<ResponseSearchUserNewUsers>>;
+
+// скопировано из TRIZUM project
+
+export type ResponseUserT = {
+  id: string;
+  firstName: string;
+  middleName: string | null;
+  lastName: string;
+  phone: string | null;
+  email: string | null;
+  roleCode: string;
+  // franchise: FranchiseT | null;
+  city: string | null;
+  // groups: ResponseOneUserGroupT[];
+  // status: UserStatusT;
+  // avatar: Nullable<ResponseUserAvatarT>;
+  // canSwitchTo: canSwitchToT[];
+};
+
+export type UserType = {
+  birthdate: TimeZoneType;
+  sex: boolean | null; // male - true
+  createdAt: TimeZoneType;
+  // groups: ResponseOneUserGroupT[];
+  // parents: ParentT[];
+  tariff: null | any;
+  payedUntill: null | any;
+  isSecondChild: null | boolean;
+} & ResponseUserT;
+
+export type RequestRegisterUserType = {
+  phone?: string;
+  email?: string;
+  role: Roles;
+  franchiseId?: string;
+  firstName: string;
+  middleName: string;
+  lastName: string;
+  city: string;
+  birthdate: string;
+  sex: boolean;
+  groupId?: string;
+  tariffId?: string;
+  isSecondChild?: boolean;
+};

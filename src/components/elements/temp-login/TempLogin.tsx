@@ -9,7 +9,8 @@ import style from './TempLogin.module.scss';
 const ROLES = {
   student: '79608008080',
   teacher: '79606006060',
-  admin: '79601001010',
+  // admin: '79601001010',
+  admin: '79099999999', // todo for dev Andrew branch
 };
 
 const TempLogin = (): ReactElement => {

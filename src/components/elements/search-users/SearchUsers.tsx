@@ -1,13 +1,15 @@
 import React, { FC } from 'react';
 
 import { ButtonColorThemes } from '@app/enums';
-import { users } from '@app/store/usersStore';
+import userStore from '@app/store/usersStore';
 import { Button, SwitchButton } from '@components';
 import InformationItem from '@components/elements/information-item/InformationItem';
+import AddEditUserForm from '@components/elements/search-users/addEditUserForm/AddEditUserForm';
 import cn from 'classnames';
 import { observer } from 'mobx-react-lite';
-import { SubmitHandler, useForm, Controller } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 
+import { ModalMUI } from './addEditUserForm/components/modalMUI/ModalMUI';
 import cl from './SearchUsers.module.scss';
 
 const usersRole = [
@@ -20,8 +22,8 @@ const userPaid = [
   { value: 'Не оплачен', label: 'Не оплачен' },
 ];
 
-const SearchUsers: FC = () => {
-  const { requestUsers, isLoading } = users;
+export const SearchUsers: FC = observer(() => {
+  const { requestUsers, isLoading } = userStore;
 
   const { handleSubmit, control } = useForm({
     mode: 'all',
@@ -31,8 +33,15 @@ const SearchUsers: FC = () => {
     requestUsers(data);
   };
 
+  const [isOpenModal, setIsOpenModal] = React.useState(false);
+  const handleOpen = () => setIsOpenModal(true);
+  const handleClose = () => setIsOpenModal(false);
+
   return (
     <div>
+      <ModalMUI open={isOpenModal} onClose={handleClose}>
+        <AddEditUserForm onCloseModal={handleClose} />
+      </ModalMUI>
       <form className={cl.innerContent} onSubmit={handleSubmit(onSubmit)}>
         <div className={cl.firstBlock}>
           <div className={cn(cl.block, cl.birthBlock)}>
@@ -160,7 +169,7 @@ const SearchUsers: FC = () => {
             >
               Найти
             </Button>
-            <Button colorTheme={ButtonColorThemes.blue} className={cl.btnBlue}>
+            <Button colorTheme={ButtonColorThemes.blue} className={cl.btnBlue} onClick={handleOpen}>
               Добавить пользователя
             </Button>
           </div>
@@ -168,6 +177,4 @@ const SearchUsers: FC = () => {
       </form>
     </div>
   );
-};
-
-export default observer(SearchUsers);
+});

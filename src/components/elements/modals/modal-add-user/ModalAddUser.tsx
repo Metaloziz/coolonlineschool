@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { SexEnum } from '@app/enums';
-import { users } from '@app/store/usersStore';
+import userStore from '@app/store/usersStore';
 import { ModalBasic } from '@components';
 import CustomButton from '@components/elements/custom-button/CustomButton';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -14,13 +14,14 @@ import styles from './ModalAddUser.module.scss';
 
 type ModalAddUserParentPropsType = {
   idUser: string;
-  setting: SettingType;
+  setting: Setting;
   closeMode: () => void;
   setOpen: (n: boolean) => void;
   open: boolean;
 };
 
-export type SettingType = 'add' | 'edit';
+type Setting = 'add' | 'edit';
+
 export const roleOptions = [
   { label: '', value: '0' },
   { label: 'Ученик', value: 'student' },
@@ -106,12 +107,12 @@ const ModalAddUser = ({
 
   const onSubmit: SubmitHandler<AddUserType> = data => {
     if (setting === 'add') {
-      users.createUser(data);
+      // userStore.createUser(data);
     }
 
     if (setting === 'edit') {
       console.log(data);
-      users.editUser(data, idUser);
+      userStore.editUser(data, idUser);
     }
     reset();
     setOpen(false);
@@ -122,7 +123,6 @@ const ModalAddUser = ({
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.modal}>
           <FormAddUser
-            setting={setting}
             register={register}
             control={control}
             errors={errors}

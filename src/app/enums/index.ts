@@ -133,3 +133,10 @@ export enum colorThemeStatistic {
   gradientBlueDarker = 'gradientBlueDarker',
   blue = 'blue',
 }
+
+export enum RolesNames {
+  Student = 'Ученик',
+  Teacher = 'Учитель',
+  Admin = 'Центр',
+  Unauthorized = 'Неавторизованный',
+}
