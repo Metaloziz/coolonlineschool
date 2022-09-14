@@ -1,8 +1,16 @@
 import { SexEnum } from '@app/enums';
-import { ResponceUsersType, userService } from '@app/services/userService';
+import { PayloadUser, ResponseUsersType, userService } from '@app/services/userService';
 import { Nullable } from '@app/types';
-import { ResponseSearchUser, ResponseSearchUserWithPagination } from '@app/types/UserTypes';
+import {
+  ResponseSearchUser,
+  ResponseSearchUserWithPagination,
+  ResponseUserT,
+} from '@app/types/UserTypes';
 import { AddUserType } from '@components/elements/modals/modal-add-user/form-user/FormAddUser';
+import {
+  checkErrorMessage,
+  ErrorMessageType,
+} from '@components/elements/search-users/addEditUserForm/utils/checkErrorMessage';
 import { DeleteEmptyValue } from '@utils/deleteEmptyValue';
 import { makeAutoObservable, runInAction } from 'mobx';
 
@@ -17,7 +25,7 @@ class UsersStore {
 
   userTotalCount = 1;
 
-  users = [] as ResponceUsersType[];
+  users = [] as ResponseUsersType[];
 
   usersList: Nullable<ResponseSearchUser[]> = null;
 
@@ -25,36 +33,26 @@ class UsersStore {
     makeAutoObservable(this);
   }
 
-  addUser(data: ResponceUsersType) {
+  addUser(data: ResponseUsersType) {
     this.users.push(data);
   }
 
-  async createUser(data: AddUserType) {
-    const dataRequest = {
-      phone: data.phone,
-      email: data.email,
-      role: data.role.value,
-      firstName: data.firstName,
-      lastName: data.lastName,
-      city: data.city,
-      birthdate: data.birthdate,
-      sex: data.sex.value === SexEnum.Male,
-      middleName: data.middleName,
-      groups: [data.group.label],
-    };
+  async createUser(data: PayloadUser): Promise<ResponseUserT | undefined | ErrorMessageType> {
     try {
-      const res = await userService.createUser(dataRequest);
-      this.addUser(res.data);
+      const res = await userService.createUser(data);
+      const isError = checkErrorMessage(res);
+
+      if (isError) {
+        return isError;
+      }
+
+      await this.requestUsers();
     } catch (e) {
       const { error } = e as { error: string };
-      if (error === 'insufficient rights') {
-        appStore.setErrorMessage('Этот номер телефона уже используется');
-      }
-      console.log(error);
-      // runInAction(() => {
-      //   appStore.setErrorMessage(JSON.stringify(e));
-      // });
+      appStore.setErrorMessage(error);
+      console.warn(error);
     }
+    return undefined;
   }
 
   async editUser(data: AddUserType, id: string) {
@@ -102,4 +100,4 @@ class UsersStore {
   };
 }
 
-export const users = new UsersStore();
+export default new UsersStore();

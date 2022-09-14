@@ -1,8 +1,9 @@
 import React, { FC } from 'react';
 
 import { SexEnum } from '@app/enums';
+import { Option } from '@app/types/Option';
 import RadioInput from '@components/elements/radio-input/RadioInput';
-import SimpleSelect, { Option } from '@components/elements/simple-select/SimpleSelect';
+import SimpleSelect from '@components/elements/simple-select/SimpleSelect';
 import TextCustomField from '@components/elements/text-custom-field/TextCustomField';
 import { yupResolver } from '@hookform/resolvers/yup';
 import avatar from '@svgs/user-add.svg';

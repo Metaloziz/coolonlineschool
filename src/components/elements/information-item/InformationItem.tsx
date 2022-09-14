@@ -1,5 +1,6 @@
 import { FC, forwardRef, ChangeEvent, FocusEventHandler } from 'react';
 
+import { Option } from '@app/types/Option';
 import { CustomSelect, TextField } from '@components';
 import cn from 'classnames';
 import NumberFormat, { NumberFormatValues } from 'react-number-format';
@@ -9,11 +10,6 @@ import styles from 'src/components/elements/information-item/InformationItem.mod
 type VariantType = 'select' | 'input' | 'calendar' | 'phone' | 'pin';
 
 type SizeType = 'large' | 'normal';
-
-interface Option {
-  value: string;
-  label: string;
-}
 
 interface Props {
   title?: string;

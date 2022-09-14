@@ -2,8 +2,8 @@ import { Paths } from '@app/enums/Paths';
 import { Status } from '@app/enums/Status';
 import { HttpClient } from '@app/rest/HttpClient';
 import tokenService from '@app/services/tokenService';
-import { TimeZoneType } from '@app/types/AuthType';
 import { PaginationResponse } from '@app/types/PaginationResponse';
+import { TimeZoneType } from '@app/types/TimeZoneType';
 import { CourseViewModel } from '@app/viewModels/CourseViewModel';
 import { HomeworkViewModel } from '@app/viewModels/HomeworkViewModel';
 
