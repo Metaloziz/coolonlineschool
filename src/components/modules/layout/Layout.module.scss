@@ -1,8 +1,9 @@
 .layout {
   display: grid;
-  grid-template-columns: 185px auto;
+  grid-template-columns: min-content auto;
   grid-template-rows: min-content auto;
   height: 100vh;
+
 
   @media (max-width: 1280px) {
     display: flex;
@@ -30,6 +31,10 @@
   display: flex;
   flex-direction: column;
   background-color: #e8eff6;
+  background-position: center right;
+  background-repeat: no-repeat;
+  height: calc(100vh - 100px);
+  overflow-y: scroll;
 
   & > div {
     flex: 1;

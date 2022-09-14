@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react';
 
-import cl from 'src/components/modules/layout/blank/BlankLayout.module.scss';
+import cl from './BlankLayout.module.scss';
 
 interface Props {
   children: ReactNode;
