@@ -37,7 +37,7 @@ const CustomSelect: FC<ICustomSelect> = ({
         className={cl[size]}
         menuPosition="fixed"
         onBlur={onBlur}
-        instanceId={`${options[0] && options[0].label}`}
+        // instanceId={`${options[0] && options[0].label}`}
       />
     </div>
   );

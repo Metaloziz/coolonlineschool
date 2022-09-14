@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
+import { classStore } from '@app/store/classStore';
 import { ModalBasic } from '@components';
 import FormGroup from '@components/elements/modals/modal-add-group/form-group/FormGroup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -10,11 +11,15 @@ import * as yup from 'yup';
 import styles from './ModalAddGroup.module.scss';
 
 const ModalAddGroup = ({ closeMode, setOpen, open }: PropsType) => {
+  useEffect(() => {
+    classStore.getTeacher();
+  }, []);
+
   const defaultValues = {
     name: '',
     teacher: '',
     telegram: '',
-    watsapp: '',
+    whatsapp: '',
   };
 
   const schema = yup.object().shape({
@@ -31,15 +36,13 @@ const ModalAddGroup = ({ closeMode, setOpen, open }: PropsType) => {
     //   .max(MAX_NAMES_LENGTH, `максимальная длинна ${MAX_NAMES_LENGTH} символов`)
     //   .min(MIN_NAMES_LENGTH, `минимальная длинна ${MIN_NAMES_LENGTH} символа`),
     // role: user ? yup.string().notRequired() : yup.string().required('Обязательное поле'),
-    watsapp: yup.string().required('Обязательное поле'),
+    whatsapp: yup.string().required('Обязательное поле'),
   });
 
   const {
     register,
     handleSubmit,
     control,
-    setError,
-    resetField,
     reset,
     formState: { errors, isSubmitSuccessful },
   } = useForm<typeof defaultValues>({

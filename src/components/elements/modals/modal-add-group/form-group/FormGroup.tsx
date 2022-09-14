@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 
-import { AddUserType } from '@components/elements/modals/modal-add-user/form-user/FormAddUser';
+import { classStore } from '@app/store/classStore';
 import {
   Control,
   Controller,
@@ -9,21 +9,14 @@ import {
   UseFormRegister,
 } from 'react-hook-form';
 import CustomSelect from 'src/components/elements/custom-select/CustomSelect';
-import SelectHomeworksForm from 'src/components/elements/select-homeworks-form/SelectHomeworksForm';
 import TextField from 'src/components/elements/text-fild/TextFild';
 
 import styles from './FormGroup.module.scss';
 
-const arrTeacher = [
-  { label: 'Попков Михаил Леонтьевич', value: '1' },
-  { label: 'Круг  Михаил Владимирович', value: '2' },
-  { label: 'Иванов Иван Иванович', value: '3' },
-];
-
 type FormGroupType = {
   name: string;
   telegram: string;
-  watsapp: string;
+  whatsapp: string;
   teacher: string;
 };
 type Props = {
@@ -32,7 +25,7 @@ type Props = {
   register: UseFormRegister<FormGroupType>;
 };
 
-const FormGroup = ({ control, errors, register }: Props) => (
+const FormGroup = ({ control, errors }: Props) => (
   <div className={styles.wrapper}>
     <div className={styles.box}>
       <div className={styles.title}>Наименование:</div>
@@ -54,7 +47,11 @@ const FormGroup = ({ control, errors, register }: Props) => (
           <Controller
             name="teacher"
             render={({ field }) => (
-              <CustomSelect {...field} placeholder="Выбирите учителя" options={arrTeacher} />
+              <CustomSelect
+                {...field}
+                placeholder="Выбирите учителя"
+                options={classStore.listOfTeacher}
+              />
             )}
             control={control}
           />
@@ -80,12 +77,12 @@ const FormGroup = ({ control, errors, register }: Props) => (
       <div className={styles.boxRight}>
         <div className={styles.input}>
           <Controller
-            name="watsapp"
+            name="whatsapp"
             render={({ field }) => <TextField {...field} />}
             control={control}
           />
         </div>
-        <div className={styles.error}>{errors.watsapp && errors.watsapp?.message}</div>
+        <div className={styles.error}>{errors.whatsapp && errors.whatsapp?.message}</div>
       </div>
     </div>
   </div>
