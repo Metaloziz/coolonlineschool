@@ -2,8 +2,7 @@
 
 .dropDownMenu {
   position: absolute;
-  height: calc(100vh - 81px);
-  top: 81px;
+  top: 100px;
   left: 0;
   z-index: 400;
   transform: translateX(-100%);
@@ -11,8 +10,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 185px;
+  width: 186px;
   background: #ffffff;
+  overflow-y: auto;
+  height: calc(100vh - 100px);
 
   //@media (min-width: 1280px) {
   //  display: none !important;
