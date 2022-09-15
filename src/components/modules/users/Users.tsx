@@ -9,10 +9,10 @@ import { observer } from 'mobx-react-lite';
 import cl from './Users.module.scss';
 
 const Users = () => {
-  const { usersList, requestUsers, isLoading } = userStore;
+  const { usersList, getUsers, isLoading } = userStore;
 
   useEffect(() => {
-    requestUsers();
+    getUsers();
   }, []);
 
   const isUsersNotFound = usersList?.length === 0 && !isLoading;

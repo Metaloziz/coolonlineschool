@@ -23,14 +23,14 @@ const userPaid = [
 ];
 
 export const SearchUsers: FC = observer(() => {
-  const { requestUsers, isLoading } = userStore;
+  const { getUsers, isLoading } = userStore;
 
   const { handleSubmit, control } = useForm({
     mode: 'all',
   });
 
   const onSubmit: SubmitHandler<any> = data => {
-    requestUsers(data);
+    getUsers(data);
   };
 
   const [isOpenModal, setIsOpenModal] = React.useState(false);

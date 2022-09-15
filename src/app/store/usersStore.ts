@@ -1,12 +1,12 @@
-import { SexEnum } from '@app/enums';
-import { PayloadUser, ResponseUsersType, userService } from '@app/services/userService';
+import { userService } from '@app/services/userService';
 import { Nullable } from '@app/types';
+import { PayloadUserType } from '@app/types/PayloadUserType';
 import {
+  CurrentUserType,
   ResponseSearchUser,
   ResponseSearchUserWithPagination,
-  ResponseUserT,
+  ResponseUserType,
 } from '@app/types/UserTypes';
-import { AddUserType } from '@components/elements/modals/modal-add-user/form-user/FormAddUser';
 import {
   checkErrorMessage,
   ErrorMessageType,
@@ -15,6 +15,8 @@ import { DeleteEmptyValue } from '@utils/deleteEmptyValue';
 import { makeAutoObservable, runInAction } from 'mobx';
 
 import { appStore } from './appStore';
+
+export type UpdateUserPayloadType = Omit<Partial<CurrentUserType>, 'id'>;
 
 class UsersStore {
   isLoading = false;
@@ -25,19 +27,19 @@ class UsersStore {
 
   userTotalCount = 1;
 
-  users = [] as ResponseUsersType[];
+  users = [] as ResponseUserType[];
 
   usersList: Nullable<ResponseSearchUser[]> = null;
+
+  currentUser = new CurrentUserType();
 
   constructor() {
     makeAutoObservable(this);
   }
 
-  addUser(data: ResponseUsersType) {
-    this.users.push(data);
-  }
-
-  async createUser(data: PayloadUser): Promise<ResponseUserT | undefined | ErrorMessageType> {
+  createUser = async (
+    data: PayloadUserType,
+  ): Promise<ResponseUserType | undefined | ErrorMessageType> => {
     try {
       const res = await userService.createUser(data);
       const isError = checkErrorMessage(res);
@@ -46,38 +48,47 @@ class UsersStore {
         return isError;
       }
 
-      await this.requestUsers();
+      await this.getUsers();
     } catch (e) {
       const { error } = e as { error: string };
       appStore.setErrorMessage(error);
       console.warn(error);
     }
     return undefined;
-  }
+  };
 
-  async editUser(data: AddUserType, id: string) {
-    const dataRequest = {
-      phone: !data.phone ? null : data.phone,
-      email: !data.email ? null : data.email,
-      role: data.role.label === '0' ? null : data.role.value,
-      firstName: !data.firstName ? null : data.firstName,
-      lastName: !data.lastName ? null : data.lastName,
-      city: !data.lastName ? null : data.city,
-      birthdate: !data.birthdate ? null : data.birthdate,
-      sex: data.sex.label === 'None' ? null : data.sex.value === SexEnum.Male,
-      middleName: !data.middleName ? null : data.middleName,
-      groups: data.group.label === '0' ? null : [data.group.label],
-    };
+  getUser = async (userId: string) => {
     try {
-      const res = await userService.editUser(dataRequest, id);
+      const res = await userService.getOneUser(userId);
+
+      runInAction(() => {
+        this.currentUser = res;
+      });
+    } catch (e) {
+      console.warn(e);
+    }
+  };
+
+  editUser = async (
+    data: UpdateUserPayloadType,
+    id: string,
+  ): Promise<ResponseUserType | undefined | ErrorMessageType> => {
+    try {
+      const res = await userService.editUser(data, id);
+      const isError = checkErrorMessage(res);
+
+      if (isError) {
+        return isError;
+      }
     } catch (e) {
       runInAction(() => {
         appStore.setErrorMessage(JSON.stringify(e));
       });
     }
-  }
+    return undefined;
+  };
 
-  requestUsers = async (data?: ResponseSearchUserWithPagination) => {
+  getUsers = async (data?: ResponseSearchUserWithPagination) => {
     this.isLoading = true;
 
     try {

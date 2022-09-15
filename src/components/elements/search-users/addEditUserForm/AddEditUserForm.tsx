@@ -1,10 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
 
 import { RolesNames } from '@app/enums';
-import { PayloadUser } from '@app/services/userService';
 import { Roles } from '@app/store';
 import { Option } from '@app/types/Option';
-import { UserType } from '@app/types/UserTypes';
+import { PayloadUserType } from '@app/types/PayloadUserType';
+import { CurrentUserType } from '@app/types/UserTypes';
 import { Button } from '@components';
 import { SexEnum } from '@components/elements/registration-data/RegistrationData';
 import CustomSelect from '@components/elements/search-users/addEditUserForm/components/select-mui/CustomSelect';
@@ -29,7 +29,7 @@ import { removeEmptyFields } from './utils/removeEmptyFields';
 
 type Props = {
   onCloseModal: () => void;
-  user?: UserType;
+  user?: CurrentUserType;
 };
 
 export const roleOptions: Option[] = [
@@ -124,7 +124,7 @@ export const AddEditUserForm: FC<Props> = observer(({ user, onCloseModal }) => {
   console.log('errors', [errors]); // for dev
 
   const onSubmit = handleSubmit(async values => {
-    const newUserData: PayloadUser = {
+    const newUserData: PayloadUserType = {
       sex: (values.sex as SexEnum) === SexEnum.Male,
       birthdate: values.birthdate,
       city: values.city,
@@ -359,7 +359,9 @@ export const AddEditUserForm: FC<Props> = observer(({ user, onCloseModal }) => {
 
             <Grid xs={12} sm={12} margin="10px 14px" display="flex">
               <Grid item xs={12} sm={6.2}>
-                <Button type="submit">Сохранить</Button>
+                <Button type="submit" className={styles.btnSubmit}>
+                  Сохранить
+                </Button>
               </Grid>
               {/* <Grid item xs={12} sm={5.8}> */}
               {/*  {user && <SetStatusButton status={user?.status} id={user.id} />} */}
