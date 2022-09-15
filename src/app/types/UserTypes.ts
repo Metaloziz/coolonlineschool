@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 import { Roles } from '@app/store';
 import { TimeZoneType } from '@app/types/TimeZoneType';
 import { WithPagination } from '@app/types/WithPagination';
@@ -42,32 +43,49 @@ export type ResponseSearchUserWithPagination = Partial<WithPagination<ResponseSe
 
 // скопировано из TRIZUM project
 
-export type ResponseUserT = {
-  id: string;
-  firstName: string;
-  middleName: string | null;
-  lastName: string;
-  phone: string | null;
-  email: string | null;
-  roleCode: string;
-  // franchise: FranchiseT | null;
-  city: string | null;
-  // groups: ResponseOneUserGroupT[];
-  // status: UserStatusT;
-  // avatar: Nullable<ResponseUserAvatarT>;
-  // canSwitchTo: canSwitchToT[];
-};
+// типы юзеров в массиве
+export class ResponseUserType {
+  id: string = '';
 
-export type UserType = {
-  birthdate: TimeZoneType;
-  sex: boolean | null; // male - true
-  createdAt: TimeZoneType;
-  // groups: ResponseOneUserGroupT[];
-  // parents: ParentT[];
-  tariff: null | any;
-  payedUntill: null | any;
-  isSecondChild: null | boolean;
-} & ResponseUserT;
+  firstName: Nullable<string> = '';
+
+  middleName: Nullable<string> = '';
+
+  lastName: Nullable<string> = '';
+
+  phone: Nullable<string> = '';
+
+  email: Nullable<string> = '';
+
+  roleCode: Nullable<string> = '';
+
+  city: Nullable<string> = '';
+
+  groups: Nullable<any> = null;
+
+  active: Nullable<any> = null;
+
+  payed: Nullable<any> = null;
+
+  avatar: Nullable<any> = null;
+
+  createdAt: TimeZoneType = new TimeZoneType();
+}
+
+// эти поля добавляются к типу при запросе за конкретным юзером
+export class CurrentUserType extends ResponseUserType {
+  birthdate: TimeZoneType = new TimeZoneType();
+
+  sex: Nullable<boolean> = false; // male - true
+
+  parents: Nullable<any> = null;
+
+  tariff: Nullable<string> = '';
+
+  payedUntill: Nullable<any> = null;
+
+  isSecondChild: Nullable<boolean> = null;
+}
 
 export type RequestRegisterUserType = {
   phone?: string;

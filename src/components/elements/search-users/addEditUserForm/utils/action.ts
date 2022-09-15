@@ -1,12 +1,13 @@
-import { PayloadUser } from '@app/services/userService';
 import { Roles } from '@app/store';
 import usersStore from '@app/store/usersStore';
-import { UserType } from '@app/types/UserTypes';
+import { PayloadUserType } from '@app/types/PayloadUserType';
+import { CurrentUserType } from '@app/types/UserTypes';
+import { removeKeysWithSameValues } from '@components/elements/search-users/addEditUserForm/utils/removeKeysWithSameValues';
 import { setErrorFormMessage } from '@components/elements/search-users/addEditUserForm/utils/setErrorFormMessage';
 
 export const action = async (
-  user: UserType | undefined,
-  newUserData: PayloadUser,
+  user: CurrentUserType | undefined,
+  newUserData: PayloadUserType,
   setError: any,
   role: Roles,
   onCloseModal: () => void,
@@ -18,17 +19,18 @@ export const action = async (
   // tariff: string,
   // groupId: string,
 ) => {
-  const { createUser } = usersStore;
+  const { createUser, editUser, getUsers } = usersStore;
 
   let response;
 
   if (user) {
-    // const memoData = removeKeysWithSameValues(newUserData, user);
-    // response = await editUser(memoData, user.id); // todo edit user
-    // if (typeof response === 'string') {
-    //   setErrorFormMessage(response, setError);
-    //   return;
-    // }
+    const memoData = removeKeysWithSameValues(newUserData, user);
+    response = await editUser(memoData, user.id); // todo edit user
+    if (typeof response === 'string') {
+      setErrorFormMessage(response, setError);
+      return;
+    }
+    getUsers();
   } else {
     response = await createUser(newUserData);
 

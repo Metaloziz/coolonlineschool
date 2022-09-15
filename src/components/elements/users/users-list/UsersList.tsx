@@ -7,18 +7,16 @@ import UserCard from '@components/elements/users/user-card/UserCard';
 import styles from './UsersList.module.scss';
 
 const UsersList: FC = () => {
-  const { userTotalCount, perPage, page, requestUsers, usersList } = userStore;
-
-  console.log('usersList', [usersList]);
+  const { userTotalCount, perPage, page, getUsers, usersList } = userStore;
 
   const paginate = (pageNumber: number) => {
-    requestUsers({ page: pageNumber });
+    getUsers({ page: pageNumber });
   };
   const nextPage = () => {
-    requestUsers({ page: page + 1 });
+    getUsers({ page: page + 1 });
   };
   const prevPage = () => {
-    requestUsers({ page: page - 1 });
+    getUsers({ page: page - 1 });
   };
 
   return (

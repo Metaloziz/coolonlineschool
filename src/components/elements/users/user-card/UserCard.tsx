@@ -1,14 +1,15 @@
 import React, { FC, useState } from 'react';
 
 import { ButtonColorThemes } from '@app/enums';
+import usersStore from '@app/store/usersStore';
 import { ResponseSearchUser } from '@app/types/UserTypes';
-import ModalAddUser from '@components/elements/modals/modal-add-user/ModalAddUser';
+import AddEditUserForm from '@components/elements/search-users/addEditUserForm/AddEditUserForm';
+import { ModalMUI } from '@components/elements/search-users/addEditUserForm/components/modalMUI/ModalMUI';
 import Settings from '@components/elements/settings/Settings';
 import avatar from '@mock/public/avatar.png';
 import buttonClose from '@svgs/button-close.svg';
 import parents from '@svgs/button/parents.svg';
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 
 import Button from '../../button/Button';
 
@@ -21,7 +22,7 @@ interface Props {
 const UserCard: FC<Props> = ({ user }) => {
   const { firstName, middleName, lastName, id, roleCode, city, phone, groups, payed } = user;
 
-  const [isEditModal, setIsEditModal] = useState(false);
+  const { getUser, currentUser } = usersStore;
 
   const [showModal, setShowModal] = useState<boolean>(false);
 
@@ -37,18 +38,19 @@ const UserCard: FC<Props> = ({ user }) => {
   const closeModal = () => {
     setShowModal(false);
   };
-  const editHandle = () => {
-    setIsEditModal(true);
+
+  const [isOpenModal, setIsOpenModal] = React.useState(false);
+  const handleOpen = () => {
+    getUser(id);
+    setIsOpenModal(true);
   };
-  const closeEditModal = () => {
-    setIsEditModal(false);
-  };
+  const handleClose = () => setIsOpenModal(false);
 
   return (
     <>
       <div className={cl.inner}>
         <div className={cl.container}>
-          <div className={cl.img} onClick={editHandle}>
+          <div className={cl.img} onClick={handleOpen}>
             <Settings />
           </div>
           <div className={cl.leftBlock}>
@@ -100,13 +102,9 @@ const UserCard: FC<Props> = ({ user }) => {
           )}
         </div>
       </div>
-      <ModalAddUser
-        idUser={id}
-        setting="edit"
-        open={isEditModal}
-        setOpen={setIsEditModal}
-        closeMode={closeEditModal}
-      />
+      <ModalMUI open={isOpenModal} onClose={handleClose}>
+        <AddEditUserForm onCloseModal={handleClose} user={currentUser} />
+      </ModalMUI>
     </>
   );
 };
