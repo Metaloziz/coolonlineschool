@@ -3,9 +3,9 @@ import React, { FC, useEffect, useState } from 'react';
 import { RolesNames } from '@app/enums';
 import { PayloadUser } from '@app/services/userService';
 import { Roles } from '@app/store';
+import { Option } from '@app/types/Option';
 import { UserType } from '@app/types/UserTypes';
 import { Button } from '@components';
-import { Option } from '@components/elements/information-item/InformationItem';
 import { SexEnum } from '@components/elements/registration-data/RegistrationData';
 import CustomSelect from '@components/elements/search-users/addEditUserForm/components/select-mui/CustomSelect';
 import TextFieldPhoneCustom from '@components/elements/search-users/addEditUserForm/components/text-field-phone-mui/TextFieldPhoneCustom';
@@ -14,7 +14,11 @@ import { isStudentRole } from '@components/elements/search-users/addEditUserForm
 import { sexOptions } from '@components/elements/search-users/addEditUserForm/utils/sexOptions';
 import { MAX_NAMES_LENGTH, MIN_NAMES_LENGTH, REG_EMAIL } from '@constants/Common';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Box, Grid } from '@mui/material';
+import { Box, FormControl, Grid, TextField } from '@mui/material';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import rus from 'dayjs/locale/ru';
 import { observer } from 'mobx-react-lite';
 import { Controller, useForm } from 'react-hook-form';
 import styles from 'src/components/elements/search-users/addEditUserForm/AddEditUserForm.module.scss';
@@ -34,8 +38,8 @@ export const roleOptions: Option[] = [
 ];
 
 export const AddEditUserForm: FC<Props> = observer(({ user, onCloseModal }) => {
-  const groupOptions: Option[] = [new Option()];
-  const tariffsOptions: Option[] = [new Option()];
+  // const groupOptions: Option[] = [new Option()];
+  // const tariffsOptions: Option[] = [new Option()];
   const [selectedRole, setSelectedRole] = useState<Roles>();
 
   useEffect(() => {
@@ -79,10 +83,7 @@ export const AddEditUserForm: FC<Props> = observer(({ user, onCloseModal }) => {
       .min(MIN_NAMES_LENGTH, `Минимальная длинна ${MIN_NAMES_LENGTH} символа`),
     role: user ? yup.string().notRequired() : yup.string().required('Обязательное поле'),
     sex: yup.string().required('Обязательное поле'),
-    // birthdate: yup
-    //   .date()
-    //   .required('Обязательное поле')
-    //   .min('01-01-1920', 'Возраст выбран не верно'),
+    birthdate: yup.string().required('Обязательное поле'),
     city: yup
       .string()
       .required('Обязательное поле')
@@ -113,9 +114,8 @@ export const AddEditUserForm: FC<Props> = observer(({ user, onCloseModal }) => {
     handleSubmit,
     control,
     setError,
-    resetField,
     reset,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm<typeof defaultValues>({
     resolver: yupResolver(schema),
     defaultValues,
@@ -134,12 +134,9 @@ export const AddEditUserForm: FC<Props> = observer(({ user, onCloseModal }) => {
       lastName: values.lastName,
       middleName: values.middleName,
       phone: values.phone.replace(/[()\s+-]/g, ''),
-      groups: [],
-
+      groups: [], // todo переделать на создание груповой связи
       // tariffId: values.tariff,
     };
-
-    // createUser(newUserData);
 
     action(
       user,
@@ -221,6 +218,32 @@ export const AddEditUserForm: FC<Props> = observer(({ user, onCloseModal }) => {
                 )}
                 control={control}
               />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={rus}>
+                <Controller
+                  name="birthdate" // todo не сохраняется, нужен формат для отправления
+                  render={({ field }) => (
+                    <FormControl fullWidth>
+                      <DatePicker
+                        onChange={newValue => field.onChange(newValue)}
+                        inputFormat="DD-MM-YYYY"
+                        value={field.value}
+                        renderInput={e => (
+                          <TextField
+                            {...e}
+                            sx={{ width: '100%' }}
+                            label="Дата рождения"
+                            error={!!errors.birthdate?.message}
+                            helperText={errors.birthdate?.message}
+                          />
+                        )}
+                      />
+                    </FormControl>
+                  )}
+                  control={control}
+                />
+              </LocalizationProvider>
             </Grid>
             {!user && (
               <>
@@ -317,31 +340,7 @@ export const AddEditUserForm: FC<Props> = observer(({ user, onCloseModal }) => {
                 </Grid>
               </>
             )}
-            <Grid item xs={12} sm={6}>
-              {/* <Controller */}
-              {/*  name="birthdate" */}
-              {/*  render={({ field }) => ( */}
-              {/*    <FormControl fullWidth> */}
-              {/*      <DatePicker */}
-              {/*        onChange={(date: Date | null) => { */}
-              {/*          field.onChange(date); */}
-              {/*        }} */}
-              {/*        value={field.value} */}
-              {/*        renderInput={e => ( */}
-              {/*          <TextField */}
-              {/*            {...e} */}
-              {/*            sx={{ width: '100%' }} */}
-              {/*            label="Дата рождения" */}
-              {/*            error={!!errors.birthdate?.message} */}
-              {/*            helperText={errors.birthdate?.message} */}
-              {/*          /> */}
-              {/*        )} */}
-              {/*      /> */}
-              {/*    </FormControl> */}
-              {/*  )} */}
-              {/*  control={control} */}
-              {/* /> */}
-            </Grid>
+
             <Grid item xs={13} sm={6}>
               <Controller
                 name="sex"
