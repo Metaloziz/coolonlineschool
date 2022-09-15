@@ -23,14 +23,13 @@ const userPaid = [
 ];
 
 export const SearchUsers: FC = observer(() => {
-  const { getUsers, isLoading } = userStore;
+  const { getUsers, isLoading, setSearchUsersParams } = userStore;
 
-  const { handleSubmit, control } = useForm({
-    mode: 'all',
-  });
+  const { handleSubmit, control } = useForm();
 
   const onSubmit: SubmitHandler<any> = data => {
-    getUsers(data);
+    setSearchUsersParams(data); // todo закончил  здесь 15.09.22. черновик
+    getUsers();
   };
 
   const [isOpenModal, setIsOpenModal] = React.useState(false);
