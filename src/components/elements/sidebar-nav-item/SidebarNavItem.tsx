@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
 import { SidebarNavSvg } from '@components/elements/svg';
 import { files } from '@components/elements/svg/SidebarNavSvg';
@@ -13,6 +13,7 @@ interface Props {
   activeClassName?: string;
   imageClassName?: string;
   svgId: keyof typeof files;
+  onClose: () => void;
 }
 
 const SidebarNavItem: FC<Props> = ({
@@ -22,15 +23,17 @@ const SidebarNavItem: FC<Props> = ({
   imageClassName,
   activeClassName,
   svgId,
+  onClose,
 }) => {
   const router = useRouter();
   const { label, href } = link;
   const isActive = router.asPath === href;
   const linkClassNames = classNames(className, isActive && activeClassName);
+
   return (
     <div className={wrapperClassName}>
       <Link passHref href={href}>
-        <button type="button" className={linkClassNames}>
+        <button type="button" className={linkClassNames} onClick={onClose}>
           <div className={imageClassName}>
             <SidebarNavSvg icon={svgId} />
           </div>

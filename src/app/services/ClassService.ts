@@ -1,5 +1,5 @@
-import {Paths} from '@app/enums/Paths';
-import {instance} from '@app/services/instance';
+import { Paths } from '@app/enums/Paths';
+import { instance } from '@app/services/instance';
 
 type listOfTeacherType = {
   id: string;

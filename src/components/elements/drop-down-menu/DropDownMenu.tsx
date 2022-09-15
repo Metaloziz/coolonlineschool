@@ -18,26 +18,30 @@ const DropDownMenu: FC<Props> = ({ active, onClose }) => {
   const links = useMenu();
 
   return (
-    <aside className={cn(styles.dropDownMenu, active && styles.showDropDown)} ref={ref}>
-      {isComponentVisible && (
-        <nav>
-          {links.map(link => (
-            <SidebarNavItem
-              svgId={link.svgId}
-              key={link.svgId}
-              link={link}
-              wrapperClassName={cl.linkWrapper}
-              imageClassName={cl.linkImage}
-              className={cl.link}
-            />
-          ))}
-        </nav>
-      )}
+    <>
+      {active && <div className={styles.overlay} onClick={onClose} />}
+      <aside className={cn(styles.dropDownMenu, active && styles.showDropDown)} ref={ref}>
+        {isComponentVisible && (
+          <nav>
+            {links.map(link => (
+              <SidebarNavItem
+                onClose={onClose}
+                svgId={link.svgId}
+                key={link.svgId}
+                link={link}
+                wrapperClassName={cl.linkWrapper}
+                imageClassName={cl.linkImage}
+                className={cl.link}
+              />
+            ))}
+          </nav>
+        )}
 
-      <a href="https://sitetopic.ru" target="_blank" className={cl.anchor} rel="noreferrer">
-        Разработка сайта - компания <span>“Sitetopic”</span>
-      </a>
-    </aside>
+        <a href="https://sitetopic.ru" target="_blank" className={cl.anchor} rel="noreferrer">
+          Разработка сайта - компания <span>“Sitetopic”</span>
+        </a>
+      </aside>
+    </>
   );
 };
 
