@@ -4,3 +4,4 @@ export const link: string;
 export const linkImage: string;
 export const linkWrapper: string;
 export const showDropDown: string;
+export const overlay: string;

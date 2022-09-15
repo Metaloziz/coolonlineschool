@@ -11,10 +11,10 @@ type Props = {
 };
 
 const Header: FC<Props> = ({ className, isActiveMenuBurger }) => {
-  const [active, setActive] = useState<boolean>(false);
+  const [isActive, setIsActive] = useState<boolean>(false);
 
   const handleClose = () => {
-    setActive(false);
+    setIsActive(false);
   };
 
   return (
@@ -22,10 +22,10 @@ const Header: FC<Props> = ({ className, isActiveMenuBurger }) => {
       <div className={cl.accountBlock}>
         {!isActiveMenuBurger ? null : (
           <>
-            <div className={cl.burgerBlock} onClick={() => setActive(!active)}>
+            <div className={cl.burgerBlock} onClick={() => setIsActive(!isActive)}>
               <Burger />
             </div>
-            <DropDownMenu active={active} onClose={handleClose} />
+            <DropDownMenu active={isActive} onClose={handleClose} />
           </>
         )}
         <Logo />
