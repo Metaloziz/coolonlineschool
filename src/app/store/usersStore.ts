@@ -1,12 +1,7 @@
 import { userService } from '@app/services/userService';
-import { Nullable } from '@app/types';
 import { PayloadUserType } from '@app/types/PayloadUserType';
-import {
-  CurrentUserType,
-  ResponseSearchUser,
-  ResponseSearchUserWithPagination,
-  ResponseUserType,
-} from '@app/types/UserTypes';
+import { RequestUsersForFilter } from '@app/types/RequestUsersForFilter';
+import { CurrentUserType, ResponseUserType } from '@app/types/UserTypes';
 import {
   checkErrorMessage,
   ErrorMessageType,
@@ -27,11 +22,26 @@ class UsersStore {
 
   userTotalCount = 1;
 
-  users = [] as ResponseUserType[];
-
-  usersList: Nullable<ResponseSearchUser[]> = null;
+  users = [new ResponseUserType()];
 
   currentUser = new CurrentUserType();
+
+  private searchDefaultUsersParams: RequestUsersForFilter = {
+    perPage: null,
+    page: null,
+    city: '',
+    franchiseId: '',
+    lastName: '',
+    middleName: '',
+    firstName: '',
+    is_payed: null,
+    role: '',
+    birthdate_since: '',
+    birthdate_until: '',
+    phone: null,
+    email: '',
+    tariff_id: '',
+  };
 
   constructor() {
     makeAutoObservable(this);
@@ -88,15 +98,15 @@ class UsersStore {
     return undefined;
   };
 
-  getUsers = async (data?: ResponseSearchUserWithPagination) => {
+  getUsers = async () => {
     this.isLoading = true;
 
     try {
-      const filteredUserData = DeleteEmptyValue(data);
+      const filteredUserData = DeleteEmptyValue(this.searchDefaultUsersParams);
       const res = await userService.getUsers(filteredUserData);
 
       runInAction(() => {
-        this.usersList = res.items;
+        this.users = res.items;
         this.userTotalCount = res.total;
         this.perPage = res.perPage;
         this.page = Number(res.page);
@@ -108,6 +118,10 @@ class UsersStore {
         this.isLoading = false;
       });
     }
+  };
+
+  setSearchUsersParams = (params: RequestUsersForFilter) => {
+    this.searchDefaultUsersParams = { ...this.searchDefaultUsersParams, ...params };
   };
 }
 

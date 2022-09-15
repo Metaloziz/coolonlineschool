@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react';
 
 import { ButtonColorThemes } from '@app/enums';
 import usersStore from '@app/store/usersStore';
-import { ResponseSearchUser } from '@app/types/UserTypes';
+import { ResponseUserType } from '@app/types/UserTypes';
 import AddEditUserForm from '@components/elements/search-users/addEditUserForm/AddEditUserForm';
 import { ModalMUI } from '@components/elements/search-users/addEditUserForm/components/modalMUI/ModalMUI';
 import Settings from '@components/elements/settings/Settings';
@@ -16,7 +16,7 @@ import Button from '../../button/Button';
 import cl from './UserCard.module.scss';
 
 interface Props {
-  user: ResponseSearchUser;
+  user: ResponseUserType;
 }
 
 const UserCard: FC<Props> = ({ user }) => {

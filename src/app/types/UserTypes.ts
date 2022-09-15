@@ -12,22 +12,6 @@ export type ResponseAvatar = {
   path: string;
 };
 
-export type ResponseSearchUser = {
-  id: string;
-  firstName: string;
-  middleName: string;
-  lastName: string;
-  phone: string;
-  email: string;
-  roleCode: string;
-  city: Nullable<string>;
-  groups: [];
-  active: boolean;
-  payed: UserStatus;
-  avatar: Nullable<ResponseAvatar>;
-  createAt: TimeZoneType;
-};
-
 export type ResponseSearchUserNewUsers = {
   birthdate_since: string;
   birthdate_until: string;

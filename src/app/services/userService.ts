@@ -5,7 +5,6 @@ import { UpdateUserPayloadType } from '@app/store/usersStore';
 import { PayloadUserType } from '@app/types/PayloadUserType';
 import {
   CurrentUserType,
-  ResponseSearchUser,
   ResponseSearchUserWithPagination,
   ResponseUserType,
 } from '@app/types/UserTypes';
@@ -24,7 +23,7 @@ export const userService = {
 
   getUsers: async (
     data?: ResponseSearchUserWithPagination,
-  ): Promise<WithPagination<ResponseSearchUser[]>> => {
+  ): Promise<WithPagination<ResponseUserType[]>> => {
     const res = await instance.get(Paths.Users, {
       params: data || {},
     });
