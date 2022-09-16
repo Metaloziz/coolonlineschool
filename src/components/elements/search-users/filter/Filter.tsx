@@ -7,7 +7,7 @@ import franchiseeStore from '@app/store/franchiseeStore';
 import groupStore from '@app/store/groupStore';
 import tariffsStore from '@app/store/tariffsStore';
 import usersStore from '@app/store/usersStore';
-import { RequestUsersForFilter } from '@app/types/RequestUsersForFilter';
+import { SearchUsersParamsType } from '@app/types/SearchUsersParamsType';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {
   Accordion,
@@ -42,11 +42,11 @@ const NOT_PAID = 'Не оплачен';
 const ACTIVE_USER = { value: true, label: 'Активный' };
 const NOT_ACTIVE_USER = { value: false, label: 'Не активный' };
 
-interface UserPageFilterProps {
+type Props = {
   setIsModalOpen: (value: boolean) => void;
-}
+};
 
-export const Filter: FC<UserPageFilterProps> = observer(props => {
+export const Filter: FC<Props> = observer(props => {
   const { role } = appStore;
   const { tariffs } = tariffsStore;
   const { franchise } = franchiseeStore;
@@ -100,18 +100,18 @@ export const Filter: FC<UserPageFilterProps> = observer(props => {
       birthdateUntil = bornDateUntil.format('DD.MM.YYYY');
     }
 
-    const params: RequestUsersForFilter = {
+    const params: SearchUsersParamsType = {
       birthdate_since: birthdateSince,
       birthdate_until: birthdateUntil,
       role: selectedRole !== 'all' ? selectedRole : undefined,
       is_payed: isPaid ? isPaid === PAID : undefined,
-      firstName,
-      middleName,
-      lastName,
+      first_name: firstName,
+      middle_name: middleName,
+      last_name: lastName,
       city,
-      franchiseId,
+      franchise_id: franchiseId,
       page,
-      perPage,
+      per_page: perPage,
       phone,
       email,
       tariff_id: tariffId,

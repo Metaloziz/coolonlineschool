@@ -135,8 +135,8 @@ export enum colorThemeStatistic {
 }
 
 export enum RolesNames {
-  Student = 'Ученик',
-  Teacher = 'Учитель',
-  Admin = 'Центр',
-  Unauthorized = 'Неавторизованный',
+  student = 'Ученик',
+  teacher = 'Учитель',
+  admin = 'Центр',
+  unauthorized = 'Неавторизованный',
 }

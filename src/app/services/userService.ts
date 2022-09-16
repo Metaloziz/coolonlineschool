@@ -1,33 +1,23 @@
 import { Paths } from '@app/enums/Paths';
 import { instance } from '@app/services/instance';
-import tokenService from '@app/services/tokenService';
-import { UpdateUserPayloadType } from '@app/store/usersStore';
 import { PayloadUserType } from '@app/types/PayloadUserType';
-import {
-  CurrentUserType,
-  ResponseSearchUserWithPagination,
-  ResponseUserType,
-} from '@app/types/UserTypes';
+import { SearchUsersParamsType } from '@app/types/SearchUsersParamsType';
+import { UpdateUserPayloadType } from '@app/types/UpdateUserPayloadType';
+import { CurrentUserType, ResponseUserType } from '@app/types/UserTypes';
 import { WithPagination } from '@app/types/WithPagination';
-
-const token = tokenService.getLocalAccessToken();
 
 export const userService = {
   createUser: async (user: PayloadUserType): Promise<ResponseUserType> => {
-    const { data } = await instance.post(Paths.Users, user, token);
+    const { data } = await instance.post(Paths.Users, user);
     return data;
   },
 
   editUser: async (data: UpdateUserPayloadType, id: string) =>
-    instance.post(`${Paths.Users}/${id}`, data, token),
+    instance.post(`${Paths.Users}/${id}`, data),
 
-  getUsers: async (
-    data?: ResponseSearchUserWithPagination,
-  ): Promise<WithPagination<ResponseUserType[]>> => {
-    const res = await instance.get(Paths.Users, {
-      params: data || {},
-    });
-    return res.data;
+  getUsers: async (params?: SearchUsersParamsType): Promise<WithPagination<ResponseUserType[]>> => {
+    const { data } = await instance.get(Paths.Users, { params });
+    return data;
   },
 
   getOneUser: async (id: string): Promise<CurrentUserType> => {

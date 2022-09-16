@@ -1,17 +1,16 @@
 import { userService } from '@app/services/userService';
 import { PayloadUserType } from '@app/types/PayloadUserType';
-import { RequestUsersForFilter } from '@app/types/RequestUsersForFilter';
+import { SearchUsersParamsType } from '@app/types/SearchUsersParamsType';
+import { UpdateUserPayloadType } from '@app/types/UpdateUserPayloadType';
 import { CurrentUserType, ResponseUserType } from '@app/types/UserTypes';
 import {
   checkErrorMessage,
   ErrorMessageType,
 } from '@components/elements/search-users/addEditUserForm/utils/checkErrorMessage';
-import { DeleteEmptyValue } from '@utils/deleteEmptyValue';
+import { removeEmptyFields } from '@utils/removeEmptyFields';
 import { makeAutoObservable, runInAction } from 'mobx';
 
 import { appStore } from './appStore';
-
-export type UpdateUserPayloadType = Omit<Partial<CurrentUserType>, 'id'>;
 
 class UsersStore {
   // todo код скопирован и не адаптирован под этот проект, но очень похож
@@ -27,28 +26,60 @@ class UsersStore {
 
   currentUser = new CurrentUserType();
 
-  private searchDefaultUsersParams: RequestUsersForFilter = {
-    perPage: null,
-    page: null,
-    city: '',
-    franchiseId: '',
-    lastName: '',
-    middleName: '',
-    firstName: '',
-    is_payed: null,
-    role: '',
-    birthdate_since: '',
-    birthdate_until: '',
-    phone: null,
-    email: '',
-    tariff_id: '',
+  private searchUsersParams: SearchUsersParamsType = {
+    per_page: 5,
+    page: 0,
   };
-
-  searchUsersParams: RequestUsersForFilter = { ...this.searchDefaultUsersParams };
 
   constructor() {
     makeAutoObservable(this);
   }
+
+  setSearchUsersParams = (params: SearchUsersParamsType) => {
+    this.searchUsersParams = {
+      ...this.searchUsersParams,
+      ...params,
+    };
+  };
+
+  cleanSearchUsersParams = () => {
+    this.searchUsersParams = {};
+    this.getUsers();
+  };
+
+  getUser = async (userId: string) => {
+    try {
+      const res = await userService.getOneUser(userId);
+
+      runInAction(() => {
+        this.currentUser = res;
+      });
+    } catch (e) {
+      console.warn(e);
+    }
+  };
+
+  getUsers = async () => {
+    this.isLoading = true;
+
+    try {
+      const filteredUserData = removeEmptyFields(this.searchUsersParams);
+      const res = await userService.getUsers(filteredUserData);
+
+      runInAction(() => {
+        this.users = res.items;
+        this.userTotalCount = res.total;
+        this.perPage = res.perPage;
+        this.page = Number(res.page);
+      });
+    } catch (error) {
+      console.warn(error);
+    } finally {
+      runInAction(() => {
+        this.isLoading = false;
+      });
+    }
+  };
 
   createUser = async (
     data: PayloadUserType,
@@ -70,40 +101,6 @@ class UsersStore {
     return undefined;
   };
 
-  getUser = async (userId: string) => {
-    try {
-      const res = await userService.getOneUser(userId);
-
-      runInAction(() => {
-        this.currentUser = res;
-      });
-    } catch (e) {
-      console.warn(e);
-    }
-  };
-
-  getUsers = async () => {
-    this.isLoading = true;
-
-    try {
-      const filteredUserData = DeleteEmptyValue(this.searchUsersParams);
-      const res = await userService.getUsers(filteredUserData);
-
-      runInAction(() => {
-        this.users = res.items;
-        this.userTotalCount = res.total;
-        this.perPage = res.perPage;
-        this.page = Number(res.page);
-      });
-    } catch (error) {
-      console.log(error);
-    } finally {
-      runInAction(() => {
-        this.isLoading = false;
-      });
-    }
-  };
-
   editUser = async (
     data: UpdateUserPayloadType,
     id: string,
@@ -121,15 +118,6 @@ class UsersStore {
       });
     }
     return undefined;
-  };
-
-  setSearchUsersParams = (params: RequestUsersForFilter) => {
-    this.searchDefaultUsersParams = { ...this.searchDefaultUsersParams, ...params };
-  };
-
-  cleanSearchUsersParams = () => {
-    this.searchUsersParams = this.searchDefaultUsersParams;
-    this.getUsers();
   };
 }
 

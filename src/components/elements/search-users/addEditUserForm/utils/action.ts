@@ -2,8 +2,8 @@ import { Roles } from '@app/store';
 import usersStore from '@app/store/usersStore';
 import { PayloadUserType } from '@app/types/PayloadUserType';
 import { CurrentUserType } from '@app/types/UserTypes';
-import { removeKeysWithSameValues } from '@components/elements/search-users/addEditUserForm/utils/removeKeysWithSameValues';
 import { setErrorFormMessage } from '@components/elements/search-users/addEditUserForm/utils/setErrorFormMessage';
+import { removeKeysWithSameValues } from '@utils/removeKeysWithSameValues';
 
 export const action = async (
   user: CurrentUserType | undefined,

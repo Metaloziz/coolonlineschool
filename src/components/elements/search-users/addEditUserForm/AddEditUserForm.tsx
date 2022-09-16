@@ -18,6 +18,7 @@ import { Box, FormControl, Grid, TextField } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { removeEmptyFields } from '@utils/removeEmptyFields';
 import rus from 'dayjs/locale/ru';
 import { observer } from 'mobx-react-lite';
 import { Controller, useForm } from 'react-hook-form';
@@ -25,7 +26,6 @@ import styles from 'src/components/elements/search-users/addEditUserForm/AddEdit
 import * as yup from 'yup';
 
 import TextFieldCustom from './components/text-field-mui/TextFieldCustom';
-import { removeEmptyFields } from './utils/removeEmptyFields';
 
 type Props = {
   onCloseModal: () => void;
@@ -33,8 +33,8 @@ type Props = {
 };
 
 export const roleOptions: Option[] = [
-  { label: RolesNames.Student, value: Roles.Student },
-  { label: RolesNames.Teacher, value: Roles.Teacher },
+  { label: RolesNames.student, value: Roles.Student },
+  { label: RolesNames.teacher, value: Roles.Teacher },
 ];
 
 export const AddEditUserForm: FC<Props> = observer(({ user, onCloseModal }) => {

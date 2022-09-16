@@ -6,7 +6,8 @@ export const removeEmptyFields = (obj: any) => {
     if (obj[key]) {
       result[key] = obj[key];
     }
-    if (key === 'sex') {
+
+    if (typeof obj[key] === 'boolean') {
       result[key] = obj[key];
     }
   });
