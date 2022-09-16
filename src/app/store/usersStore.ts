@@ -14,6 +14,7 @@ import { appStore } from './appStore';
 export type UpdateUserPayloadType = Omit<Partial<CurrentUserType>, 'id'>;
 
 class UsersStore {
+  // todo код скопирован и не адаптирован под этот проект, но очень похож
   isLoading = false;
 
   page = 0;
@@ -42,6 +43,8 @@ class UsersStore {
     email: '',
     tariff_id: '',
   };
+
+  searchUsersParams: RequestUsersForFilter = { ...this.searchDefaultUsersParams };
 
   constructor() {
     makeAutoObservable(this);
@@ -79,6 +82,28 @@ class UsersStore {
     }
   };
 
+  getUsers = async () => {
+    this.isLoading = true;
+
+    try {
+      const filteredUserData = DeleteEmptyValue(this.searchUsersParams);
+      const res = await userService.getUsers(filteredUserData);
+
+      runInAction(() => {
+        this.users = res.items;
+        this.userTotalCount = res.total;
+        this.perPage = res.perPage;
+        this.page = Number(res.page);
+      });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      runInAction(() => {
+        this.isLoading = false;
+      });
+    }
+  };
+
   editUser = async (
     data: UpdateUserPayloadType,
     id: string,
@@ -98,30 +123,13 @@ class UsersStore {
     return undefined;
   };
 
-  getUsers = async () => {
-    this.isLoading = true;
-
-    try {
-      const filteredUserData = DeleteEmptyValue(this.searchDefaultUsersParams);
-      const res = await userService.getUsers(filteredUserData);
-
-      runInAction(() => {
-        this.users = res.items;
-        this.userTotalCount = res.total;
-        this.perPage = res.perPage;
-        this.page = Number(res.page);
-      });
-    } catch (error) {
-      console.log(error);
-    } finally {
-      runInAction(() => {
-        this.isLoading = false;
-      });
-    }
-  };
-
   setSearchUsersParams = (params: RequestUsersForFilter) => {
     this.searchDefaultUsersParams = { ...this.searchDefaultUsersParams, ...params };
+  };
+
+  cleanSearchUsersParams = () => {
+    this.searchUsersParams = this.searchDefaultUsersParams;
+    this.getUsers();
   };
 }
 

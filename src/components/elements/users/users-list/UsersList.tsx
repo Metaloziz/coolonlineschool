@@ -7,21 +7,24 @@ import UserCard from '@components/elements/users/user-card/UserCard';
 import styles from './UsersList.module.scss';
 
 const UsersList: FC = () => {
-  const { userTotalCount, perPage, page, getUsers, usersList } = userStore;
+  const { userTotalCount, perPage, page, getUsers, users, setSearchUsersParams } = userStore;
 
   const paginate = (pageNumber: number) => {
-    getUsers({ page: pageNumber });
+    setSearchUsersParams({ page: pageNumber });
+    getUsers();
   };
   const nextPage = () => {
-    getUsers({ page: page + 1 });
+    setSearchUsersParams({ page: page + 1 });
+    getUsers();
   };
   const prevPage = () => {
-    getUsers({ page: page - 1 });
+    setSearchUsersParams({ page: page - 1 });
+    getUsers();
   };
 
   return (
     <div>
-      {usersList && usersList.map(user => <UserCard key={user.id} user={user} />)}
+      {users && users.map(user => <UserCard key={user.id} user={user} />)}
 
       <div className={styles.paginationList}>
         <CustomPagination
